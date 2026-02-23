@@ -23,7 +23,7 @@ const config = {
       files: [
         {
           destination: 'utilities.css',
-          format: 'css/ink-utilities',
+          format: 'css/mi-utilities',
           filter: (token) =>
             ['color', 'space', 'radius', 'shadow'].includes(token.path?.[0]) &&
             token.path.length === 2,

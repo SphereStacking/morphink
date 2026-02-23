@@ -6,12 +6,12 @@ body {
   margin: 0;
 }
 
-.ink-surface {
+.mi-surface {
   color: var(--color-foreground);
   background: var(--color-card);
 }
 
-.ink-muted {
+.mi-muted {
   color: var(--color-muted-foreground);
 }
 
