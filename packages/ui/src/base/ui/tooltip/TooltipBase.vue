@@ -1,9 +1,5 @@
 <template>
-  <TooltipRoot
-    :open="open"
-    :delay-duration="delay"
-    @update:open="handleOpenChange"
-  >
+  <TooltipRoot :open="open" :delay-duration="delay" @update:open="handleOpenChange">
     <TooltipTrigger as-child>
       <slot />
     </TooltipTrigger>
@@ -47,21 +43,21 @@ const handleOpenChange = (value: boolean) => {
 }
 
 const contentVariants = cva(
-  'border-[var(--border-width-default)] border-[var(--color-border)] bg-[var(--color-popover)] px-2 py-1 text-[12px] text-[var(--color-popover-foreground)]',
+  'border-(--border-width-default) border-(--color-border) bg-(--color-popover) px-2 py-1 text-[12px] text-(--color-popover-foreground)',
   {
     variants: {
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-[var(--radius-sm)]',
-        md: 'rounded-[var(--radius-md)]',
-        lg: 'rounded-[var(--radius-lg)]',
-        xl: 'rounded-[var(--radius-xl)]',
+        sm: 'rounded-(--radius-sm)',
+        md: 'rounded-(--radius-md)',
+        lg: 'rounded-(--radius-lg)',
+        xl: 'rounded-(--radius-xl)',
       },
       shadow: {
         none: '',
-        sm: 'shadow-[var(--shadow-sm)]',
-        md: 'shadow-[var(--shadow-md)]',
-        lg: 'shadow-[var(--shadow-lg)]',
+        sm: 'shadow-(--shadow-sm)',
+        md: 'shadow-(--shadow-md)',
+        lg: 'shadow-(--shadow-lg)',
       },
     },
     defaultVariants: {

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Table } from '@ink-ui/ui'
 import { componentRounded } from '@ink-ui/ui'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/Table',
@@ -34,7 +34,7 @@ export default meta
 type Story = StoryObj
 
 export const Playground: Story = {
-  render: args => ({
+  render: (args) => ({
     components: { Table },
     setup() {
       return { args }

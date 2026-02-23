@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Grid, Panel, Text, Stack } from '@ink-ui/ui'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/Grid',
@@ -17,7 +17,7 @@ export default meta
 type Story = StoryObj
 
 export const Playground: Story = {
-  render: args => ({
+  render: (args) => ({
     components: { Grid, Panel, Text, Stack },
     setup() {
       return { args }

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Card, SectionHeader, Text, Button, Stack, Divider } from '@ink-ui/ui'
 import { componentRounded, componentShadow, componentVariants } from '@ink-ui/ui'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/Card',
@@ -20,7 +20,7 @@ export default meta
 type Story = StoryObj
 
 export const Playground: Story = {
-  render: args => ({
+  render: (args) => ({
     components: { Card, SectionHeader, Text, Button, Stack, Divider },
     setup() {
       return { args }

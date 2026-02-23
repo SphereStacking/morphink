@@ -6,19 +6,22 @@
     <DialogPortal>
       <DialogOverlay class="fixed inset-0 bg-[rgba(17,17,17,0.45)]" />
       <DialogContent :class="contentClass">
-        <div class="flex items-center justify-between gap-[var(--space-md)]">
+        <div class="flex items-center justify-between gap-(--space-md)">
           <DialogTitle v-if="title" :class="titleClass">{{ title }}</DialogTitle>
           <DialogClose as-child>
             <button class="text-[20px]" type="button" :aria-label="closeLabel">×</button>
           </DialogClose>
         </div>
-        <DialogDescription v-if="description" class="text-[14px] leading-[1.6] text-[var(--color-muted-foreground)]">
+        <DialogDescription
+          v-if="description"
+          class="text-[14px] leading-[1.6] text-(--color-muted-foreground)"
+        >
           {{ description }}
         </DialogDescription>
         <div v-if="$slots.default">
           <slot />
         </div>
-        <div v-if="$slots.footer" class="flex justify-end gap-[var(--space-sm)]">
+        <div v-if="$slots.footer" class="flex justify-end gap-(--space-sm)">
           <slot name="footer" />
         </div>
       </DialogContent>
@@ -44,27 +47,27 @@ import type { DialogRounded, DialogShadow, DialogSize } from '../../lib/props'
 
 const dialogVariants = cva(
   cn(
-    'fixed left-1/2 top-1/2 z-10 grid -translate-x-1/2 -translate-y-1/2 border-[var(--border-width-default)] border-[var(--color-border)] bg-[var(--color-card)]'
+    'fixed left-1/2 top-1/2 z-10 grid -translate-x-1/2 -translate-y-1/2 border-(--border-width-default) border-(--color-border) bg-(--color-card)'
   ),
   {
     variants: {
       size: {
-        sm: 'w-[min(420px,92vw)] p-[var(--space-md)] gap-[var(--space-sm)]',
-        md: 'w-[min(560px,92vw)] p-[var(--space-lg)] gap-[var(--space-md)]',
-        lg: 'w-[min(720px,92vw)] p-[var(--space-xl)] gap-[var(--space-md)]',
+        sm: 'w-[min(420px,92vw)] p-(--space-md) gap-(--space-sm)',
+        md: 'w-[min(560px,92vw)] p-(--space-lg) gap-(--space-md)',
+        lg: 'w-[min(720px,92vw)] p-(--space-xl) gap-(--space-md)',
       },
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-[var(--radius-sm)]',
-        md: 'rounded-[var(--radius-md)]',
-        lg: 'rounded-[var(--radius-lg)]',
-        xl: 'rounded-[var(--radius-xl)]',
+        sm: 'rounded-(--radius-sm)',
+        md: 'rounded-(--radius-md)',
+        lg: 'rounded-(--radius-lg)',
+        xl: 'rounded-(--radius-xl)',
       },
       shadow: {
         none: '',
-        sm: 'shadow-[var(--shadow-sm)]',
-        md: 'shadow-[var(--shadow-md)]',
-        lg: 'shadow-[var(--shadow-lg)]',
+        sm: 'shadow-(--shadow-sm)',
+        md: 'shadow-(--shadow-md)',
+        lg: 'shadow-(--shadow-lg)',
       },
     },
     defaultVariants: {

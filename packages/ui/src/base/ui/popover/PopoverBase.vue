@@ -40,21 +40,21 @@ const handleOpenChange = (value: boolean) => {
 }
 
 const contentVariants = cva(
-  'border-[var(--border-width-default)] border-[var(--color-border)] bg-[var(--color-popover)] p-[var(--space-md)]',
+  'border-(--border-width-default) border-(--color-border) bg-(--color-popover) p-(--space-md)',
   {
     variants: {
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-[var(--radius-sm)]',
-        md: 'rounded-[var(--radius-md)]',
-        lg: 'rounded-[var(--radius-lg)]',
-        xl: 'rounded-[var(--radius-xl)]',
+        sm: 'rounded-(--radius-sm)',
+        md: 'rounded-(--radius-md)',
+        lg: 'rounded-(--radius-lg)',
+        xl: 'rounded-(--radius-xl)',
       },
       shadow: {
         none: '',
-        sm: 'shadow-[var(--shadow-sm)]',
-        md: 'shadow-[var(--shadow-md)]',
-        lg: 'shadow-[var(--shadow-lg)]',
+        sm: 'shadow-(--shadow-sm)',
+        md: 'shadow-(--shadow-md)',
+        lg: 'shadow-(--shadow-lg)',
       },
     },
     defaultVariants: {

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Popover, Button, Stack, Text } from '@ink-ui/ui'
 import { componentRounded, componentShadow } from '@ink-ui/ui'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/Popover',
@@ -25,7 +25,7 @@ export default meta
 type Story = StoryObj
 
 export const Playground: Story = {
-  render: args => ({
+  render: (args) => ({
     components: { Popover, Button, Stack, Text },
     setup() {
       return { args }

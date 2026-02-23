@@ -1,12 +1,12 @@
 <template>
   <div :class="classes">
-    <div v-if="$slots.header" class="px-[var(--space-lg)] pt-[var(--space-lg)]">
+    <div v-if="$slots.header" class="px-(--space-lg) pt-(--space-lg)">
       <slot name="header" />
     </div>
-    <div class="p-[var(--space-lg)]">
+    <div class="p-(--space-lg)">
       <slot />
     </div>
-    <div v-if="$slots.footer" class="px-[var(--space-lg)] pb-[var(--space-lg)]">
+    <div v-if="$slots.footer" class="px-(--space-lg) pb-(--space-lg)">
       <slot name="footer" />
     </div>
   </div>
@@ -20,7 +20,7 @@ import type { CardRounded, CardShadow, CardVariant } from '../../lib/props'
 
 const cardVariants = cva(
   cn(
-    'overflow-hidden border-[var(--border-width-default)] border-[var(--color-border)] bg-[var(--color-card)]'
+    'overflow-hidden border-(--border-width-default) border-(--color-border) bg-(--color-card)'
   ),
   {
     variants: {
@@ -30,16 +30,16 @@ const cardVariants = cva(
       },
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-[var(--radius-sm)]',
-        md: 'rounded-[var(--radius-md)]',
-        lg: 'rounded-[var(--radius-lg)]',
-        xl: 'rounded-[var(--radius-xl)]',
+        sm: 'rounded-(--radius-sm)',
+        md: 'rounded-(--radius-md)',
+        lg: 'rounded-(--radius-lg)',
+        xl: 'rounded-(--radius-xl)',
       },
       shadow: {
         none: '',
-        sm: 'shadow-[var(--shadow-sm)]',
-        md: 'shadow-[var(--shadow-md)]',
-        lg: 'shadow-[var(--shadow-lg)]',
+        sm: 'shadow-(--shadow-sm)',
+        md: 'shadow-(--shadow-md)',
+        lg: 'shadow-(--shadow-lg)',
       },
     },
     defaultVariants: {

@@ -1,11 +1,5 @@
 <template>
-  <StackBase
-    :direction="direction"
-    :gap="gap"
-    :align="align"
-    :justify="justify"
-    :wrap="wrap"
-  >
+  <StackBase :direction="direction" :gap="gap" :align="align" :justify="justify" :wrap="wrap">
     <slot />
   </StackBase>
 </template>

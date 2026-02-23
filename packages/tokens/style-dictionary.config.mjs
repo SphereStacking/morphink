@@ -1,15 +1,11 @@
-import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const config = {
-  include: [
-    join(__dirname, 'tokens/alias.json'),
-  ],
-  source: [
-    join(__dirname, 'tokens/semantic.json'),
-  ],
+  include: [join(__dirname, 'tokens/alias.json')],
+  source: [join(__dirname, 'tokens/semantic.json')],
   platforms: {
     css: {
       transformGroup: 'tokens-studio-kebab',
@@ -28,7 +24,7 @@ const config = {
         {
           destination: 'utilities.css',
           format: 'css/ink-utilities',
-          filter: token =>
+          filter: (token) =>
             ['color', 'space', 'radius', 'shadow'].includes(token.path?.[0]) &&
             token.path.length === 2,
         },

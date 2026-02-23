@@ -13,7 +13,6 @@
 import ToolbarBase from '../base/ui/toolbar/ToolbarBase.vue'
 import type { ToolbarSize, ToolbarVariant } from '../base/lib/props'
 
-
 withDefaults(
   defineProps<{
     size?: ToolbarSize

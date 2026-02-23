@@ -70,21 +70,21 @@ const handleSelect = (value: string) => {
 }
 
 const contentVariants = cva(
-  'border-[var(--border-width-default)] border-[var(--color-border)] bg-[var(--color-popover)] p-[6px]',
+  'border-(--border-width-default) border-(--color-border) bg-(--color-popover) p-[6px]',
   {
     variants: {
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-[var(--radius-sm)]',
-        md: 'rounded-[var(--radius-md)]',
-        lg: 'rounded-[var(--radius-lg)]',
-        xl: 'rounded-[var(--radius-xl)]',
+        sm: 'rounded-(--radius-sm)',
+        md: 'rounded-(--radius-md)',
+        lg: 'rounded-(--radius-lg)',
+        xl: 'rounded-(--radius-xl)',
       },
       shadow: {
         none: '',
-        sm: 'shadow-[var(--shadow-sm)]',
-        md: 'shadow-[var(--shadow-md)]',
-        lg: 'shadow-[var(--shadow-lg)]',
+        sm: 'shadow-(--shadow-sm)',
+        md: 'shadow-(--shadow-md)',
+        lg: 'shadow-(--shadow-lg)',
       },
     },
     defaultVariants: {
@@ -104,6 +104,6 @@ const contentClass = computed(() =>
 
 const itemClass = (danger?: boolean) =>
   danger
-    ? 'rounded-[var(--radius-sm)] px-[var(--space-sm)] py-[6px] text-[13px] text-[var(--color-destructive)] focus:bg-[var(--color-muted)] outline-hidden'
-    : 'rounded-[var(--radius-sm)] px-[var(--space-sm)] py-[6px] text-[13px] text-[var(--color-foreground)] focus:bg-[var(--color-muted)] outline-hidden'
+    ? 'rounded-(--radius-sm) px-(--space-sm) py-[6px] text-[13px] text-(--color-destructive) focus:bg-(--color-muted) outline-hidden'
+    : 'rounded-(--radius-sm) px-(--space-sm) py-[6px] text-[13px] text-(--color-foreground) focus:bg-(--color-muted) outline-hidden'
 </script>

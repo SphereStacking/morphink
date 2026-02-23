@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Panel, Stack, Text, Button } from '@ink-ui/ui'
 import { componentRounded, componentShadow, componentVariants } from '@ink-ui/ui'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/Panel',
@@ -24,7 +24,7 @@ export default meta
 type Story = StoryObj
 
 export const Playground: Story = {
-  render: args => ({
+  render: (args) => ({
     components: { Panel, Stack, Text, Button },
     setup() {
       return { args }

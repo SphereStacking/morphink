@@ -10,12 +10,12 @@ export const componentShadow = {
   Select: ['none', 'sm', 'md', 'lg'],
 } as const
 
-export type ButtonShadow = typeof componentShadow.Button[number]
-export type CardShadow = typeof componentShadow.Card[number]
-export type PanelShadow = typeof componentShadow.Panel[number]
-export type DialogShadow = typeof componentShadow.Dialog[number]
-export type AlertDialogShadow = typeof componentShadow.AlertDialog[number]
-export type TooltipShadow = typeof componentShadow.Tooltip[number]
-export type PopoverShadow = typeof componentShadow.Popover[number]
-export type DropdownShadow = typeof componentShadow.Dropdown[number]
-export type SelectShadow = typeof componentShadow.Select[number]
+export type ButtonShadow = (typeof componentShadow.Button)[number]
+export type CardShadow = (typeof componentShadow.Card)[number]
+export type PanelShadow = (typeof componentShadow.Panel)[number]
+export type DialogShadow = (typeof componentShadow.Dialog)[number]
+export type AlertDialogShadow = (typeof componentShadow.AlertDialog)[number]
+export type TooltipShadow = (typeof componentShadow.Tooltip)[number]
+export type PopoverShadow = (typeof componentShadow.Popover)[number]
+export type DropdownShadow = (typeof componentShadow.Dropdown)[number]
+export type SelectShadow = (typeof componentShadow.Select)[number]

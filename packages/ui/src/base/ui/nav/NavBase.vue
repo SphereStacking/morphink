@@ -1,11 +1,6 @@
 <template>
   <nav :class="classes">
-    <a
-      v-for="item in items"
-      :key="item.label"
-      :href="item.href"
-      :class="itemClass(item.active)"
-    >
+    <a v-for="item in items" :key="item.label" :href="item.href" :class="itemClass(item.active)">
       {{ item.label }}
     </a>
   </nav>
@@ -38,14 +33,14 @@ const attrs = useAttrs()
 const navVariants = cva('inline-flex rounded-full', {
   variants: {
     size: {
-        sm: 'gap-[var(--space-sm)] px-[var(--space-sm)] py-[6px] text-[var(--font-size-caption)]',
-        md: 'gap-[var(--space-md)] px-[var(--space-md)] py-[var(--space-sm)] text-[var(--font-size-body)]',
+      sm: 'gap-(--space-sm) px-(--space-sm) py-[6px] text-(length:--font-size-caption)',
+      md: 'gap-(--space-md) px-(--space-md) py-(--space-sm) text-(length:--font-size-body)',
     },
     variant: {
       subtle:
-        'bg-[var(--color-muted)] border-[var(--border-width-default)] border-[var(--color-border)]',
+        'bg-(--color-muted) border-(--border-width-default) border-(--color-border)',
       solid:
-        'bg-[var(--color-card)] border-[var(--border-width-default)] border-[var(--color-border)]',
+        'bg-(--color-card) border-(--border-width-default) border-(--color-border)',
     },
   },
   defaultVariants: {
@@ -62,7 +57,7 @@ const classes = computed(() =>
 const itemClass = (active?: boolean) =>
   cn(
     'font-semibold transition',
-    active ? 'text-[var(--color-accent)]' : 'text-[var(--color-muted-foreground)]',
-    !active ? 'hover:text-[var(--color-accent)]' : null
+    active ? 'text-(--color-accent)' : 'text-(--color-muted-foreground)',
+    !active ? 'hover:text-(--color-accent)' : null
   )
 </script>

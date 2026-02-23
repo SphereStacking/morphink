@@ -6,7 +6,7 @@
           <th
             v-for="column in columns"
             :key="column.key"
-            class="bg-[var(--color-muted)] px-4 py-3 font-semibold text-[var(--color-foreground)]"
+            class="bg-(--color-muted) px-4 py-3 font-semibold text-(--color-foreground)"
             :style="alignStyle(column.align)"
           >
             {{ column.label }}
@@ -14,11 +14,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="(row, index) in rows"
-          :key="index"
-          :class="rowClass"
-        >
+        <tr v-for="(row, index) in rows" :key="index" :class="rowClass">
           <td
             v-for="column in columns"
             :key="column.key"
@@ -64,15 +60,15 @@ const props = withDefaults(
 
 const attrs = useAttrs()
 const tableVariants = cva(
-  'w-full overflow-x-auto overflow-hidden border-[var(--border-width-default)] border-[var(--color-border)] bg-[var(--color-card)]',
+  'w-full overflow-x-auto overflow-hidden border-(--border-width-default) border-(--color-border) bg-(--color-card)',
   {
     variants: {
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-[var(--radius-sm)]',
-        md: 'rounded-[var(--radius-md)]',
-        lg: 'rounded-[var(--radius-lg)]',
-        xl: 'rounded-[var(--radius-xl)]',
+        sm: 'rounded-(--radius-sm)',
+        md: 'rounded-(--radius-md)',
+        lg: 'rounded-(--radius-lg)',
+        xl: 'rounded-(--radius-xl)',
       },
     },
     defaultVariants: {
@@ -82,7 +78,7 @@ const tableVariants = cva(
 )
 const classes = computed(() => cn(tableVariants({ rounded: props.rounded }), attrs.class))
 
-const cellVariants = cva('border-b border-[var(--color-border)] last:border-b-0', {
+const cellVariants = cva('border-b border-(--color-border) last:border-b-0', {
   variants: {
     density: {
       comfortable: 'px-4 py-3',
@@ -95,12 +91,14 @@ const cellVariants = cva('border-b border-[var(--color-border)] last:border-b-0'
 })
 
 type CellVariants = VariantProps<typeof cellVariants>
-const cellClass = computed(() => cellVariants({ density: props.density as CellVariants['density'] }))
+const cellClass = computed(() =>
+  cellVariants({ density: props.density as CellVariants['density'] })
+)
 
 const rowClass = computed(() =>
   cn(
-    props.striped ? 'odd:bg-[var(--color-muted)]' : null,
-    props.hover ? 'hover:bg-[var(--color-muted)] transition' : null
+    props.striped ? 'odd:bg-(--color-muted)' : null,
+    props.hover ? 'hover:bg-(--color-muted) transition' : null
   )
 )
 

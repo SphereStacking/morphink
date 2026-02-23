@@ -110,7 +110,7 @@ export const ScaleRow = ({ title, tokens }) => (
   </div>
 )
 
-export const scale = name => [
+export const scale = (name) => [
   { label: '100', cssVar: `--color-${name}-100` },
   { label: '200', cssVar: `--color-${name}-200` },
   { label: '300', cssVar: `--color-${name}-300` },
@@ -1006,7 +1006,6 @@ Color shades progress from light (100) to dark (900). Each scale is used based o
   <ScaleRow title="Destructive" tokens={scale('destructive')} />
 </div>
 
-
 ## Utilities
 
 ```
@@ -1016,7 +1015,6 @@ ink-border-{color}
 ```
 
 Example: `ink-bg-primary-500`, `ink-text-gray-900`, `ink-border-black`
-
 
 ## Notes for designers
 

@@ -14,7 +14,6 @@
 import CardBase from '../base/ui/card/CardBase.vue'
 import type { CardRounded, CardShadow, CardVariant } from '../base/lib/props'
 
-
 withDefaults(
   defineProps<{
     variant?: CardVariant

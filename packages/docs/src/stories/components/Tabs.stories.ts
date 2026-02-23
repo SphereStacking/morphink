@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Tabs, Text, Stack } from '@ink-ui/ui'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
 const meta: Meta = {
@@ -27,7 +27,7 @@ export default meta
 type Story = StoryObj
 
 export const Playground: Story = {
-  render: args => ({
+  render: (args) => ({
     components: { Tabs, Stack, Text },
     setup() {
       const active = ref(args.modelValue)

@@ -1,12 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Stack, Panel, Text } from '@ink-ui/ui'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/Stack',
   argTypes: {
     direction: { control: { type: 'select' }, options: ['row', 'column'] },
     gap: { control: 'text' },
-    align: { control: { type: 'select' }, options: ['stretch', 'flex-start', 'center', 'flex-end'] },
+    align: {
+      control: { type: 'select' },
+      options: ['stretch', 'flex-start', 'center', 'flex-end'],
+    },
     justify: {
       control: { type: 'select' },
       options: ['flex-start', 'center', 'flex-end', 'space-between', 'space-around'],
@@ -26,7 +29,7 @@ export default meta
 type Story = StoryObj
 
 export const Playground: Story = {
-  render: args => ({
+  render: (args) => ({
     components: { Stack, Panel, Text },
     setup() {
       return { args }

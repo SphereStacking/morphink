@@ -10,28 +10,28 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 import type { PanelRounded, PanelShadow, PanelVariant } from '../../lib/props'
 
-const panelVariants = cva('p-[var(--space-lg)]', {
+const panelVariants = cva('p-(--space-lg)', {
   variants: {
     variant: {
       subtle:
-        'bg-[var(--color-muted)] border-[var(--border-width-default)] border-[var(--color-border)]',
+        'bg-(--color-muted) border-(--border-width-default) border-(--color-border)',
       solid:
-        'bg-[var(--color-card)] border-[var(--border-width-default)] border-[var(--color-border)]',
+        'bg-(--color-card) border-(--border-width-default) border-(--color-border)',
       elevated:
-        'bg-[var(--color-card)] border-[var(--border-width-default)] border-[var(--color-border)]',
+        'bg-(--color-card) border-(--border-width-default) border-(--color-border)',
     },
     rounded: {
       none: 'rounded-none',
-      sm: 'rounded-[var(--radius-sm)]',
-      md: 'rounded-[var(--radius-md)]',
-      lg: 'rounded-[var(--radius-lg)]',
-      xl: 'rounded-[var(--radius-xl)]',
+      sm: 'rounded-(--radius-sm)',
+      md: 'rounded-(--radius-md)',
+      lg: 'rounded-(--radius-lg)',
+      xl: 'rounded-(--radius-xl)',
     },
     shadow: {
       none: '',
-      sm: 'shadow-[var(--shadow-sm)]',
-      md: 'shadow-[var(--shadow-md)]',
-      lg: 'shadow-[var(--shadow-lg)]',
+      sm: 'shadow-(--shadow-sm)',
+      md: 'shadow-(--shadow-md)',
+      lg: 'shadow-(--shadow-lg)',
     },
   },
   defaultVariants: {
@@ -66,7 +66,7 @@ const classes = computed(() =>
       rounded: props.rounded,
       shadow: props.shadow,
     }),
-    props.interactive ? 'transition hover:bg-[var(--color-muted)]' : null,
+    props.interactive ? 'transition hover:bg-(--color-muted)' : null,
     attrs.class
   )
 )

@@ -4,7 +4,10 @@
       <div :class="titleClass">
         <slot name="title" />
       </div>
-      <div v-if="$slots.subtitle" class="mt-1 text-[var(--font-size-caption)] text-[var(--color-muted-foreground)]">
+      <div
+        v-if="$slots.subtitle"
+        class="mt-1 text-(length:--font-size-caption) text-(--color-muted-foreground)"
+      >
         <slot name="subtitle" />
       </div>
     </div>
@@ -22,8 +25,8 @@ import { cn } from '../../lib/utils'
 const headerVariants = cva('flex items-center justify-between', {
   variants: {
     size: {
-      sm: 'gap-[var(--space-md)]',
-      md: 'gap-[var(--space-lg)]',
+      sm: 'gap-(--space-md)',
+      md: 'gap-(--space-lg)',
     },
   },
   defaultVariants: {
@@ -34,8 +37,8 @@ const headerVariants = cva('flex items-center justify-between', {
 const titleVariants = cva('font-semibold', {
   variants: {
     size: {
-        sm: 'text-[var(--font-size-h5)]',
-        md: 'text-[var(--font-size-h4)]',
+      sm: 'text-(length:--font-size-h5)',
+      md: 'text-(length:--font-size-h4)',
     },
   },
   defaultVariants: {

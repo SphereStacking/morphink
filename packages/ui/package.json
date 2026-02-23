@@ -1,16 +1,21 @@
 {
   "name": "@ink-ui/ui",
   "version": "0.1.0",
-  "type": "module",
   "license": "MIT",
+  "type": "module",
   "exports": {
     ".": "./src/index.ts",
     "./styles/tokens.css": "./src/styles/tokens.css",
     "./styles/base.css": "./src/styles/base.css",
     "./styles/ui.css": "./dist/ui.css"
   },
-  "peerDependencies": {
-    "vue": "^3.4.0"
+  "scripts": {
+    "build": "pnpm run build:css",
+    "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/ui.css",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "dev": "echo \"UI dev not configured yet\"",
+    "lint": "echo \"Lint runs at root level\""
   },
   "dependencies": {
     "@ink-ui/tokens": "workspace:*",
@@ -24,16 +29,11 @@
     "@vitejs/plugin-vue": "^6.0.0",
     "@vue/test-utils": "^2.4.0",
     "jsdom": "^28.0.0",
-    "vue": "^3.4.0",
     "tailwindcss": "^4.0.0",
-    "vitest": "^4.0.0"
+    "vitest": "^4.0.0",
+    "vue": "^3.4.0"
   },
-  "scripts": {
-    "build": "pnpm run build:css",
-    "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/ui.css",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "dev": "echo \"UI dev not configured yet\"",
-    "lint": "echo \"Lint runs at root level\""
+  "peerDependencies": {
+    "vue": "^3.4.0"
   }
 }

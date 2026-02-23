@@ -1,12 +1,12 @@
 {
   "name": "@ink-ui/tokens",
   "version": "0.1.0",
-  "type": "module",
   "license": "MIT",
   "files": [
     "tokens",
     "dist"
   ],
+  "type": "module",
   "exports": {
     "./tokens.css": "./dist/css/tokens.css",
     "./tokens-dark.css": "./dist/css/tokens-dark.css",
@@ -14,12 +14,12 @@
     "./tokens.json": "./dist/json/tokens.json",
     "./tokens.ts": "./dist/ts/tokens.ts"
   },
-  "devDependencies": {
-    "@tokens-studio/sd-transforms": "^2.0.3",
-    "style-dictionary": "^5.3.0"
-  },
   "scripts": {
     "build": "node build.mjs",
     "lint": "echo \"Lint runs at root level\""
+  },
+  "devDependencies": {
+    "@tokens-studio/sd-transforms": "^2.0.3",
+    "style-dictionary": "^5.3.0"
   }
 }

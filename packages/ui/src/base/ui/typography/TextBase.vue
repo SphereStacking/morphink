@@ -14,24 +14,24 @@ type Weight = 'regular' | 'medium' | 'semibold' | 'bold'
 
 const textVariants = cva(
   cn(
-    'm-0 font-[var(--font-family-base)] leading-[var(--font-line-height-body)] text-[var(--color-foreground)]'
+    'm-0 font-(family-name:--font-family-base) leading-(--font-line-height-body) text-(--color-foreground)'
   ),
   {
     variants: {
       variant: {
-        body: 'text-[var(--font-size-body)] leading-[var(--font-line-height-body)]',
-        caption: 'text-[var(--font-size-caption)] leading-[var(--font-line-height-caption)]',
+        body: 'text-(length:--font-size-body) leading-(--font-line-height-body)',
+        caption: 'text-(length:--font-size-caption) leading-(--font-line-height-caption)',
         label:
-          'text-[var(--font-size-label)] leading-[var(--font-line-height-label)] uppercase tracking-[0.08em]',
+          'text-(length:--font-size-label) leading-(--font-line-height-label) uppercase tracking-[0.08em]',
       },
       weight: {
-        regular: 'font-[var(--font-weight-regular)]',
-        medium: 'font-[var(--font-weight-medium)]',
-        semibold: 'font-[var(--font-weight-semibold)]',
-        bold: 'font-[var(--font-weight-bold)]',
+        regular: 'font-(number:--font-weight-regular)',
+        medium: 'font-(number:--font-weight-medium)',
+        semibold: 'font-(number:--font-weight-semibold)',
+        bold: 'font-(number:--font-weight-bold)',
       },
       muted: {
-        true: 'text-[var(--color-muted-foreground)]',
+        true: 'text-(--color-muted-foreground)',
         false: null,
       },
     },

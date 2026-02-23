@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="vertical ? 'h-full w-px' : 'h-px w-full'"
-    class="bg-[var(--color-border)]"
-  />
+  <div :class="vertical ? 'h-full w-px' : 'h-px w-full'" class="bg-(--color-border)" />
 </template>
 
 <script setup lang="ts">

@@ -1,8 +1,9 @@
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import remarkGfm from 'remark-gfm'
-import vue from '@vitejs/plugin-vue'
+
 import type { StorybookConfig } from '@storybook/vue3-vite'
+import vue from '@vitejs/plugin-vue'
+import remarkGfm from 'remark-gfm'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 

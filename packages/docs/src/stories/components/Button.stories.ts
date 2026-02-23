@@ -1,6 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Button, Stack } from '@ink-ui/ui'
-import { componentRounded, componentShadow, componentSizes, componentTones, componentVariants } from '@ink-ui/ui'
+import {
+  componentRounded,
+  componentShadow,
+  componentSizes,
+  componentTones,
+  componentVariants,
+} from '@ink-ui/ui'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/Button',
@@ -31,7 +37,7 @@ export default meta
 type Story = StoryObj
 
 export const Playground: Story = {
-  render: args => ({
+  render: (args) => ({
     components: { Button },
     setup() {
       return { args }

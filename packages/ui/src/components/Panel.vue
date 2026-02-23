@@ -8,7 +8,6 @@
 import PanelBase from '../base/ui/panel/PanelBase.vue'
 import type { PanelRounded, PanelShadow, PanelVariant } from '../base/lib/props'
 
-
 withDefaults(
   defineProps<{
     variant?: PanelVariant

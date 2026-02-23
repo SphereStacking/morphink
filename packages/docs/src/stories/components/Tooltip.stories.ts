@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Tooltip, Button, Stack, Text } from '@ink-ui/ui'
 import { componentRounded, componentShadow } from '@ink-ui/ui'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/Tooltip',
@@ -29,7 +29,7 @@ export default meta
 type Story = StoryObj
 
 export const Playground: Story = {
-  render: args => ({
+  render: (args) => ({
     components: { Tooltip, Button, Stack, Text },
     setup() {
       return { args }
