@@ -15,7 +15,7 @@ body {
   color: var(--morphink-color-muted-foreground);
 }
 
-.morphink-theme {
+.mi-theme {
   color: var(--morphink-color-foreground);
   background: var(--morphink-color-background);
   font-family: var(--morphink-font-family);
