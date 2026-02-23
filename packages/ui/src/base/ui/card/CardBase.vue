@@ -1,45 +1,42 @@
 <template>
   <div :class="classes">
-    <div v-if="$slots.header" class="px-(--space-lg) pt-(--space-lg)">
-      <slot name="header" />
-    </div>
-    <div class="p-(--space-lg)">
-      <slot />
-    </div>
-    <div v-if="$slots.footer" class="px-(--space-lg) pb-(--space-lg)">
-      <slot name="footer" />
-    </div>
+    <slot />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue'
-import { cva, type VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 import type { CardRounded, CardShadow, CardVariant } from '../../lib/props'
 
 const cardVariants = cva(
   cn(
-    'overflow-hidden border-(--border-width-default) border-(--color-border) bg-(--color-card)'
+    'overflow-hidden border-(--morphink-border-width-default) bg-(--morphink-color-card)'
   ),
   {
     variants: {
       variant: {
-        elevated: '',
-        outline: '',
+        elevated: 'border-(--morphink-color-border)',
+        outline: 'border-(--morphink-color-border) shadow-none',
+        ghost:
+          'border-transparent bg-transparent hover:bg-(--morphink-color-muted)',
+        soft: 'border-transparent bg-(--morphink-color-muted)',
+        interactive:
+          'border-(--morphink-color-border) cursor-pointer transition-shadow hover:shadow-(--morphink-shadow-lg)',
       },
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-(--radius-sm)',
-        md: 'rounded-(--radius-md)',
-        lg: 'rounded-(--radius-lg)',
-        xl: 'rounded-(--radius-xl)',
+        sm: 'rounded-(--morphink-radius-sm)',
+        md: 'rounded-(--morphink-radius-md)',
+        lg: 'rounded-(--morphink-radius-lg)',
+        xl: 'rounded-(--morphink-radius-xl)',
       },
       shadow: {
         none: '',
-        sm: 'shadow-(--shadow-sm)',
-        md: 'shadow-(--shadow-md)',
-        lg: 'shadow-(--shadow-lg)',
+        sm: 'shadow-(--morphink-shadow-sm)',
+        md: 'shadow-(--morphink-shadow-md)',
+        lg: 'shadow-(--morphink-shadow-lg)',
       },
     },
     defaultVariants: {
@@ -49,8 +46,6 @@ const cardVariants = cva(
     },
   }
 )
-
-type CardVariants = VariantProps<typeof cardVariants>
 
 const props = withDefaults(
   defineProps<{
@@ -73,7 +68,7 @@ const classes = computed(() =>
       rounded: props.rounded,
       shadow: props.shadow,
     }),
-    attrs.class
+    attrs.class as string
   )
 )
 </script>

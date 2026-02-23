@@ -5,7 +5,7 @@ export const componentVariants = {
   Button: ['solid', 'outline', 'ghost', 'soft'],
   Badge: ['solid', 'soft', 'outline', 'ghost'],
   Panel: ['subtle', 'solid', 'elevated'],
-  Card: ['elevated', 'outline'],
+  Card: ['elevated', 'outline', 'ghost', 'soft', 'interactive'],
   Select: ['outline', 'ghost'],
   Toolbar: ['solid', 'subtle'],
 } as const
