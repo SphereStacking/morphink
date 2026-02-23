@@ -19,7 +19,7 @@ const buttonVariants = cva(
   cn(
     'inline-flex items-center justify-center gap-2 font-semibold',
     'border border-[var(--border-width-default)] border-transparent transition duration-150',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring-color)]'
+    'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[var(--ring-color)]'
   ),
   {
     variants: {

@@ -104,6 +104,6 @@ const contentClass = computed(() =>
 
 const itemClass = (danger?: boolean) =>
   danger
-    ? 'rounded-[var(--radius-sm)] px-[var(--space-sm)] py-[6px] text-[13px] text-[var(--color-destructive)] focus:bg-[var(--color-muted)] outline-none'
-    : 'rounded-[var(--radius-sm)] px-[var(--space-sm)] py-[6px] text-[13px] text-[var(--color-foreground)] focus:bg-[var(--color-muted)] outline-none'
+    ? 'rounded-[var(--radius-sm)] px-[var(--space-sm)] py-[6px] text-[13px] text-[var(--color-destructive)] focus:bg-[var(--color-muted)] outline-hidden'
+    : 'rounded-[var(--radius-sm)] px-[var(--space-sm)] py-[6px] text-[13px] text-[var(--color-foreground)] focus:bg-[var(--color-muted)] outline-hidden'
 </script>

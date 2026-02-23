@@ -135,5 +135,5 @@ const contentClass = computed(() =>
 )
 
 const itemClass =
-  'rounded-[var(--radius-sm)] px-[var(--space-sm)] py-[6px] text-[13px] text-[var(--color-foreground)] focus:bg-[var(--color-muted)] outline-none'
+  'rounded-[var(--radius-sm)] px-[var(--space-sm)] py-[6px] text-[13px] text-[var(--color-foreground)] focus:bg-[var(--color-muted)] outline-hidden'
 </script>
