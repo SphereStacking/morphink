@@ -1,3 +1,5 @@
+[English](./architecture.md) | [日本語](./architecture.ja.md)
+
 # Architecture
 
 ## Layer Structure

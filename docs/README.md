@@ -1,3 +1,5 @@
+[English](./README.md) | [日本語](./README.ja.md)
+
 # morphink docs
 
 This repository is a product-independent design system foundation.
@@ -25,9 +27,8 @@ It outputs tokens managed by Tokens Studio and visualizes them through UI compon
 
 ```bash
 pnpm install
-pnpm --filter @morphink/tokens build
-pnpm --filter @morphink/ui build:css
-pnpm --filter @morphink/docs dev
+pnpm run build:css
+pnpm run dev:docs
 ```
 
 Storybook: `http://localhost:6006/`

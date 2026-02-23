@@ -1,3 +1,5 @@
+[English](./workflows.md) | [日本語](./workflows.ja.md)
+
 # Workflows
 
 ## Token Updates

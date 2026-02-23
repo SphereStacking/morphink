@@ -1,3 +1,5 @@
+[English](./README.md) | [日本語](./README.ja.md)
+
 # morphink
 
 <p>
@@ -10,9 +12,8 @@ A Vue 3 design system starter kit with a token pipeline, built as a pnpm monorep
 
 ```bash
 pnpm install
-pnpm --filter @morphink/tokens build
-pnpm --filter @morphink/ui build:css
-pnpm --filter @morphink/docs dev
+pnpm run build:css
+pnpm run dev:docs
 ```
 
 Storybook: `http://localhost:6006/`
