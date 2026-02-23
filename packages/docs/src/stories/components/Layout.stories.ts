@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Grid, Stack, Card, Text, Heading } from '@ink-ui/ui'
 
 const meta: Meta = {

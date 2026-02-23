@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Table } from '@ink-ui/ui'
 import { componentRounded } from '@ink-ui/ui'
 

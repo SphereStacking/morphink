@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Panel, Stack, Text, Button } from '@ink-ui/ui'
 import { componentRounded, componentShadow, componentVariants } from '@ink-ui/ui'
 

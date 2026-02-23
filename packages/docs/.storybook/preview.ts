@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/vue3'
+import type { Preview } from '@storybook/vue3-vite'
 import '@ink-ui/ui/styles/tokens.css'
 import '@ink-ui/ui/styles/base.css'
 import '@ink-ui/ui/styles/ui.css'
@@ -40,10 +40,10 @@ const preview: Preview = {
     },
     layout: 'centered',
     backgrounds: {
-      disable: true,
+      disabled: true,
     },
     viewport: {
-      viewports: {
+      options: {
         mobileSmall: {
           name: 'Mobile Small',
           styles: { width: '360px', height: '640px' },
