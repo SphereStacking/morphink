@@ -14,14 +14,14 @@ const meta: Meta = {
   },
   args: {
     columns: [
-      { key: 'name', label: 'タイトル' },
-      { key: 'status', label: '状態' },
-      { key: 'updated', label: '更新', align: 'right' },
+      { key: 'name', label: 'Title' },
+      { key: 'status', label: 'Status' },
+      { key: 'updated', label: 'Updated', align: 'right' },
     ],
     rows: [
-      { name: 'ブランドコア', status: '準備完了', updated: '2日前' },
-      { name: 'レイアウトグリッド', status: '下書き', updated: '今日' },
-      { name: 'ダイアログ', status: '準備完了', updated: '1週間前' },
+      { name: 'Brand Core', status: 'Ready', updated: '2 days ago' },
+      { name: 'Layout Grid', status: 'Draft', updated: 'Today' },
+      { name: 'Dialog', status: 'Ready', updated: '1 week ago' },
     ],
     density: 'comfortable',
     striped: false,
@@ -57,14 +57,14 @@ export const Overview: Story = {
     components: { Table },
     setup() {
       const columns = [
-        { key: 'name', label: 'タイトル' },
-        { key: 'status', label: '状態' },
-        { key: 'updated', label: '更新', align: 'right' as const },
+        { key: 'name', label: 'Title' },
+        { key: 'status', label: 'Status' },
+        { key: 'updated', label: 'Updated', align: 'right' as const },
       ]
       const rows = [
-        { name: 'ブランドコア', status: '準備完了', updated: '2日前' },
-        { name: 'レイアウトグリッド', status: '下書き', updated: '今日' },
-        { name: 'ダイアログ', status: '準備完了', updated: '1週間前' },
+        { name: 'Brand Core', status: 'Ready', updated: '2 days ago' },
+        { name: 'Layout Grid', status: 'Draft', updated: 'Today' },
+        { name: 'Dialog', status: 'Ready', updated: '1 week ago' },
       ]
       return { columns, rows }
     },

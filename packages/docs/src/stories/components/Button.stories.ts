@@ -23,7 +23,7 @@ const meta: Meta = {
     rounded: 'md',
     shadow: 'md',
     disabled: false,
-    label: 'ボタン',
+    label: 'Button',
   },
 }
 

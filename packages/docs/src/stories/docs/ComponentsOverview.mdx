@@ -13,53 +13,53 @@ import * as SectionHeaderStories from '../components/SectionHeader.stories'
 
 <Meta title="Docs/Components Overview" />
 
-<Title>コンポーネント概要</Title>
-<Subtitle>共通Propsと状態管理の使い方</Subtitle>
+<Title>Components Overview</Title>
+<Subtitle>How to use common props and state management</Subtitle>
 
-このページでは、ink-ui の共通Props（variant/size/tone/density）と、
-状態管理（open/onOpenChange、modelValue/update:modelValue）の使い方を例中心で示します。
-A11y は重大な問題の抑制を優先し、軽微な警告は状況に応じて判断します。
+This page demonstrates the usage of ink-ui's common props (variant/size/tone/density) and
+state management patterns (open/onOpenChange, modelValue/update:modelValue) through examples.
+A11y prioritizes resolving critical issues; minor warnings are addressed as needed.
 
-## 共通Props（Button）
+## Common Props (Button)
 
 <Canvas of={ButtonStories.Overview} />
 
-## 状態管理（Tabs）
+## State Management (Tabs)
 
 <Canvas of={TabsStories.Overview} />
 
-## 状態管理（Dialog）
+## State Management (Dialog)
 
 <Canvas of={DialogStories.Overview} />
 
-## フォーム系（Select）
+## Form Components (Select)
 
 <Canvas of={SelectStories.Overview} />
 
-## レイアウト（Grid / Stack）
+## Layout (Grid / Stack)
 
 <Canvas of={GridStories.Overview} />
 
 <Canvas of={StackStories.Overview} />
 
-## タイポグラフィ（Heading / Text）
+## Typography (Heading / Text)
 
 <Canvas of={HeadingStories.Overview} />
 
 <Canvas of={TextStories.Overview} />
 
-## サーフェス（Panel / Divider）
+## Surfaces (Panel / Divider)
 
 <Canvas of={PanelStories.Overview} />
 
 <Canvas of={DividerStories.Overview} />
 
-## 情報整理（SectionHeader）
+## Content Organization (SectionHeader)
 
 <Canvas of={SectionHeaderStories.Overview} />
 
-## A11y（方針）
+## A11y (Policy)
 
-- 重大な警告を優先して解消します。
-- Dialog / Tabs はキーボード操作（Tab / Esc / Arrow）を確認してください。
-- Tooltip/Popover/Dropdown もフォーカス移動を確認します。
+- Prioritize resolving critical warnings.
+- Verify keyboard navigation (Tab / Esc / Arrow) for Dialog and Tabs.
+- Verify focus management for Tooltip, Popover, and Dropdown.

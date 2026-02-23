@@ -15,7 +15,7 @@ const meta: Meta = {
     variant: 'body',
     weight: 'regular',
     muted: false,
-    text: 'テキストのプレビュー',
+    text: 'Text preview',
   },
 }
 
@@ -30,7 +30,7 @@ export const Playground: Story = {
     },
     template: `
       <Stack gap="12px">
-        <Heading :level="args.headingLevel">見出しプレビュー</Heading>
+        <Heading :level="args.headingLevel">Heading Preview</Heading>
         <Text :variant="args.variant" :weight="args.weight" :muted="args.muted">{{ args.text }}</Text>
       </Stack>
     `,

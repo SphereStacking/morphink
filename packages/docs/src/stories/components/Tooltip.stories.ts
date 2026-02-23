@@ -15,7 +15,7 @@ const meta: Meta = {
     onOpenChange: { action: 'onOpenChange' },
   },
   args: {
-    content: '補足説明',
+    content: 'Supplementary info',
     side: 'top',
     align: 'center',
     delay: 200,
@@ -36,7 +36,7 @@ export const Playground: Story = {
     },
     template: `
       <Stack gap="12px">
-        <Text muted>ホバーまたはフォーカスで表示。</Text>
+        <Text muted>Shown on hover or focus.</Text>
         <Tooltip
           :content="args.content"
           :side="args.side"
@@ -47,7 +47,7 @@ export const Playground: Story = {
           :shadow="args.shadow"
           :on-open-change="args.onOpenChange"
         >
-          <Button size="sm">ツールチップ</Button>
+          <Button size="sm">Tooltip</Button>
         </Tooltip>
       </Stack>
     `,

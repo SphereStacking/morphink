@@ -11,7 +11,7 @@ const meta: Meta = {
   args: {
     size: 'md',
     variant: 'solid',
-    title: 'ツールバー',
+    title: 'Toolbar',
   },
 }
 
@@ -31,8 +31,8 @@ export const Playground: Story = {
             <Text weight="semibold">{{ args.title }}</Text>
           </template>
           <template #actions>
-            <Button size="sm" variant="ghost">検索</Button>
-            <Button size="sm">追加</Button>
+            <Button size="sm" variant="ghost">Search</Button>
+            <Button size="sm">Add</Button>
           </template>
         </Toolbar>
       </Stack>
@@ -52,8 +52,8 @@ export const Overview: Story = {
               <Text weight="semibold">Default</Text>
             </template>
             <template #actions>
-              <Button size="sm" variant="ghost">検索</Button>
-              <Button size="sm">追加</Button>
+              <Button size="sm" variant="ghost">Search</Button>
+              <Button size="sm">Add</Button>
             </template>
           </Toolbar>
         </Stack>
@@ -66,8 +66,8 @@ export const Overview: Story = {
                 <Text weight="semibold">Small</Text>
               </template>
               <template #actions>
-                <Button size="sm" variant="ghost">検索</Button>
-                <Button size="sm">追加</Button>
+                <Button size="sm" variant="ghost">Search</Button>
+                <Button size="sm">Add</Button>
               </template>
             </Toolbar>
             <Toolbar size="md">
@@ -75,8 +75,8 @@ export const Overview: Story = {
                 <Text weight="semibold">Medium</Text>
               </template>
               <template #actions>
-                <Button size="sm" variant="ghost">検索</Button>
-                <Button size="sm">追加</Button>
+                <Button size="sm" variant="ghost">Search</Button>
+                <Button size="sm">Add</Button>
               </template>
             </Toolbar>
             <Toolbar size="lg">
@@ -84,8 +84,8 @@ export const Overview: Story = {
                 <Text weight="semibold">Large</Text>
               </template>
               <template #actions>
-                <Button size="sm" variant="ghost">検索</Button>
-                <Button size="sm">追加</Button>
+                <Button size="sm" variant="ghost">Search</Button>
+                <Button size="sm">Add</Button>
               </template>
             </Toolbar>
           </Stack>
@@ -98,8 +98,8 @@ export const Overview: Story = {
                 <Text weight="semibold">Solid</Text>
               </template>
               <template #actions>
-                <Button size="sm" variant="ghost">検索</Button>
-                <Button size="sm">追加</Button>
+                <Button size="sm" variant="ghost">Search</Button>
+                <Button size="sm">Add</Button>
               </template>
             </Toolbar>
             <Toolbar variant="subtle">
@@ -107,8 +107,8 @@ export const Overview: Story = {
                 <Text weight="semibold">Subtle</Text>
               </template>
               <template #actions>
-                <Button size="sm" variant="ghost">検索</Button>
-                <Button size="sm">追加</Button>
+                <Button size="sm" variant="ghost">Search</Button>
+                <Button size="sm">Add</Button>
               </template>
             </Toolbar>
           </Stack>

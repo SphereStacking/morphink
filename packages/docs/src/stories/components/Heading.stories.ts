@@ -9,7 +9,7 @@ const meta: Meta = {
   },
   args: {
     level: 2,
-    text: '見出しのプレビュー',
+    text: 'Heading Preview',
   },
 }
 
@@ -25,7 +25,7 @@ export const Playground: Story = {
     template: `
       <Stack gap="12px">
         <Heading :level="args.level">{{ args.text }}</Heading>
-        <Text muted>レベルに応じてサイズとリズムを調整。</Text>
+        <Text muted>Size and rhythm adjust based on level.</Text>
       </Stack>
     `,
   }),

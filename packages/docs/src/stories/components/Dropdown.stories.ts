@@ -16,9 +16,9 @@ const meta: Meta = {
   },
   args: {
     items: [
-      { label: '編集', value: 'edit' },
-      { label: '複製', value: 'duplicate' },
-      { label: '削除', value: 'delete', danger: true },
+      { label: 'Edit', value: 'edit' },
+      { label: 'Duplicate', value: 'duplicate' },
+      { label: 'Delete', value: 'delete', danger: true },
     ],
     side: 'bottom',
     align: 'start',
@@ -39,7 +39,7 @@ export const Playground: Story = {
     },
     template: `
       <Stack gap="12px">
-        <Text muted>クリックでメニューを開く。</Text>
+        <Text muted>Click to open the menu.</Text>
         <Dropdown
           :items="args.items"
           :side="args.side"
@@ -51,7 +51,7 @@ export const Playground: Story = {
           :on-select="args.onSelect"
         >
           <template #trigger>
-            <Button size="sm" variant="outline">メニュー</Button>
+            <Button size="sm" variant="outline">Menu</Button>
           </template>
         </Dropdown>
       </Stack>
@@ -64,9 +64,9 @@ export const Overview: Story = {
     components: { Dropdown, Button, Stack, Text },
     setup() {
       const items = [
-        { label: '編集', value: 'edit' },
-        { label: '複製', value: 'duplicate' },
-        { label: '削除', value: 'delete', danger: true },
+        { label: 'Edit', value: 'edit' },
+        { label: 'Duplicate', value: 'duplicate' },
+        { label: 'Delete', value: 'delete', danger: true },
       ]
       return { items }
     },

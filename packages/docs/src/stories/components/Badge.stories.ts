@@ -19,7 +19,7 @@ const meta: Meta = {
     size: 'md',
     variant: 'solid',
     rounded: 'full',
-    label: 'バッジ',
+    label: 'Badge',
   },
 }
 

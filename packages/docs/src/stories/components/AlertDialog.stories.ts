@@ -18,11 +18,11 @@ const meta: Meta = {
   },
   args: {
     open: false,
-    title: '削除しますか',
-    description: 'この操作は取り消せません。',
+    title: 'Delete this item?',
+    description: 'This action cannot be undone.',
     size: 'md',
-    confirmLabel: '確定',
-    cancelLabel: 'キャンセル',
+    confirmLabel: 'Confirm',
+    cancelLabel: 'Cancel',
     rounded: 'lg',
     shadow: 'md',
   },
@@ -44,7 +44,7 @@ export const Playground: Story = {
     },
     template: `
       <Stack gap="12px">
-        <Button @click="open = true">確認を開く</Button>
+        <Button @click="open = true">Open Alert</Button>
         <AlertDialog
           :open="open"
           :on-open-change="onOpenChange"
@@ -56,7 +56,7 @@ export const Playground: Story = {
           :rounded="args.rounded"
           :shadow="args.shadow"
         >
-          <Text>本当に削除しますか？</Text>
+          <Text>Are you sure you want to delete this?</Text>
         </AlertDialog>
       </Stack>
     `,

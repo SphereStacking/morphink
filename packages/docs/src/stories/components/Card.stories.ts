@@ -30,16 +30,16 @@ export const Playground: Story = {
         <Card :variant="args.variant" :rounded="args.rounded" :shadow="args.shadow">
           <template #header>
             <SectionHeader>
-              <template #title>注目コレクション</template>
-              <template #subtitle>すぐに見つけられるようにキュレーション</template>
+              <template #title>Featured Collection</template>
+              <template #subtitle>Curated for easy discovery</template>
               <template #action>
-                <Button size="sm" variant="outline">すべて見る</Button>
+                <Button size="sm" variant="outline">View All</Button>
               </template>
             </SectionHeader>
           </template>
-          <Text>カードで情報をまとめ、アクションを浮き上がらせる。</Text>
+          <Text>Use cards to group information and surface actions.</Text>
           <Divider />
-          <Text muted>補助情報は本文下に配置。</Text>
+          <Text muted>Supplementary info placed below the body.</Text>
         </Card>
       </Stack>
     `,

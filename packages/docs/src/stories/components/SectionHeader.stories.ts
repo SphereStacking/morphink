@@ -13,11 +13,11 @@ const meta: Meta = {
   },
   args: {
     size: 'md',
-    title: '注目コンテンツ',
-    subtitle: '最新の更新をまとめて表示します。',
+    title: 'Featured Content',
+    subtitle: 'A summary of the latest updates.',
     showSubtitle: true,
     showAction: true,
-    actionLabel: 'すべて見る',
+    actionLabel: 'View All',
   },
 }
 
@@ -32,7 +32,7 @@ export const Playground: Story = {
     },
     template: `
       <Stack gap="12px">
-        <Text muted>セクションの見出しとアクションを整理します。</Text>
+        <Text muted>Organize section headings and actions.</Text>
         <SectionHeader :size="args.size">
           <template #title>{{ args.title }}</template>
           <template v-if="args.showSubtitle" #subtitle>{{ args.subtitle }}</template>

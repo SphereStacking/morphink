@@ -4,23 +4,56 @@
   <img src="packages/docs/public/ink-ui-icon.svg" alt="ink-ui icon" width="64" height="64" />
 </p>
 
-pnpm workspace を使ったデザインシステムの monorepo です。
+A Vue 3 design system starter kit with a token pipeline, built as a pnpm monorepo.
 
-## パッケージ構成
+## Quick Start
 
-- `packages/tokens` - Tokens Studio のソースと出力物
-- `packages/ui` - UI コンポーネント（shadcn を参考にした Base を内部に保持）
-- `packages/docs` - Tokens / UI の Storybook
+```bash
+pnpm install
+pnpm --filter @ink-ui/tokens build
+pnpm --filter @ink-ui/ui build:css
+pnpm --filter @ink-ui/docs dev
+```
+
+Storybook: `http://localhost:6006/`
+
+## Architecture
+
+```
+Tokens Studio
+  -> packages/tokens/tokens/*.json
+  -> Style Dictionary (build)
+  -> packages/tokens/dist (css/json/ts)
+  -> packages/ui/src/styles/tokens.css (import)
+  -> packages/ui/dist/ui.css
+  -> Storybook
+```
+
+## Package Structure
+
+- `packages/tokens` - Tokens Studio source and build outputs
+- `packages/ui` - UI components (internally wraps shadcn-based primitives)
+- `packages/docs` - Storybook for tokens and UI visualization
 
 ## Tokens
 
-ソースは `packages/tokens/tokens` にあります。
+Sources are located at `packages/tokens/tokens`:
 
-- `packages/tokens/tokens/alias.json` - パレットとスケール（生値）
-- `packages/tokens/tokens/semantic.json` - プロダクト向けトークン
+- `packages/tokens/tokens/alias.json` - Palette and scales (raw values)
+- `packages/tokens/tokens/semantic.json` - Product-facing tokens
 
-## ドキュメント
+## Customization
 
-- `docs/README.md` - 概要とクイックスタート
-- `docs/architecture.md` - アーキテクチャとデータフロー
-- `docs/workflows.md` - 日々の運用手順（tokens/UI/docs）
+1. Edit token files in `packages/tokens/tokens/`
+2. Run `pnpm --filter @ink-ui/tokens build` to regenerate outputs
+3. Run `pnpm --filter @ink-ui/ui build:css` to rebuild the UI stylesheet
+
+## Documentation
+
+- `docs/README.md` - Overview and quick start
+- `docs/architecture.md` - Architecture and data flow
+- `docs/workflows.md` - Daily workflows (tokens/UI/docs)
+
+## License
+
+[MIT](./LICENSE)

@@ -10,9 +10,9 @@ const meta: Meta = {
   },
   args: {
     items: [
-      { label: '発見', href: '#', active: true },
-      { label: 'ランキング', href: '#' },
-      { label: 'ライブラリ', href: '#' },
+      { label: 'Discover', href: '#', active: true },
+      { label: 'Ranking', href: '#' },
+      { label: 'Library', href: '#' },
     ],
     size: 'md',
     variant: 'subtle',
@@ -30,7 +30,7 @@ export const Playground: Story = {
     },
     template: `
       <Stack gap="12px">
-        <Text muted>アクティブとホバーの見え方を確認できます。</Text>
+        <Text muted>Preview active and hover states.</Text>
         <Nav :items="args.items" :size="args.size" :variant="args.variant" />
       </Stack>
     `,
@@ -42,9 +42,9 @@ export const Overview: Story = {
     components: { Nav, Stack },
     setup() {
       const items = [
-        { label: '発見', href: '#', active: true },
-        { label: 'ランキング', href: '#' },
-        { label: 'ライブラリ', href: '#' },
+        { label: 'Discover', href: '#', active: true },
+        { label: 'Ranking', href: '#' },
+        { label: 'Library', href: '#' },
       ]
       return { items }
     },

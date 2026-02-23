@@ -17,9 +17,9 @@ const meta: Meta = {
   },
   args: {
     size: 'md',
-    title: '確認',
-    description: '説明文の例',
-    closeLabel: '閉じる',
+    title: 'Confirm',
+    description: 'Example description',
+    closeLabel: 'Close',
     open: false,
     rounded: 'lg',
     shadow: 'md',
@@ -42,7 +42,7 @@ export const Playground: Story = {
     },
     template: `
       <Stack gap="12px">
-        <Button @click="open = true">ダイアログを開く</Button>
+        <Button @click="open = true">Open Dialog</Button>
         <Dialog
           :open="open"
           :on-open-change="onOpenChange"
@@ -53,7 +53,7 @@ export const Playground: Story = {
           :rounded="args.rounded"
           :shadow="args.shadow"
         >
-          <Text>内容エリアの例。</Text>
+          <Text>Example content area.</Text>
         </Dialog>
       </Stack>
     `,

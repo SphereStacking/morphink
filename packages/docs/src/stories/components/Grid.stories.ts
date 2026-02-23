@@ -24,12 +24,12 @@ export const Playground: Story = {
     },
     template: `
       <Stack gap="12px">
-        <Text muted>列数と間隔を調整して確認できます。</Text>
+        <Text muted>Adjust columns and gap to preview.</Text>
         <Grid :columns="args.columns" :gap="args.gap">
-          <Panel><Text>ブロックA</Text></Panel>
-          <Panel><Text>ブロックB</Text></Panel>
-          <Panel><Text>ブロックC</Text></Panel>
-          <Panel><Text>ブロックD</Text></Panel>
+          <Panel><Text>Block A</Text></Panel>
+          <Panel><Text>Block B</Text></Panel>
+          <Panel><Text>Block C</Text></Panel>
+          <Panel><Text>Block D</Text></Panel>
         </Grid>
       </Stack>
     `,

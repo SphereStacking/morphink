@@ -1,27 +1,27 @@
 # ink-ui docs
 
-このリポジトリは、プロダクトから独立したデザインシステム基盤です。
-Tokens Studio で管理したトークンを出力し、UIコンポーネントと Storybook で可視化します。
+This repository is a product-independent design system foundation.
+It outputs tokens managed by Tokens Studio and visualizes them through UI components and Storybook.
 
-## 目的
+## Purpose
 
-- プロダクトに shadcn-vue を直接入れない
-- トークンを single source of truth にする
-- Storybook で「こう作る」を共有できる状態にする
+- Avoid embedding shadcn-vue directly in products
+- Use tokens as the single source of truth
+- Share "how to build" through Storybook
 
-## 使用技術（要点）
+## Key Technologies
 
 - Tokens Studio + Style Dictionary
-- Reka UI（A11yが重いプリミティブの内部利用）
-- Tailwind（UI CSS のビルドのみ）
+- Reka UI (internal use for A11y-heavy primitives)
+- Tailwind (UI CSS build only)
 
-## なぜ shadcn-vue を直接入れないのか
+## Why Not Use shadcn-vue Directly?
 
-- **使用側が直接依存しないため**: プロダクトは `@ink-ui/ui` だけを使い、内部実装を意識しない
-- **実装を差し替えやすくするため**: Tailwind などの採用を変えても、UI の使い方を変えずに済む
-- **運用を安定させるため**: Tokens 変更を UI の内部で吸収でき、プロダクトへの影響を最小化できる
+- **Consumer independence**: Products depend only on `@ink-ui/ui`, not internal implementation details
+- **Swappable implementation**: Replacing Tailwind or other internals doesn't change the public API
+- **Stable operations**: Token changes are absorbed within the UI layer, minimizing product impact
 
-## クイックスタート
+## Quick Start
 
 ```bash
 pnpm install
@@ -32,13 +32,13 @@ pnpm --filter @ink-ui/docs dev
 
 Storybook: `http://localhost:6006/`
 
-## ディレクトリ
+## Directory
 
-- `packages/tokens` - Tokens Studio のソースと出力物
-- `packages/ui` - UIコンポーネント（shadcn を参考にした Base を内部に保持）
+- `packages/tokens` - Tokens Studio source and build outputs
+- `packages/ui` - UI components (internally wraps shadcn-based primitives)
 - `packages/docs` - Storybook
 
-詳細は以下を参照してください。
+For details, see:
 
 - `docs/architecture.md`
 - `docs/workflows.md`

@@ -56,11 +56,11 @@ export const TokenCard = ({ token, value, preview }) => (
 <Meta title="Foundations/Typography" />
 
 <Title>Typography</Title>
-<Subtitle>読みやすさと階層を支える文字設計</Subtitle>
+<Subtitle>Typography design for readability and hierarchy</Subtitle>
 
 ## Overview
 
-タイポグラフィは情報の優先度と可読性を決めます。ink-ui ではサイズ、行間、ウェイトをトークンで管理します。
+Typography determines information priority and readability. ink-ui manages size, line height, and weight through tokens.
 
 ## Token List
 
@@ -69,7 +69,7 @@ export const TokenCard = ({ token, value, preview }) => (
 <TokenGrid>
   <TokenCard
     token="font.family.base"
-    value="Hiragino Kaku Gothic ProN, ヒラギノ角ゴ Pro W3, Hiragino Sans, Meiryo, メイリオ, Osaka, sans-serif, system-ui"
+    value="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
     preview={
       <div
         style={{
@@ -80,7 +80,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        日本語とEnglish 123
+        The quick brown fox 123
       </div>
     }
   />
@@ -103,7 +103,7 @@ export const TokenCard = ({ token, value, preview }) => (
   />
   <TokenCard
     token="font.family.base-android"
-    value="NotoSansCJKJP-Custom, system-ui, Meiryo, メイリオ"
+    value="system-ui, Roboto, Noto Sans, sans-serif"
     preview={
       <div
         style={{
@@ -135,7 +135,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        見出し H1
+        Heading H1
       </div>
     }
   />
@@ -151,7 +151,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        見出し H2
+        Heading H2
       </div>
     }
   />
@@ -167,7 +167,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        見出し H3
+        Heading H3
       </div>
     }
   />
@@ -183,7 +183,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        見出し H4
+        Heading H4
       </div>
     }
   />
@@ -199,7 +199,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        見出し H5
+        Heading H5
       </div>
     }
   />
@@ -215,7 +215,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        見出し H6
+        Heading H6
       </div>
     }
   />
@@ -230,7 +230,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        本文テキスト
+        Body text
       </div>
     }
   />
@@ -245,7 +245,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-muted-foreground)',
         }}
       >
-        キャプション
+        Caption
       </div>
     }
   />
@@ -261,7 +261,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        ラベル
+        Label
       </div>
     }
   />
@@ -282,7 +282,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        見出しの行間
+        Heading line spacing
         <br />
         Heading line height
       </div>
@@ -299,7 +299,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        本文の行間
+        Body line spacing
         <br />
         Body line height
       </div>
@@ -316,7 +316,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-muted-foreground)',
         }}
       >
-        キャプションの行間
+        Caption line spacing
         <br />
         Caption line height
       </div>
@@ -334,7 +334,7 @@ export const TokenCard = ({ token, value, preview }) => (
           color: 'var(--color-foreground)',
         }}
       >
-        ラベルの行間
+        Label line spacing
         <br />
         Label line height
       </div>
@@ -414,11 +414,11 @@ export const TokenCard = ({ token, value, preview }) => (
 
 ## Utilities
 
-タイポグラフィ系のユーティリティはまだ提供していません。必要であれば追加します。
+Typography utilities are not yet provided. They will be added if needed.
 
 
 ## Notes for designers
 
-- 見出しレベルは1段ずつ。飛ばしは避けます。
-- 1つの面における文字の役割は3段階までに抑えます。
-- ラベル/キャプションは本文より先に目立たせないようにします。
+- Increment heading levels one at a time; avoid skipping levels.
+- Limit text roles to three levels per surface.
+- Labels and captions should not be more prominent than body text.

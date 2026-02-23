@@ -41,10 +41,10 @@ export const Playground: Story = {
           :on-open-change="args.onOpenChange"
         >
           <template #trigger>
-            <Button size="sm">ポップオーバー</Button>
+            <Button size="sm">Popover</Button>
           </template>
           <template #content>
-            <Text>補助情報やアクションを表示。</Text>
+            <Text>Displays supplementary info or actions.</Text>
           </template>
         </Popover>
       </Stack>

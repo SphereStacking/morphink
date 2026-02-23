@@ -16,7 +16,7 @@ const meta: Meta = {
     interactive: false,
     rounded: 'md',
     shadow: 'md',
-    body: 'Panel で情報ブロックの重心を整えます。',
+    body: 'Use Panel to organize information blocks.',
   },
 }
 
@@ -33,7 +33,7 @@ export const Playground: Story = {
       <Stack gap="12px">
         <Panel :variant="args.variant" :interactive="args.interactive" :rounded="args.rounded" :shadow="args.shadow">
           <Text>{{ args.body }}</Text>
-          <Button size="sm" variant="ghost" style="margin-top: 8px;">アクション</Button>
+          <Button size="sm" variant="ghost" style="margin-top: 8px;">Action</Button>
         </Panel>
       </Stack>
     `,

@@ -18,11 +18,11 @@ const meta: Meta = {
   args: {
     modelValue: null,
     options: [
-      { label: '未選択', value: 'none' },
-      { label: '標準', value: 'default' },
-      { label: '強調', value: 'strong' },
+      { label: 'None', value: 'none' },
+      { label: 'Default', value: 'default' },
+      { label: 'Strong', value: 'strong' },
     ],
-    placeholder: '選択してください',
+    placeholder: 'Select an option',
     size: 'md',
     variant: 'outline',
     rounded: 'md',
@@ -46,7 +46,7 @@ export const Playground: Story = {
     },
     template: `
       <Stack gap="12px">
-        <Text muted>値: {{ value ?? '未選択' }}</Text>
+        <Text muted>Value: {{ value ?? 'None' }}</Text>
         <Select
           :model-value="value"
           :options="args.options"
@@ -67,9 +67,9 @@ export const Overview: Story = {
     components: { Select, Stack, Text },
     setup() {
       const options = [
-        { label: '未選択', value: 'none' },
-        { label: '標準', value: 'default' },
-        { label: '強調', value: 'strong' },
+        { label: 'None', value: 'none' },
+        { label: 'Default', value: 'default' },
+        { label: 'Strong', value: 'strong' },
       ]
       const valueDefault = ref<string | number | null>(null)
       const valueOutline = ref<string | number | null>(null)
@@ -92,7 +92,7 @@ export const Overview: Story = {
         <Stack direction="column" gap="12px">
           <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
           <Stack gap="12px">
-            <Select v-model="valueDefault" :options="options" placeholder="選択してください" />
+            <Select v-model="valueDefault" :options="options" placeholder="Select an option" />
           </Stack>
         </Stack>
         <div class="border border-[var(--color-border)]"></div>

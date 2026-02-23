@@ -1,21 +1,21 @@
 # Architecture
 
-## レイヤ構成
+## Layer Structure
 
 1. **Tokens**
-   - デザインの single source of truth
-   - Tokens Studio で管理し、Style Dictionary で出力
+   - Single source of truth for design
+   - Managed by Tokens Studio, output via Style Dictionary
 
 2. **UI**
-   - shadcn を参考にした Base を内部に閉じたラップコンポーネント
-   - A11yが重い部分は Reka UI の primitives を内部利用
-   - Tokens の CSS Variables を参照して見た目を統一
+   - Wrapper components with shadcn-based primitives kept internal
+   - A11y-heavy parts use Reka UI primitives internally
+   - References token CSS variables for unified styling
 
 3. **Docs (Storybook)**
-   - Tokens と UI の可視化
-   - ガイドラインや使用例を表示
+   - Visualization of tokens and UI components
+   - Displays guidelines and usage examples
 
-## データフロー
+## Data Flow
 
 ```
 Tokens Studio
@@ -27,7 +27,7 @@ Tokens Studio
   -> Storybook
 ```
 
-## パッケージ構成
+## Package Structure
 
 ```
 packages/
@@ -42,14 +42,14 @@ packages/
     src/stories/      # Storybook stories
 ```
 
-## 設計方針
+## Design Principles
 
-- **内部実装は外部公開しない**
-- **semantic tokens を優先**
-- **プロダクトは tokens の出力のみを直接利用可能**
+- **Internal implementation is not exposed**
+- **Prefer semantic tokens**
+- **Products can only directly consume token outputs**
 
-## 直接依存を避ける理由
+## Why Avoid Direct Dependencies
 
-- **使用側が直接依存しないため**: プロダクトは `@ink-ui/ui` のみを利用し、内部実装を意識しない
-- **実装を入れ替えやすくするため**: Tailwind などを別実装に変えても API は維持できる
-- **運用を安定させるため**: Tokens の変更を UI 側で吸収し、プロダクトへの影響を小さくする
+- **Consumer independence**: Products use only `@ink-ui/ui`, unaware of internal implementation
+- **Swappable implementation**: Replacing Tailwind or other internals preserves the API
+- **Stable operations**: Token changes are absorbed in the UI layer, minimizing product impact

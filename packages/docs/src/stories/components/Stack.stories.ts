@@ -40,9 +40,9 @@ export const Playground: Story = {
           :justify="args.justify"
           :wrap="args.wrap"
         >
-          <Panel style="min-width: 120px;"><Text>カードA</Text></Panel>
-          <Panel style="min-width: 120px;"><Text>カードB</Text></Panel>
-          <Panel style="min-width: 120px;"><Text>カードC</Text></Panel>
+          <Panel style="min-width: 120px;"><Text>Card A</Text></Panel>
+          <Panel style="min-width: 120px;"><Text>Card B</Text></Panel>
+          <Panel style="min-width: 120px;"><Text>Card C</Text></Panel>
         </Stack>
       </div>
     `,

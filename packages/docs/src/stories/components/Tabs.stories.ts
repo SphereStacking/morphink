@@ -16,9 +16,9 @@ const meta: Meta = {
     size: 'md',
     modelValue: 'overview',
     items: [
-      { label: '概要', value: 'overview' },
-      { label: 'レイアウト', value: 'layout' },
-      { label: 'トークン', value: 'tokens' },
+      { label: 'Overview', value: 'overview' },
+      { label: 'Layout', value: 'layout' },
+      { label: 'Tokens', value: 'tokens' },
     ],
   },
 }
@@ -46,7 +46,7 @@ export const Playground: Story = {
           :size="args.size"
           @update:model-value="onChange"
         />
-        <Text muted>選択中: {{ active }}</Text>
+        <Text muted>Selected: {{ active }}</Text>
       </Stack>
     `,
   }),
@@ -57,9 +57,9 @@ export const Overview: Story = {
     components: { Tabs, Text, Stack },
     setup() {
       const items = [
-        { label: '概要', value: 'overview' },
-        { label: 'レイアウト', value: 'layout' },
-        { label: 'トークン', value: 'tokens' },
+        { label: 'Overview', value: 'overview' },
+        { label: 'Layout', value: 'layout' },
+        { label: 'Tokens', value: 'tokens' },
       ]
       const activeDefault = ref('overview')
       const activeVariant = ref('overview')
@@ -72,7 +72,7 @@ export const Overview: Story = {
           <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
           <Stack gap="12px">
             <Tabs v-model="activeDefault" :items="items" />
-            <Text muted>選択中: {{ activeDefault }}</Text>
+            <Text muted>Selected: {{ activeDefault }}</Text>
           </Stack>
         </Stack>
         <div class="border border-[var(--color-border)]"></div>

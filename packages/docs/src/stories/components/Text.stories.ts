@@ -13,7 +13,7 @@ const meta: Meta = {
     variant: 'body',
     weight: 'regular',
     muted: false,
-    text: '本文テキストのプレビュー',
+    text: 'Body text preview',
   },
 }
 

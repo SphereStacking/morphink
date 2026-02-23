@@ -68,11 +68,11 @@ export const TokenCard = ({ token, value, usage, preview }) => (
 <Meta title="Foundations/Spacing" />
 
 <Title>Spacing</Title>
-<Subtitle>余白のリズムを統一する</Subtitle>
+<Subtitle>Unify spacing rhythm</Subtitle>
 
 ## Overview
 
-余白は情報のまとまりと読みやすさを作ります。ink-ui では `space.*` トークンを共通の単位として使用します。
+Spacing creates grouping and readability. ink-ui uses `space.*` tokens as a shared unit of measure.
 
 ## Token List
 
@@ -80,7 +80,7 @@ export const TokenCard = ({ token, value, usage, preview }) => (
   <TokenCard
     token="space.0"
     value="0"
-    usage="隙間なし"
+    usage="No gap"
     preview={
       <div
         style={{
@@ -95,7 +95,7 @@ export const TokenCard = ({ token, value, usage, preview }) => (
   <TokenCard
     token="space.xs"
     value="4px"
-    usage="最小の区切り"
+    usage="Minimal separator"
     preview={
       <div
         style={{
@@ -110,7 +110,7 @@ export const TokenCard = ({ token, value, usage, preview }) => (
   <TokenCard
     token="space.sm"
     value="8px"
-    usage="近接要素の間隔"
+    usage="Adjacent element spacing"
     preview={
       <div
         style={{
@@ -125,7 +125,7 @@ export const TokenCard = ({ token, value, usage, preview }) => (
   <TokenCard
     token="space.md"
     value="12px"
-    usage="標準の間隔"
+    usage="Standard spacing"
     preview={
       <div
         style={{
@@ -140,7 +140,7 @@ export const TokenCard = ({ token, value, usage, preview }) => (
   <TokenCard
     token="space.lg"
     value="16px"
-    usage="セクション内の余白"
+    usage="Intra-section spacing"
     preview={
       <div
         style={{
@@ -155,7 +155,7 @@ export const TokenCard = ({ token, value, usage, preview }) => (
   <TokenCard
     token="space.xl"
     value="24px"
-    usage="セクション間の余白"
+    usage="Inter-section spacing"
     preview={
       <div
         style={{
@@ -170,7 +170,7 @@ export const TokenCard = ({ token, value, usage, preview }) => (
   <TokenCard
     token="space.2xl"
     value="32px"
-    usage="大きな区切り"
+    usage="Large separator"
     preview={
       <div
         style={{
@@ -185,7 +185,7 @@ export const TokenCard = ({ token, value, usage, preview }) => (
   <TokenCard
     token="space.3xl"
     value="40px"
-    usage="余白の最大値"
+    usage="Maximum spacing"
     preview={
       <div
         style={{
@@ -212,10 +212,10 @@ ink-space-x-{space} / ink-space-y-{space}
 ink-space-x-reverse / ink-space-y-reverse
 ```
 
-例: `ink-p-md`, `ink-mx-lg`, `ink-gap-2xl`, `ink-space-x-sm`
+Example: `ink-p-md`, `ink-mx-lg`, `ink-gap-2xl`, `ink-space-x-sm`
 
 
 ## Notes for designers
 
-- 余白は Stack / Grid で揃え、個別の margin 調整は最小限にします。
-- 同じ密度のコンテンツは同じ `space.*` を使います。
+- Align spacing using Stack / Grid; minimize individual margin adjustments.
+- Content with the same density should use the same `space.*` tokens.

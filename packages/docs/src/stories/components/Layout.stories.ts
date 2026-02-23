@@ -26,19 +26,19 @@ export const Playground: Story = {
     },
     template: `
       <Stack :direction="args.direction" gap="16px">
-        <Heading :level="4">レイアウトプレビュー</Heading>
+        <Heading :level="4">Layout Preview</Heading>
         <Grid :columns="args.columns" :gap="args.gap">
           <Card>
-            <Heading :level="5">ブロックA</Heading>
-            <Text>構成を試すためのカード。</Text>
+            <Heading :level="5">Block A</Heading>
+            <Text>A card for testing composition.</Text>
           </Card>
           <Card>
-            <Heading :level="5">ブロックB</Heading>
-            <Text>グリッド列数と間隔を調整。</Text>
+            <Heading :level="5">Block B</Heading>
+            <Text>Adjust grid columns and gap.</Text>
           </Card>
           <Card>
-            <Heading :level="5">ブロックC</Heading>
-            <Text>Stack方向を切り替え可能。</Text>
+            <Heading :level="5">Block C</Heading>
+            <Text>Toggle stack direction.</Text>
           </Card>
         </Grid>
       </Stack>

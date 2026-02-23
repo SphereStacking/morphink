@@ -22,14 +22,14 @@ export const Playground: Story = {
     },
     template: `
       <Stack v-if="!args.vertical" gap="12px">
-        <Text>横方向の区切りをプレビューします。</Text>
+        <Text>Preview horizontal divider.</Text>
         <Divider :vertical="args.vertical" />
-        <Text muted>セクションのリズムを整えるためのライン。</Text>
+        <Text muted>A line to establish section rhythm.</Text>
       </Stack>
       <Stack v-else direction="row" align="center" gap="16px">
-        <Text>左側</Text>
+        <Text>Left</Text>
         <Divider :vertical="args.vertical" />
-        <Text>右側</Text>
+        <Text>Right</Text>
       </Stack>
     `,
   }),

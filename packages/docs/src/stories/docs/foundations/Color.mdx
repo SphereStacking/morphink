@@ -155,11 +155,11 @@ export const scale = name => [
 <Meta title="Foundations/Color" />
 
 <Title>Color</Title>
-<Subtitle>役割ごとに色を使い分けるための基礎</Subtitle>
+<Subtitle>Foundations for role-based color usage</Subtitle>
 
 ## Overview
 
-色は意味と状態を伝えるための手段です。ink-ui では意味ごとにトークンを定義し、個別の色指定は避けます。
+Color communicates meaning and state. ink-ui defines tokens by semantic role, avoiding direct color specifications.
 
 ## Token List
 
@@ -171,7 +171,7 @@ export const scale = name => [
   <TokenCard
     token="color.background.base"
     cssVar="--color-background"
-    usage="背景"
+    usage="Background"
     preview={
       <div
         style={{
@@ -186,7 +186,7 @@ export const scale = name => [
   <TokenCard
     token="color.foreground.base"
     cssVar="--color-foreground"
-    usage="基本の文字"
+    usage="Primary text"
     preview={
       <div
         style={{
@@ -206,7 +206,7 @@ export const scale = name => [
   <TokenCard
     token="color.muted.base"
     cssVar="--color-muted"
-    usage="控えめな面"
+    usage="Muted surface"
     preview={
       <div
         style={{
@@ -221,7 +221,7 @@ export const scale = name => [
   <TokenCard
     token="color.muted.foreground"
     cssVar="--color-muted-foreground"
-    usage="補助テキスト"
+    usage="Secondary text"
     preview={
       <div
         style={{
@@ -241,7 +241,7 @@ export const scale = name => [
   <TokenCard
     token="color.card.base"
     cssVar="--color-card"
-    usage="カード面"
+    usage="Card surface"
     preview={
       <div
         style={{
@@ -256,7 +256,7 @@ export const scale = name => [
   <TokenCard
     token="color.card.foreground"
     cssVar="--color-card-foreground"
-    usage="カード上の文字"
+    usage="Card text"
     preview={
       <div
         style={{
@@ -276,7 +276,7 @@ export const scale = name => [
   <TokenCard
     token="color.popover.base"
     cssVar="--color-popover"
-    usage="ポップオーバー面"
+    usage="Popover surface"
     preview={
       <div
         style={{
@@ -291,7 +291,7 @@ export const scale = name => [
   <TokenCard
     token="color.popover.foreground"
     cssVar="--color-popover-foreground"
-    usage="ポップオーバー文字"
+    usage="Popover text"
     preview={
       <div
         style={{
@@ -311,7 +311,7 @@ export const scale = name => [
   <TokenCard
     token="color.border.base"
     cssVar="--color-border"
-    usage="境界線"
+    usage="Border"
     preview={
       <div
         style={{
@@ -326,7 +326,7 @@ export const scale = name => [
   <TokenCard
     token="color.input.base"
     cssVar="--color-input"
-    usage="入力背景"
+    usage="Input background"
     preview={
       <div
         style={{
@@ -992,7 +992,7 @@ export const scale = name => [
 
 ## Color Scales
 
-色の濃淡は 100 → 900 の順で暗くなります。各スケールは UI の状態に合わせて使い分けます。
+Color shades progress from light (100) to dark (900). Each scale is used based on UI state.
 
 <div style={{ display: 'grid', gap: '24px' }}>
   <ScaleRow title="Primary" tokens={scale('primary')} />
@@ -1015,12 +1015,12 @@ ink-text-{color}
 ink-border-{color}
 ```
 
-例: `ink-bg-primary-500`, `ink-text-gray-900`, `ink-border-black`
+Example: `ink-bg-primary-500`, `ink-text-gray-900`, `ink-border-black`
 
 
 ## Notes for designers
 
-- ブランド色は `color.primary.base` / `color.secondary.base` / `color.tertiary.base` / `color.accent.base` に整理しています。
-- 文字色は `color.foreground.base` と `color.muted.foreground` を使います。
-- 面は `color.background.base` / `color.card.base` / `color.muted.base` で整理します。
-- 境界は `color.border.base` を使います。
+- Brand colors are organized under `color.primary.base` / `color.secondary.base` / `color.tertiary.base` / `color.accent.base`.
+- Text colors use `color.foreground.base` and `color.muted.foreground`.
+- Surfaces are organized under `color.background.base` / `color.card.base` / `color.muted.base`.
+- Borders use `color.border.base`.
