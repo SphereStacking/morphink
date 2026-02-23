@@ -1,2 +1,3 @@
-@import "@ink-ui/tokens/dist/css/tokens.css";
-@import "@ink-ui/tokens/dist/css/utilities.css";
+@import "@ink-ui/tokens/tokens.css";
+@import "@ink-ui/tokens/tokens-dark.css";
+@import "@ink-ui/tokens/utilities.css";

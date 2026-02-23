@@ -4,10 +4,30 @@ import '@ink-ui/ui/styles/base.css'
 import '@ink-ui/ui/styles/ui.css'
 
 const preview: Preview = {
+  globalTypes: {
+    theme: {
+      description: 'Theme switcher',
+      toolbar: {
+        title: 'Theme',
+        icon: 'paintbrush',
+        items: [
+          { value: 'light', title: 'Light', icon: 'sun' },
+          { value: 'dark', title: 'Dark', icon: 'moon' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+  initialGlobals: {
+    theme: 'light',
+  },
   decorators: [
-    () => ({
-      template: '<div class="ink-theme" style="padding: 24px; min-width: 320px;"><story /></div>',
-    }),
+    (story, context) => {
+      const theme = context.globals.theme || 'light'
+      return {
+        template: `<div class="ink-theme" ${theme === 'dark' ? 'data-theme="dark"' : ''} style="padding: 24px; min-width: 320px; background: var(--color-background); color: var(--color-foreground);"><story /></div>`,
+      }
+    },
   ],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -20,11 +40,7 @@ const preview: Preview = {
     },
     layout: 'centered',
     backgrounds: {
-      default: 'Surface Base',
-      values: [
-        { name: 'Surface Base', value: '#ffffff' },
-        { name: 'Surface Subtle', value: '#f5f5f5' },
-      ],
+      disable: true,
     },
     viewport: {
       viewports: {

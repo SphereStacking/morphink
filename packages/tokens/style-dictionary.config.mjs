@@ -23,7 +23,7 @@ const config = {
     },
     utilities: {
       transformGroup: 'tokens-studio-kebab',
-      buildPath: join(__dirname, '../ui/dist/'),
+      buildPath: 'dist/css/',
       files: [
         {
           destination: 'utilities.css',

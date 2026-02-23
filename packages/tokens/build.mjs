@@ -1,6 +1,10 @@
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
 import StyleDictionary from 'style-dictionary'
 import { register } from '@tokens-studio/sd-transforms'
 import config from './style-dictionary.config.mjs'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 register(StyleDictionary)
 
@@ -103,6 +107,32 @@ StyleDictionary.registerTransformGroup({
   transforms: [...tokensStudioTransforms, 'name/kebab-no-base'],
 })
 
+StyleDictionary.registerFormat({
+  name: 'css/variables-dark',
+  format: ({ dictionary }) => {
+    const sourceTokens = dictionary.allTokens.filter(t => t.isSource)
+    const lines = sourceTokens.map(token => `  --${token.name}: ${token.value};`)
+    return `/**\n * Do not edit directly, this file was auto-generated.\n */\n\n.ink-theme[data-theme="dark"] {\n${lines.join('\n')}\n}\n`
+  },
+})
+
 const sd = new StyleDictionary(config)
 
 await sd.buildAllPlatforms()
+
+const darkConfig = {
+  include: [join(__dirname, 'tokens/alias.json')],
+  source: [join(__dirname, 'tokens/semantic-dark.json')],
+  platforms: {
+    css: {
+      transformGroup: 'tokens-studio-kebab',
+      buildPath: 'dist/css/',
+      files: [{
+        destination: 'tokens-dark.css',
+        format: 'css/variables-dark',
+      }],
+    },
+  },
+}
+const sdDark = new StyleDictionary(darkConfig)
+await sdDark.buildAllPlatforms()
