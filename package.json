@@ -9,7 +9,16 @@
     "build:docs": "pnpm --filter @ink-ui/docs build",
     "dev": "pnpm -r dev",
     "dev:docs": "pnpm --filter @ink-ui/docs dev",
-    "lint": "pnpm -r lint",
+    "lint": "eslint 'packages/*/src/**/*.{ts,vue}'",
+    "format": "prettier --write 'packages/*/src/**/*.{ts,vue,css,json}'",
     "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "@eslint/js": "^9.0.0",
+    "typescript-eslint": "^8.0.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.7.0"
   }
 }

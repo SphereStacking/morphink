@@ -1,18 +1,25 @@
 {
   "name": "@ink-ui/tokens",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
+  "license": "MIT",
   "files": [
     "tokens",
     "dist"
   ],
+  "exports": {
+    "./tokens.css": "./dist/css/tokens.css",
+    "./tokens-dark.css": "./dist/css/tokens-dark.css",
+    "./utilities.css": "./dist/css/utilities.css",
+    "./tokens.json": "./dist/json/tokens.json",
+    "./tokens.ts": "./dist/ts/tokens.ts"
+  },
   "devDependencies": {
     "@tokens-studio/sd-transforms": "^1.1.0",
     "style-dictionary": "^4.3.0"
   },
   "scripts": {
     "build": "node build.mjs",
-    "lint": "echo \"No lint configured for tokens\""
+    "lint": "echo \"Lint runs at root level\""
   }
 }
