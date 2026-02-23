@@ -1,30 +1,42 @@
-import { Dropdown, Button, Stack, Text } from '@morphink/ui'
-import { componentRounded, componentShadow } from '@morphink/ui'
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownContent,
+  DropdownItem,
+  DropdownSeparator,
+  DropdownGroup,
+  DropdownLabel,
+  DropdownCheckboxItem,
+  DropdownRadioGroup,
+  DropdownRadioItem,
+  DropdownSub,
+  DropdownSubTrigger,
+  DropdownSubContent,
+  Button,
+  Stack,
+  Text,
+  componentRounded,
+  componentShadow,
+  componentSizes,
+} from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
+import { ref } from 'vue'
 
 const meta: Meta = {
   title: 'Components/Dropdown',
   argTypes: {
-    items: { control: 'object' },
     side: { control: { type: 'select' }, options: ['top', 'right', 'bottom', 'left'] },
     align: { control: { type: 'select' }, options: ['start', 'center', 'end'] },
-    open: { control: 'boolean' },
     rounded: { control: { type: 'select' }, options: componentRounded.Dropdown },
     shadow: { control: { type: 'select' }, options: componentShadow.Dropdown },
-    onOpenChange: { action: 'onOpenChange' },
-    onSelect: { action: 'onSelect' },
+    size: { control: { type: 'select' }, options: componentSizes.Dropdown },
   },
   args: {
-    items: [
-      { label: 'Edit', value: 'edit' },
-      { label: 'Duplicate', value: 'duplicate' },
-      { label: 'Delete', value: 'delete', danger: true },
-    ],
     side: 'bottom',
     align: 'start',
-    open: false,
     rounded: 'md',
     shadow: 'md',
+    size: 'md',
   },
 }
 
@@ -33,155 +45,238 @@ type Story = StoryObj
 
 export const Playground: Story = {
   render: (args) => ({
-    components: { Dropdown, Button, Stack, Text },
+    components: {
+      Dropdown,
+      DropdownTrigger,
+      DropdownContent,
+      DropdownItem,
+      DropdownSeparator,
+      Button,
+      Stack,
+      Text,
+    },
     setup() {
       return { args }
     },
     template: `
       <Stack gap="12px">
         <Text muted>Click to open the menu.</Text>
-        <Dropdown
-          :items="args.items"
-          :side="args.side"
-          :align="args.align"
-          :open="args.open"
-          :rounded="args.rounded"
-          :shadow="args.shadow"
-          :on-open-change="args.onOpenChange"
-          :on-select="args.onSelect"
-        >
-          <template #trigger>
+        <Dropdown>
+          <DropdownTrigger>
             <Button size="sm" variant="outline">Menu</Button>
-          </template>
+          </DropdownTrigger>
+          <DropdownContent :side="args.side" :align="args.align" :rounded="args.rounded" :shadow="args.shadow" :size="args.size">
+            <DropdownItem>Edit</DropdownItem>
+            <DropdownItem>Duplicate</DropdownItem>
+            <DropdownSeparator />
+            <DropdownItem destructive>Delete</DropdownItem>
+          </DropdownContent>
         </Dropdown>
       </Stack>
     `,
   }),
 }
 
-export const Overview: Story = {
+export const WithIcons: Story = {
   render: () => ({
-    components: { Dropdown, Button, Stack, Text },
-    setup() {
-      const items = [
-        { label: 'Edit', value: 'edit' },
-        { label: 'Duplicate', value: 'duplicate' },
-        { label: 'Delete', value: 'delete', danger: true },
-      ]
-      return { items }
+    components: {
+      Dropdown,
+      DropdownTrigger,
+      DropdownContent,
+      DropdownItem,
+      DropdownSeparator,
+      DropdownGroup,
+      DropdownLabel,
+      Button,
+      Stack,
     },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Stack gap="12px">
-            <Dropdown :items="items">
-              <template #trigger>
-                <Button size="sm" variant="outline">Default</Button>
+      <Stack gap="12px">
+        <Dropdown>
+          <DropdownTrigger>
+            <Button size="sm" variant="outline">Actions</Button>
+          </DropdownTrigger>
+          <DropdownContent>
+            <DropdownGroup>
+              <DropdownLabel>Edit</DropdownLabel>
+              <DropdownItem>
+                <template #icon>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                </template>
+                Edit
+              </DropdownItem>
+              <DropdownItem>
+                <template #icon>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                </template>
+                Duplicate
+              </DropdownItem>
+            </DropdownGroup>
+            <DropdownSeparator />
+            <DropdownItem destructive>
+              <template #icon>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
               </template>
-            </Dropdown>
-          </Stack>
+              Delete
+            </DropdownItem>
+          </DropdownContent>
+        </Dropdown>
+      </Stack>
+    `,
+  }),
+}
+
+export const WithCheckbox: Story = {
+  render: () => ({
+    components: {
+      Dropdown,
+      DropdownTrigger,
+      DropdownContent,
+      DropdownItem,
+      DropdownSeparator,
+      DropdownCheckboxItem,
+      DropdownRadioGroup,
+      DropdownRadioItem,
+      DropdownLabel,
+      Button,
+      Stack,
+    },
+    setup() {
+      const showStatusBar = ref(true)
+      const showActivityBar = ref(false)
+      const showPanel = ref(true)
+      const theme = ref('system')
+      return { showStatusBar, showActivityBar, showPanel, theme }
+    },
+    template: `
+      <Stack gap="12px">
+        <Dropdown>
+          <DropdownTrigger>
+            <Button size="sm" variant="outline">View</Button>
+          </DropdownTrigger>
+          <DropdownContent>
+            <DropdownLabel>Appearance</DropdownLabel>
+            <DropdownCheckboxItem v-model="showStatusBar">Status Bar</DropdownCheckboxItem>
+            <DropdownCheckboxItem v-model="showActivityBar">Activity Bar</DropdownCheckboxItem>
+            <DropdownCheckboxItem v-model="showPanel">Panel</DropdownCheckboxItem>
+            <DropdownSeparator />
+            <DropdownLabel>Theme</DropdownLabel>
+            <DropdownRadioGroup v-model="theme">
+              <DropdownRadioItem value="light">Light</DropdownRadioItem>
+              <DropdownRadioItem value="dark">Dark</DropdownRadioItem>
+              <DropdownRadioItem value="system">System</DropdownRadioItem>
+            </DropdownRadioGroup>
+          </DropdownContent>
+        </Dropdown>
+      </Stack>
+    `,
+  }),
+}
+
+export const WithSubMenu: Story = {
+  render: () => ({
+    components: {
+      Dropdown,
+      DropdownTrigger,
+      DropdownContent,
+      DropdownItem,
+      DropdownSeparator,
+      DropdownSub,
+      DropdownSubTrigger,
+      DropdownSubContent,
+      Button,
+      Stack,
+    },
+    template: `
+      <Stack gap="12px">
+        <Dropdown>
+          <DropdownTrigger>
+            <Button size="sm" variant="outline">Options</Button>
+          </DropdownTrigger>
+          <DropdownContent>
+            <DropdownItem>New File</DropdownItem>
+            <DropdownItem>Open File</DropdownItem>
+            <DropdownSeparator />
+            <DropdownSub>
+              <DropdownSubTrigger>Share</DropdownSubTrigger>
+              <DropdownSubContent>
+                <DropdownItem>Copy Link</DropdownItem>
+                <DropdownItem>Email</DropdownItem>
+                <DropdownItem>Message</DropdownItem>
+              </DropdownSubContent>
+            </DropdownSub>
+            <DropdownSub>
+              <DropdownSubTrigger>Export</DropdownSubTrigger>
+              <DropdownSubContent>
+                <DropdownItem>PDF</DropdownItem>
+                <DropdownItem>CSV</DropdownItem>
+                <DropdownItem>JSON</DropdownItem>
+              </DropdownSubContent>
+            </DropdownSub>
+            <DropdownSeparator />
+            <DropdownItem destructive>Delete</DropdownItem>
+          </DropdownContent>
+        </Dropdown>
+      </Stack>
+    `,
+  }),
+}
+
+export const Sizes: Story = {
+  render: () => ({
+    components: {
+      Dropdown,
+      DropdownTrigger,
+      DropdownContent,
+      DropdownItem,
+      DropdownSeparator,
+      Button,
+      Stack,
+      Text,
+    },
+    template: `
+      <Stack direction="row" gap="24px" align="start" wrap>
+        <Stack direction="column" gap="8px" align="start">
+          <Text variant="caption" muted>sm</Text>
+          <Dropdown>
+            <DropdownTrigger>
+              <Button size="sm" variant="outline">Small</Button>
+            </DropdownTrigger>
+            <DropdownContent size="sm">
+              <DropdownItem>Edit</DropdownItem>
+              <DropdownItem>Duplicate</DropdownItem>
+              <DropdownSeparator />
+              <DropdownItem destructive>Delete</DropdownItem>
+            </DropdownContent>
+          </Dropdown>
         </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">open</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
-            <Dropdown :items="items" :open="false">
-              <template #trigger>
-                <Button size="sm" variant="outline">Closed</Button>
-              </template>
-            </Dropdown>
-            <Dropdown :items="items" :open="true">
-              <template #trigger>
-                <Button size="sm" variant="outline">Open</Button>
-              </template>
-            </Dropdown>
-          </Stack>
+        <Stack direction="column" gap="8px" align="start">
+          <Text variant="caption" muted>md (default)</Text>
+          <Dropdown>
+            <DropdownTrigger>
+              <Button size="sm" variant="outline">Medium</Button>
+            </DropdownTrigger>
+            <DropdownContent size="md">
+              <DropdownItem>Edit</DropdownItem>
+              <DropdownItem>Duplicate</DropdownItem>
+              <DropdownSeparator />
+              <DropdownItem destructive>Delete</DropdownItem>
+            </DropdownContent>
+          </Dropdown>
         </Stack>
-        <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">side</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
-            <Dropdown :items="items" side="bottom">
-              <template #trigger>
-                <Button size="sm" variant="outline">Bottom</Button>
-              </template>
-            </Dropdown>
-            <Dropdown :items="items" side="top">
-              <template #trigger>
-                <Button size="sm" variant="outline">Top</Button>
-              </template>
-            </Dropdown>
-            <Dropdown :items="items" side="right">
-              <template #trigger>
-                <Button size="sm" variant="outline">Right</Button>
-              </template>
-            </Dropdown>
-            <Dropdown :items="items" side="left">
-              <template #trigger>
-                <Button size="sm" variant="outline">Left</Button>
-              </template>
-            </Dropdown>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">align</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
-            <Dropdown :items="items" align="start">
-              <template #trigger>
-                <Button size="sm" variant="outline">Start</Button>
-              </template>
-            </Dropdown>
-            <Dropdown :items="items" align="center">
-              <template #trigger>
-                <Button size="sm" variant="outline">Center</Button>
-              </template>
-            </Dropdown>
-            <Dropdown :items="items" align="end">
-              <template #trigger>
-                <Button size="sm" variant="outline">End</Button>
-              </template>
-            </Dropdown>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
-            <Dropdown :items="items" rounded="sm">
-              <template #trigger>
-                <Button size="sm" variant="outline">Rounded sm</Button>
-              </template>
-            </Dropdown>
-            <Dropdown :items="items" rounded="md">
-              <template #trigger>
-                <Button size="sm" variant="outline">Rounded md</Button>
-              </template>
-            </Dropdown>
-            <Dropdown :items="items" rounded="lg">
-              <template #trigger>
-                <Button size="sm" variant="outline">Rounded lg</Button>
-              </template>
-            </Dropdown>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
-            <Dropdown :items="items" shadow="none">
-              <template #trigger>
-                <Button size="sm" variant="outline">Shadow none</Button>
-              </template>
-            </Dropdown>
-            <Dropdown :items="items" shadow="sm">
-              <template #trigger>
-                <Button size="sm" variant="outline">Shadow sm</Button>
-              </template>
-            </Dropdown>
-            <Dropdown :items="items" shadow="md">
-              <template #trigger>
-                <Button size="sm" variant="outline">Shadow md</Button>
-              </template>
-            </Dropdown>
-          </Stack>
+        <Stack direction="column" gap="8px" align="start">
+          <Text variant="caption" muted>lg</Text>
+          <Dropdown>
+            <DropdownTrigger>
+              <Button size="sm" variant="outline">Large</Button>
+            </DropdownTrigger>
+            <DropdownContent size="lg">
+              <DropdownItem>Edit</DropdownItem>
+              <DropdownItem>Duplicate</DropdownItem>
+              <DropdownSeparator />
+              <DropdownItem destructive>Delete</DropdownItem>
+            </DropdownContent>
+          </Dropdown>
         </Stack>
       </Stack>
     `,

@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import DropdownBase from '../base/ui/dropdown/DropdownBase.vue'
-import { useForwardPropsEmits } from 'reka-ui'
+import { DropdownMenuSub, useForwardPropsEmits } from 'reka-ui'
 
 const props = defineProps<{
   open?: boolean
   defaultOpen?: boolean
-  modal?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -16,7 +14,7 @@ const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <DropdownBase v-bind="forwarded">
+  <DropdownMenuSub v-bind="forwarded">
     <slot />
-  </DropdownBase>
+  </DropdownMenuSub>
 </template>
