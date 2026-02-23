@@ -1,16 +1,3 @@
-<template>
-  <PopoverRoot :open="open" @update:open="handleOpenChange">
-    <PopoverTrigger as-child>
-      <slot name="trigger" />
-    </PopoverTrigger>
-    <PopoverPortal>
-      <PopoverContent :side="side" :align="align" :class="contentClass">
-        <slot name="content" />
-      </PopoverContent>
-    </PopoverPortal>
-  </PopoverRoot>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 import { PopoverRoot, PopoverTrigger, PopoverContent, PopoverPortal } from 'reka-ui'
@@ -72,3 +59,16 @@ const contentClass = computed(() =>
   )
 )
 </script>
+
+<template>
+  <PopoverRoot :open="open" @update:open="handleOpenChange">
+    <PopoverTrigger as-child>
+      <slot name="trigger" />
+    </PopoverTrigger>
+    <PopoverPortal>
+      <PopoverContent :side="side" :align="align" :class="contentClass">
+        <slot name="content" />
+      </PopoverContent>
+    </PopoverPortal>
+  </PopoverRoot>
+</template>

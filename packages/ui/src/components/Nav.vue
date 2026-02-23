@@ -1,7 +1,3 @@
-<template>
-  <NavBase :items="items" :size="size" :variant="variant" />
-</template>
-
 <script setup lang="ts">
 import NavBase from '../base/ui/nav/NavBase.vue'
 
@@ -23,3 +19,7 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <NavBase :items="items" :size="size" :variant="variant" />
+</template>

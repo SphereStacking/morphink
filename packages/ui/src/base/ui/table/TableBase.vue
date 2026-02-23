@@ -1,34 +1,3 @@
-<template>
-  <div :class="classes">
-    <table class="w-full border-collapse text-[13px]">
-      <thead>
-        <tr>
-          <th
-            v-for="column in columns"
-            :key="column.key"
-            class="bg-(--morphink-color-muted) px-4 py-3 font-semibold text-(--morphink-color-foreground)"
-            :style="alignStyle(column.align)"
-          >
-            {{ column.label }}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(row, index) in rows" :key="index" :class="rowClass">
-          <td
-            v-for="column in columns"
-            :key="column.key"
-            :class="cellClass"
-            :style="alignStyle(column.align)"
-          >
-            {{ row[column.key] }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue'
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -106,3 +75,34 @@ const alignStyle = (align: Column['align']) => ({
   textAlign: align || 'left',
 })
 </script>
+
+<template>
+  <div :class="classes">
+    <table class="w-full border-collapse text-[13px]">
+      <thead>
+        <tr>
+          <th
+            v-for="column in columns"
+            :key="column.key"
+            class="bg-(--morphink-color-muted) px-4 py-3 font-semibold text-(--morphink-color-foreground)"
+            :style="alignStyle(column.align)"
+          >
+            {{ column.label }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(row, index) in rows" :key="index" :class="rowClass">
+          <td
+            v-for="column in columns"
+            :key="column.key"
+            :class="cellClass"
+            :style="alignStyle(column.align)"
+          >
+            {{ row[column.key] }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>

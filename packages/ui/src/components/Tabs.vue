@@ -1,15 +1,3 @@
-<template>
-  <TabsBase
-    :items="items"
-    :model-value="modelValue"
-    :size="size"
-    :variant="variant"
-    @update:model-value="emit('update:modelValue', $event)"
-  >
-    <slot />
-  </TabsBase>
-</template>
-
 <script setup lang="ts">
 import TabsBase from '../base/ui/tabs/TabsBase.vue'
 
@@ -29,3 +17,15 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
 </script>
+
+<template>
+  <TabsBase
+    :items="items"
+    :model-value="modelValue"
+    :size="size"
+    :variant="variant"
+    @update:model-value="emit('update:modelValue', $event)"
+  >
+    <slot />
+  </TabsBase>
+</template>

@@ -1,9 +1,3 @@
-<template>
-  <component :is="tag" :class="classes">
-    <slot />
-  </component>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -45,3 +39,9 @@ const props = withDefaults(
 const tag = computed(() => `h${props.level}`)
 const classes = computed(() => headingVariants({ level: props.level }))
 </script>
+
+<template>
+  <component :is="tag" :class="classes">
+    <slot />
+  </component>
+</template>

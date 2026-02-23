@@ -1,11 +1,3 @@
-<template>
-  <nav :class="classes">
-    <a v-for="item in items" :key="item.label" :href="item.href" :class="itemClass(item.active)">
-      {{ item.label }}
-    </a>
-  </nav>
-</template>
-
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue'
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -61,3 +53,11 @@ const itemClass = (active?: boolean) =>
     !active ? 'hover:text-(--morphink-color-accent)' : null
   )
 </script>
+
+<template>
+  <nav :class="classes">
+    <a v-for="item in items" :key="item.label" :href="item.href" :class="itemClass(item.active)">
+      {{ item.label }}
+    </a>
+  </nav>
+</template>

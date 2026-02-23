@@ -1,9 +1,3 @@
-<template>
-  <GridBase :columns="columns" :gap="gap">
-    <slot />
-  </GridBase>
-</template>
-
 <script setup lang="ts">
 import GridBase from '../base/ui/layout/GridBase.vue'
 
@@ -18,3 +12,9 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <GridBase :columns="columns" :gap="gap">
+    <slot />
+  </GridBase>
+</template>

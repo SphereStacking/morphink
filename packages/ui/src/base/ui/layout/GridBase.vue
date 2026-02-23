@@ -1,9 +1,3 @@
-<template>
-  <div :style="gridStyle" class="grid">
-    <slot />
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 
@@ -23,3 +17,9 @@ const gridStyle = computed(() => ({
   gap: props.gap,
 }))
 </script>
+
+<template>
+  <div :style="gridStyle" class="grid">
+    <slot />
+  </div>
+</template>

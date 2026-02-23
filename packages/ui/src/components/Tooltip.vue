@@ -1,21 +1,3 @@
-<template>
-  <TooltipBase
-    :content="content"
-    :open="open"
-    :on-open-change="onOpenChange"
-    :side="side"
-    :align="align"
-    :delay="delay"
-    :rounded="rounded"
-    :shadow="shadow"
-  >
-    <slot />
-    <template v-if="$slots.content" #content>
-      <slot name="content" />
-    </template>
-  </TooltipBase>
-</template>
-
 <script setup lang="ts">
 import TooltipBase from '../base/ui/tooltip/TooltipBase.vue'
 import type { TooltipRounded, TooltipShadow } from '../base/lib/props'
@@ -40,3 +22,21 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <TooltipBase
+    :content="content"
+    :open="open"
+    :on-open-change="onOpenChange"
+    :side="side"
+    :align="align"
+    :delay="delay"
+    :rounded="rounded"
+    :shadow="shadow"
+  >
+    <slot />
+    <template v-if="$slots.content" #content>
+      <slot name="content" />
+    </template>
+  </TooltipBase>
+</template>

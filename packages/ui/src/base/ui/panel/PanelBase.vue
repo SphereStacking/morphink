@@ -1,9 +1,3 @@
-<template>
-  <div :class="classes">
-    <slot />
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue'
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -71,3 +65,9 @@ const classes = computed(() =>
   )
 )
 </script>
+
+<template>
+  <div :class="classes">
+    <slot />
+  </div>
+</template>

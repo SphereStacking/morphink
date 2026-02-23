@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import SectionHeaderBase from '../base/ui/section-header/SectionHeaderBase.vue'
+
+withDefaults(
+  defineProps<{
+    size?: 'sm' | 'md'
+  }>(),
+  {
+    size: 'md',
+  }
+)
+</script>
+
 <template>
   <SectionHeaderBase :size="size">
     <template #title>
@@ -11,16 +24,3 @@
     </template>
   </SectionHeaderBase>
 </template>
-
-<script setup lang="ts">
-import SectionHeaderBase from '../base/ui/section-header/SectionHeaderBase.vue'
-
-withDefaults(
-  defineProps<{
-    size?: 'sm' | 'md'
-  }>(),
-  {
-    size: 'md',
-  }
-)
-</script>

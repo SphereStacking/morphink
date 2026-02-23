@@ -1,24 +1,3 @@
-<template>
-  <TabsRoot :model-value="modelValue" @update:model-value="emit('update:modelValue', $event)">
-    <div :class="wrapperClass">
-      <TabsList :class="listClass">
-        <TabsTrigger
-          v-for="item in items"
-          :key="item.value"
-          :value="item.value"
-          :disabled="item.disabled"
-          :class="tabClass(item.value === modelValue, item.disabled)"
-        >
-          {{ item.label }}
-        </TabsTrigger>
-      </TabsList>
-      <TabsContent :value="modelValue" :class="panelClass">
-        <slot />
-      </TabsContent>
-    </div>
-  </TabsRoot>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 import { cva } from 'class-variance-authority'
@@ -157,3 +136,24 @@ const tabClass = (active: boolean, disabled?: boolean) =>
     disabled: Boolean(disabled),
   })
 </script>
+
+<template>
+  <TabsRoot :model-value="modelValue" @update:model-value="emit('update:modelValue', $event)">
+    <div :class="wrapperClass">
+      <TabsList :class="listClass">
+        <TabsTrigger
+          v-for="item in items"
+          :key="item.value"
+          :value="item.value"
+          :disabled="item.disabled"
+          :class="tabClass(item.value === modelValue, item.disabled)"
+        >
+          {{ item.label }}
+        </TabsTrigger>
+      </TabsList>
+      <TabsContent :value="modelValue" :class="panelClass">
+        <slot />
+      </TabsContent>
+    </div>
+  </TabsRoot>
+</template>

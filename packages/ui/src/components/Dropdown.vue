@@ -1,23 +1,3 @@
-<template>
-  <DropdownBase
-    :items="items"
-    :open="open"
-    :on-open-change="onOpenChange"
-    :on-select="onSelect"
-    :side="side"
-    :align="align"
-    :rounded="rounded"
-    :shadow="shadow"
-  >
-    <template #trigger>
-      <slot name="trigger" />
-    </template>
-    <template v-if="$slots.content" #content>
-      <slot name="content" />
-    </template>
-  </DropdownBase>
-</template>
-
 <script setup lang="ts">
 import DropdownBase from '../base/ui/dropdown/DropdownBase.vue'
 import type { DropdownRounded, DropdownShadow } from '../base/lib/props'
@@ -49,3 +29,23 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <DropdownBase
+    :items="items"
+    :open="open"
+    :on-open-change="onOpenChange"
+    :on-select="onSelect"
+    :side="side"
+    :align="align"
+    :rounded="rounded"
+    :shadow="shadow"
+  >
+    <template #trigger>
+      <slot name="trigger" />
+    </template>
+    <template v-if="$slots.content" #content>
+      <slot name="content" />
+    </template>
+  </DropdownBase>
+</template>

@@ -1,9 +1,3 @@
-<template>
-  <StackBase :direction="direction" :gap="gap" :align="align" :justify="justify" :wrap="wrap">
-    <slot />
-  </StackBase>
-</template>
-
 <script setup lang="ts">
 import StackBase from '../base/ui/layout/StackBase.vue'
 
@@ -24,3 +18,9 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <StackBase :direction="direction" :gap="gap" :align="align" :justify="justify" :wrap="wrap">
+    <slot />
+  </StackBase>
+</template>

@@ -1,14 +1,3 @@
-<template>
-  <div :class="classes">
-    <div class="font-semibold">
-      <slot name="title" />
-    </div>
-    <div class="inline-flex gap-(--morphink-space-sm)">
-      <slot name="actions" />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue'
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -57,3 +46,14 @@ const classes = computed(() =>
   )
 )
 </script>
+
+<template>
+  <div :class="classes">
+    <div class="font-semibold">
+      <slot name="title" />
+    </div>
+    <div class="inline-flex gap-(--morphink-space-sm)">
+      <slot name="actions" />
+    </div>
+  </div>
+</template>

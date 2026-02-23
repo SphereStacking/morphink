@@ -1,9 +1,3 @@
-<template>
-  <TextBase :variant="variant" :weight="weight" :muted="muted">
-    <slot />
-  </TextBase>
-</template>
-
 <script setup lang="ts">
 import TextBase from '../base/ui/typography/TextBase.vue'
 
@@ -23,3 +17,9 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <TextBase :variant="variant" :weight="weight" :muted="muted">
+    <slot />
+  </TextBase>
+</template>

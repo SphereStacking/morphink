@@ -1,9 +1,3 @@
-<template>
-  <CardBase :variant="variant" :rounded="rounded" :shadow="shadow">
-    <slot />
-  </CardBase>
-</template>
-
 <script setup lang="ts">
 import CardBase from '../base/ui/card/CardBase.vue'
 import type { CardRounded, CardShadow, CardVariant } from '../base/lib/props'
@@ -21,3 +15,9 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <CardBase :variant="variant" :rounded="rounded" :shadow="shadow">
+    <slot />
+  </CardBase>
+</template>

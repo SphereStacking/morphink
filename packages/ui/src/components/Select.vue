@@ -1,18 +1,3 @@
-<template>
-  <SelectBase
-    :model-value="modelValue"
-    :options="options"
-    :placeholder="placeholder"
-    :size="size"
-    :variant="variant"
-    :side="side"
-    :align="align"
-    :rounded="rounded"
-    :shadow="shadow"
-    @update:model-value="emit('update:modelValue', $event)"
-  />
-</template>
-
 <script setup lang="ts">
 import SelectBase from '../base/ui/select/SelectBase.vue'
 import type { SelectRounded, SelectShadow, SelectSize, SelectVariant } from '../base/lib/props'
@@ -52,3 +37,18 @@ const emit = defineEmits<{
 
 void props
 </script>
+
+<template>
+  <SelectBase
+    :model-value="modelValue"
+    :options="options"
+    :placeholder="placeholder"
+    :size="size"
+    :variant="variant"
+    :side="side"
+    :align="align"
+    :rounded="rounded"
+    :shadow="shadow"
+    @update:model-value="emit('update:modelValue', $event)"
+  />
+</template>

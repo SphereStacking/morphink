@@ -1,9 +1,3 @@
-<template>
-  <PanelBase :variant="variant" :interactive="interactive" :rounded="rounded" :shadow="shadow">
-    <slot />
-  </PanelBase>
-</template>
-
 <script setup lang="ts">
 import PanelBase from '../base/ui/panel/PanelBase.vue'
 import type { PanelRounded, PanelShadow, PanelVariant } from '../base/lib/props'
@@ -23,3 +17,9 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <PanelBase :variant="variant" :interactive="interactive" :rounded="rounded" :shadow="shadow">
+    <slot />
+  </PanelBase>
+</template>

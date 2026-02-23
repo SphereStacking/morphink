@@ -1,7 +1,3 @@
-<template>
-  <div :class="vertical ? 'h-full w-px' : 'h-px w-full'" class="bg-(--morphink-color-border)" />
-</template>
-
 <script setup lang="ts">
 withDefaults(
   defineProps<{
@@ -12,3 +8,7 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <div :class="vertical ? 'h-full w-px' : 'h-px w-full'" class="bg-(--morphink-color-border)" />
+</template>

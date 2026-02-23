@@ -1,26 +1,3 @@
-<template>
-  <SelectRoot :model-value="modelValue" @update:model-value="emit('update:modelValue', $event)">
-    <SelectTrigger :class="triggerClass">
-      <SelectValue :placeholder="placeholder" />
-    </SelectTrigger>
-    <SelectPortal>
-      <SelectContent :class="contentClass" :side="side" :align="align">
-        <SelectViewport>
-          <SelectItem
-            v-for="option in options"
-            :key="option.value"
-            :value="option.value"
-            :disabled="option.disabled"
-            :class="itemClass"
-          >
-            <SelectItemText>{{ option.label }}</SelectItemText>
-          </SelectItem>
-        </SelectViewport>
-      </SelectContent>
-    </SelectPortal>
-  </SelectRoot>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 import { cva } from 'class-variance-authority'
@@ -138,3 +115,26 @@ const contentClass = computed(() =>
 const itemClass =
   'rounded-(--morphink-radius-sm) px-(--morphink-space-sm) py-[6px] text-[13px] text-(--morphink-color-foreground) focus:bg-(--morphink-color-muted) outline-hidden'
 </script>
+
+<template>
+  <SelectRoot :model-value="modelValue" @update:model-value="emit('update:modelValue', $event)">
+    <SelectTrigger :class="triggerClass">
+      <SelectValue :placeholder="placeholder" />
+    </SelectTrigger>
+    <SelectPortal>
+      <SelectContent :class="contentClass" :side="side" :align="align">
+        <SelectViewport>
+          <SelectItem
+            v-for="option in options"
+            :key="option.value"
+            :value="option.value"
+            :disabled="option.disabled"
+            :class="itemClass"
+          >
+            <SelectItemText>{{ option.label }}</SelectItemText>
+          </SelectItem>
+        </SelectViewport>
+      </SelectContent>
+    </SelectPortal>
+  </SelectRoot>
+</template>

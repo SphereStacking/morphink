@@ -1,16 +1,3 @@
-<template>
-  <TooltipRoot :open="open" :delay-duration="delay" @update:open="handleOpenChange">
-    <TooltipTrigger as-child>
-      <slot />
-    </TooltipTrigger>
-    <TooltipPortal>
-      <TooltipContent :side="side" :align="align" :class="contentClass">
-        <slot name="content">{{ content }}</slot>
-      </TooltipContent>
-    </TooltipPortal>
-  </TooltipRoot>
-</template>
-
 <script setup lang="ts">
 import { TooltipRoot, TooltipTrigger, TooltipContent, TooltipPortal } from 'reka-ui'
 import { computed } from 'vue'
@@ -75,3 +62,16 @@ const contentClass = computed(() =>
   )
 )
 </script>
+
+<template>
+  <TooltipRoot :open="open" :delay-duration="delay" @update:open="handleOpenChange">
+    <TooltipTrigger as-child>
+      <slot />
+    </TooltipTrigger>
+    <TooltipPortal>
+      <TooltipContent :side="side" :align="align" :class="contentClass">
+        <slot name="content">{{ content }}</slot>
+      </TooltipContent>
+    </TooltipPortal>
+  </TooltipRoot>
+</template>

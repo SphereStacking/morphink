@@ -1,26 +1,3 @@
-<template>
-  <DropdownMenuRoot :open="open" @update:open="handleOpenChange">
-    <DropdownMenuTrigger as-child>
-      <slot name="trigger" />
-    </DropdownMenuTrigger>
-    <DropdownMenuPortal>
-      <DropdownMenuContent :side="side" :align="align" :class="contentClass">
-        <slot name="content">
-          <DropdownMenuItem
-            v-for="item in items"
-            :key="item.value"
-            :disabled="item.disabled"
-            :class="itemClass(item.danger)"
-            @select="handleSelect(item.value)"
-          >
-            {{ item.label }}
-          </DropdownMenuItem>
-        </slot>
-      </DropdownMenuContent>
-    </DropdownMenuPortal>
-  </DropdownMenuRoot>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 import {
@@ -107,3 +84,26 @@ const itemClass = (danger?: boolean) =>
     ? 'rounded-(--morphink-radius-sm) px-(--morphink-space-sm) py-[6px] text-[13px] text-(--morphink-color-destructive) focus:bg-(--morphink-color-muted) outline-hidden'
     : 'rounded-(--morphink-radius-sm) px-(--morphink-space-sm) py-[6px] text-[13px] text-(--morphink-color-foreground) focus:bg-(--morphink-color-muted) outline-hidden'
 </script>
+
+<template>
+  <DropdownMenuRoot :open="open" @update:open="handleOpenChange">
+    <DropdownMenuTrigger as-child>
+      <slot name="trigger" />
+    </DropdownMenuTrigger>
+    <DropdownMenuPortal>
+      <DropdownMenuContent :side="side" :align="align" :class="contentClass">
+        <slot name="content">
+          <DropdownMenuItem
+            v-for="item in items"
+            :key="item.value"
+            :disabled="item.disabled"
+            :class="itemClass(item.danger)"
+            @select="handleSelect(item.value)"
+          >
+            {{ item.label }}
+          </DropdownMenuItem>
+        </slot>
+      </DropdownMenuContent>
+    </DropdownMenuPortal>
+  </DropdownMenuRoot>
+</template>

@@ -1,9 +1,3 @@
-<template>
-  <span :class="classes" v-bind="attrs">
-    <slot />
-  </span>
-</template>
-
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue'
 import { cva } from 'class-variance-authority'
@@ -292,3 +286,9 @@ const classes = computed(() =>
   )
 )
 </script>
+
+<template>
+  <span :class="classes" v-bind="attrs">
+    <slot />
+  </span>
+</template>

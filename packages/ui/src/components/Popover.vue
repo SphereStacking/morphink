@@ -1,21 +1,3 @@
-<template>
-  <PopoverBase
-    :open="open"
-    :on-open-change="onOpenChange"
-    :side="side"
-    :align="align"
-    :rounded="rounded"
-    :shadow="shadow"
-  >
-    <template #trigger>
-      <slot name="trigger" />
-    </template>
-    <template #content>
-      <slot name="content" />
-    </template>
-  </PopoverBase>
-</template>
-
 <script setup lang="ts">
 import PopoverBase from '../base/ui/popover/PopoverBase.vue'
 import type { PopoverRounded, PopoverShadow } from '../base/lib/props'
@@ -37,3 +19,21 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <PopoverBase
+    :open="open"
+    :on-open-change="onOpenChange"
+    :side="side"
+    :align="align"
+    :rounded="rounded"
+    :shadow="shadow"
+  >
+    <template #trigger>
+      <slot name="trigger" />
+    </template>
+    <template #content>
+      <slot name="content" />
+    </template>
+  </PopoverBase>
+</template>

@@ -1,9 +1,3 @@
-<template>
-  <HeadingBase :level="level">
-    <slot />
-  </HeadingBase>
-</template>
-
 <script setup lang="ts">
 import HeadingBase from '../base/ui/typography/HeadingBase.vue'
 
@@ -18,3 +12,9 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <HeadingBase :level="level">
+    <slot />
+  </HeadingBase>
+</template>

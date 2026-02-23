@@ -1,9 +1,3 @@
-<template>
-  <div :style="stackStyle" class="flex">
-    <slot />
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 
@@ -32,3 +26,9 @@ const stackStyle = computed(() => ({
   flexWrap: props.wrap ? 'wrap' : 'nowrap',
 }))
 </script>
+
+<template>
+  <div :style="stackStyle" class="flex">
+    <slot />
+  </div>
+</template>

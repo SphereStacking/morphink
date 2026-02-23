@@ -1,9 +1,3 @@
-<template>
-  <button :class="classes" :disabled="disabled" type="button" v-bind="attrs">
-    <slot />
-  </button>
-</template>
-
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue'
 import { cva } from 'class-variance-authority'
@@ -353,3 +347,9 @@ const classes = computed(() =>
   )
 )
 </script>
+
+<template>
+  <button :class="classes" :disabled="disabled" type="button" v-bind="attrs">
+    <slot />
+  </button>
+</template>

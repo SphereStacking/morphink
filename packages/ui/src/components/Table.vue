@@ -1,14 +1,3 @@
-<template>
-  <TableBase
-    :columns="columns"
-    :rows="rows"
-    :density="density"
-    :striped="striped"
-    :hover="hover"
-    :rounded="rounded"
-  />
-</template>
-
 <script setup lang="ts">
 import TableBase from '../base/ui/table/TableBase.vue'
 import type { TableRounded } from '../base/lib/props'
@@ -36,3 +25,14 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <TableBase
+    :columns="columns"
+    :rows="rows"
+    :density="density"
+    :striped="striped"
+    :hover="hover"
+    :rounded="rounded"
+  />
+</template>

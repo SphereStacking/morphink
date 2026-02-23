@@ -1,16 +1,3 @@
-<template>
-  <ButtonBase
-    :variant="variant"
-    :size="size"
-    :tone="tone"
-    :rounded="rounded"
-    :shadow="shadow"
-    :disabled="disabled"
-  >
-    <slot />
-  </ButtonBase>
-</template>
-
 <script setup lang="ts">
 import ButtonBase from '../base/ui/button/ButtonBase.vue'
 import type {
@@ -40,3 +27,16 @@ withDefaults(
   }
 )
 </script>
+
+<template>
+  <ButtonBase
+    :variant="variant"
+    :size="size"
+    :tone="tone"
+    :rounded="rounded"
+    :shadow="shadow"
+    :disabled="disabled"
+  >
+    <slot />
+  </ButtonBase>
+</template>
