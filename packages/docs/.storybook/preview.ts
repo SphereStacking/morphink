@@ -1,8 +1,42 @@
 import type { Preview } from '@storybook/vue3-vite'
+import { EVENT_RESET_ALL, EVENT_SET_TOKEN } from '../src/addons/token-editor/constants'
 
 import '@ink-ui/ui/styles/tokens.css'
 import '@ink-ui/ui/styles/base.css'
 import '@ink-ui/ui/styles/ui.css'
+
+const tokenOverrides = new Map<string, string>()
+let channelInitialized = false
+
+function initTokenEditorChannel() {
+  if (channelInitialized) return
+  channelInitialized = true
+
+  const channel = (window as any).__STORYBOOK_ADDONS_CHANNEL__
+  if (!channel) return
+
+  channel.on(EVENT_SET_TOKEN, ({ cssVar, value }: { cssVar: string; value: string | null }) => {
+    const el = document.querySelector('.ink-theme') as HTMLElement | null
+    if (value === null) {
+      tokenOverrides.delete(cssVar)
+      el?.style.removeProperty(cssVar)
+      document.documentElement.style.removeProperty(cssVar)
+    } else {
+      tokenOverrides.set(cssVar, value)
+      if (el) el.style.setProperty(cssVar, value)
+      document.documentElement.style.setProperty(cssVar, value)
+    }
+  })
+
+  channel.on(EVENT_RESET_ALL, () => {
+    const el = document.querySelector('.ink-theme') as HTMLElement | null
+    for (const cssVar of tokenOverrides.keys()) {
+      el?.style.removeProperty(cssVar)
+      document.documentElement.style.removeProperty(cssVar)
+    }
+    tokenOverrides.clear()
+  })
+}
 
 const preview: Preview = {
   globalTypes: {
@@ -24,8 +58,23 @@ const preview: Preview = {
   },
   decorators: [
     (story, context) => {
+      initTokenEditorChannel()
+
       const theme = context.globals.theme || 'light'
       return {
+        setup() {
+          // Re-apply token overrides after story render
+          if (typeof window !== 'undefined') {
+            requestAnimationFrame(() => {
+              const el = document.querySelector('.ink-theme') as HTMLElement | null
+              if (el) {
+                for (const [cssVar, value] of tokenOverrides.entries()) {
+                  el.style.setProperty(cssVar, value)
+                }
+              }
+            })
+          }
+        },
         template: `<div class="ink-theme" ${theme === 'dark' ? 'data-theme="dark"' : ''} style="padding: 24px; min-width: 320px; background: var(--color-background); color: var(--color-foreground);"><story /></div>`,
       }
     },

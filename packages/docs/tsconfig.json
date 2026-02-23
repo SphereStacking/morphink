@@ -1,5 +1,5 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src/**/*.ts", "src/**/*.vue", ".storybook/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", ".storybook/**/*.ts", ".storybook/**/*.tsx"],
   "exclude": ["node_modules"]
 }
