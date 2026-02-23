@@ -1,0 +1,167 @@
+import { Meta, Title, Subtitle } from '@storybook/blocks'
+
+export const TokenGrid = ({ children }) => (
+  <div
+    style={{
+      display: 'grid',
+      gap: '12px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    }}
+  >
+    {children}
+  </div>
+)
+
+export const TokenCard = ({ token, value, preview }) => (
+  <div
+    style={{
+      border: '1px solid var(--color-border)',
+      borderRadius: 'var(--radius-md)',
+      padding: '12px',
+      background: 'var(--color-card)',
+    }}
+  >
+    <div>{preview}</div>
+    <div
+      style={{
+        marginTop: '8px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Token
+    </div>
+    <div>
+      <code>{token}</code>
+    </div>
+    <div
+      style={{
+        marginTop: '6px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Value
+    </div>
+    <div>
+      <code>{value}</code>
+    </div>
+  </div>
+)
+
+<Meta title="Foundations/Opacity" />
+
+<Title>Opacity</Title>
+<Subtitle>透明度トークンの一覧を整理する</Subtitle>
+
+## Overview
+
+透明度トークンの一覧と用途を整理するページ。
+
+## Token List
+
+<TokenGrid>
+  <TokenCard
+    token="opacity.40"
+    value="0.4"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-foreground)',
+          opacity: 'var(--opacity-40)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="opacity.60"
+    value="0.6"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-foreground)',
+          opacity: 'var(--opacity-60)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="opacity.80"
+    value="0.8"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-foreground)',
+          opacity: 'var(--opacity-80)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="opacity.100"
+    value="1"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-foreground)',
+          opacity: 'var(--opacity-100)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="opacity.muted"
+    value="0.6"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-foreground)',
+          opacity: 'var(--opacity-muted)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="opacity.disabled"
+    value="0.4"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-foreground)',
+          opacity: 'var(--opacity-disabled)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+
+## Utilities
+
+```
+ink-opacity-40
+ink-opacity-60
+ink-opacity-80
+ink-opacity-100
+```
+
+例: `ink-opacity-60`
+
+
+## Notes for designers
+
+TBD

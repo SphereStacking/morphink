@@ -1,0 +1,38 @@
+<template>
+  <TableBase
+    :columns="columns"
+    :rows="rows"
+    :density="density"
+    :striped="striped"
+    :hover="hover"
+    :rounded="rounded"
+  />
+</template>
+
+<script setup lang="ts">
+import TableBase from '../base/ui/table/TableBase.vue'
+import type { TableRounded } from '../base/lib/props'
+
+type Column = {
+  key: string
+  label: string
+  align?: 'left' | 'center' | 'right'
+}
+
+withDefaults(
+  defineProps<{
+    columns: Column[]
+    rows: Record<string, string | number>[]
+    density?: 'comfortable' | 'compact'
+    striped?: boolean
+    hover?: boolean
+    rounded?: TableRounded
+  }>(),
+  {
+    density: 'comfortable',
+    striped: false,
+    hover: true,
+    rounded: 'md',
+  }
+)
+</script>

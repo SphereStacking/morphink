@@ -1,0 +1,33 @@
+import { Meta, Title, Subtitle, Canvas } from '@storybook/blocks'
+import * as GridStories from '../../components/Grid.stories'
+import * as StackStories from '../../components/Stack.stories'
+
+<Meta title="Guidelines/Layout" />
+
+<Title>Layout</Title>
+<Subtitle>情報の並びとリズムを整理する</Subtitle>
+
+## Overview
+
+レイアウトは情報のまとまりと視線誘導を作ります。ink-ui では Grid と Stack を軸に構成し、余白は Spacing のトークンで一貫性を保ちます。
+
+## Principles
+
+- グリッドで主要な軸と整列を決める
+- Stack で縦方向のリズムを作る
+- 密度は段階的に調整し、詰めすぎない
+- 余白は `space.*` を使って規則的に整える
+
+## Grid vs Stack
+
+Grid は「面」の構成に向いており、列や比率を明示できます。Stack は「流れ」の構成に向いており、縦・横の間隔を整えるのに有効です。
+
+## Examples
+
+<Canvas of={GridStories.Playground} />
+
+<Canvas of={StackStories.Playground} />
+
+## Responsive
+
+列数や余白は画面幅で変え、読みやすさと情報量のバランスを維持します。小さな画面では列数を減らし、縦のリズムを優先します。

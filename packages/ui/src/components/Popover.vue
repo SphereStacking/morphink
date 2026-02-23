@@ -1,0 +1,39 @@
+<template>
+  <PopoverBase
+    :open="open"
+    :on-open-change="onOpenChange"
+    :side="side"
+    :align="align"
+    :rounded="rounded"
+    :shadow="shadow"
+  >
+    <template #trigger>
+      <slot name="trigger" />
+    </template>
+    <template #content>
+      <slot name="content" />
+    </template>
+  </PopoverBase>
+</template>
+
+<script setup lang="ts">
+import PopoverBase from '../base/ui/popover/PopoverBase.vue'
+import type { PopoverRounded, PopoverShadow } from '../base/lib/props'
+
+withDefaults(
+  defineProps<{
+    open?: boolean
+    onOpenChange?: (open: boolean) => void
+    side?: 'top' | 'right' | 'bottom' | 'left'
+    align?: 'start' | 'center' | 'end'
+    rounded?: PopoverRounded
+    shadow?: PopoverShadow
+  }>(),
+  {
+    side: 'bottom',
+    align: 'center',
+    rounded: 'lg',
+    shadow: 'md',
+  }
+)
+</script>

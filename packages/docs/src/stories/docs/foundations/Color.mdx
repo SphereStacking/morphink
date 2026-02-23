@@ -1,0 +1,1026 @@
+import { Meta, Title, Subtitle } from '@storybook/blocks'
+
+export const TokenGrid = ({ children }) => (
+  <div
+    style={{
+      display: 'grid',
+      gap: '12px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    }}
+  >
+    {children}
+  </div>
+)
+
+export const TokenCard = ({ token, cssVar, usage, preview }) => (
+  <div
+    style={{
+      border: '1px solid var(--color-border)',
+      borderRadius: 'var(--radius-md)',
+      padding: '12px',
+      background: 'var(--color-card)',
+    }}
+  >
+    <div title={cssVar}>{preview}</div>
+    <div
+      style={{
+        marginTop: '8px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Token
+    </div>
+    <div>
+      <code>{token}</code>
+    </div>
+    <div
+      style={{
+        marginTop: '6px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      CSS Var
+    </div>
+    <div>
+      <code>{cssVar}</code>
+    </div>
+    {usage ? (
+      <div
+        style={{
+          marginTop: '6px',
+          fontSize: 'var(--font-size-caption)',
+          lineHeight: 'var(--font-line-height-caption)',
+          color: 'var(--color-muted-foreground)',
+        }}
+      >
+        {usage}
+      </div>
+    ) : null}
+  </div>
+)
+
+export const ScaleRow = ({ title, tokens }) => (
+  <div style={{ display: 'grid', gap: '10px' }}>
+    <div
+      style={{
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+        letterSpacing: '0.02em',
+        textTransform: 'uppercase',
+      }}
+    >
+      {title}
+    </div>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(9, minmax(0, 1fr))',
+        gap: '8px',
+      }}
+    >
+      {tokens.map(({ label, cssVar }) => (
+        <div key={cssVar} style={{ display: 'grid', gap: '6px' }}>
+          <div
+            className="color-scale-swatch"
+            data-tooltip={cssVar}
+            style={{
+              height: '40px',
+              borderRadius: 'var(--radius-sm)',
+              background: `var(${cssVar})`,
+              border: '1px solid var(--color-border)',
+            }}
+          />
+          <div
+            style={{
+              fontSize: 'var(--font-size-caption)',
+              lineHeight: 'var(--font-line-height-caption)',
+              color: 'var(--color-muted-foreground)',
+            }}
+          >
+            <div>{label}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+)
+
+export const scale = name => [
+  { label: '100', cssVar: `--color-${name}-100` },
+  { label: '200', cssVar: `--color-${name}-200` },
+  { label: '300', cssVar: `--color-${name}-300` },
+  { label: '400', cssVar: `--color-${name}-400` },
+  { label: '500', cssVar: `--color-${name}-500` },
+  { label: '600', cssVar: `--color-${name}-600` },
+  { label: '700', cssVar: `--color-${name}-700` },
+  { label: '800', cssVar: `--color-${name}-800` },
+  { label: '900', cssVar: `--color-${name}-900` },
+]
+
+<style>{`
+.color-scale-swatch {
+  position: relative;
+}
+
+.color-scale-swatch::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translate(-50%, -6px);
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  line-height: 1.2;
+  background: var(--color-foreground);
+  color: var(--color-background);
+  border: 1px solid var(--color-border);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+  z-index: 10;
+}
+
+.color-scale-swatch:hover::after {
+  opacity: 1;
+}
+`}</style>
+
+<Meta title="Foundations/Color" />
+
+<Title>Color</Title>
+<Subtitle>役割ごとに色を使い分けるための基礎</Subtitle>
+
+## Overview
+
+色は意味と状態を伝えるための手段です。ink-ui では意味ごとにトークンを定義し、個別の色指定は避けます。
+
+## Token List
+
+### Surface
+
+#### Base
+
+<TokenGrid>
+  <TokenCard
+    token="color.background.base"
+    cssVar="--color-background"
+    usage="背景"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-background)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.foreground.base"
+    cssVar="--color-foreground"
+    usage="基本の文字"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+#### Muted
+
+<TokenGrid>
+  <TokenCard
+    token="color.muted.base"
+    cssVar="--color-muted"
+    usage="控えめな面"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-muted)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.muted.foreground"
+    cssVar="--color-muted-foreground"
+    usage="補助テキスト"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-muted-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+#### Card
+
+<TokenGrid>
+  <TokenCard
+    token="color.card.base"
+    cssVar="--color-card"
+    usage="カード面"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-card)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.card.foreground"
+    cssVar="--color-card-foreground"
+    usage="カード上の文字"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-card-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+#### Popover
+
+<TokenGrid>
+  <TokenCard
+    token="color.popover.base"
+    cssVar="--color-popover"
+    usage="ポップオーバー面"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-popover)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.popover.foreground"
+    cssVar="--color-popover-foreground"
+    usage="ポップオーバー文字"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-popover-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+#### Utility
+
+<TokenGrid>
+  <TokenCard
+    token="color.border.base"
+    cssVar="--color-border"
+    usage="境界線"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-border)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.input.base"
+    cssVar="--color-input"
+    usage="入力背景"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-input)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+### Primary
+
+<TokenGrid>
+  <TokenCard
+    token="color.primary.base"
+    cssVar="--color-primary"
+    usage="→ color.primary-500"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-primary)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.primary.foreground"
+    cssVar="--color-primary-foreground"
+    usage="→ color.white"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-primary-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.primary.hover"
+    cssVar="--color-primary-hover"
+    usage="→ color.primary-600"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-primary-hover)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.primary.active"
+    cssVar="--color-primary-active"
+    usage="→ color.primary-700"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-primary-active)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+### Secondary
+
+<TokenGrid>
+  <TokenCard
+    token="color.secondary.base"
+    cssVar="--color-secondary"
+    usage="→ color.secondary-500"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-secondary)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.secondary.foreground"
+    cssVar="--color-secondary-foreground"
+    usage="→ color.white"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-secondary-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.secondary.hover"
+    cssVar="--color-secondary-hover"
+    usage="→ color.secondary-600"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-secondary-hover)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.secondary.active"
+    cssVar="--color-secondary-active"
+    usage="→ color.secondary-700"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-secondary-active)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+### Tertiary
+
+<TokenGrid>
+  <TokenCard
+    token="color.tertiary.base"
+    cssVar="--color-tertiary"
+    usage="→ color.tertiary-500"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-tertiary)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.tertiary.foreground"
+    cssVar="--color-tertiary-foreground"
+    usage="→ color.white"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-tertiary-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.tertiary.hover"
+    cssVar="--color-tertiary-hover"
+    usage="→ color.tertiary-600"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-tertiary-hover)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.tertiary.active"
+    cssVar="--color-tertiary-active"
+    usage="→ color.tertiary-700"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-tertiary-active)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+### Base
+
+<TokenGrid>
+  <TokenCard
+    token="color.base.base"
+    cssVar="--color-base"
+    usage="→ color.base-500"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-base)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.base.foreground"
+    cssVar="--color-base-foreground"
+    usage="→ color.gray-900"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-base-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.base.hover"
+    cssVar="--color-base-hover"
+    usage="→ color.base-600"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-base-hover)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.base.active"
+    cssVar="--color-base-active"
+    usage="→ color.base-700"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-base-active)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+### Accent
+
+<TokenGrid>
+  <TokenCard
+    token="color.accent.base"
+    cssVar="--color-accent"
+    usage="→ color.accent-500"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-accent)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.accent.foreground"
+    cssVar="--color-accent-foreground"
+    usage="→ color.white"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-accent-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.accent.hover"
+    cssVar="--color-accent-hover"
+    usage="→ color.accent-600"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-accent-hover)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.accent.active"
+    cssVar="--color-accent-active"
+    usage="→ color.accent-700"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-accent-active)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+### Neutral
+
+<TokenGrid>
+  <TokenCard
+    token="color.neutral.base"
+    cssVar="--color-neutral"
+    usage="→ color.gray-900"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-neutral)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.neutral.foreground"
+    cssVar="--color-neutral-foreground"
+    usage="→ color.white"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-neutral-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.neutral.hover"
+    cssVar="--color-neutral-hover"
+    usage="→ color.black"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-neutral-hover)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.neutral.active"
+    cssVar="--color-neutral-active"
+    usage="→ color.black"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-neutral-active)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+### Success
+
+<TokenGrid>
+  <TokenCard
+    token="color.success.base"
+    cssVar="--color-success"
+    usage="→ color.success-500"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-success)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.success.foreground"
+    cssVar="--color-success-foreground"
+    usage="→ color.white"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-success-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.success.hover"
+    cssVar="--color-success-hover"
+    usage="→ color.success-600"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-success-hover)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.success.active"
+    cssVar="--color-success-active"
+    usage="→ color.success-700"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-success-active)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+### Warning
+
+<TokenGrid>
+  <TokenCard
+    token="color.warning.base"
+    cssVar="--color-warning"
+    usage="→ color.warning-500"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-warning)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.warning.foreground"
+    cssVar="--color-warning-foreground"
+    usage="→ color.white"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-warning-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.warning.hover"
+    cssVar="--color-warning-hover"
+    usage="→ color.warning-600"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-warning-hover)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.warning.active"
+    cssVar="--color-warning-active"
+    usage="→ color.warning-700"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-warning-active)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+### Info
+
+<TokenGrid>
+  <TokenCard
+    token="color.info.base"
+    cssVar="--color-info"
+    usage="→ color.info-500"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-info)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.info.foreground"
+    cssVar="--color-info-foreground"
+    usage="→ color.white"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-info-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.info.hover"
+    cssVar="--color-info-hover"
+    usage="→ color.info-600"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-info-hover)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.info.active"
+    cssVar="--color-info-active"
+    usage="→ color.info-700"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-info-active)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+### Destructive
+
+<TokenGrid>
+  <TokenCard
+    token="color.destructive.base"
+    cssVar="--color-destructive"
+    usage="→ color.destructive-500"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-destructive)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.destructive.foreground"
+    cssVar="--color-destructive-foreground"
+    usage="→ color.white"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-destructive-foreground)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.destructive.hover"
+    cssVar="--color-destructive-hover"
+    usage="→ color.destructive-600"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-destructive-hover)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="color.destructive.active"
+    cssVar="--color-destructive-active"
+    usage="→ color.destructive-700"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-destructive-active)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+## Color Scales
+
+色の濃淡は 100 → 900 の順で暗くなります。各スケールは UI の状態に合わせて使い分けます。
+
+<div style={{ display: 'grid', gap: '24px' }}>
+  <ScaleRow title="Primary" tokens={scale('primary')} />
+  <ScaleRow title="Secondary" tokens={scale('secondary')} />
+  <ScaleRow title="Tertiary" tokens={scale('tertiary')} />
+  <ScaleRow title="Base" tokens={scale('base')} />
+  <ScaleRow title="Accent" tokens={scale('accent')} />
+  <ScaleRow title="Success" tokens={scale('success')} />
+  <ScaleRow title="Warning" tokens={scale('warning')} />
+  <ScaleRow title="Info" tokens={scale('info')} />
+  <ScaleRow title="Destructive" tokens={scale('destructive')} />
+</div>
+
+
+## Utilities
+
+```
+ink-bg-{color}
+ink-text-{color}
+ink-border-{color}
+```
+
+例: `ink-bg-primary-500`, `ink-text-gray-900`, `ink-border-black`
+
+
+## Notes for designers
+
+- ブランド色は `color.primary.base` / `color.secondary.base` / `color.tertiary.base` / `color.accent.base` に整理しています。
+- 文字色は `color.foreground.base` と `color.muted.foreground` を使います。
+- 面は `color.background.base` / `color.card.base` / `color.muted.base` で整理します。
+- 境界は `color.border.base` を使います。

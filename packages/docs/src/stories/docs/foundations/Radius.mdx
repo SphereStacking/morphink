@@ -1,0 +1,207 @@
+import { Meta, Title, Subtitle, Canvas } from '@storybook/blocks'
+import * as PanelStories from '../../components/Panel.stories'
+
+export const TokenGrid = ({ children }) => (
+  <div
+    style={{
+      display: 'grid',
+      gap: '12px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    }}
+  >
+    {children}
+  </div>
+)
+
+export const TokenCard = ({ token, value, usage, preview }) => (
+  <div
+    style={{
+      border: '1px solid var(--color-border)',
+      borderRadius: 'var(--radius-md)',
+      padding: '12px',
+      background: 'var(--color-card)',
+    }}
+  >
+    <div>{preview}</div>
+    <div
+      style={{
+        marginTop: '8px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Token
+    </div>
+    <div>
+      <code>{token}</code>
+    </div>
+    <div
+      style={{
+        marginTop: '6px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Value
+    </div>
+    <div>
+      <code>{value}</code>
+    </div>
+    {usage ? (
+      <div
+        style={{
+          marginTop: '6px',
+          fontSize: 'var(--font-size-caption)',
+          lineHeight: 'var(--font-line-height-caption)',
+          color: 'var(--color-muted-foreground)',
+        }}
+      >
+        {usage}
+      </div>
+    ) : null}
+  </div>
+)
+
+<Meta title="Foundations/Radius" />
+
+<Title>Radius</Title>
+<Subtitle>角丸は階層とトーンを調整する</Subtitle>
+
+## Overview
+
+角の形状はコンポーネントの印象と視覚的なやわらかさを調整します。ink-ui では radius トークンで一貫性を保ちます。
+
+## Token List
+
+<TokenGrid>
+  <TokenCard
+    token="radius.none"
+    value="0px"
+    usage="角丸なし"
+    preview={
+      <div
+        style={{
+          width: '48px',
+          height: '48px',
+          borderRadius: 'var(--radius-none)',
+          background: 'var(--color-muted)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="radius.xs"
+    value="2px"
+    usage="最小の角丸"
+    preview={
+      <div
+        style={{
+          width: '48px',
+          height: '48px',
+          borderRadius: 'var(--radius-xs)',
+          background: 'var(--color-muted)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="radius.sm"
+    value="4px"
+    usage="小さなコンポーネント"
+    preview={
+      <div
+        style={{
+          width: '48px',
+          height: '48px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-muted)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="radius.md"
+    value="8px"
+    usage="標準のカード/パネル"
+    preview={
+      <div
+        style={{
+          width: '48px',
+          height: '48px',
+          borderRadius: 'var(--radius-md)',
+          background: 'var(--color-muted)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="radius.lg"
+    value="12px"
+    usage="強調セクション"
+    preview={
+      <div
+        style={{
+          width: '48px',
+          height: '48px',
+          borderRadius: 'var(--radius-lg)',
+          background: 'var(--color-muted)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="radius.xl"
+    value="16px"
+    usage="大きめの角丸"
+    preview={
+      <div
+        style={{
+          width: '48px',
+          height: '48px',
+          borderRadius: 'var(--radius-xl)',
+          background: 'var(--color-muted)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="radius.full"
+    value="9999px"
+    usage="丸型のシェイプ"
+    preview={
+      <div
+        style={{
+          width: '48px',
+          height: '48px',
+          borderRadius: 'var(--radius-full)',
+          background: 'var(--color-muted)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+
+## Utilities
+
+```
+ink-rounded-{radius}
+ink-rounded-t/b/l/r-{radius}
+ink-rounded-tl/tr/bl/br-{radius}
+```
+
+例: `ink-rounded-md`, `ink-rounded-full`, `ink-rounded-tl-sm`
+
+
+## Notes for designers
+
+TBD

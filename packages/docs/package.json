@@ -1,0 +1,30 @@
+{
+  "name": "@ink-ui/docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@storybook/addon-essentials": "8.6.17",
+    "@storybook/addon-docs": "8.6.17",
+    "@storybook/addon-interactions": "8.6.17",
+    "@storybook/blocks": "8.6.17",
+    "@storybook/addon-a11y": "8.6.17",
+    "@storybook/addon-backgrounds": "8.6.17",
+    "@storybook/addon-viewport": "8.6.17",
+    "@storybook/vue3": "8.6.17",
+    "@storybook/vue3-vite": "8.6.17",
+    "storybook": "8.6.17",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "@vue/compiler-sfc": "^3.4.38",
+    "remark-gfm": "^4.0.0",
+    "vue": "^3.4.38"
+  },
+  "dependencies": {
+    "@ink-ui/tokens": "workspace:*",
+    "@ink-ui/ui": "workspace:*"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @ink-ui/tokens build && pnpm --filter @ink-ui/ui build:css && storybook dev -p 6006",
+    "build": "pnpm --filter @ink-ui/tokens build && pnpm --filter @ink-ui/ui build:css && storybook build"
+  }
+}

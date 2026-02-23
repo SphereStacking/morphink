@@ -1,0 +1,424 @@
+import { Meta, Title, Subtitle, Canvas } from '@storybook/blocks'
+import * as HeadingStories from '../../components/Heading.stories'
+import * as TextStories from '../../components/Text.stories'
+
+export const TokenGrid = ({ children }) => (
+  <div
+    style={{
+      display: 'grid',
+      gap: '12px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+    }}
+  >
+    {children}
+  </div>
+)
+
+export const TokenCard = ({ token, value, preview }) => (
+  <div
+    style={{
+      border: '1px solid var(--color-border)',
+      borderRadius: 'var(--radius-md)',
+      padding: '12px',
+      background: 'var(--color-card)',
+    }}
+  >
+    <div>{preview}</div>
+    <div
+      style={{
+        marginTop: '8px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Token
+    </div>
+    <div>
+      <code>{token}</code>
+    </div>
+    <div
+      style={{
+        marginTop: '6px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Value
+    </div>
+    <div>
+      <code>{value}</code>
+    </div>
+  </div>
+)
+
+<Meta title="Foundations/Typography" />
+
+<Title>Typography</Title>
+<Subtitle>読みやすさと階層を支える文字設計</Subtitle>
+
+## Overview
+
+タイポグラフィは情報の優先度と可読性を決めます。ink-ui ではサイズ、行間、ウェイトをトークンで管理します。
+
+## Token List
+
+### Font Family
+
+<TokenGrid>
+  <TokenCard
+    token="font.family.base"
+    value="Hiragino Kaku Gothic ProN, ヒラギノ角ゴ Pro W3, Hiragino Sans, Meiryo, メイリオ, Osaka, sans-serif, system-ui"
+    preview={
+      <div
+        style={{
+          padding: '8px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-muted)',
+          fontFamily: 'var(--font-family-base)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        日本語とEnglish 123
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.family.base-ios"
+    value="LatinSystemFont, Hiragino Sans, system-ui"
+    preview={
+      <div
+        style={{
+          padding: '8px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-muted)',
+          fontFamily: 'var(--font-family-base-ios)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        iOS fallback
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.family.base-android"
+    value="NotoSansCJKJP-Custom, system-ui, Meiryo, メイリオ"
+    preview={
+      <div
+        style={{
+          padding: '8px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-muted)',
+          fontFamily: 'var(--font-family-base-android)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        Android fallback
+      </div>
+    }
+  />
+</TokenGrid>
+
+### Font Size
+
+<TokenGrid>
+  <TokenCard
+    token="font.size.h1"
+    value="28px"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-h1)',
+          lineHeight: 'var(--font-line-height-heading)',
+          fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        見出し H1
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.size.h2"
+    value="24px"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-h2)',
+          lineHeight: 'var(--font-line-height-heading)',
+          fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        見出し H2
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.size.h3"
+    value="20px"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-h3)',
+          lineHeight: 'var(--font-line-height-heading)',
+          fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        見出し H3
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.size.h4"
+    value="18px"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-h4)',
+          lineHeight: 'var(--font-line-height-heading)',
+          fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        見出し H4
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.size.h5"
+    value="16px"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-h5)',
+          lineHeight: 'var(--font-line-height-heading)',
+          fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        見出し H5
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.size.h6"
+    value="14px"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-h6)',
+          lineHeight: 'var(--font-line-height-heading)',
+          fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        見出し H6
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.size.body"
+    value="14px"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-body)',
+          lineHeight: 'var(--font-line-height-body)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        本文テキスト
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.size.caption"
+    value="12px"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-caption)',
+          lineHeight: 'var(--font-line-height-caption)',
+          color: 'var(--color-muted-foreground)',
+        }}
+      >
+        キャプション
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.size.label"
+    value="11px"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-label)',
+          lineHeight: 'var(--font-line-height-label)',
+          fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        ラベル
+      </div>
+    }
+  />
+</TokenGrid>
+
+### Line Height
+
+<TokenGrid>
+  <TokenCard
+    token="font.lineHeight.heading"
+    value="1.2"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-h4)',
+          lineHeight: 'var(--font-line-height-heading)',
+          fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        見出しの行間
+        <br />
+        Heading line height
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.lineHeight.body"
+    value="1.6"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-body)',
+          lineHeight: 'var(--font-line-height-body)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        本文の行間
+        <br />
+        Body line height
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.lineHeight.caption"
+    value="1.6"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-caption)',
+          lineHeight: 'var(--font-line-height-caption)',
+          color: 'var(--color-muted-foreground)',
+        }}
+      >
+        キャプションの行間
+        <br />
+        Caption line height
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.lineHeight.label"
+    value="1.4"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-label)',
+          lineHeight: 'var(--font-line-height-label)',
+          fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        ラベルの行間
+        <br />
+        Label line height
+      </div>
+    }
+  />
+</TokenGrid>
+
+### Font Weight
+
+<TokenGrid>
+  <TokenCard
+    token="font.weight.regular"
+    value="400"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-body)',
+          lineHeight: 'var(--font-line-height-body)',
+          fontWeight: 'var(--font-weight-regular)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        Regular
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.weight.medium"
+    value="500"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-body)',
+          lineHeight: 'var(--font-line-height-body)',
+          fontWeight: 'var(--font-weight-medium)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        Medium
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.weight.semibold"
+    value="600"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-body)',
+          lineHeight: 'var(--font-line-height-body)',
+          fontWeight: 'var(--font-weight-semibold)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        Semibold
+      </div>
+    }
+  />
+  <TokenCard
+    token="font.weight.bold"
+    value="700"
+    preview={
+      <div
+        style={{
+          fontSize: 'var(--font-size-body)',
+          lineHeight: 'var(--font-line-height-body)',
+          fontWeight: 'var(--font-weight-bold)',
+          color: 'var(--color-foreground)',
+        }}
+      >
+        Bold
+      </div>
+    }
+  />
+</TokenGrid>
+
+
+## Utilities
+
+タイポグラフィ系のユーティリティはまだ提供していません。必要であれば追加します。
+
+
+## Notes for designers
+
+- 見出しレベルは1段ずつ。飛ばしは避けます。
+- 1つの面における文字の役割は3段階までに抑えます。
+- ラベル/キャプションは本文より先に目立たせないようにします。

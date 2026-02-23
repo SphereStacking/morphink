@@ -1,0 +1,119 @@
+import type { Meta, StoryObj } from '@storybook/vue3'
+import { Toolbar, Button, Stack, Text } from '@ink-ui/ui'
+
+const meta: Meta = {
+  title: 'Components/Toolbar',
+  argTypes: {
+    size: { control: { type: 'select' }, options: ['sm', 'md', 'lg'] },
+    variant: { control: { type: 'select' }, options: ['solid', 'subtle'] },
+    title: { control: 'text' },
+  },
+  args: {
+    size: 'md',
+    variant: 'solid',
+    title: 'ツールバー',
+  },
+}
+
+export default meta
+type Story = StoryObj
+
+export const Playground: Story = {
+  render: args => ({
+    components: { Toolbar, Button, Stack, Text },
+    setup() {
+      return { args }
+    },
+    template: `
+      <Stack gap="12px">
+        <Toolbar :size="args.size" :variant="args.variant">
+          <template #title>
+            <Text weight="semibold">{{ args.title }}</Text>
+          </template>
+          <template #actions>
+            <Button size="sm" variant="ghost">検索</Button>
+            <Button size="sm">追加</Button>
+          </template>
+        </Toolbar>
+      </Stack>
+    `,
+  }),
+}
+
+export const Overview: Story = {
+  render: () => ({
+    components: { Toolbar, Button, Stack, Text },
+    template: `
+      <Stack gap="30px">
+        <Stack direction="column" gap="12px">
+          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <Toolbar>
+            <template #title>
+              <Text weight="semibold">Default</Text>
+            </template>
+            <template #actions>
+              <Button size="sm" variant="ghost">検索</Button>
+              <Button size="sm">追加</Button>
+            </template>
+          </Toolbar>
+        </Stack>
+        <div class="border border-[var(--color-border)]"></div>
+        <Stack direction="column" gap="12px">
+          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">size</div>
+          <Stack gap="12px">
+            <Toolbar size="sm">
+              <template #title>
+                <Text weight="semibold">Small</Text>
+              </template>
+              <template #actions>
+                <Button size="sm" variant="ghost">検索</Button>
+                <Button size="sm">追加</Button>
+              </template>
+            </Toolbar>
+            <Toolbar size="md">
+              <template #title>
+                <Text weight="semibold">Medium</Text>
+              </template>
+              <template #actions>
+                <Button size="sm" variant="ghost">検索</Button>
+                <Button size="sm">追加</Button>
+              </template>
+            </Toolbar>
+            <Toolbar size="lg">
+              <template #title>
+                <Text weight="semibold">Large</Text>
+              </template>
+              <template #actions>
+                <Button size="sm" variant="ghost">検索</Button>
+                <Button size="sm">追加</Button>
+              </template>
+            </Toolbar>
+          </Stack>
+        </Stack>
+        <Stack direction="column" gap="12px">
+          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">variant</div>
+          <Stack gap="12px">
+            <Toolbar variant="solid">
+              <template #title>
+                <Text weight="semibold">Solid</Text>
+              </template>
+              <template #actions>
+                <Button size="sm" variant="ghost">検索</Button>
+                <Button size="sm">追加</Button>
+              </template>
+            </Toolbar>
+            <Toolbar variant="subtle">
+              <template #title>
+                <Text weight="semibold">Subtle</Text>
+              </template>
+              <template #actions>
+                <Button size="sm" variant="ghost">検索</Button>
+                <Button size="sm">追加</Button>
+              </template>
+            </Toolbar>
+          </Stack>
+        </Stack>
+      </Stack>
+    `,
+  }),
+}

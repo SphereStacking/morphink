@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.ink-surface {
+  color: var(--color-foreground);
+  background: var(--color-card);
+}
+
+.ink-muted {
+  color: var(--color-muted-foreground);
+}
+
+.ink-theme {
+  color: var(--color-foreground);
+  background: var(--color-background);
+  font-family: var(--font-family);
+}

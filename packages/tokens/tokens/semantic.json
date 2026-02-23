@@ -1,0 +1,493 @@
+{
+  "color": {
+    "background": {
+      "base": {
+        "value": "{color.white}",
+        "type": "color"
+      }
+    },
+    "foreground": {
+      "base": {
+        "value": "{color.gray-900}",
+        "type": "color"
+      }
+    },
+    "card": {
+      "base": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.gray-900}",
+        "type": "color"
+      }
+    },
+    "popover": {
+      "base": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.gray-900}",
+        "type": "color"
+      }
+    },
+    "muted": {
+      "base": {
+        "value": "{color.gray-100}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.gray-600}",
+        "type": "color"
+      }
+    },
+    "border": {
+      "base": {
+        "value": "{color.gray-300}",
+        "type": "color"
+      }
+    },
+    "input": {
+      "base": {
+        "value": "{color.gray-100}",
+        "type": "color"
+      }
+    },
+    "primary": {
+      "base": {
+        "value": "{color.primary-500}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "hover": {
+        "value": "{color.primary-600}",
+        "type": "color"
+      },
+      "active": {
+        "value": "{color.primary-700}",
+        "type": "color"
+      }
+    },
+    "secondary": {
+      "base": {
+        "value": "{color.secondary-500}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "hover": {
+        "value": "{color.secondary-600}",
+        "type": "color"
+      },
+      "active": {
+        "value": "{color.secondary-700}",
+        "type": "color"
+      }
+    },
+    "tertiary": {
+      "base": {
+        "value": "{color.tertiary-500}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "hover": {
+        "value": "{color.tertiary-600}",
+        "type": "color"
+      },
+      "active": {
+        "value": "{color.tertiary-700}",
+        "type": "color"
+      }
+    },
+    "base": {
+      "base": {
+        "value": "{color.base-500}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.gray-900}",
+        "type": "color"
+      },
+      "hover": {
+        "value": "{color.base-600}",
+        "type": "color"
+      },
+      "active": {
+        "value": "{color.base-700}",
+        "type": "color"
+      }
+    },
+    "accent": {
+      "base": {
+        "value": "{color.accent-500}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "hover": {
+        "value": "{color.accent-600}",
+        "type": "color"
+      },
+      "active": {
+        "value": "{color.accent-700}",
+        "type": "color"
+      }
+    },
+    "neutral": {
+      "base": {
+        "value": "{color.gray-900}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "hover": {
+        "value": "{color.black}",
+        "type": "color"
+      },
+      "active": {
+        "value": "{color.black}",
+        "type": "color"
+      }
+    },
+    "success": {
+      "base": {
+        "value": "{color.success-500}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "hover": {
+        "value": "{color.success-600}",
+        "type": "color"
+      },
+      "active": {
+        "value": "{color.success-700}",
+        "type": "color"
+      }
+    },
+    "warning": {
+      "base": {
+        "value": "{color.warning-500}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "hover": {
+        "value": "{color.warning-600}",
+        "type": "color"
+      },
+      "active": {
+        "value": "{color.warning-700}",
+        "type": "color"
+      }
+    },
+    "info": {
+      "base": {
+        "value": "{color.info-500}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "hover": {
+        "value": "{color.info-600}",
+        "type": "color"
+      },
+      "active": {
+        "value": "{color.info-700}",
+        "type": "color"
+      }
+    },
+    "destructive": {
+      "base": {
+        "value": "{color.destructive-500}",
+        "type": "color"
+      },
+      "foreground": {
+        "value": "{color.white}",
+        "type": "color"
+      },
+      "hover": {
+        "value": "{color.destructive-600}",
+        "type": "color"
+      },
+      "active": {
+        "value": "{color.destructive-700}",
+        "type": "color"
+      }
+    }
+  },
+  "shadow": {
+    "sm": {
+      "value": [
+        {
+          "color": "rgba(0, 0, 0, 0.05)",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0"
+        }
+      ],
+      "type": "shadow"
+    },
+    "md": {
+      "value": [
+        {
+          "color": "rgba(0, 0, 0, 0.1)",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "4px",
+          "blur": "6px",
+          "spread": "-1px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0.06)",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "2px",
+          "blur": "4px",
+          "spread": "-1px"
+        }
+      ],
+      "type": "shadow"
+    },
+    "lg": {
+      "value": [
+        {
+          "color": "rgba(0, 0, 0, 0.1)",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "10px",
+          "blur": "15px",
+          "spread": "-3px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0.05)",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "4px",
+          "blur": "6px",
+          "spread": "-2px"
+        }
+      ],
+      "type": "shadow"
+    }
+  },
+  "space": {
+    "0": {
+      "value": "0",
+      "type": "dimension"
+    },
+    "xs": {
+      "value": "{space.4}",
+      "type": "dimension"
+    },
+    "sm": {
+      "value": "{space.8}",
+      "type": "dimension"
+    },
+    "md": {
+      "value": "{space.12}",
+      "type": "dimension"
+    },
+    "lg": {
+      "value": "{space.16}",
+      "type": "dimension"
+    },
+    "xl": {
+      "value": "{space.24}",
+      "type": "dimension"
+    },
+    "2xl": {
+      "value": "{space.32}",
+      "type": "dimension"
+    },
+    "3xl": {
+      "value": "{space.40}",
+      "type": "dimension"
+    }
+  },
+  "radius": {
+    "none": {
+      "value": "{radius.0}",
+      "type": "dimension"
+    },
+    "xs": {
+      "value": "{radius.2}",
+      "type": "dimension"
+    },
+    "sm": {
+      "value": "{radius.4}",
+      "type": "dimension"
+    },
+    "md": {
+      "value": "{radius.8}",
+      "type": "dimension"
+    },
+    "lg": {
+      "value": "{radius.12}",
+      "type": "dimension"
+    },
+    "xl": {
+      "value": "{radius.16}",
+      "type": "dimension"
+    },
+    "full": {
+      "value": "9999px",
+      "type": "dimension"
+    }
+  },
+  "opacity": {
+    "muted": {
+      "value": "{opacity.60}",
+      "type": "opacity"
+    },
+    "disabled": {
+      "value": "{opacity.40}",
+      "type": "opacity"
+    }
+  },
+  "border": {
+    "width": {
+      "default": {
+        "value": "{border.width.1}",
+        "type": "dimension"
+      },
+      "strong": {
+        "value": "{border.width.2}",
+        "type": "dimension"
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "base": {
+        "value": [
+          "Hiragino Kaku Gothic ProN",
+          "ヒラギノ角ゴ Pro W3",
+          "Hiragino Sans",
+          "Meiryo",
+          "メイリオ",
+          "Osaka",
+          "sans-serif",
+          "system-ui"
+        ],
+        "type": "fontFamilies"
+      },
+      "base-ios": {
+        "value": [
+          "LatinSystemFont",
+          "Hiragino Sans",
+          "system-ui"
+        ],
+        "type": "fontFamilies"
+      },
+      "base-android": {
+        "value": [
+          "NotoSansCJKJP-Custom",
+          "system-ui",
+          "Meiryo",
+          "メイリオ"
+        ],
+        "type": "fontFamilies"
+      }
+    },
+    "weight": {
+      "light": {
+        "value": "300",
+        "type": "fontWeights"
+      },
+      "regular": {
+        "value": "400",
+        "type": "fontWeights"
+      },
+      "medium": {
+        "value": "500",
+        "type": "fontWeights"
+      },
+      "semibold": {
+        "value": "600",
+        "type": "fontWeights"
+      },
+      "bold": {
+        "value": "700",
+        "type": "fontWeights"
+      }
+    },
+    "size": {
+      "body": {
+        "value": "{font.size.14}",
+        "type": "fontSizes"
+      },
+      "caption": {
+        "value": "{font.size.12}",
+        "type": "fontSizes"
+      },
+      "label": {
+        "value": "{font.size.11}",
+        "type": "fontSizes"
+      },
+      "h1": {
+        "value": "{font.size.28}",
+        "type": "fontSizes"
+      },
+      "h2": {
+        "value": "{font.size.24}",
+        "type": "fontSizes"
+      },
+      "h3": {
+        "value": "{font.size.20}",
+        "type": "fontSizes"
+      },
+      "h4": {
+        "value": "{font.size.18}",
+        "type": "fontSizes"
+      },
+      "h5": {
+        "value": "{font.size.16}",
+        "type": "fontSizes"
+      },
+      "h6": {
+        "value": "{font.size.14}",
+        "type": "fontSizes"
+      }
+    },
+    "lineHeight": {
+      "body": {
+        "value": "{font.lineHeight.1-6}",
+        "type": "lineHeights"
+      },
+      "caption": {
+        "value": "{font.lineHeight.1-6}",
+        "type": "lineHeights"
+      },
+      "label": {
+        "value": "{font.lineHeight.1-4}",
+        "type": "lineHeights"
+      },
+      "heading": {
+        "value": "{font.lineHeight.1-2}",
+        "type": "lineHeights"
+      }
+    }
+  }
+}

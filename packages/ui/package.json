@@ -1,0 +1,28 @@
+{
+  "name": "@ink-ui/ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles/tokens.css": "./src/styles/tokens.css",
+    "./styles/base.css": "./src/styles/base.css",
+    "./styles/ui.css": "./dist/ui.css"
+  },
+  "dependencies": {
+    "@ink-ui/tokens": "workspace:*",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "reka-ui": "^2.8.2",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "scripts": {
+    "build": "pnpm run build:css",
+    "build:css": "tailwindcss -c tailwind.config.cjs -i ./src/styles/tailwind.css -o ./dist/ui.css",
+    "dev": "echo \"UI dev not configured yet\"",
+    "lint": "echo \"UI lint not configured yet\""
+  }
+}

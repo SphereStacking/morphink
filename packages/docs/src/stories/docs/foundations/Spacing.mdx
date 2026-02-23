@@ -1,0 +1,221 @@
+import { Meta, Title, Subtitle, Canvas } from '@storybook/blocks'
+import * as StackStories from '../../components/Stack.stories'
+import * as DividerStories from '../../components/Divider.stories'
+
+export const TokenGrid = ({ children }) => (
+  <div
+    style={{
+      display: 'grid',
+      gap: '12px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    }}
+  >
+    {children}
+  </div>
+)
+
+export const TokenCard = ({ token, value, usage, preview }) => (
+  <div
+    style={{
+      border: '1px solid var(--color-border)',
+      borderRadius: 'var(--radius-md)',
+      padding: '12px',
+      background: 'var(--color-card)',
+    }}
+  >
+    <div>{preview}</div>
+    <div
+      style={{
+        marginTop: '8px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Token
+    </div>
+    <div>
+      <code>{token}</code>
+    </div>
+    <div
+      style={{
+        marginTop: '6px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Value
+    </div>
+    <div>
+      <code>{value}</code>
+    </div>
+    {usage ? (
+      <div
+        style={{
+          marginTop: '6px',
+          fontSize: 'var(--font-size-caption)',
+          lineHeight: 'var(--font-line-height-caption)',
+          color: 'var(--color-muted-foreground)',
+        }}
+      >
+        {usage}
+      </div>
+    ) : null}
+  </div>
+)
+
+<Meta title="Foundations/Spacing" />
+
+<Title>Spacing</Title>
+<Subtitle>余白のリズムを統一する</Subtitle>
+
+## Overview
+
+余白は情報のまとまりと読みやすさを作ります。ink-ui では `space.*` トークンを共通の単位として使用します。
+
+## Token List
+
+<TokenGrid>
+  <TokenCard
+    token="space.0"
+    value="0"
+    usage="隙間なし"
+    preview={
+      <div
+        style={{
+          height: '8px',
+          width: '0px',
+          background: 'var(--color-accent)',
+          borderRadius: '999px',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="space.xs"
+    value="4px"
+    usage="最小の区切り"
+    preview={
+      <div
+        style={{
+          height: '8px',
+          width: 'var(--space-xs)',
+          background: 'var(--color-accent)',
+          borderRadius: '999px',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="space.sm"
+    value="8px"
+    usage="近接要素の間隔"
+    preview={
+      <div
+        style={{
+          height: '8px',
+          width: 'var(--space-sm)',
+          background: 'var(--color-accent)',
+          borderRadius: '999px',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="space.md"
+    value="12px"
+    usage="標準の間隔"
+    preview={
+      <div
+        style={{
+          height: '8px',
+          width: 'var(--space-md)',
+          background: 'var(--color-accent)',
+          borderRadius: '999px',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="space.lg"
+    value="16px"
+    usage="セクション内の余白"
+    preview={
+      <div
+        style={{
+          height: '8px',
+          width: 'var(--space-lg)',
+          background: 'var(--color-accent)',
+          borderRadius: '999px',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="space.xl"
+    value="24px"
+    usage="セクション間の余白"
+    preview={
+      <div
+        style={{
+          height: '8px',
+          width: 'var(--space-xl)',
+          background: 'var(--color-accent)',
+          borderRadius: '999px',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="space.2xl"
+    value="32px"
+    usage="大きな区切り"
+    preview={
+      <div
+        style={{
+          height: '8px',
+          width: 'var(--space-2xl)',
+          background: 'var(--color-accent)',
+          borderRadius: '999px',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="space.3xl"
+    value="40px"
+    usage="余白の最大値"
+    preview={
+      <div
+        style={{
+          height: '8px',
+          width: 'var(--space-3xl)',
+          background: 'var(--color-accent)',
+          borderRadius: '999px',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+
+## Utilities
+
+```
+ink-p-{space}
+ink-px-{space} / ink-py-{space} / ink-pt-{space} / ink-pr-{space} / ink-pb-{space} / ink-pl-{space}
+ink-m-{space}
+ink-mx-{space} / ink-my-{space} / ink-mt-{space} / ink-mr-{space} / ink-mb-{space} / ink-ml-{space}
+ink-gap-{space}
+ink-space-x-{space} / ink-space-y-{space}
+ink-space-x-reverse / ink-space-y-reverse
+```
+
+例: `ink-p-md`, `ink-mx-lg`, `ink-gap-2xl`, `ink-space-x-sm`
+
+
+## Notes for designers
+
+- 余白は Stack / Grid で揃え、個別の margin 調整は最小限にします。
+- 同じ密度のコンテンツは同じ `space.*` を使います。

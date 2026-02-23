@@ -1,0 +1,146 @@
+import { Meta, Title, Subtitle, Canvas } from '@storybook/blocks'
+import * as PanelStories from '../../components/Panel.stories'
+
+export const TokenGrid = ({ children }) => (
+  <div
+    style={{
+      display: 'grid',
+      gap: '12px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    }}
+  >
+    {children}
+  </div>
+)
+
+export const TokenCard = ({ token, value, usage, preview }) => (
+  <div
+    style={{
+      border: '1px solid var(--color-border)',
+      borderRadius: 'var(--radius-md)',
+      padding: '12px',
+      background: 'var(--color-card)',
+    }}
+  >
+    <div>{preview}</div>
+    <div
+      style={{
+        marginTop: '8px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Token
+    </div>
+    <div>
+      <code>{token}</code>
+    </div>
+    <div
+      style={{
+        marginTop: '6px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Value
+    </div>
+    <div>
+      <code>{value}</code>
+    </div>
+    {usage ? (
+      <div
+        style={{
+          marginTop: '6px',
+          fontSize: 'var(--font-size-caption)',
+          lineHeight: 'var(--font-line-height-caption)',
+          color: 'var(--color-muted-foreground)',
+        }}
+      >
+        {usage}
+      </div>
+    ) : null}
+  </div>
+)
+
+<Meta title="Foundations/Elevation" />
+
+<Title>Elevation</Title>
+<Subtitle>情報の階層を影で示す</Subtitle>
+
+## Overview
+
+エレベーションは前後関係を視覚的に示します。強調したい領域にのみ影を使い、乱用しないことが重要です。
+
+## Token List
+
+<TokenGrid>
+  <TokenCard
+    token="shadow.sm"
+    value="0 1px 2px 0 rgba(0, 0, 0, 0.05)"
+    usage="軽い影"
+    preview={
+      <div
+        style={{
+          width: '120px',
+          height: '60px',
+          borderRadius: 'var(--radius-md)',
+          background: 'var(--color-card)',
+          boxShadow: 'var(--shadow-sm)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="shadow.md"
+    value="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+    usage="標準の影"
+    preview={
+      <div
+        style={{
+          width: '120px',
+          height: '60px',
+          borderRadius: 'var(--radius-md)',
+          background: 'var(--color-card)',
+          boxShadow: 'var(--shadow-md)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="shadow.lg"
+    value="0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
+    usage="強い影"
+    preview={
+      <div
+        style={{
+          width: '120px',
+          height: '60px',
+          borderRadius: 'var(--radius-md)',
+          background: 'var(--color-card)',
+          boxShadow: 'var(--shadow-lg)',
+          border: '1px solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+
+## Utilities
+
+```
+ink-shadow-sm
+ink-shadow-md
+ink-shadow-lg
+```
+
+例: `ink-shadow-md`
+
+
+## Notes for designers
+
+TBD

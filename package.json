@@ -1,0 +1,15 @@
+{
+  "name": "ink-ui",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "build": "pnpm -r build",
+    "build:css": "pnpm --filter @ink-ui/tokens build && pnpm --filter @ink-ui/ui build:css",
+    "build:docs": "pnpm --filter @ink-ui/docs build",
+    "dev": "pnpm -r dev",
+    "dev:docs": "pnpm --filter @ink-ui/docs dev",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test"
+  }
+}

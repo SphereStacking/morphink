@@ -1,0 +1,127 @@
+import { Meta, Title, Subtitle } from '@storybook/blocks'
+
+export const TokenGrid = ({ children }) => (
+  <div
+    style={{
+      display: 'grid',
+      gap: '12px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    }}
+  >
+    {children}
+  </div>
+)
+
+export const TokenCard = ({ token, value, preview }) => (
+  <div
+    style={{
+      border: '1px solid var(--color-border)',
+      borderRadius: 'var(--radius-md)',
+      padding: '12px',
+      background: 'var(--color-card)',
+    }}
+  >
+    <div>{preview}</div>
+    <div
+      style={{
+        marginTop: '8px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Token
+    </div>
+    <div>
+      <code>{token}</code>
+    </div>
+    <div
+      style={{
+        marginTop: '6px',
+        fontSize: 'var(--font-size-caption)',
+        lineHeight: 'var(--font-line-height-caption)',
+        color: 'var(--color-muted-foreground)',
+      }}
+    >
+      Value
+    </div>
+    <div>
+      <code>{value}</code>
+    </div>
+  </div>
+)
+
+<Meta title="Foundations/[TBD] Border" />
+
+<Title>Border</Title>
+<Subtitle>ボーダーの基準を整理する</Subtitle>
+
+## Overview
+
+ボーダー幅やストロークの一覧を整理するページ。
+
+## Token List
+
+<TokenGrid>
+  <TokenCard
+    token="border.width.default"
+    value="1px"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-card)',
+          border: 'var(--border-width-default) solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="border.width.strong"
+    value="2px"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-card)',
+          border: 'var(--border-width-strong) solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="border.width.1"
+    value="1px"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-card)',
+          border: 'var(--border-width1) solid var(--color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="border.width.2"
+    value="2px"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--radius-sm)',
+          background: 'var(--color-card)',
+          border: 'var(--border-width2) solid var(--color-border)',
+        }}
+      />
+    }
+  />
+</TokenGrid>
+
+
+## Notes for designers
+
+TBD
