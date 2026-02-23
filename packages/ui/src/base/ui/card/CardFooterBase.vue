@@ -1,5 +1,5 @@
 <template>
-  <div :class="cn('flex items-center gap-(--morphink-space-md) px-(--morphink-space-lg) pb-(--morphink-space-lg)', $attrs.class)">
+  <div :class="cn('flex items-center gap-(--morphink-space-md) px-(--morphink-space-lg) pb-(--morphink-space-lg)', $attrs.class as string)">
     <slot />
   </div>
 </template>

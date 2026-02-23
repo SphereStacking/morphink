@@ -1,5 +1,5 @@
 <template>
-  <h3 :class="cn('text-(--morphink-font-size-subheading) font-semibold leading-(--morphink-font-line-height-subheading) text-(--morphink-color-foreground)', $attrs.class)">
+  <h3 :class="cn('text-(length:--morphink-font-size-subheading) font-semibold leading-(--morphink-font-line-height-subheading) text-(color:--morphink-color-foreground)', $attrs.class as string)">
     <slot />
   </h3>
 </template>

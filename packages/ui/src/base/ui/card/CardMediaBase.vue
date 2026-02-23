@@ -1,5 +1,5 @@
 <template>
-  <div :class="cn('overflow-hidden', $attrs.class)">
+  <div :class="cn('overflow-hidden', $attrs.class as string)">
     <slot />
   </div>
 </template>

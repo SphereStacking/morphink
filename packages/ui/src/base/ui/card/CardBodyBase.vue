@@ -1,5 +1,5 @@
 <template>
-  <div :class="cn('p-(--morphink-space-lg)', $attrs.class)">
+  <div :class="cn('p-(--morphink-space-lg)', $attrs.class as string)">
     <slot />
   </div>
 </template>

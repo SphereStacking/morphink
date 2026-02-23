@@ -49,7 +49,6 @@ export const Playground: Story = {
         <CardBody>
           <Text>Use cards to group information and surface actions.</Text>
         </CardBody>
-        <Divider />
         <CardFooter>
           <Button variant="solid" size="sm">Primary</Button>
           <Button variant="outline" size="sm">Secondary</Button>
