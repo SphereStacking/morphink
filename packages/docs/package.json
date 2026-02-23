@@ -3,23 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "devDependencies": {
-    "@storybook/addon-docs": "10.2.10",
-    "@storybook/addon-a11y": "10.2.10",
-    "@storybook/vue3-vite": "10.2.10",
-    "storybook": "10.2.10",
-    "@vitejs/plugin-vue": "^6.0.0",
-    "@vue/compiler-sfc": "^3.4.38",
-    "remark-gfm": "^4.0.0",
-    "vue": "^3.4.38",
-    "eslint-plugin-storybook": "10.2.10"
+  "scripts": {
+    "dev": "pnpm --filter @ink-ui/tokens build && pnpm --filter @ink-ui/ui build:css && storybook dev -p 6006",
+    "build": "pnpm --filter @ink-ui/tokens build && pnpm --filter @ink-ui/ui build:css && storybook build"
   },
   "dependencies": {
     "@ink-ui/tokens": "workspace:*",
     "@ink-ui/ui": "workspace:*"
   },
-  "scripts": {
-    "dev": "pnpm --filter @ink-ui/tokens build && pnpm --filter @ink-ui/ui build:css && storybook dev -p 6006",
-    "build": "pnpm --filter @ink-ui/tokens build && pnpm --filter @ink-ui/ui build:css && storybook build"
+  "devDependencies": {
+    "@storybook/addon-a11y": "10.2.10",
+    "@storybook/addon-docs": "10.2.10",
+    "@storybook/vue3-vite": "10.2.10",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/compiler-sfc": "^3.4.38",
+    "remark-gfm": "^4.0.0",
+    "storybook": "10.2.10",
+    "vue": "^3.4.38"
   }
 }
