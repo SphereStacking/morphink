@@ -41,16 +41,16 @@ export const Overview: Story = {
     template: `
       <Stack gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack gap="12px">
             <Text>Content above</Text>
             <Divider />
             <Text muted>Content below</Text>
           </Stack>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">vertical</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">vertical</div>
           <Stack direction="row" align="center" gap="16px">
             <Text>Left</Text>
             <Divider vertical />

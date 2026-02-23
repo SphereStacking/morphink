@@ -42,16 +42,16 @@ export const Overview: Story = {
     template: `
       <div style="display: grid; gap: 30px;">
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Grid columns="repeat(auto-fit, minmax(200px, 1fr))" gap="16px">
             <Panel><Text>Block A</Text></Panel>
             <Panel><Text>Block B</Text></Panel>
             <Panel><Text>Block C</Text></Panel>
           </Grid>
         </div>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">columns</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">columns</div>
           <Grid columns="repeat(2, minmax(0, 1fr))" gap="16px">
             <Panel><Text>2 cols</Text></Panel>
             <Panel><Text>2 cols</Text></Panel>
@@ -63,7 +63,7 @@ export const Overview: Story = {
           </Grid>
         </div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">gap</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">gap</div>
           <Grid columns="repeat(3, minmax(0, 1fr))" gap="8px">
             <Panel><Text>8px</Text></Panel>
             <Panel><Text>8px</Text></Panel>

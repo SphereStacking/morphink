@@ -17,7 +17,7 @@ withDefaults(
   }>(),
   {
     direction: 'column',
-    gap: 'var(--space-md)',
+    gap: 'var(--morphink-space-md)',
     align: 'stretch',
     justify: 'flex-start',
     wrap: false,

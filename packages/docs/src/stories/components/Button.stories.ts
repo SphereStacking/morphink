@@ -54,14 +54,14 @@ export const Overview: Story = {
     template: `
       <Stack direction="column" gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Button>Default</Button>
           </Stack>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">variant</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Button tone="primary" variant="solid">Solid</Button>
             <Button tone="primary" variant="outline">Outline</Button>
@@ -70,7 +70,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">tone</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">tone</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Button tone="base">Base</Button>
             <Button tone="neutral">Neutral</Button>
@@ -89,7 +89,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">size</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
           <Stack direction="row" gap="12px" align="center">
             <Button size="lg">Large</Button>
             <Button size="md">Medium</Button>
@@ -97,14 +97,14 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">disabled</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">disabled</div>
           <Stack direction="row" gap="12px" align="center">
             <Button>Default</Button>
             <Button disabled>Disabled</Button>
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">rounded</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Button rounded="sm">Rounded Sm</Button>
             <Button rounded="md">Rounded Md</Button>
@@ -112,7 +112,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">shadow</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Button shadow="none">Shadow None</Button>
             <Button shadow="sm">Shadow Sm</Button>

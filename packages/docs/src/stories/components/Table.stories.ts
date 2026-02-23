@@ -71,33 +71,33 @@ export const Overview: Story = {
     template: `
       <div style="display: grid; gap: 30px;">
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Table :columns="columns" :rows="rows" />
         </div>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">density</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">density</div>
           <div style="display: grid; gap: 12px;">
             <Table :columns="columns" :rows="rows" density="comfortable" />
             <Table :columns="columns" :rows="rows" density="compact" />
           </div>
         </div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">striped</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">striped</div>
           <div style="display: grid; gap: 12px;">
             <Table :columns="columns" :rows="rows" :striped="false" />
             <Table :columns="columns" :rows="rows" striped />
           </div>
         </div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">hover</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">hover</div>
           <div style="display: grid; gap: 12px;">
             <Table :columns="columns" :rows="rows" :hover="false" />
             <Table :columns="columns" :rows="rows" :hover="true" />
           </div>
         </div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">rounded</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
           <div style="display: grid; gap: 12px;">
             <Table :columns="columns" :rows="rows" rounded="sm" />
             <Table :columns="columns" :rows="rows" rounded="md" />

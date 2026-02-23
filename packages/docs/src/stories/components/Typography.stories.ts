@@ -43,15 +43,15 @@ export const Overview: Story = {
     template: `
       <Stack gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack gap="12px">
             <Heading :level="3">Default heading</Heading>
             <Text>Default text</Text>
           </Stack>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">headingLevel</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">headingLevel</div>
           <Stack gap="8px">
             <Heading :level="1">H1</Heading>
             <Heading :level="2">H2</Heading>
@@ -60,7 +60,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">variant</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
           <Stack gap="8px">
             <Text variant="body">Body</Text>
             <Text variant="caption">Caption</Text>
@@ -68,7 +68,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">weight</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">weight</div>
           <Stack gap="8px">
             <Text weight="regular">Regular</Text>
             <Text weight="medium">Medium</Text>
@@ -77,7 +77,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">muted</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">muted</div>
           <Stack gap="8px">
             <Text :muted="false">Muted false</Text>
             <Text muted>Muted true</Text>

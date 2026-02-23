@@ -69,22 +69,22 @@ export const Overview: Story = {
     template: `
       <Stack gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack gap="12px">
             <Tabs v-model="activeDefault" :items="items" />
             <Text muted>Selected: {{ activeDefault }}</Text>
           </Stack>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">variant</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
           <Stack gap="12px">
             <Tabs v-model="activeVariant" :items="items" variant="pill" />
             <Tabs v-model="activeVariant" :items="items" variant="underline" />
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">size</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
           <Stack gap="12px">
             <Tabs v-model="activeSize" :items="items" size="sm" />
             <Tabs v-model="activeSize" :items="items" size="md" />

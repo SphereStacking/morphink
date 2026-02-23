@@ -51,19 +51,19 @@ export const Overview: Story = {
     template: `
       <Stack gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Nav :items="items" />
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">size</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
           <Stack gap="12px">
             <Nav :items="items" size="sm" />
             <Nav :items="items" size="md" />
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">variant</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
           <Stack gap="12px">
             <Nav :items="items" variant="subtle" />
             <Nav :items="items" variant="solid" />

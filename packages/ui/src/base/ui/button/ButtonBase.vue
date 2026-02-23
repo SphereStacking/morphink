@@ -19,36 +19,36 @@ import type {
 const buttonVariants = cva(
   cn(
     'inline-flex items-center justify-center gap-2 font-semibold',
-    'border border-(--border-width-default) border-transparent transition duration-150',
+    'border border-(--morphink-border-width-default) border-transparent transition duration-150',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color)'
   ),
   {
     variants: {
       variant: {
         solid: '',
-        outline: 'border border-(--border-width-default)',
+        outline: 'border border-(--morphink-border-width-default)',
         ghost: 'bg-transparent',
         soft: 'border-0',
       },
       tone: {
         primary:
-          'text-(--color-primary-foreground) bg-(--color-primary) border-(--color-primary) [--ring-color:var(--color-primary)]',
+          'text-(--morphink-color-primary-foreground) bg-(--morphink-color-primary) border-(--morphink-color-primary) [--ring-color:var(--morphink-color-primary)]',
         secondary:
-          'text-(--color-secondary-foreground) bg-(--color-secondary) border-(--color-secondary) [--ring-color:var(--color-secondary)]',
+          'text-(--morphink-color-secondary-foreground) bg-(--morphink-color-secondary) border-(--morphink-color-secondary) [--ring-color:var(--morphink-color-secondary)]',
         tertiary:
-          'text-(--color-tertiary-foreground) bg-(--color-tertiary) border-(--color-tertiary) [--ring-color:var(--color-tertiary)]',
-        base: 'text-(--color-base-foreground) bg-(--color-base) border-(--color-base) [--ring-color:var(--color-base)]',
+          'text-(--morphink-color-tertiary-foreground) bg-(--morphink-color-tertiary) border-(--morphink-color-tertiary) [--ring-color:var(--morphink-color-tertiary)]',
+        base: 'text-(--morphink-color-base-foreground) bg-(--morphink-color-base) border-(--morphink-color-base) [--ring-color:var(--morphink-color-base)]',
         accent:
-          'text-(--color-accent-foreground) bg-(--color-accent) border-(--color-accent) [--ring-color:var(--color-accent)]',
+          'text-(--morphink-color-accent-foreground) bg-(--morphink-color-accent) border-(--morphink-color-accent) [--ring-color:var(--morphink-color-accent)]',
         neutral:
-          'text-(--color-neutral-foreground) bg-(--color-neutral) border-(--color-neutral) [--ring-color:var(--color-neutral)]',
+          'text-(--morphink-color-neutral-foreground) bg-(--morphink-color-neutral) border-(--morphink-color-neutral) [--ring-color:var(--morphink-color-neutral)]',
         success:
-          'text-(--color-success-foreground) bg-(--color-success) border-(--color-success) [--ring-color:var(--color-success)]',
+          'text-(--morphink-color-success-foreground) bg-(--morphink-color-success) border-(--morphink-color-success) [--ring-color:var(--morphink-color-success)]',
         warning:
-          'text-(--color-warning-foreground) bg-(--color-warning) border-(--color-warning) [--ring-color:var(--color-warning)]',
-        info: 'text-(--color-info-foreground) bg-(--color-info) border-(--color-info) [--ring-color:var(--color-info)]',
+          'text-(--morphink-color-warning-foreground) bg-(--morphink-color-warning) border-(--morphink-color-warning) [--ring-color:var(--morphink-color-warning)]',
+        info: 'text-(--morphink-color-info-foreground) bg-(--morphink-color-info) border-(--morphink-color-info) [--ring-color:var(--morphink-color-info)]',
         destructive:
-          'text-(--color-destructive-foreground) bg-(--color-destructive) border-(--color-destructive) [--ring-color:var(--color-destructive)]',
+          'text-(--morphink-color-destructive-foreground) bg-(--morphink-color-destructive) border-(--morphink-color-destructive) [--ring-color:var(--morphink-color-destructive)]',
       },
       size: {
         sm: 'h-8 px-3 text-xs',
@@ -57,20 +57,20 @@ const buttonVariants = cva(
       },
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-(--radius-sm)',
-        md: 'rounded-(--radius-md)',
-        lg: 'rounded-(--radius-lg)',
-        xl: 'rounded-(--radius-xl)',
+        sm: 'rounded-(--morphink-radius-sm)',
+        md: 'rounded-(--morphink-radius-md)',
+        lg: 'rounded-(--morphink-radius-lg)',
+        xl: 'rounded-(--morphink-radius-xl)',
         full: 'rounded-full',
       },
       shadow: {
         none: '',
-        sm: 'shadow-(--shadow-sm)',
-        md: 'shadow-(--shadow-md)',
-        lg: 'shadow-(--shadow-lg)',
+        sm: 'shadow-(--morphink-shadow-sm)',
+        md: 'shadow-(--morphink-shadow-md)',
+        lg: 'shadow-(--morphink-shadow-lg)',
       },
       disabled: {
-        true: 'opacity-(--opacity-disabled) cursor-not-allowed shadow-none',
+        true: 'opacity-(--morphink-opacity-disabled) cursor-not-allowed shadow-none',
         false: '',
       },
     },
@@ -78,234 +78,234 @@ const buttonVariants = cva(
       {
         tone: 'primary',
         variant: 'solid',
-        class: 'hover:bg-(--color-primary-hover) active:bg-(--color-primary-active)',
+        class: 'hover:bg-(--morphink-color-primary-hover) active:bg-(--morphink-color-primary-active)',
       },
       {
         tone: 'primary',
         variant: 'outline',
         class:
-          'bg-transparent text-(--color-primary) border-(color:--color-primary) hover:bg-(--color-primary-hover) hover:text-(--color-primary-foreground) hover:border-(color:--color-primary-hover) active:bg-(--color-primary-active) active:text-(--color-primary-foreground) active:border-(color:--color-primary-active)',
+          'bg-transparent text-(--morphink-color-primary) border-(color:--morphink-color-primary) hover:bg-(--morphink-color-primary-hover) hover:text-(--morphink-color-primary-foreground) hover:border-(color:--morphink-color-primary-hover) active:bg-(--morphink-color-primary-active) active:text-(--morphink-color-primary-foreground) active:border-(color:--morphink-color-primary-active)',
       },
       {
         tone: 'primary',
         variant: 'ghost',
         class:
-          'bg-transparent border-transparent text-(--color-primary) hover:bg-(--color-primary) hover:text-(--color-primary-foreground) active:bg-(--color-primary-active) active:text-(--color-primary-foreground)',
+          'bg-transparent border-transparent text-(--morphink-color-primary) hover:bg-(--morphink-color-primary) hover:text-(--morphink-color-primary-foreground) active:bg-(--morphink-color-primary-active) active:text-(--morphink-color-primary-foreground)',
       },
       {
         tone: 'primary',
         variant: 'soft',
         class:
-          'bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)] text-(--color-primary) hover:bg-[color-mix(in_srgb,var(--color-primary-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--color-primary-active)_24%,transparent)]',
+          'bg-[color-mix(in_srgb,var(--morphink-color-primary)_12%,transparent)] text-(--morphink-color-primary) hover:bg-[color-mix(in_srgb,var(--morphink-color-primary-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--morphink-color-primary-active)_24%,transparent)]',
       },
       {
         tone: 'secondary',
         variant: 'solid',
-        class: 'hover:bg-(--color-secondary-hover) active:bg-(--color-secondary-active)',
+        class: 'hover:bg-(--morphink-color-secondary-hover) active:bg-(--morphink-color-secondary-active)',
       },
       {
         tone: 'secondary',
         variant: 'outline',
         class:
-          'bg-transparent text-(--color-secondary) border-(color:--color-secondary) hover:bg-(--color-secondary-hover) hover:text-(--color-secondary-foreground) hover:border-(color:--color-secondary-hover) active:bg-(--color-secondary-active) active:text-(--color-secondary-foreground) active:border-(color:--color-secondary-active)',
+          'bg-transparent text-(--morphink-color-secondary) border-(color:--morphink-color-secondary) hover:bg-(--morphink-color-secondary-hover) hover:text-(--morphink-color-secondary-foreground) hover:border-(color:--morphink-color-secondary-hover) active:bg-(--morphink-color-secondary-active) active:text-(--morphink-color-secondary-foreground) active:border-(color:--morphink-color-secondary-active)',
       },
       {
         tone: 'secondary',
         variant: 'ghost',
         class:
-          'bg-transparent border-transparent text-(--color-secondary) hover:bg-(--color-secondary) hover:text-(--color-secondary-foreground) active:bg-(--color-secondary-active) active:text-(--color-secondary-foreground)',
+          'bg-transparent border-transparent text-(--morphink-color-secondary) hover:bg-(--morphink-color-secondary) hover:text-(--morphink-color-secondary-foreground) active:bg-(--morphink-color-secondary-active) active:text-(--morphink-color-secondary-foreground)',
       },
       {
         tone: 'secondary',
         variant: 'soft',
         class:
-          'bg-[color-mix(in_srgb,var(--color-secondary)_12%,transparent)] text-(--color-secondary) hover:bg-[color-mix(in_srgb,var(--color-secondary-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--color-secondary-active)_24%,transparent)]',
+          'bg-[color-mix(in_srgb,var(--morphink-color-secondary)_12%,transparent)] text-(--morphink-color-secondary) hover:bg-[color-mix(in_srgb,var(--morphink-color-secondary-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--morphink-color-secondary-active)_24%,transparent)]',
       },
       {
         tone: 'tertiary',
         variant: 'solid',
-        class: 'hover:bg-(--color-tertiary-hover) active:bg-(--color-tertiary-active)',
+        class: 'hover:bg-(--morphink-color-tertiary-hover) active:bg-(--morphink-color-tertiary-active)',
       },
       {
         tone: 'tertiary',
         variant: 'outline',
         class:
-          'bg-transparent text-(--color-tertiary) border-(color:--color-tertiary) hover:bg-(--color-tertiary-hover) hover:text-(--color-tertiary-foreground) hover:border-(color:--color-tertiary-hover) active:bg-(--color-tertiary-active) active:text-(--color-tertiary-foreground) active:border-(color:--color-tertiary-active)',
+          'bg-transparent text-(--morphink-color-tertiary) border-(color:--morphink-color-tertiary) hover:bg-(--morphink-color-tertiary-hover) hover:text-(--morphink-color-tertiary-foreground) hover:border-(color:--morphink-color-tertiary-hover) active:bg-(--morphink-color-tertiary-active) active:text-(--morphink-color-tertiary-foreground) active:border-(color:--morphink-color-tertiary-active)',
       },
       {
         tone: 'tertiary',
         variant: 'ghost',
         class:
-          'bg-transparent border-transparent text-(--color-tertiary) hover:bg-(--color-tertiary) hover:text-(--color-tertiary-foreground) active:bg-(--color-tertiary-active) active:text-(--color-tertiary-foreground)',
+          'bg-transparent border-transparent text-(--morphink-color-tertiary) hover:bg-(--morphink-color-tertiary) hover:text-(--morphink-color-tertiary-foreground) active:bg-(--morphink-color-tertiary-active) active:text-(--morphink-color-tertiary-foreground)',
       },
       {
         tone: 'tertiary',
         variant: 'soft',
         class:
-          'bg-[color-mix(in_srgb,var(--color-tertiary)_12%,transparent)] text-(--color-tertiary) hover:bg-[color-mix(in_srgb,var(--color-tertiary-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--color-tertiary-active)_24%,transparent)]',
+          'bg-[color-mix(in_srgb,var(--morphink-color-tertiary)_12%,transparent)] text-(--morphink-color-tertiary) hover:bg-[color-mix(in_srgb,var(--morphink-color-tertiary-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--morphink-color-tertiary-active)_24%,transparent)]',
       },
       {
         tone: 'base',
         variant: 'solid',
         class:
-          'border-(color:--color-base-active) hover:bg-(--color-base-hover) active:bg-(--color-base-active)',
+          'border-(color:--morphink-color-base-active) hover:bg-(--morphink-color-base-hover) active:bg-(--morphink-color-base-active)',
       },
       {
         tone: 'base',
         variant: 'outline',
         class:
-          'bg-transparent text-(--color-base-foreground) border-(color:--color-base) hover:bg-(--color-base-hover) hover:border-(color:--color-base-hover) active:bg-(--color-base-active) active:border-(color:--color-base-active)',
+          'bg-transparent text-(--morphink-color-base-foreground) border-(color:--morphink-color-base) hover:bg-(--morphink-color-base-hover) hover:border-(color:--morphink-color-base-hover) active:bg-(--morphink-color-base-active) active:border-(color:--morphink-color-base-active)',
       },
       {
         tone: 'base',
         variant: 'ghost',
         class:
-          'bg-transparent border-transparent text-(--color-base-foreground) hover:bg-(--color-base) active:bg-(--color-base-active)',
+          'bg-transparent border-transparent text-(--morphink-color-base-foreground) hover:bg-(--morphink-color-base) active:bg-(--morphink-color-base-active)',
       },
       {
         tone: 'base',
         variant: 'soft',
         class:
-          'bg-[color-mix(in_srgb,var(--color-base-hover)_30%,transparent)] text-(--color-base-foreground) hover:bg-[color-mix(in_srgb,var(--color-base-hover)_45%,transparent)] active:bg-[color-mix(in_srgb,var(--color-base-active)_55%,transparent)]',
+          'bg-[color-mix(in_srgb,var(--morphink-color-base-hover)_30%,transparent)] text-(--morphink-color-base-foreground) hover:bg-[color-mix(in_srgb,var(--morphink-color-base-hover)_45%,transparent)] active:bg-[color-mix(in_srgb,var(--morphink-color-base-active)_55%,transparent)]',
       },
       {
         tone: 'accent',
         variant: 'solid',
-        class: 'hover:bg-(--color-accent-hover) active:bg-(--color-accent-active)',
+        class: 'hover:bg-(--morphink-color-accent-hover) active:bg-(--morphink-color-accent-active)',
       },
       {
         tone: 'accent',
         variant: 'outline',
         class:
-          'bg-transparent text-(--color-accent) border-(color:--color-accent) hover:bg-(--color-accent-hover) hover:text-(--color-accent-foreground) hover:border-(color:--color-accent-hover) active:bg-(--color-accent-active) active:text-(--color-accent-foreground) active:border-(color:--color-accent-active)',
+          'bg-transparent text-(--morphink-color-accent) border-(color:--morphink-color-accent) hover:bg-(--morphink-color-accent-hover) hover:text-(--morphink-color-accent-foreground) hover:border-(color:--morphink-color-accent-hover) active:bg-(--morphink-color-accent-active) active:text-(--morphink-color-accent-foreground) active:border-(color:--morphink-color-accent-active)',
       },
       {
         tone: 'accent',
         variant: 'ghost',
         class:
-          'bg-transparent border-transparent text-(--color-accent) hover:bg-(--color-accent) hover:text-(--color-accent-foreground) active:bg-(--color-accent-active) active:text-(--color-accent-foreground)',
+          'bg-transparent border-transparent text-(--morphink-color-accent) hover:bg-(--morphink-color-accent) hover:text-(--morphink-color-accent-foreground) active:bg-(--morphink-color-accent-active) active:text-(--morphink-color-accent-foreground)',
       },
       {
         tone: 'accent',
         variant: 'soft',
         class:
-          'bg-[color-mix(in_srgb,var(--color-accent)_12%,transparent)] text-(--color-accent) hover:bg-[color-mix(in_srgb,var(--color-accent-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--color-accent-active)_24%,transparent)]',
+          'bg-[color-mix(in_srgb,var(--morphink-color-accent)_12%,transparent)] text-(--morphink-color-accent) hover:bg-[color-mix(in_srgb,var(--morphink-color-accent-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--morphink-color-accent-active)_24%,transparent)]',
       },
       {
         tone: 'neutral',
         variant: 'solid',
-        class: 'hover:bg-(--color-neutral-hover) active:bg-(--color-neutral-active)',
+        class: 'hover:bg-(--morphink-color-neutral-hover) active:bg-(--morphink-color-neutral-active)',
       },
       {
         tone: 'neutral',
         variant: 'outline',
         class:
-          'bg-transparent text-(--color-neutral-foreground) border-(color:--color-neutral-foreground) hover:bg-(--color-neutral-hover) hover:text-(--color-neutral-foreground) hover:border-(color:--color-neutral-hover) active:bg-(--color-neutral-active) active:text-(--color-neutral-foreground) active:border-(color:--color-neutral-active)',
+          'bg-transparent text-(--morphink-color-neutral-foreground) border-(color:--morphink-color-neutral-foreground) hover:bg-(--morphink-color-neutral-hover) hover:text-(--morphink-color-neutral-foreground) hover:border-(color:--morphink-color-neutral-hover) active:bg-(--morphink-color-neutral-active) active:text-(--morphink-color-neutral-foreground) active:border-(color:--morphink-color-neutral-active)',
       },
       {
         tone: 'neutral',
         variant: 'ghost',
         class:
-          'bg-transparent border-transparent text-(--color-neutral-foreground) hover:bg-(--color-neutral) hover:text-(--color-neutral-foreground) active:bg-(--color-neutral-active) active:text-(--color-neutral-foreground)',
+          'bg-transparent border-transparent text-(--morphink-color-neutral-foreground) hover:bg-(--morphink-color-neutral) hover:text-(--morphink-color-neutral-foreground) active:bg-(--morphink-color-neutral-active) active:text-(--morphink-color-neutral-foreground)',
       },
       {
         tone: 'neutral',
         variant: 'soft',
         class:
-          'bg-(--color-muted) text-(--color-neutral-foreground) hover:bg-[color-mix(in_srgb,var(--color-neutral-hover)_16%,var(--color-muted))] active:bg-[color-mix(in_srgb,var(--color-neutral-active)_24%,var(--color-muted))]',
+          'bg-(--morphink-color-muted) text-(--morphink-color-neutral-foreground) hover:bg-[color-mix(in_srgb,var(--morphink-color-neutral-hover)_16%,var(--morphink-color-muted))] active:bg-[color-mix(in_srgb,var(--morphink-color-neutral-active)_24%,var(--morphink-color-muted))]',
       },
       {
         tone: 'success',
         variant: 'solid',
-        class: 'hover:bg-(--color-success-hover) active:bg-(--color-success-active)',
+        class: 'hover:bg-(--morphink-color-success-hover) active:bg-(--morphink-color-success-active)',
       },
       {
         tone: 'success',
         variant: 'outline',
         class:
-          'bg-transparent text-(--color-success) border-(color:--color-success) hover:bg-(--color-success-hover) hover:text-(--color-success-foreground) hover:border-(color:--color-success-hover) active:bg-(--color-success-active) active:text-(--color-success-foreground) active:border-(color:--color-success-active)',
+          'bg-transparent text-(--morphink-color-success) border-(color:--morphink-color-success) hover:bg-(--morphink-color-success-hover) hover:text-(--morphink-color-success-foreground) hover:border-(color:--morphink-color-success-hover) active:bg-(--morphink-color-success-active) active:text-(--morphink-color-success-foreground) active:border-(color:--morphink-color-success-active)',
       },
       {
         tone: 'success',
         variant: 'ghost',
         class:
-          'bg-transparent border-transparent text-(--color-success) hover:bg-(--color-success) hover:text-(--color-success-foreground) active:bg-(--color-success-active) active:text-(--color-success-foreground)',
+          'bg-transparent border-transparent text-(--morphink-color-success) hover:bg-(--morphink-color-success) hover:text-(--morphink-color-success-foreground) active:bg-(--morphink-color-success-active) active:text-(--morphink-color-success-foreground)',
       },
       {
         tone: 'success',
         variant: 'soft',
         class:
-          'bg-[color-mix(in_srgb,var(--color-success)_12%,transparent)] text-(--color-success) hover:bg-[color-mix(in_srgb,var(--color-success-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--color-success-active)_24%,transparent)]',
+          'bg-[color-mix(in_srgb,var(--morphink-color-success)_12%,transparent)] text-(--morphink-color-success) hover:bg-[color-mix(in_srgb,var(--morphink-color-success-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--morphink-color-success-active)_24%,transparent)]',
       },
       {
         tone: 'warning',
         variant: 'solid',
-        class: 'hover:bg-(--color-warning-hover) active:bg-(--color-warning-active)',
+        class: 'hover:bg-(--morphink-color-warning-hover) active:bg-(--morphink-color-warning-active)',
       },
       {
         tone: 'warning',
         variant: 'outline',
         class:
-          'bg-transparent text-(--color-warning) border-(color:--color-warning) hover:bg-(--color-warning-hover) hover:text-(--color-warning-foreground) hover:border-(color:--color-warning-hover) active:bg-(--color-warning-active) active:text-(--color-warning-foreground) active:border-(color:--color-warning-active)',
+          'bg-transparent text-(--morphink-color-warning) border-(color:--morphink-color-warning) hover:bg-(--morphink-color-warning-hover) hover:text-(--morphink-color-warning-foreground) hover:border-(color:--morphink-color-warning-hover) active:bg-(--morphink-color-warning-active) active:text-(--morphink-color-warning-foreground) active:border-(color:--morphink-color-warning-active)',
       },
       {
         tone: 'warning',
         variant: 'ghost',
         class:
-          'bg-transparent border-transparent text-(--color-warning) hover:bg-(--color-warning) hover:text-(--color-warning-foreground) active:bg-(--color-warning-active) active:text-(--color-warning-foreground)',
+          'bg-transparent border-transparent text-(--morphink-color-warning) hover:bg-(--morphink-color-warning) hover:text-(--morphink-color-warning-foreground) active:bg-(--morphink-color-warning-active) active:text-(--morphink-color-warning-foreground)',
       },
       {
         tone: 'warning',
         variant: 'soft',
         class:
-          'bg-[color-mix(in_srgb,var(--color-warning)_12%,transparent)] text-(--color-warning) hover:bg-[color-mix(in_srgb,var(--color-warning-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--color-warning-active)_24%,transparent)]',
+          'bg-[color-mix(in_srgb,var(--morphink-color-warning)_12%,transparent)] text-(--morphink-color-warning) hover:bg-[color-mix(in_srgb,var(--morphink-color-warning-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--morphink-color-warning-active)_24%,transparent)]',
       },
       {
         tone: 'info',
         variant: 'solid',
-        class: 'hover:bg-(--color-info-hover) active:bg-(--color-info-active)',
+        class: 'hover:bg-(--morphink-color-info-hover) active:bg-(--morphink-color-info-active)',
       },
       {
         tone: 'info',
         variant: 'outline',
         class:
-          'bg-transparent text-(--color-info) border-(color:--color-info) hover:bg-(--color-info-hover) hover:text-(--color-info-foreground) hover:border-(color:--color-info-hover) active:bg-(--color-info-active) active:text-(--color-info-foreground) active:border-(color:--color-info-active)',
+          'bg-transparent text-(--morphink-color-info) border-(color:--morphink-color-info) hover:bg-(--morphink-color-info-hover) hover:text-(--morphink-color-info-foreground) hover:border-(color:--morphink-color-info-hover) active:bg-(--morphink-color-info-active) active:text-(--morphink-color-info-foreground) active:border-(color:--morphink-color-info-active)',
       },
       {
         tone: 'info',
         variant: 'ghost',
         class:
-          'bg-transparent border-transparent text-(--color-info) hover:bg-(--color-info) hover:text-(--color-info-foreground) active:bg-(--color-info-active) active:text-(--color-info-foreground)',
+          'bg-transparent border-transparent text-(--morphink-color-info) hover:bg-(--morphink-color-info) hover:text-(--morphink-color-info-foreground) active:bg-(--morphink-color-info-active) active:text-(--morphink-color-info-foreground)',
       },
       {
         tone: 'info',
         variant: 'soft',
         class:
-          'bg-[color-mix(in_srgb,var(--color-info)_12%,transparent)] text-(--color-info) hover:bg-[color-mix(in_srgb,var(--color-info-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--color-info-active)_24%,transparent)]',
+          'bg-[color-mix(in_srgb,var(--morphink-color-info)_12%,transparent)] text-(--morphink-color-info) hover:bg-[color-mix(in_srgb,var(--morphink-color-info-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--morphink-color-info-active)_24%,transparent)]',
       },
       {
         tone: 'destructive',
         variant: 'solid',
         class:
-          'hover:bg-(--color-destructive-hover) active:bg-(--color-destructive-active)',
+          'hover:bg-(--morphink-color-destructive-hover) active:bg-(--morphink-color-destructive-active)',
       },
       {
         tone: 'destructive',
         variant: 'outline',
         class:
-          'bg-transparent text-(--color-destructive) border-(color:--color-destructive) hover:bg-(--color-destructive-hover) hover:text-(--color-destructive-foreground) hover:border-(color:--color-destructive-hover) active:bg-(--color-destructive-active) active:text-(--color-destructive-foreground) active:border-(color:--color-destructive-active)',
+          'bg-transparent text-(--morphink-color-destructive) border-(color:--morphink-color-destructive) hover:bg-(--morphink-color-destructive-hover) hover:text-(--morphink-color-destructive-foreground) hover:border-(color:--morphink-color-destructive-hover) active:bg-(--morphink-color-destructive-active) active:text-(--morphink-color-destructive-foreground) active:border-(color:--morphink-color-destructive-active)',
       },
       {
         tone: 'destructive',
         variant: 'ghost',
         class:
-          'bg-transparent border-transparent text-(--color-destructive) hover:bg-(--color-destructive) hover:text-(--color-destructive-foreground) active:bg-(--color-destructive-active) active:text-(--color-destructive-foreground)',
+          'bg-transparent border-transparent text-(--morphink-color-destructive) hover:bg-(--morphink-color-destructive) hover:text-(--morphink-color-destructive-foreground) active:bg-(--morphink-color-destructive-active) active:text-(--morphink-color-destructive-foreground)',
       },
       {
         tone: 'destructive',
         variant: 'soft',
         class:
-          'bg-[color-mix(in_srgb,var(--color-destructive)_12%,transparent)] text-(--color-destructive) hover:bg-[color-mix(in_srgb,var(--color-destructive-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--color-destructive-active)_24%,transparent)]',
+          'bg-[color-mix(in_srgb,var(--morphink-color-destructive)_12%,transparent)] text-(--morphink-color-destructive) hover:bg-[color-mix(in_srgb,var(--morphink-color-destructive-hover)_18%,transparent)] active:bg-[color-mix(in_srgb,var(--morphink-color-destructive-active)_24%,transparent)]',
       },
     ],
     defaultVariants: {

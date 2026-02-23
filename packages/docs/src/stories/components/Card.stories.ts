@@ -52,7 +52,7 @@ export const Overview: Story = {
     template: `
       <Stack gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack gap="12px">
             <Card>
               <template #header>
@@ -67,9 +67,9 @@ export const Overview: Story = {
             </Card>
           </Stack>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">variant</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
           <Stack gap="12px">
             <Card variant="elevated">
               <Text>Elevated</Text>
@@ -80,7 +80,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">rounded</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
           <Stack gap="12px">
             <Card rounded="sm">
               <Text>Rounded sm</Text>
@@ -94,7 +94,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">shadow</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
           <Stack gap="12px">
             <Card shadow="none">
               <Text>Shadow none</Text>

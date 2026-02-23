@@ -11,6 +11,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 /** Utility class prefix — change this single value to rename all generated classes */
 const PREFIX = 'mi'
 
+/** CSS custom property prefix — prepended to all generated CSS variables */
+const VAR_PREFIX = 'morphink'
+
 register(StyleDictionary)
 
 StyleDictionary.registerTransform({
@@ -25,7 +28,7 @@ StyleDictionary.registerTransform({
       .join('-')
       .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
       .toLowerCase()
-    return name
+    return `${VAR_PREFIX}-${name}`
   },
 })
 

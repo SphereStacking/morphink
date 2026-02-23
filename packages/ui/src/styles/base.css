@@ -7,16 +7,16 @@ body {
 }
 
 .mi-surface {
-  color: var(--color-foreground);
-  background: var(--color-card);
+  color: var(--morphink-color-foreground);
+  background: var(--morphink-color-card);
 }
 
 .mi-muted {
-  color: var(--color-muted-foreground);
+  color: var(--morphink-color-muted-foreground);
 }
 
 .morphink-theme {
-  color: var(--color-foreground);
-  background: var(--color-background);
-  font-family: var(--font-family);
+  color: var(--morphink-color-foreground);
+  background: var(--morphink-color-background);
+  font-family: var(--morphink-font-family);
 }

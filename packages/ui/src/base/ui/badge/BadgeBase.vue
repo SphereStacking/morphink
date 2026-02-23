@@ -20,7 +20,7 @@ const badgeVariants = cva(cn('inline-flex items-center font-semibold'), {
     variant: {
       soft: '',
       solid: '',
-      outline: 'border border-(--border-width-default) bg-transparent',
+      outline: 'border border-(--morphink-border-width-default) bg-transparent',
       ghost: 'bg-transparent border-transparent',
     },
     tone: {
@@ -37,10 +37,10 @@ const badgeVariants = cva(cn('inline-flex items-center font-semibold'), {
     },
     rounded: {
       none: 'rounded-none',
-      sm: 'rounded-(--radius-sm)',
-      md: 'rounded-(--radius-md)',
-      lg: 'rounded-(--radius-lg)',
-      xl: 'rounded-(--radius-xl)',
+      sm: 'rounded-(--morphink-radius-sm)',
+      md: 'rounded-(--morphink-radius-md)',
+      lg: 'rounded-(--morphink-radius-lg)',
+      xl: 'rounded-(--morphink-radius-xl)',
       full: 'rounded-full',
     },
   },
@@ -49,211 +49,211 @@ const badgeVariants = cva(cn('inline-flex items-center font-semibold'), {
       tone: 'primary',
       variant: 'soft',
       class:
-        'bg-[color-mix(in_srgb,var(--color-primary)_12%,transparent)] text-(--color-primary)',
+        'bg-[color-mix(in_srgb,var(--morphink-color-primary)_12%,transparent)] text-(--morphink-color-primary)',
     },
     {
       tone: 'primary',
       variant: 'outline',
-      class: 'text-(--color-primary) border-(color:--color-primary)',
+      class: 'text-(--morphink-color-primary) border-(color:--morphink-color-primary)',
     },
     {
       tone: 'primary',
       variant: 'ghost',
-      class: 'text-(--color-primary)',
+      class: 'text-(--morphink-color-primary)',
     },
     {
       tone: 'primary',
       variant: 'solid',
-      class: 'bg-(--color-primary) text-(--color-primary-foreground)',
+      class: 'bg-(--morphink-color-primary) text-(--morphink-color-primary-foreground)',
     },
     {
       tone: 'secondary',
       variant: 'soft',
       class:
-        'bg-[color-mix(in_srgb,var(--color-secondary)_12%,transparent)] text-(--color-secondary)',
+        'bg-[color-mix(in_srgb,var(--morphink-color-secondary)_12%,transparent)] text-(--morphink-color-secondary)',
     },
     {
       tone: 'secondary',
       variant: 'outline',
-      class: 'text-(--color-secondary) border-(color:--color-secondary)',
+      class: 'text-(--morphink-color-secondary) border-(color:--morphink-color-secondary)',
     },
     {
       tone: 'secondary',
       variant: 'ghost',
-      class: 'text-(--color-secondary)',
+      class: 'text-(--morphink-color-secondary)',
     },
     {
       tone: 'secondary',
       variant: 'solid',
-      class: 'bg-(--color-secondary) text-(--color-secondary-foreground)',
+      class: 'bg-(--morphink-color-secondary) text-(--morphink-color-secondary-foreground)',
     },
     {
       tone: 'tertiary',
       variant: 'soft',
       class:
-        'bg-[color-mix(in_srgb,var(--color-tertiary)_12%,transparent)] text-(--color-tertiary)',
+        'bg-[color-mix(in_srgb,var(--morphink-color-tertiary)_12%,transparent)] text-(--morphink-color-tertiary)',
     },
     {
       tone: 'tertiary',
       variant: 'outline',
-      class: 'text-(--color-tertiary) border-(color:--color-tertiary)',
+      class: 'text-(--morphink-color-tertiary) border-(color:--morphink-color-tertiary)',
     },
     {
       tone: 'tertiary',
       variant: 'ghost',
-      class: 'text-(--color-tertiary)',
+      class: 'text-(--morphink-color-tertiary)',
     },
     {
       tone: 'tertiary',
       variant: 'solid',
-      class: 'bg-(--color-tertiary) text-(--color-tertiary-foreground)',
+      class: 'bg-(--morphink-color-tertiary) text-(--morphink-color-tertiary-foreground)',
     },
     {
       tone: 'base',
       variant: 'soft',
       class:
-        'bg-[color-mix(in_srgb,var(--color-base-hover)_30%,transparent)] text-(--color-base-foreground) border border-(--border-width-default) border-(color:--color-base-active)',
+        'bg-[color-mix(in_srgb,var(--morphink-color-base-hover)_30%,transparent)] text-(--morphink-color-base-foreground) border border-(--morphink-border-width-default) border-(color:--morphink-color-base-active)',
     },
     {
       tone: 'base',
       variant: 'outline',
-      class: 'text-(--color-base-foreground) border-(color:--color-base)',
+      class: 'text-(--morphink-color-base-foreground) border-(color:--morphink-color-base)',
     },
     {
       tone: 'base',
       variant: 'ghost',
-      class: 'text-(--color-base-foreground)',
+      class: 'text-(--morphink-color-base-foreground)',
     },
     {
       tone: 'base',
       variant: 'solid',
       class:
-        'bg-(--color-base) text-(--color-base-foreground) border border-(--border-width-default) border-(color:--color-base-active)',
+        'bg-(--morphink-color-base) text-(--morphink-color-base-foreground) border border-(--morphink-border-width-default) border-(color:--morphink-color-base-active)',
     },
     {
       tone: 'accent',
       variant: 'soft',
       class:
-        'bg-[color-mix(in_srgb,var(--color-accent)_12%,transparent)] text-(--color-accent)',
+        'bg-[color-mix(in_srgb,var(--morphink-color-accent)_12%,transparent)] text-(--morphink-color-accent)',
     },
     {
       tone: 'accent',
       variant: 'outline',
-      class: 'text-(--color-accent) border-(color:--color-accent)',
+      class: 'text-(--morphink-color-accent) border-(color:--morphink-color-accent)',
     },
     {
       tone: 'accent',
       variant: 'ghost',
-      class: 'text-(--color-accent)',
+      class: 'text-(--morphink-color-accent)',
     },
     {
       tone: 'accent',
       variant: 'solid',
-      class: 'bg-(--color-accent) text-(--color-accent-foreground)',
+      class: 'bg-(--morphink-color-accent) text-(--morphink-color-accent-foreground)',
     },
     {
       tone: 'neutral',
       variant: 'soft',
-      class: 'bg-(--color-muted) text-(--color-neutral-foreground)',
+      class: 'bg-(--morphink-color-muted) text-(--morphink-color-neutral-foreground)',
     },
     {
       tone: 'neutral',
       variant: 'outline',
       class:
-        'text-(--color-neutral-foreground) border-(color:--color-neutral-foreground)',
+        'text-(--morphink-color-neutral-foreground) border-(color:--morphink-color-neutral-foreground)',
     },
     {
       tone: 'neutral',
       variant: 'ghost',
-      class: 'text-(--color-neutral-foreground)',
+      class: 'text-(--morphink-color-neutral-foreground)',
     },
     {
       tone: 'neutral',
       variant: 'solid',
-      class: 'bg-(--color-neutral) text-(--color-neutral-foreground)',
+      class: 'bg-(--morphink-color-neutral) text-(--morphink-color-neutral-foreground)',
     },
     {
       tone: 'success',
       variant: 'soft',
       class:
-        'bg-[color-mix(in_srgb,var(--color-success)_12%,transparent)] text-(--color-success)',
+        'bg-[color-mix(in_srgb,var(--morphink-color-success)_12%,transparent)] text-(--morphink-color-success)',
     },
     {
       tone: 'success',
       variant: 'outline',
-      class: 'text-(--color-success) border-(color:--color-success)',
+      class: 'text-(--morphink-color-success) border-(color:--morphink-color-success)',
     },
     {
       tone: 'success',
       variant: 'ghost',
-      class: 'text-(--color-success)',
+      class: 'text-(--morphink-color-success)',
     },
     {
       tone: 'success',
       variant: 'solid',
-      class: 'bg-(--color-success) text-(--color-success-foreground)',
+      class: 'bg-(--morphink-color-success) text-(--morphink-color-success-foreground)',
     },
     {
       tone: 'warning',
       variant: 'soft',
       class:
-        'bg-[color-mix(in_srgb,var(--color-warning)_12%,transparent)] text-(--color-warning)',
+        'bg-[color-mix(in_srgb,var(--morphink-color-warning)_12%,transparent)] text-(--morphink-color-warning)',
     },
     {
       tone: 'warning',
       variant: 'outline',
-      class: 'text-(--color-warning) border-(color:--color-warning)',
+      class: 'text-(--morphink-color-warning) border-(color:--morphink-color-warning)',
     },
     {
       tone: 'warning',
       variant: 'ghost',
-      class: 'text-(--color-warning)',
+      class: 'text-(--morphink-color-warning)',
     },
     {
       tone: 'warning',
       variant: 'solid',
-      class: 'bg-(--color-warning) text-(--color-warning-foreground)',
+      class: 'bg-(--morphink-color-warning) text-(--morphink-color-warning-foreground)',
     },
     {
       tone: 'info',
       variant: 'soft',
-      class: 'bg-[color-mix(in_srgb,var(--color-info)_12%,transparent)] text-(--color-info)',
+      class: 'bg-[color-mix(in_srgb,var(--morphink-color-info)_12%,transparent)] text-(--morphink-color-info)',
     },
     {
       tone: 'info',
       variant: 'outline',
-      class: 'text-(--color-info) border-(color:--color-info)',
+      class: 'text-(--morphink-color-info) border-(color:--morphink-color-info)',
     },
     {
       tone: 'info',
       variant: 'ghost',
-      class: 'text-(--color-info)',
+      class: 'text-(--morphink-color-info)',
     },
     {
       tone: 'info',
       variant: 'solid',
-      class: 'bg-(--color-info) text-(--color-info-foreground)',
+      class: 'bg-(--morphink-color-info) text-(--morphink-color-info-foreground)',
     },
     {
       tone: 'destructive',
       variant: 'soft',
       class:
-        'bg-[color-mix(in_srgb,var(--color-destructive)_12%,transparent)] text-(--color-destructive)',
+        'bg-[color-mix(in_srgb,var(--morphink-color-destructive)_12%,transparent)] text-(--morphink-color-destructive)',
     },
     {
       tone: 'destructive',
       variant: 'outline',
-      class: 'text-(--color-destructive) border-(color:--color-destructive)',
+      class: 'text-(--morphink-color-destructive) border-(color:--morphink-color-destructive)',
     },
     {
       tone: 'destructive',
       variant: 'ghost',
-      class: 'text-(--color-destructive)',
+      class: 'text-(--morphink-color-destructive)',
     },
     {
       tone: 'destructive',
       variant: 'solid',
-      class: 'bg-(--color-destructive) text-(--color-destructive-foreground)',
+      class: 'bg-(--morphink-color-destructive) text-(--morphink-color-destructive-foreground)',
     },
   ],
   defaultVariants: {

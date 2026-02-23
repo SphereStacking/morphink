@@ -44,14 +44,14 @@ export const Overview: Story = {
     template: `
       <Stack direction="column" gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Badge>Default</Badge>
           </Stack>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">variant</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Badge tone="primary" variant="solid">Solid</Badge>
             <Badge tone="primary" variant="soft">Soft</Badge>
@@ -60,7 +60,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">tone</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">tone</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Badge tone="base">Base</Badge>
             <Badge tone="neutral">Neutral</Badge>
@@ -79,7 +79,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">size</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Badge size="lg">Large</Badge>
             <Badge size="md">Medium</Badge>
@@ -87,7 +87,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">rounded</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Badge rounded="sm">Rounded Sm</Badge>
             <Badge rounded="md">Rounded Md</Badge>

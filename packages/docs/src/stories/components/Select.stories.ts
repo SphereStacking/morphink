@@ -90,21 +90,21 @@ export const Overview: Story = {
     template: `
       <Stack gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack gap="12px">
             <Select v-model="valueDefault" :options="options" placeholder="Select an option" />
           </Stack>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">variant</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Select v-model="valueOutline" :options="options" placeholder="Outline" variant="outline" />
             <Select v-model="valueGhost" :options="options" placeholder="Ghost" variant="ghost" />
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">size</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Select v-model="valueSize" :options="options" placeholder="Large" size="lg" />
             <Select v-model="valueSize" :options="options" placeholder="Medium" size="md" />
@@ -112,7 +112,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">rounded</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Select v-model="valueRounded" :options="options" placeholder="Rounded sm" rounded="sm" />
             <Select v-model="valueRounded" :options="options" placeholder="Rounded md" rounded="md" />
@@ -120,7 +120,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">shadow</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Select v-model="valueShadow" :options="options" placeholder="Shadow none" shadow="none" />
             <Select v-model="valueShadow" :options="options" placeholder="Shadow sm" shadow="sm" />

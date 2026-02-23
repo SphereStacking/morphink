@@ -46,7 +46,7 @@ export const Overview: Story = {
     template: `
       <Stack gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack gap="12px">
             <Panel>
               <Text>Default panel</Text>
@@ -54,9 +54,9 @@ export const Overview: Story = {
             </Panel>
           </Stack>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">variant</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
           <Stack gap="12px">
             <Panel variant="subtle">
               <Text muted>Subtle panel</Text>
@@ -70,7 +70,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">interactive</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">interactive</div>
           <Stack gap="12px">
             <Panel>
               <Text muted>Not interactive</Text>
@@ -82,7 +82,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">rounded</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
           <Stack gap="12px">
             <Panel rounded="sm">
               <Text>Rounded sm</Text>
@@ -96,7 +96,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">shadow</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
           <Stack gap="12px">
             <Panel shadow="none">
               <Text>Shadow none</Text>

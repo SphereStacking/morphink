@@ -60,16 +60,16 @@ export const Overview: Story = {
     template: `
       <Stack gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack gap="12px">
             <Tooltip content="Content">
               <Button size="sm">Default</Button>
             </Tooltip>
           </Stack>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">open</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">open</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Tooltip content="Closed" :open="false">
               <Button size="sm">Closed</Button>
@@ -80,7 +80,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">side</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">side</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Tooltip content="Bottom" side="bottom">
               <Button size="sm">Bottom</Button>
@@ -97,7 +97,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">align</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">align</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Tooltip content="Start" align="start">
               <Button size="sm">Start</Button>
@@ -111,7 +111,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">delay</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">delay</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Tooltip content="0ms" :delay="0">
               <Button size="sm">0ms</Button>
@@ -125,7 +125,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">rounded</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Tooltip content="Rounded sm" rounded="sm">
               <Button size="sm">Rounded sm</Button>
@@ -139,7 +139,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">shadow</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Tooltip content="Shadow none" shadow="none">
               <Button size="sm">Shadow none</Button>

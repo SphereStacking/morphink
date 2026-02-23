@@ -37,12 +37,12 @@ export const Overview: Story = {
     template: `
       <Stack gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Heading :level="2">Default heading</Heading>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">level</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">level</div>
           <Stack gap="8px">
             <Heading :level="1">H1</Heading>
             <Heading :level="2">H2</Heading>

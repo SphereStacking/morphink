@@ -14,7 +14,7 @@ const props = withDefaults(
   }>(),
   {
     columns: 'repeat(auto-fit, minmax(240px, 1fr))',
-    gap: 'var(--space-lg)',
+    gap: 'var(--morphink-space-lg)',
   }
 )
 

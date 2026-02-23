@@ -58,15 +58,15 @@ export const Overview: Story = {
     template: `
       <div style="display: grid; gap: 30px;">
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack gap="12px">
             <Panel><Text>Item A</Text></Panel>
             <Panel><Text>Item B</Text></Panel>
           </Stack>
         </div>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">direction</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">direction</div>
           <Stack direction="row" gap="12px">
             <Panel><Text>Row A</Text></Panel>
             <Panel><Text>Row B</Text></Panel>
@@ -77,7 +77,7 @@ export const Overview: Story = {
           </Stack>
         </div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">gap</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">gap</div>
           <Stack direction="row" gap="8px">
             <Panel><Text>8px</Text></Panel>
             <Panel><Text>8px</Text></Panel>
@@ -88,7 +88,7 @@ export const Overview: Story = {
           </Stack>
         </div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">align</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">align</div>
           <div style="height: 80px;">
             <Stack direction="row" gap="12px" align="flex-start" style="height: 80px;">
               <Panel style="height: 40px;"><Text>Start</Text></Panel>
@@ -109,7 +109,7 @@ export const Overview: Story = {
           </div>
         </div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">justify</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">justify</div>
           <Stack direction="row" gap="12px" justify="flex-start">
             <Panel><Text>Start</Text></Panel>
             <Panel><Text>Start</Text></Panel>
@@ -124,7 +124,7 @@ export const Overview: Story = {
           </Stack>
         </div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">wrap</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">wrap</div>
           <Stack direction="row" gap="12px" wrap>
             <Panel style="min-width: 160px;"><Text>Wrap A</Text></Panel>
             <Panel style="min-width: 160px;"><Text>Wrap B</Text></Panel>

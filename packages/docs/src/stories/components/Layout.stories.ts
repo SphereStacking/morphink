@@ -52,7 +52,7 @@ export const Overview: Story = {
     template: `
       <div style="display: grid; gap: 30px;">
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack gap="16px">
             <Heading :level="4">Default layout</Heading>
             <Grid columns="repeat(auto-fit, minmax(200px, 1fr))" gap="16px">
@@ -71,9 +71,9 @@ export const Overview: Story = {
             </Grid>
           </Stack>
         </div>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">direction</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">direction</div>
           <Stack direction="row" gap="16px">
             <Card>
               <Heading :level="5">Row A</Heading>
@@ -96,7 +96,7 @@ export const Overview: Story = {
           </Stack>
         </div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">columns</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">columns</div>
           <Grid columns="repeat(2, minmax(0, 1fr))" gap="16px">
             <Card>
               <Heading :level="5">2 cols</Heading>
@@ -123,7 +123,7 @@ export const Overview: Story = {
           </Grid>
         </div>
         <div style="display: grid; gap: 12px;">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">gap</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">gap</div>
           <Grid columns="repeat(3, minmax(0, 1fr))" gap="8px">
             <Card>
               <Heading :level="5">8px</Heading>

@@ -15,19 +15,19 @@ export const TokenGrid = ({ children }) => (
 export const TokenCard = ({ token, cssVar, usage, preview }) => (
   <div
     style={{
-      border: '1px solid var(--color-border)',
-      borderRadius: 'var(--radius-md)',
+      border: '1px solid var(--morphink-color-border)',
+      borderRadius: 'var(--morphink-radius-md)',
       padding: '12px',
-      background: 'var(--color-card)',
+      background: 'var(--morphink-color-card)',
     }}
   >
     <div title={cssVar}>{preview}</div>
     <div
       style={{
         marginTop: '8px',
-        fontSize: 'var(--font-size-caption)',
-        lineHeight: 'var(--font-line-height-caption)',
-        color: 'var(--color-muted-foreground)',
+        fontSize: 'var(--morphink-font-size-caption)',
+        lineHeight: 'var(--morphink-font-line-height-caption)',
+        color: 'var(--morphink-color-muted-foreground)',
       }}
     >
       Token
@@ -38,9 +38,9 @@ export const TokenCard = ({ token, cssVar, usage, preview }) => (
     <div
       style={{
         marginTop: '6px',
-        fontSize: 'var(--font-size-caption)',
-        lineHeight: 'var(--font-line-height-caption)',
-        color: 'var(--color-muted-foreground)',
+        fontSize: 'var(--morphink-font-size-caption)',
+        lineHeight: 'var(--morphink-font-line-height-caption)',
+        color: 'var(--morphink-color-muted-foreground)',
       }}
     >
       CSS Var
@@ -52,9 +52,9 @@ export const TokenCard = ({ token, cssVar, usage, preview }) => (
       <div
         style={{
           marginTop: '6px',
-          fontSize: 'var(--font-size-caption)',
-          lineHeight: 'var(--font-line-height-caption)',
-          color: 'var(--color-muted-foreground)',
+          fontSize: 'var(--morphink-font-size-caption)',
+          lineHeight: 'var(--morphink-font-line-height-caption)',
+          color: 'var(--morphink-color-muted-foreground)',
         }}
       >
         {usage}
@@ -67,9 +67,9 @@ export const ScaleRow = ({ title, tokens }) => (
   <div style={{ display: 'grid', gap: '10px' }}>
     <div
       style={{
-        fontSize: 'var(--font-size-caption)',
-        lineHeight: 'var(--font-line-height-caption)',
-        color: 'var(--color-muted-foreground)',
+        fontSize: 'var(--morphink-font-size-caption)',
+        lineHeight: 'var(--morphink-font-line-height-caption)',
+        color: 'var(--morphink-color-muted-foreground)',
         letterSpacing: '0.02em',
         textTransform: 'uppercase',
       }}
@@ -90,16 +90,16 @@ export const ScaleRow = ({ title, tokens }) => (
             data-tooltip={cssVar}
             style={{
               height: '40px',
-              borderRadius: 'var(--radius-sm)',
+              borderRadius: 'var(--morphink-radius-sm)',
               background: `var(${cssVar})`,
-              border: '1px solid var(--color-border)',
+              border: '1px solid var(--morphink-color-border)',
             }}
           />
           <div
             style={{
-              fontSize: 'var(--font-size-caption)',
-              lineHeight: 'var(--font-line-height-caption)',
-              color: 'var(--color-muted-foreground)',
+              fontSize: 'var(--morphink-font-size-caption)',
+              lineHeight: 'var(--morphink-font-line-height-caption)',
+              color: 'var(--morphink-color-muted-foreground)',
             }}
           >
             <div>{label}</div>
@@ -111,15 +111,15 @@ export const ScaleRow = ({ title, tokens }) => (
 )
 
 export const scale = (name) => [
-  { label: '100', cssVar: `--color-${name}-100` },
-  { label: '200', cssVar: `--color-${name}-200` },
-  { label: '300', cssVar: `--color-${name}-300` },
-  { label: '400', cssVar: `--color-${name}-400` },
-  { label: '500', cssVar: `--color-${name}-500` },
-  { label: '600', cssVar: `--color-${name}-600` },
-  { label: '700', cssVar: `--color-${name}-700` },
-  { label: '800', cssVar: `--color-${name}-800` },
-  { label: '900', cssVar: `--color-${name}-900` },
+  { label: '100', cssVar: `--morphink-color-${name}-100` },
+  { label: '200', cssVar: `--morphink-color-${name}-200` },
+  { label: '300', cssVar: `--morphink-color-${name}-300` },
+  { label: '400', cssVar: `--morphink-color-${name}-400` },
+  { label: '500', cssVar: `--morphink-color-${name}-500` },
+  { label: '600', cssVar: `--morphink-color-${name}-600` },
+  { label: '700', cssVar: `--morphink-color-${name}-700` },
+  { label: '800', cssVar: `--morphink-color-${name}-800` },
+  { label: '900', cssVar: `--morphink-color-${name}-900` },
 ]
 
 <style>{`
@@ -137,9 +137,9 @@ export const scale = (name) => [
   border-radius: 4px;
   font-size: 11px;
   line-height: 1.2;
-  background: var(--color-foreground);
-  color: var(--color-background);
-  border: 1px solid var(--color-border);
+  background: var(--morphink-color-foreground);
+  color: var(--morphink-color-background);
+  border: 1px solid var(--morphink-color-border);
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
@@ -170,30 +170,30 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.background.base"
-    cssVar="--color-background"
+    cssVar="--morphink-color-background"
     usage="Background"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-background)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-background)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.foreground.base"
-    cssVar="--color-foreground"
+    cssVar="--morphink-color-foreground"
     usage="Primary text"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -205,30 +205,30 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.muted.base"
-    cssVar="--color-muted"
+    cssVar="--morphink-color-muted"
     usage="Muted surface"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-muted)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-muted)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.muted.foreground"
-    cssVar="--color-muted-foreground"
+    cssVar="--morphink-color-muted-foreground"
     usage="Secondary text"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-muted-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-muted-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -240,30 +240,30 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.card.base"
-    cssVar="--color-card"
+    cssVar="--morphink-color-card"
     usage="Card surface"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-card)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-card)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.card.foreground"
-    cssVar="--color-card-foreground"
+    cssVar="--morphink-color-card-foreground"
     usage="Card text"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-card-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-card-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -275,30 +275,30 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.popover.base"
-    cssVar="--color-popover"
+    cssVar="--morphink-color-popover"
     usage="Popover surface"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-popover)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-popover)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.popover.foreground"
-    cssVar="--color-popover-foreground"
+    cssVar="--morphink-color-popover-foreground"
     usage="Popover text"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-popover-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-popover-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -310,30 +310,30 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.border.base"
-    cssVar="--color-border"
+    cssVar="--morphink-color-border"
     usage="Border"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-border)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-border)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.input.base"
-    cssVar="--color-input"
+    cssVar="--morphink-color-input"
     usage="Input background"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-input)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-input)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -345,60 +345,60 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.primary.base"
-    cssVar="--color-primary"
+    cssVar="--morphink-color-primary"
     usage="→ color.primary-500"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-primary)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-primary)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.primary.foreground"
-    cssVar="--color-primary-foreground"
+    cssVar="--morphink-color-primary-foreground"
     usage="→ color.white"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-primary-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-primary-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.primary.hover"
-    cssVar="--color-primary-hover"
+    cssVar="--morphink-color-primary-hover"
     usage="→ color.primary-600"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-primary-hover)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-primary-hover)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.primary.active"
-    cssVar="--color-primary-active"
+    cssVar="--morphink-color-primary-active"
     usage="→ color.primary-700"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-primary-active)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-primary-active)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -410,60 +410,60 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.secondary.base"
-    cssVar="--color-secondary"
+    cssVar="--morphink-color-secondary"
     usage="→ color.secondary-500"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-secondary)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-secondary)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.secondary.foreground"
-    cssVar="--color-secondary-foreground"
+    cssVar="--morphink-color-secondary-foreground"
     usage="→ color.white"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-secondary-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-secondary-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.secondary.hover"
-    cssVar="--color-secondary-hover"
+    cssVar="--morphink-color-secondary-hover"
     usage="→ color.secondary-600"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-secondary-hover)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-secondary-hover)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.secondary.active"
-    cssVar="--color-secondary-active"
+    cssVar="--morphink-color-secondary-active"
     usage="→ color.secondary-700"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-secondary-active)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-secondary-active)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -475,60 +475,60 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.tertiary.base"
-    cssVar="--color-tertiary"
+    cssVar="--morphink-color-tertiary"
     usage="→ color.tertiary-500"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-tertiary)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-tertiary)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.tertiary.foreground"
-    cssVar="--color-tertiary-foreground"
+    cssVar="--morphink-color-tertiary-foreground"
     usage="→ color.white"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-tertiary-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-tertiary-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.tertiary.hover"
-    cssVar="--color-tertiary-hover"
+    cssVar="--morphink-color-tertiary-hover"
     usage="→ color.tertiary-600"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-tertiary-hover)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-tertiary-hover)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.tertiary.active"
-    cssVar="--color-tertiary-active"
+    cssVar="--morphink-color-tertiary-active"
     usage="→ color.tertiary-700"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-tertiary-active)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-tertiary-active)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -540,60 +540,60 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.base.base"
-    cssVar="--color-base"
+    cssVar="--morphink-color-base"
     usage="→ color.base-500"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-base)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-base)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.base.foreground"
-    cssVar="--color-base-foreground"
+    cssVar="--morphink-color-base-foreground"
     usage="→ color.gray-900"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-base-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-base-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.base.hover"
-    cssVar="--color-base-hover"
+    cssVar="--morphink-color-base-hover"
     usage="→ color.base-600"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-base-hover)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-base-hover)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.base.active"
-    cssVar="--color-base-active"
+    cssVar="--morphink-color-base-active"
     usage="→ color.base-700"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-base-active)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-base-active)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -605,60 +605,60 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.accent.base"
-    cssVar="--color-accent"
+    cssVar="--morphink-color-accent"
     usage="→ color.accent-500"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-accent)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-accent)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.accent.foreground"
-    cssVar="--color-accent-foreground"
+    cssVar="--morphink-color-accent-foreground"
     usage="→ color.white"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-accent-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-accent-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.accent.hover"
-    cssVar="--color-accent-hover"
+    cssVar="--morphink-color-accent-hover"
     usage="→ color.accent-600"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-accent-hover)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-accent-hover)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.accent.active"
-    cssVar="--color-accent-active"
+    cssVar="--morphink-color-accent-active"
     usage="→ color.accent-700"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-accent-active)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-accent-active)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -670,60 +670,60 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.neutral.base"
-    cssVar="--color-neutral"
+    cssVar="--morphink-color-neutral"
     usage="→ color.gray-900"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-neutral)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-neutral)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.neutral.foreground"
-    cssVar="--color-neutral-foreground"
+    cssVar="--morphink-color-neutral-foreground"
     usage="→ color.white"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-neutral-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-neutral-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.neutral.hover"
-    cssVar="--color-neutral-hover"
+    cssVar="--morphink-color-neutral-hover"
     usage="→ color.black"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-neutral-hover)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-neutral-hover)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.neutral.active"
-    cssVar="--color-neutral-active"
+    cssVar="--morphink-color-neutral-active"
     usage="→ color.black"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-neutral-active)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-neutral-active)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -735,60 +735,60 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.success.base"
-    cssVar="--color-success"
+    cssVar="--morphink-color-success"
     usage="→ color.success-500"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-success)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-success)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.success.foreground"
-    cssVar="--color-success-foreground"
+    cssVar="--morphink-color-success-foreground"
     usage="→ color.white"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-success-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-success-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.success.hover"
-    cssVar="--color-success-hover"
+    cssVar="--morphink-color-success-hover"
     usage="→ color.success-600"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-success-hover)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-success-hover)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.success.active"
-    cssVar="--color-success-active"
+    cssVar="--morphink-color-success-active"
     usage="→ color.success-700"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-success-active)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-success-active)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -800,60 +800,60 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.warning.base"
-    cssVar="--color-warning"
+    cssVar="--morphink-color-warning"
     usage="→ color.warning-500"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-warning)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-warning)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.warning.foreground"
-    cssVar="--color-warning-foreground"
+    cssVar="--morphink-color-warning-foreground"
     usage="→ color.white"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-warning-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-warning-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.warning.hover"
-    cssVar="--color-warning-hover"
+    cssVar="--morphink-color-warning-hover"
     usage="→ color.warning-600"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-warning-hover)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-warning-hover)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.warning.active"
-    cssVar="--color-warning-active"
+    cssVar="--morphink-color-warning-active"
     usage="→ color.warning-700"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-warning-active)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-warning-active)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -865,60 +865,60 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.info.base"
-    cssVar="--color-info"
+    cssVar="--morphink-color-info"
     usage="→ color.info-500"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-info)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-info)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.info.foreground"
-    cssVar="--color-info-foreground"
+    cssVar="--morphink-color-info-foreground"
     usage="→ color.white"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-info-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-info-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.info.hover"
-    cssVar="--color-info-hover"
+    cssVar="--morphink-color-info-hover"
     usage="→ color.info-600"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-info-hover)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-info-hover)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.info.active"
-    cssVar="--color-info-active"
+    cssVar="--morphink-color-info-active"
     usage="→ color.info-700"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-info-active)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-info-active)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
@@ -930,60 +930,60 @@ Color communicates meaning and state. morphink defines tokens by semantic role, 
 <TokenGrid>
   <TokenCard
     token="color.destructive.base"
-    cssVar="--color-destructive"
+    cssVar="--morphink-color-destructive"
     usage="→ color.destructive-500"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-destructive)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-destructive)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.destructive.foreground"
-    cssVar="--color-destructive-foreground"
+    cssVar="--morphink-color-destructive-foreground"
     usage="→ color.white"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-destructive-foreground)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-destructive-foreground)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.destructive.hover"
-    cssVar="--color-destructive-hover"
+    cssVar="--morphink-color-destructive-hover"
     usage="→ color.destructive-600"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-destructive-hover)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-destructive-hover)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }
   />
   <TokenCard
     token="color.destructive.active"
-    cssVar="--color-destructive-active"
+    cssVar="--morphink-color-destructive-active"
     usage="→ color.destructive-700"
     preview={
       <div
         style={{
           height: '32px',
-          borderRadius: 'var(--radius-sm)',
-          background: 'var(--color-destructive-active)',
-          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-destructive-active)',
+          border: '1px solid var(--morphink-color-border)',
         }}
       />
     }

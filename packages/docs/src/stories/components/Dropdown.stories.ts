@@ -73,7 +73,7 @@ export const Overview: Story = {
     template: `
       <Stack gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Stack gap="12px">
             <Dropdown :items="items">
               <template #trigger>
@@ -82,9 +82,9 @@ export const Overview: Story = {
             </Dropdown>
           </Stack>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">open</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">open</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Dropdown :items="items" :open="false">
               <template #trigger>
@@ -99,7 +99,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">side</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">side</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Dropdown :items="items" side="bottom">
               <template #trigger>
@@ -124,7 +124,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">align</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">align</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Dropdown :items="items" align="start">
               <template #trigger>
@@ -144,7 +144,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">rounded</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Dropdown :items="items" rounded="sm">
               <template #trigger>
@@ -164,7 +164,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">shadow</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
           <Stack direction="row" gap="12px" align="center" wrap>
             <Dropdown :items="items" shadow="none">
               <template #trigger>

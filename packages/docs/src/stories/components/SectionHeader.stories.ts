@@ -51,7 +51,7 @@ export const Overview: Story = {
     template: `
       <Stack gap="30px">
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">default</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <SectionHeader>
             <template #title>Default</template>
             <template #subtitle>Subtitle</template>
@@ -60,9 +60,9 @@ export const Overview: Story = {
             </template>
           </SectionHeader>
         </Stack>
-        <div class="border border-[var(--color-border)]"></div>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">size</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
           <Stack gap="12px">
             <SectionHeader size="sm">
               <template #title>Small</template>
@@ -81,7 +81,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">showSubtitle</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">showSubtitle</div>
           <Stack gap="12px">
             <SectionHeader>
               <template #title>Subtitle on</template>
@@ -93,7 +93,7 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <Stack direction="column" gap="12px">
-          <div class="text-xs font-semibold text-[var(--color-muted-foreground)]">showAction</div>
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">showAction</div>
           <Stack gap="12px">
             <SectionHeader>
               <template #title>Action on</template>
