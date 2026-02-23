@@ -7,7 +7,7 @@
 3. Generate outputs
 
 ```bash
-pnpm --filter @ink-ui/tokens build
+pnpm --filter @morphink/tokens build
 ```
 
 ## UI Development
@@ -17,13 +17,13 @@ pnpm --filter @ink-ui/tokens build
 3. Build Tailwind CSS output
 
 ```bash
-pnpm --filter @ink-ui/ui build:css
+pnpm --filter @morphink/ui build:css
 ```
 
 ## Storybook
 
 ```bash
-pnpm --filter @ink-ui/docs dev
+pnpm --filter @morphink/docs dev
 ```
 
 ## Build Outputs

@@ -1,5 +1,5 @@
-import { Select, Stack, Text } from '@ink-ui/ui'
-import { componentRounded, componentShadow, componentSizes, componentVariants } from '@ink-ui/ui'
+import { Select, Stack, Text } from '@morphink/ui'
+import { componentRounded, componentShadow, componentSizes, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 

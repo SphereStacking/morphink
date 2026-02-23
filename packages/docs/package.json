@@ -1,15 +1,15 @@
 {
-  "name": "@ink-ui/docs",
+  "name": "@morphink/docs",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm --filter @ink-ui/tokens build && pnpm --filter @ink-ui/ui build:css && storybook dev -p 6006",
-    "build": "pnpm --filter @ink-ui/tokens build && pnpm --filter @ink-ui/ui build:css && storybook build"
+    "dev": "pnpm --filter @morphink/tokens build && pnpm --filter @morphink/ui build:css && storybook dev -p 6006",
+    "build": "pnpm --filter @morphink/tokens build && pnpm --filter @morphink/ui build:css && storybook build"
   },
   "dependencies": {
-    "@ink-ui/tokens": "workspace:*",
-    "@ink-ui/ui": "workspace:*"
+    "@morphink/tokens": "workspace:*",
+    "@morphink/ui": "workspace:*"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "10.2.10",

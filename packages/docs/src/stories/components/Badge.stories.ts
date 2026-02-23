@@ -1,5 +1,5 @@
-import { Badge, Stack } from '@ink-ui/ui'
-import { componentRounded, componentSizes, componentTones, componentVariants } from '@ink-ui/ui'
+import { Badge, Stack } from '@morphink/ui'
+import { componentRounded, componentSizes, componentTones, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {

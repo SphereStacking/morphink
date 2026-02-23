@@ -50,6 +50,6 @@ packages/
 
 ## Why Avoid Direct Dependencies
 
-- **Consumer independence**: Products use only `@ink-ui/ui`, unaware of internal implementation
+- **Consumer independence**: Products use only `@morphink/ui`, unaware of internal implementation
 - **Swappable implementation**: Replacing Tailwind or other internals preserves the API
 - **Stable operations**: Token changes are absorbed in the UI layer, minimizing product impact

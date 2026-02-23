@@ -1,4 +1,4 @@
-import { Divider, Stack, Text } from '@ink-ui/ui'
+import { Divider, Stack, Text } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {

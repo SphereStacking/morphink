@@ -1,4 +1,4 @@
-import { Tabs, Text, Stack } from '@ink-ui/ui'
+import { Tabs, Text, Stack } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 

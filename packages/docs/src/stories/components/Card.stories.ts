@@ -1,5 +1,5 @@
-import { Card, SectionHeader, Text, Button, Stack, Divider } from '@ink-ui/ui'
-import { componentRounded, componentShadow, componentVariants } from '@ink-ui/ui'
+import { Card, SectionHeader, Text, Button, Stack, Divider } from '@morphink/ui'
+import { componentRounded, componentShadow, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {

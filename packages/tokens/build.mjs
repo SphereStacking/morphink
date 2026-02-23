@@ -133,7 +133,7 @@ StyleDictionary.registerFormat({
   format: ({ dictionary }) => {
     const sourceTokens = dictionary.allTokens.filter((t) => t.isSource)
     const lines = sourceTokens.map((token) => `  --${token.name}: ${token.value};`)
-    return `/**\n * Do not edit directly, this file was auto-generated.\n */\n\n.ink-theme[data-theme="dark"] {\n${lines.join('\n')}\n}\n`
+    return `/**\n * Do not edit directly, this file was auto-generated.\n */\n\n.morphink-theme[data-theme="dark"] {\n${lines.join('\n')}\n}\n`
   },
 })
 

@@ -1,4 +1,4 @@
-import { Grid, Stack, Card, Text, Heading } from '@ink-ui/ui'
+import { Grid, Stack, Card, Text, Heading } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {

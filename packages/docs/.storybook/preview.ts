@@ -1,9 +1,9 @@
 import type { Preview } from '@storybook/vue3-vite'
 import { EVENT_RESET_ALL, EVENT_SET_TOKEN } from '../src/addons/token-editor/constants'
 
-import '@ink-ui/ui/styles/tokens.css'
-import '@ink-ui/ui/styles/base.css'
-import '@ink-ui/ui/styles/ui.css'
+import '@morphink/ui/styles/tokens.css'
+import '@morphink/ui/styles/base.css'
+import '@morphink/ui/styles/ui.css'
 
 const tokenOverrides = new Map<string, string>()
 let channelInitialized = false
@@ -16,7 +16,7 @@ function initTokenEditorChannel() {
   if (!channel) return
 
   channel.on(EVENT_SET_TOKEN, ({ cssVar, value }: { cssVar: string; value: string | null }) => {
-    const el = document.querySelector('.ink-theme') as HTMLElement | null
+    const el = document.querySelector('.morphink-theme') as HTMLElement | null
     if (value === null) {
       tokenOverrides.delete(cssVar)
       el?.style.removeProperty(cssVar)
@@ -29,7 +29,7 @@ function initTokenEditorChannel() {
   })
 
   channel.on(EVENT_RESET_ALL, () => {
-    const el = document.querySelector('.ink-theme') as HTMLElement | null
+    const el = document.querySelector('.morphink-theme') as HTMLElement | null
     for (const cssVar of tokenOverrides.keys()) {
       el?.style.removeProperty(cssVar)
       document.documentElement.style.removeProperty(cssVar)
@@ -66,7 +66,7 @@ const preview: Preview = {
           // Re-apply token overrides after story render
           if (typeof window !== 'undefined') {
             requestAnimationFrame(() => {
-              const el = document.querySelector('.ink-theme') as HTMLElement | null
+              const el = document.querySelector('.morphink-theme') as HTMLElement | null
               if (el) {
                 for (const [cssVar, value] of tokenOverrides.entries()) {
                   el.style.setProperty(cssVar, value)
@@ -75,7 +75,7 @@ const preview: Preview = {
             })
           }
         },
-        template: `<div class="ink-theme" ${theme === 'dark' ? 'data-theme="dark"' : ''} style="padding: 24px; min-width: 320px; background: var(--color-background); color: var(--color-foreground);"><story /></div>`,
+        template: `<div class="morphink-theme" ${theme === 'dark' ? 'data-theme="dark"' : ''} style="padding: 24px; min-width: 320px; background: var(--color-background); color: var(--color-foreground);"><story /></div>`,
       }
     },
   ],

@@ -1,5 +1,5 @@
-import { AlertDialog, Button, Stack, Text } from '@ink-ui/ui'
-import { componentRounded, componentShadow, componentSizes } from '@ink-ui/ui'
+import { AlertDialog, Button, Stack, Text } from '@morphink/ui'
+import { componentRounded, componentShadow, componentSizes } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 

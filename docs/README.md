@@ -1,4 +1,4 @@
-# ink-ui docs
+# morphink docs
 
 This repository is a product-independent design system foundation.
 It outputs tokens managed by Tokens Studio and visualizes them through UI components and Storybook.
@@ -17,7 +17,7 @@ It outputs tokens managed by Tokens Studio and visualizes them through UI compon
 
 ## Why Not Use shadcn-vue Directly?
 
-- **Consumer independence**: Products depend only on `@ink-ui/ui`, not internal implementation details
+- **Consumer independence**: Products depend only on `@morphink/ui`, not internal implementation details
 - **Swappable implementation**: Replacing Tailwind or other internals doesn't change the public API
 - **Stable operations**: Token changes are absorbed within the UI layer, minimizing product impact
 
@@ -25,9 +25,9 @@ It outputs tokens managed by Tokens Studio and visualizes them through UI compon
 
 ```bash
 pnpm install
-pnpm --filter @ink-ui/tokens build
-pnpm --filter @ink-ui/ui build:css
-pnpm --filter @ink-ui/docs dev
+pnpm --filter @morphink/tokens build
+pnpm --filter @morphink/ui build:css
+pnpm --filter @morphink/docs dev
 ```
 
 Storybook: `http://localhost:6006/`

@@ -18,10 +18,10 @@ pnpm run build                            # 全パッケージビルド
 pnpm run dev:docs                         # Storybook 起動 (localhost:6006)
 
 # パッケージ単体
-pnpm --filter @ink-ui/tokens build        # トークン生成 → dist/css,json,ts
-pnpm --filter @ink-ui/ui build:css        # Tailwind コンパイル → dist/ui.css
-pnpm --filter @ink-ui/docs dev            # Storybook dev（tokens+css ビルド込み）
-pnpm --filter @ink-ui/docs build          # Storybook 静的ビルド
+pnpm --filter @morphink/tokens build        # トークン生成 → dist/css,json,ts
+pnpm --filter @morphink/ui build:css        # Tailwind コンパイル → dist/ui.css
+pnpm --filter @morphink/docs dev            # Storybook dev（tokens+css ビルド込み）
+pnpm --filter @morphink/docs build          # Storybook 静的ビルド
 ```
 
 テストランナーは未導入。UI 確認は Storybook で行う。

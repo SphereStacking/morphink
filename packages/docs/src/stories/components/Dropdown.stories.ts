@@ -1,5 +1,5 @@
-import { Dropdown, Button, Stack, Text } from '@ink-ui/ui'
-import { componentRounded, componentShadow } from '@ink-ui/ui'
+import { Dropdown, Button, Stack, Text } from '@morphink/ui'
+import { componentRounded, componentShadow } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {

@@ -1,7 +1,7 @@
-# ink-ui
+# morphink
 
 <p>
-  <img src="packages/docs/public/ink-ui-icon.svg" alt="ink-ui icon" width="64" height="64" />
+  <img src="packages/docs/public/ink-ui-icon.svg" alt="morphink icon" width="64" height="64" />
 </p>
 
 A Vue 3 design system starter kit with a token pipeline, built as a pnpm monorepo.
@@ -10,9 +10,9 @@ A Vue 3 design system starter kit with a token pipeline, built as a pnpm monorep
 
 ```bash
 pnpm install
-pnpm --filter @ink-ui/tokens build
-pnpm --filter @ink-ui/ui build:css
-pnpm --filter @ink-ui/docs dev
+pnpm --filter @morphink/tokens build
+pnpm --filter @morphink/ui build:css
+pnpm --filter @morphink/docs dev
 ```
 
 Storybook: `http://localhost:6006/`
@@ -45,8 +45,8 @@ Sources are located at `packages/tokens/tokens`:
 ## Customization
 
 1. Edit token files in `packages/tokens/tokens/`
-2. Run `pnpm --filter @ink-ui/tokens build` to regenerate outputs
-3. Run `pnpm --filter @ink-ui/ui build:css` to rebuild the UI stylesheet
+2. Run `pnpm --filter @morphink/tokens build` to regenerate outputs
+3. Run `pnpm --filter @morphink/ui build:css` to rebuild the UI stylesheet
 
 ## Documentation
 

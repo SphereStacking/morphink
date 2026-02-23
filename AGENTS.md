@@ -26,10 +26,10 @@ pnpm run test
 パッケージ別コマンド:
 
 ```bash
-pnpm --filter @ink-ui/tokens build
-pnpm --filter @ink-ui/ui build:css
-pnpm --filter @ink-ui/docs dev
-pnpm --filter @ink-ui/docs build
+pnpm --filter @morphink/tokens build
+pnpm --filter @morphink/ui build:css
+pnpm --filter @morphink/docs dev
+pnpm --filter @morphink/docs build
 ```
 
 補足:

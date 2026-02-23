@@ -1,4 +1,4 @@
-import { Stack, Panel, Text } from '@ink-ui/ui'
+import { Stack, Panel, Text } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {

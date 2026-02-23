@@ -15,7 +15,7 @@ body {
   color: var(--color-muted-foreground);
 }
 
-.ink-theme {
+.morphink-theme {
   color: var(--color-foreground);
   background: var(--color-background);
   font-family: var(--font-family);

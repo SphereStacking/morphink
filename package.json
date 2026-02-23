@@ -1,14 +1,14 @@
 {
-  "name": "ink-ui",
+  "name": "morphink",
   "private": true,
   "version": "0.1.0",
   "packageManager": "pnpm@9.15.0",
   "scripts": {
     "build": "pnpm -r build",
-    "build:css": "pnpm --filter @ink-ui/tokens build && pnpm --filter @ink-ui/ui build:css",
-    "build:docs": "pnpm --filter @ink-ui/docs build",
+    "build:css": "pnpm --filter @morphink/tokens build && pnpm --filter @morphink/ui build:css",
+    "build:docs": "pnpm --filter @morphink/docs build",
     "dev": "pnpm -r dev",
-    "dev:docs": "pnpm --filter @ink-ui/docs dev",
+    "dev:docs": "pnpm --filter @morphink/docs dev",
     "lint": "oxlint packages/",
     "format": "oxfmt --write packages/",
     "format:check": "oxfmt --check packages/",

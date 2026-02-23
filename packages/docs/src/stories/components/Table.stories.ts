@@ -1,5 +1,5 @@
-import { Table } from '@ink-ui/ui'
-import { componentRounded } from '@ink-ui/ui'
+import { Table } from '@morphink/ui'
+import { componentRounded } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
