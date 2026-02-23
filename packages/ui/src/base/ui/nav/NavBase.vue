@@ -33,14 +33,14 @@ const attrs = useAttrs()
 const navVariants = cva('inline-flex rounded-full', {
   variants: {
     size: {
-      sm: 'gap-(--space-sm) px-(--space-sm) py-[6px] text-(length:--font-size-caption)',
-      md: 'gap-(--space-md) px-(--space-md) py-(--space-sm) text-(length:--font-size-body)',
+      sm: 'gap-(--morphink-space-sm) px-(--morphink-space-sm) py-[6px] text-(length:--morphink-font-size-caption)',
+      md: 'gap-(--morphink-space-md) px-(--morphink-space-md) py-(--morphink-space-sm) text-(length:--morphink-font-size-body)',
     },
     variant: {
       subtle:
-        'bg-(--color-muted) border-(--border-width-default) border-(--color-border)',
+        'bg-(--morphink-color-muted) border-(--morphink-border-width-default) border-(--morphink-color-border)',
       solid:
-        'bg-(--color-card) border-(--border-width-default) border-(--color-border)',
+        'bg-(--morphink-color-card) border-(--morphink-border-width-default) border-(--morphink-color-border)',
     },
   },
   defaultVariants: {
@@ -57,7 +57,7 @@ const classes = computed(() =>
 const itemClass = (active?: boolean) =>
   cn(
     'font-semibold transition',
-    active ? 'text-(--color-accent)' : 'text-(--color-muted-foreground)',
-    !active ? 'hover:text-(--color-accent)' : null
+    active ? 'text-(--morphink-color-accent)' : 'text-(--morphink-color-muted-foreground)',
+    !active ? 'hover:text-(--morphink-color-accent)' : null
   )
 </script>

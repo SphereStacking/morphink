@@ -71,20 +71,20 @@ const emit = defineEmits<{
 }>()
 
 const triggerVariants = cva(
-  'inline-flex h-9 w-full items-center justify-between px-(--space-sm) text-[14px] text-(--color-foreground)',
+  'inline-flex h-9 w-full items-center justify-between px-(--morphink-space-sm) text-[14px] text-(--morphink-color-foreground)',
   {
     variants: {
       variant: {
         ghost: 'bg-transparent',
         outline:
-          'border-(--border-width-default) border-(--color-border) bg-(--color-input)',
+          'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-input)',
       },
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-(--radius-sm)',
-        md: 'rounded-(--radius-md)',
-        lg: 'rounded-(--radius-lg)',
-        xl: 'rounded-(--radius-xl)',
+        sm: 'rounded-(--morphink-radius-sm)',
+        md: 'rounded-(--morphink-radius-md)',
+        lg: 'rounded-(--morphink-radius-lg)',
+        xl: 'rounded-(--morphink-radius-xl)',
       },
     },
     defaultVariants: {
@@ -103,21 +103,21 @@ const triggerClass = computed(() =>
 )
 
 const contentVariants = cva(
-  'border-(--border-width-default) border-(--color-border) bg-(--color-popover) p-[6px]',
+  'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover) p-[6px]',
   {
     variants: {
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-(--radius-sm)',
-        md: 'rounded-(--radius-md)',
-        lg: 'rounded-(--radius-lg)',
-        xl: 'rounded-(--radius-xl)',
+        sm: 'rounded-(--morphink-radius-sm)',
+        md: 'rounded-(--morphink-radius-md)',
+        lg: 'rounded-(--morphink-radius-lg)',
+        xl: 'rounded-(--morphink-radius-xl)',
       },
       shadow: {
         none: '',
-        sm: 'shadow-(--shadow-sm)',
-        md: 'shadow-(--shadow-md)',
-        lg: 'shadow-(--shadow-lg)',
+        sm: 'shadow-(--morphink-shadow-sm)',
+        md: 'shadow-(--morphink-shadow-md)',
+        lg: 'shadow-(--morphink-shadow-lg)',
       },
     },
     defaultVariants: {
@@ -136,5 +136,5 @@ const contentClass = computed(() =>
 )
 
 const itemClass =
-  'rounded-(--radius-sm) px-(--space-sm) py-[6px] text-[13px] text-(--color-foreground) focus:bg-(--color-muted) outline-hidden'
+  'rounded-(--morphink-radius-sm) px-(--morphink-space-sm) py-[6px] text-[13px] text-(--morphink-color-foreground) focus:bg-(--morphink-color-muted) outline-hidden'
 </script>

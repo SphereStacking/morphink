@@ -6,7 +6,7 @@
     <DialogPortal>
       <DialogOverlay class="fixed inset-0 bg-[rgba(17,17,17,0.45)]" />
       <DialogContent :class="contentClass">
-        <div class="flex items-center justify-between gap-(--space-md)">
+        <div class="flex items-center justify-between gap-(--morphink-space-md)">
           <DialogTitle v-if="title" :class="titleClass">{{ title }}</DialogTitle>
           <DialogClose as-child>
             <button class="text-[20px]" type="button" :aria-label="closeLabel">×</button>
@@ -14,14 +14,14 @@
         </div>
         <DialogDescription
           v-if="description"
-          class="text-[14px] leading-[1.6] text-(--color-muted-foreground)"
+          class="text-[14px] leading-[1.6] text-(--morphink-color-muted-foreground)"
         >
           {{ description }}
         </DialogDescription>
         <div v-if="$slots.default">
           <slot />
         </div>
-        <div v-if="$slots.footer" class="flex justify-end gap-(--space-sm)">
+        <div v-if="$slots.footer" class="flex justify-end gap-(--morphink-space-sm)">
           <slot name="footer" />
         </div>
       </DialogContent>
@@ -47,27 +47,27 @@ import type { DialogRounded, DialogShadow, DialogSize } from '../../lib/props'
 
 const dialogVariants = cva(
   cn(
-    'fixed left-1/2 top-1/2 z-10 grid -translate-x-1/2 -translate-y-1/2 border-(--border-width-default) border-(--color-border) bg-(--color-card)'
+    'fixed left-1/2 top-1/2 z-10 grid -translate-x-1/2 -translate-y-1/2 border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
   ),
   {
     variants: {
       size: {
-        sm: 'w-[min(420px,92vw)] p-(--space-md) gap-(--space-sm)',
-        md: 'w-[min(560px,92vw)] p-(--space-lg) gap-(--space-md)',
-        lg: 'w-[min(720px,92vw)] p-(--space-xl) gap-(--space-md)',
+        sm: 'w-[min(420px,92vw)] p-(--morphink-space-md) gap-(--morphink-space-sm)',
+        md: 'w-[min(560px,92vw)] p-(--morphink-space-lg) gap-(--morphink-space-md)',
+        lg: 'w-[min(720px,92vw)] p-(--morphink-space-xl) gap-(--morphink-space-md)',
       },
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-(--radius-sm)',
-        md: 'rounded-(--radius-md)',
-        lg: 'rounded-(--radius-lg)',
-        xl: 'rounded-(--radius-xl)',
+        sm: 'rounded-(--morphink-radius-sm)',
+        md: 'rounded-(--morphink-radius-md)',
+        lg: 'rounded-(--morphink-radius-lg)',
+        xl: 'rounded-(--morphink-radius-xl)',
       },
       shadow: {
         none: '',
-        sm: 'shadow-(--shadow-sm)',
-        md: 'shadow-(--shadow-md)',
-        lg: 'shadow-(--shadow-lg)',
+        sm: 'shadow-(--morphink-shadow-sm)',
+        md: 'shadow-(--morphink-shadow-md)',
+        lg: 'shadow-(--morphink-shadow-lg)',
       },
     },
     defaultVariants: {

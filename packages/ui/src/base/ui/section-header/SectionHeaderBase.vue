@@ -6,7 +6,7 @@
       </div>
       <div
         v-if="$slots.subtitle"
-        class="mt-1 text-(length:--font-size-caption) text-(--color-muted-foreground)"
+        class="mt-1 text-(length:--morphink-font-size-caption) text-(--morphink-color-muted-foreground)"
       >
         <slot name="subtitle" />
       </div>
@@ -25,8 +25,8 @@ import { cn } from '../../lib/utils'
 const headerVariants = cva('flex items-center justify-between', {
   variants: {
     size: {
-      sm: 'gap-(--space-md)',
-      md: 'gap-(--space-lg)',
+      sm: 'gap-(--morphink-space-md)',
+      md: 'gap-(--morphink-space-lg)',
     },
   },
   defaultVariants: {
@@ -37,8 +37,8 @@ const headerVariants = cva('flex items-center justify-between', {
 const titleVariants = cva('font-semibold', {
   variants: {
     size: {
-      sm: 'text-(length:--font-size-h5)',
-      md: 'text-(length:--font-size-h4)',
+      sm: 'text-(length:--morphink-font-size-h5)',
+      md: 'text-(length:--morphink-font-size-h4)',
     },
   },
   defaultVariants: {

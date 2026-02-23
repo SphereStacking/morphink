@@ -3,7 +3,7 @@
     <div class="font-semibold">
       <slot name="title" />
     </div>
-    <div class="inline-flex gap-(--space-sm)">
+    <div class="inline-flex gap-(--morphink-space-sm)">
       <slot name="actions" />
     </div>
   </div>
@@ -15,18 +15,18 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 import type { ToolbarSize, ToolbarVariant } from '../../lib/props'
 
-const toolbarVariants = cva('flex items-center justify-between gap-(--space-lg)', {
+const toolbarVariants = cva('flex items-center justify-between gap-(--morphink-space-lg)', {
   variants: {
     size: {
-      sm: 'px-(--space-md) py-(--space-sm) text-(length:--font-size-caption)',
-      md: 'px-(--space-lg) py-(--space-md) text-(length:--font-size-body)',
-      lg: 'px-(--space-xl) py-(--space-lg) text-(length:--font-size-h5)',
+      sm: 'px-(--morphink-space-md) py-(--morphink-space-sm) text-(length:--morphink-font-size-caption)',
+      md: 'px-(--morphink-space-lg) py-(--morphink-space-md) text-(length:--morphink-font-size-body)',
+      lg: 'px-(--morphink-space-xl) py-(--morphink-space-lg) text-(length:--morphink-font-size-h5)',
     },
     variant: {
       solid:
-        'bg-(--color-card) border-(--border-width-default) border-(--color-border)',
+        'bg-(--morphink-color-card) border-(--morphink-border-width-default) border-(--morphink-color-border)',
       subtle:
-        'bg-(--color-muted) border-(--border-width-default) border-(--color-border)',
+        'bg-(--morphink-color-muted) border-(--morphink-border-width-default) border-(--morphink-color-border)',
     },
   },
   defaultVariants: {
@@ -52,7 +52,7 @@ const attrs = useAttrs()
 const classes = computed(() =>
   cn(
     toolbarVariants({ size: props.size, variant: props.variant }),
-    'rounded-(--radius-lg)',
+    'rounded-(--morphink-radius-lg)',
     attrs.class
   )
 )

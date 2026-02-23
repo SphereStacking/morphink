@@ -6,7 +6,7 @@
           <th
             v-for="column in columns"
             :key="column.key"
-            class="bg-(--color-muted) px-4 py-3 font-semibold text-(--color-foreground)"
+            class="bg-(--morphink-color-muted) px-4 py-3 font-semibold text-(--morphink-color-foreground)"
             :style="alignStyle(column.align)"
           >
             {{ column.label }}
@@ -60,15 +60,15 @@ const props = withDefaults(
 
 const attrs = useAttrs()
 const tableVariants = cva(
-  'w-full overflow-x-auto overflow-hidden border-(--border-width-default) border-(--color-border) bg-(--color-card)',
+  'w-full overflow-x-auto overflow-hidden border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)',
   {
     variants: {
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-(--radius-sm)',
-        md: 'rounded-(--radius-md)',
-        lg: 'rounded-(--radius-lg)',
-        xl: 'rounded-(--radius-xl)',
+        sm: 'rounded-(--morphink-radius-sm)',
+        md: 'rounded-(--morphink-radius-md)',
+        lg: 'rounded-(--morphink-radius-lg)',
+        xl: 'rounded-(--morphink-radius-xl)',
       },
     },
     defaultVariants: {
@@ -78,7 +78,7 @@ const tableVariants = cva(
 )
 const classes = computed(() => cn(tableVariants({ rounded: props.rounded }), attrs.class))
 
-const cellVariants = cva('border-b border-(--color-border) last:border-b-0', {
+const cellVariants = cva('border-b border-(--morphink-color-border) last:border-b-0', {
   variants: {
     density: {
       comfortable: 'px-4 py-3',
@@ -97,8 +97,8 @@ const cellClass = computed(() =>
 
 const rowClass = computed(() =>
   cn(
-    props.striped ? 'odd:bg-(--color-muted)' : null,
-    props.hover ? 'hover:bg-(--color-muted) transition' : null
+    props.striped ? 'odd:bg-(--morphink-color-muted)' : null,
+    props.hover ? 'hover:bg-(--morphink-color-muted) transition' : null
   )
 )
 

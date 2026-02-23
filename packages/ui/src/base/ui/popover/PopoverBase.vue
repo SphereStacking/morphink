@@ -40,21 +40,21 @@ const handleOpenChange = (value: boolean) => {
 }
 
 const contentVariants = cva(
-  'border-(--border-width-default) border-(--color-border) bg-(--color-popover) p-(--space-md)',
+  'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover) p-(--morphink-space-md)',
   {
     variants: {
       rounded: {
         none: 'rounded-none',
-        sm: 'rounded-(--radius-sm)',
-        md: 'rounded-(--radius-md)',
-        lg: 'rounded-(--radius-lg)',
-        xl: 'rounded-(--radius-xl)',
+        sm: 'rounded-(--morphink-radius-sm)',
+        md: 'rounded-(--morphink-radius-md)',
+        lg: 'rounded-(--morphink-radius-lg)',
+        xl: 'rounded-(--morphink-radius-xl)',
       },
       shadow: {
         none: '',
-        sm: 'shadow-(--shadow-sm)',
-        md: 'shadow-(--shadow-md)',
-        lg: 'shadow-(--shadow-lg)',
+        sm: 'shadow-(--morphink-shadow-sm)',
+        md: 'shadow-(--morphink-shadow-md)',
+        lg: 'shadow-(--morphink-shadow-lg)',
       },
     },
     defaultVariants: {

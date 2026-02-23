@@ -51,8 +51,8 @@ const emit = defineEmits<{
 const wrapperVariants = cva('grid', {
   variants: {
     size: {
-      sm: 'gap-(--space-sm)',
-      md: 'gap-(--space-md)',
+      sm: 'gap-(--morphink-space-sm)',
+      md: 'gap-(--morphink-space-md)',
     },
   },
   defaultVariants: {
@@ -63,12 +63,12 @@ const wrapperVariants = cva('grid', {
 const listVariants = cva('inline-flex', {
   variants: {
     variant: {
-      pill: 'rounded-full p-[6px] border-(--border-width-default) border-(--color-border) bg-(--color-muted)',
-      underline: 'border-b border-(--color-border)',
+      pill: 'rounded-full p-[6px] border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-muted)',
+      underline: 'border-b border-(--morphink-color-border)',
     },
     size: {
-      sm: 'gap-(--space-sm)',
-      md: 'gap-(--space-sm)',
+      sm: 'gap-(--morphink-space-sm)',
+      md: 'gap-(--morphink-space-sm)',
     },
   },
   defaultVariants: {
@@ -92,7 +92,7 @@ const tabVariants = cva('font-semibold transition', {
       false: '',
     },
     disabled: {
-      true: 'opacity-(--opacity-disabled) pointer-events-none',
+      true: 'opacity-(--morphink-opacity-disabled) pointer-events-none',
       false: '',
     },
   },
@@ -101,24 +101,24 @@ const tabVariants = cva('font-semibold transition', {
       variant: 'pill',
       active: true,
       class:
-        'bg-(--color-card) text-(--color-foreground) shadow-[0_6px_12px_rgba(0,0,0,0.08)]',
+        'bg-(--morphink-color-card) text-(--morphink-color-foreground) shadow-[0_6px_12px_rgba(0,0,0,0.08)]',
     },
     {
       variant: 'pill',
       active: false,
       class:
-        'text-(--color-muted-foreground) hover:text-(--color-accent) hover:bg-(--color-muted)',
+        'text-(--morphink-color-muted-foreground) hover:text-(--morphink-color-accent) hover:bg-(--morphink-color-muted)',
     },
     {
       variant: 'underline',
       active: true,
       class:
-        'text-(--color-foreground) border-b-(--border-width-strong) border-(--color-accent) text-(--color-accent)',
+        'text-(--morphink-color-foreground) border-b-(--morphink-border-width-strong) border-(--morphink-color-accent) text-(--morphink-color-accent)',
     },
     {
       variant: 'underline',
       active: false,
-      class: 'text-(--color-muted-foreground) border-transparent',
+      class: 'text-(--morphink-color-muted-foreground) border-transparent',
     },
   ],
   defaultVariants: {
@@ -131,13 +131,13 @@ const tabVariants = cva('font-semibold transition', {
 
 const panelVariants = cva(
   cn(
-    'rounded-(--radius-lg) border-(--border-width-default) border-(--color-border) bg-(--color-card)'
+    'rounded-(--morphink-radius-lg) border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
   ),
   {
     variants: {
       size: {
-        sm: 'p-(--space-sm)',
-        md: 'p-(--space-md)',
+        sm: 'p-(--morphink-space-sm)',
+        md: 'p-(--morphink-space-md)',
       },
     },
     defaultVariants: {

@@ -13,17 +13,17 @@ type Level = 1 | 2 | 3 | 4 | 5 | 6
 
 const headingVariants = cva(
   cn(
-    'm-0 font-(family-name:--font-family-base) leading-(--font-line-height-heading) text-(--color-foreground)'
+    'm-0 font-(family-name:--morphink-font-family-base) leading-(--morphink-font-line-height-heading) text-(--morphink-color-foreground)'
   ),
   {
     variants: {
       level: {
-        1: 'text-(length:--font-size-h1) font-(number:--font-weight-bold)',
-        2: 'text-(length:--font-size-h2) font-(number:--font-weight-bold)',
-        3: 'text-(length:--font-size-h3) font-(number:--font-weight-semibold)',
-        4: 'text-(length:--font-size-h4) font-(number:--font-weight-semibold)',
-        5: 'text-(length:--font-size-h5) font-(number:--font-weight-semibold)',
-        6: 'text-(length:--font-size-h6) font-(number:--font-weight-semibold)',
+        1: 'text-(length:--morphink-font-size-h1) font-(number:--morphink-font-weight-bold)',
+        2: 'text-(length:--morphink-font-size-h2) font-(number:--morphink-font-weight-bold)',
+        3: 'text-(length:--morphink-font-size-h3) font-(number:--morphink-font-weight-semibold)',
+        4: 'text-(length:--morphink-font-size-h4) font-(number:--morphink-font-weight-semibold)',
+        5: 'text-(length:--morphink-font-size-h5) font-(number:--morphink-font-weight-semibold)',
+        6: 'text-(length:--morphink-font-size-h6) font-(number:--morphink-font-weight-semibold)',
       },
     },
     defaultVariants: {

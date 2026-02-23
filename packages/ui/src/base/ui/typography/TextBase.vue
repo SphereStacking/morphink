@@ -14,24 +14,24 @@ type Weight = 'regular' | 'medium' | 'semibold' | 'bold'
 
 const textVariants = cva(
   cn(
-    'm-0 font-(family-name:--font-family-base) leading-(--font-line-height-body) text-(--color-foreground)'
+    'm-0 font-(family-name:--morphink-font-family-base) leading-(--morphink-font-line-height-body) text-(--morphink-color-foreground)'
   ),
   {
     variants: {
       variant: {
-        body: 'text-(length:--font-size-body) leading-(--font-line-height-body)',
-        caption: 'text-(length:--font-size-caption) leading-(--font-line-height-caption)',
+        body: 'text-(length:--morphink-font-size-body) leading-(--morphink-font-line-height-body)',
+        caption: 'text-(length:--morphink-font-size-caption) leading-(--morphink-font-line-height-caption)',
         label:
-          'text-(length:--font-size-label) leading-(--font-line-height-label) uppercase tracking-[0.08em]',
+          'text-(length:--morphink-font-size-label) leading-(--morphink-font-line-height-label) uppercase tracking-[0.08em]',
       },
       weight: {
-        regular: 'font-(number:--font-weight-regular)',
-        medium: 'font-(number:--font-weight-medium)',
-        semibold: 'font-(number:--font-weight-semibold)',
-        bold: 'font-(number:--font-weight-bold)',
+        regular: 'font-(number:--morphink-font-weight-regular)',
+        medium: 'font-(number:--morphink-font-weight-medium)',
+        semibold: 'font-(number:--morphink-font-weight-semibold)',
+        bold: 'font-(number:--morphink-font-weight-bold)',
       },
       muted: {
-        true: 'text-(--color-muted-foreground)',
+        true: 'text-(--morphink-color-muted-foreground)',
         false: null,
       },
     },
