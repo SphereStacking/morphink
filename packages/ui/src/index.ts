@@ -37,6 +37,9 @@ export { default as DropdownSubTrigger } from './components/DropdownSubTrigger.v
 export { default as DropdownSubContent } from './components/DropdownSubContent.vue'
 export { default as Select } from './components/Select.vue'
 export { default as Input } from './components/Input.vue'
+export { default as Checkbox } from './components/Checkbox.vue'
+export { default as Textarea } from './components/Textarea.vue'
+export { default as Switch } from './components/Switch.vue'
 
 export {
   componentVariants,

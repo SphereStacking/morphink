@@ -10,6 +10,9 @@ export const componentSizes = {
   Toolbar: ['sm', 'md', 'lg'],
   Dropdown: ['sm', 'md', 'lg'],
   Input: ['xs', 'sm', 'md', 'lg', 'xl'],
+  Textarea: ['xs', 'sm', 'md', 'lg', 'xl'],
+  Checkbox: ['sm', 'md', 'lg'],
+  Switch: ['sm', 'md', 'lg'],
 } as const
 
 export type BadgeSize = (typeof componentSizes.Badge)[number]
@@ -20,3 +23,6 @@ export type SelectSize = (typeof componentSizes.Select)[number]
 export type ToolbarSize = (typeof componentSizes.Toolbar)[number]
 export type DropdownSize = (typeof componentSizes.Dropdown)[number]
 export type InputSize = (typeof componentSizes.Input)[number]
+export type TextareaSize = (typeof componentSizes.Textarea)[number]
+export type CheckboxSize = (typeof componentSizes.Checkbox)[number]
+export type SwitchSize = (typeof componentSizes.Switch)[number]

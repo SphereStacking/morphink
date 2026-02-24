@@ -9,6 +9,7 @@ export const componentVariants = {
   Select: ['outline', 'ghost'],
   Toolbar: ['solid', 'subtle'],
   Input: ['outline', 'ghost', 'soft'],
+  Textarea: ['outline', 'ghost', 'soft'],
 } as const
 
 export type ButtonVariant = (typeof componentVariants.Button)[number]
@@ -18,3 +19,4 @@ export type CardVariant = (typeof componentVariants.Card)[number]
 export type SelectVariant = (typeof componentVariants.Select)[number]
 export type ToolbarVariant = (typeof componentVariants.Toolbar)[number]
 export type InputVariant = (typeof componentVariants.Input)[number]
+export type TextareaVariant = (typeof componentVariants.Textarea)[number]
