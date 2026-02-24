@@ -4,18 +4,21 @@ import {
   componentRounded,
   componentSizes,
   componentTones,
+  componentVariants,
 } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/Checkbox',
   argTypes: {
+    variant: { control: { type: 'select' }, options: componentVariants.Checkbox },
     tone: { control: { type: 'select' }, options: componentTones.Checkbox },
     size: { control: { type: 'select' }, options: componentSizes.Checkbox },
     rounded: { control: { type: 'select' }, options: componentRounded.Checkbox },
     disabled: { control: 'boolean' },
   },
   args: {
+    variant: 'outline',
     tone: 'primary',
     size: 'md',
     rounded: 'sm',
@@ -49,6 +52,46 @@ export const Overview: Story = {
     components: { Checkbox, Stack },
     template: `
       <Stack direction="column" gap="2xl">
+        <Stack direction="column" gap="md">
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
+          <Stack direction="row" gap="lg">
+            <div class="flex items-center gap-2">
+              <Checkbox variant="outline" :default-value="true" />
+              <span class="text-sm text-[var(--morphink-color-foreground)]">Outline</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Checkbox variant="solid" :default-value="true" />
+              <span class="text-sm text-[var(--morphink-color-foreground)]">Solid</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Checkbox variant="ghost" :default-value="true" />
+              <span class="text-sm text-[var(--morphink-color-foreground)]">Ghost</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Checkbox variant="soft" :default-value="true" />
+              <span class="text-sm text-[var(--morphink-color-foreground)]">Soft</span>
+            </div>
+          </Stack>
+          <Stack direction="row" gap="lg">
+            <div class="flex items-center gap-2">
+              <Checkbox variant="outline" />
+              <span class="text-sm text-[var(--morphink-color-muted-foreground)]">Outline off</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Checkbox variant="solid" />
+              <span class="text-sm text-[var(--morphink-color-muted-foreground)]">Solid off</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Checkbox variant="ghost" />
+              <span class="text-sm text-[var(--morphink-color-muted-foreground)]">Ghost off</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Checkbox variant="soft" />
+              <span class="text-sm text-[var(--morphink-color-muted-foreground)]">Soft off</span>
+            </div>
+          </Stack>
+        </Stack>
+        <div class="border border-[var(--morphink-color-border)]"></div>
         <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">states</div>
           <Stack direction="row" gap="lg">

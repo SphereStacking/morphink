@@ -7,12 +7,13 @@
  */
 import SwitchBase from '../base/ui/switch/SwitchBase.vue'
 import { useForwardPropsEmits } from 'reka-ui'
-import type { SwitchSize, SwitchTone } from '../base/lib/props'
+import type { SwitchSize, SwitchTone, SwitchVariant } from '../base/lib/props'
 
 const props = withDefaults(
   defineProps<{
     modelValue?: boolean
     defaultValue?: boolean
+    variant?: SwitchVariant
     tone?: SwitchTone
     size?: SwitchSize
     disabled?: boolean
@@ -21,6 +22,7 @@ const props = withDefaults(
     id?: string
   }>(),
   {
+    variant: 'solid',
     tone: 'primary',
     size: 'md',
     disabled: false,

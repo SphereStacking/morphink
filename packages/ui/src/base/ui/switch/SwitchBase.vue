@@ -4,18 +4,39 @@ import { computed, useAttrs } from 'vue'
 import { SwitchRoot, SwitchThumb, useForwardPropsEmits } from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
-import type { SwitchSize, SwitchTone } from '../../lib/props'
+import type { SwitchSize, SwitchTone, SwitchVariant } from '../../lib/props'
 
 const switchVariants = cva(
   cn(
-    'inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition duration-150',
+    'inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 transition duration-150',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
     'data-[state=unchecked]:bg-(--morphink-color-muted)',
+    'data-[state=checked]:border-transparent',
     'data-[state=checked]:bg-(--ctl-color)'
   ),
   {
     variants: {
+      variant: {
+        outline: cn(
+          'border-(color:--ctl-color)',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]'
+        ),
+        solid: cn(
+          'border-transparent',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]'
+        ),
+        ghost: cn(
+          'border-transparent data-[state=unchecked]:bg-transparent',
+          'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'
+        ),
+        soft: cn(
+          'border-transparent',
+          'data-[state=unchecked]:bg-[color-mix(in_srgb,var(--ctl-color)_12%,transparent)]',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,transparent)]',
+          'data-[state=checked]:bg-[color-mix(in_srgb,var(--ctl-color)_65%,transparent)]'
+        ),
+      },
       tone: {
         primary: cn(
           '[--ring-color:var(--morphink-color-primary)]',
@@ -66,7 +87,18 @@ const switchVariants = cva(
         xl: 'h-8 w-[60px]',
       },
     },
+    compoundVariants: [
+      { variant: 'soft', tone: 'base', class: cn(
+        'data-[state=unchecked]:bg-(--morphink-color-muted)',
+        'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
+      )},
+      { variant: 'soft', tone: 'neutral', class: cn(
+        'data-[state=unchecked]:bg-(--morphink-color-muted)',
+        'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
+      )},
+    ],
     defaultVariants: {
+      variant: 'solid',
       tone: 'primary',
       size: 'md',
     },
@@ -98,6 +130,7 @@ const props = withDefaults(
   defineProps<{
     modelValue?: boolean
     defaultValue?: boolean
+    variant?: SwitchVariant
     tone?: SwitchTone
     size?: SwitchSize
     disabled?: boolean
@@ -106,6 +139,7 @@ const props = withDefaults(
     id?: string
   }>(),
   {
+    variant: 'solid',
     tone: 'primary',
     size: 'md',
     disabled: false,
@@ -132,6 +166,7 @@ const attrs = useAttrs()
 const rootClasses = computed(() =>
   cn(
     switchVariants({
+      variant: props.variant,
       tone: props.tone,
       size: props.size,
     }),

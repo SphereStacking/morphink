@@ -4,12 +4,11 @@ import { computed, useAttrs } from 'vue'
 import { CheckboxRoot, CheckboxIndicator, useForwardPropsEmits } from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
-import type { CheckboxRounded, CheckboxSize, CheckboxTone } from '../../lib/props'
+import type { CheckboxRounded, CheckboxSize, CheckboxTone, CheckboxVariant } from '../../lib/props'
 
 const checkboxVariants = cva(
   cn(
     'inline-flex shrink-0 items-center justify-center border transition duration-150',
-    'border-(--morphink-color-border)',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
     'data-[state=checked]:border-transparent data-[state=indeterminate]:border-transparent',
@@ -18,6 +17,27 @@ const checkboxVariants = cva(
   ),
   {
     variants: {
+      variant: {
+        outline: cn(
+          'border-(color:--ctl-color)',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_8%,transparent)]'
+        ),
+        solid: cn(
+          'border-transparent bg-(--morphink-color-muted)',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]'
+        ),
+        ghost: cn(
+          'border-transparent',
+          'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'
+        ),
+        soft: cn(
+          'border-transparent',
+          'bg-[color-mix(in_srgb,var(--ctl-color)_12%,transparent)]',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,transparent)]',
+          'data-[state=checked]:bg-[color-mix(in_srgb,var(--ctl-color)_65%,transparent)]',
+          'data-[state=indeterminate]:bg-[color-mix(in_srgb,var(--ctl-color)_65%,transparent)]'
+        ),
+      },
       tone: {
         primary: cn(
           '[--ring-color:var(--morphink-color-primary)]',
@@ -84,7 +104,18 @@ const checkboxVariants = cva(
         full: 'rounded-full',
       },
     },
+    compoundVariants: [
+      { variant: 'soft', tone: 'base', class: cn(
+        'bg-(--morphink-color-muted)',
+        'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
+      )},
+      { variant: 'soft', tone: 'neutral', class: cn(
+        'bg-(--morphink-color-muted)',
+        'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
+      )},
+    ],
     defaultVariants: {
+      variant: 'outline',
       tone: 'primary',
       size: 'md',
       rounded: 'sm',
@@ -104,6 +135,7 @@ const props = withDefaults(
   defineProps<{
     modelValue?: boolean | 'indeterminate'
     defaultValue?: boolean | 'indeterminate'
+    variant?: CheckboxVariant
     tone?: CheckboxTone
     size?: CheckboxSize
     rounded?: CheckboxRounded
@@ -113,6 +145,7 @@ const props = withDefaults(
     id?: string
   }>(),
   {
+    variant: 'outline',
     tone: 'primary',
     size: 'md',
     rounded: 'sm',
@@ -138,6 +171,7 @@ const attrs = useAttrs()
 const classes = computed(() =>
   cn(
     checkboxVariants({
+      variant: props.variant,
       tone: props.tone,
       size: props.size,
       rounded: props.rounded,

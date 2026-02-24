@@ -7,12 +7,13 @@
  */
 import CheckboxBase from '../base/ui/checkbox/CheckboxBase.vue'
 import { useForwardPropsEmits } from 'reka-ui'
-import type { CheckboxRounded, CheckboxSize, CheckboxTone } from '../base/lib/props'
+import type { CheckboxRounded, CheckboxSize, CheckboxTone, CheckboxVariant } from '../base/lib/props'
 
 const props = withDefaults(
   defineProps<{
     modelValue?: boolean | 'indeterminate'
     defaultValue?: boolean | 'indeterminate'
+    variant?: CheckboxVariant
     tone?: CheckboxTone
     size?: CheckboxSize
     rounded?: CheckboxRounded
@@ -22,6 +23,7 @@ const props = withDefaults(
     id?: string
   }>(),
   {
+    variant: 'outline',
     tone: 'primary',
     size: 'md',
     rounded: 'sm',
