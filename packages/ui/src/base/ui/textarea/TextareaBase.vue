@@ -15,6 +15,7 @@ const textareaVariants = cva(
   {
     variants: {
       variant: {
+        solid: 'border border-transparent bg-(--morphink-color-muted)',
         outline: 'border border-(--morphink-color-border) bg-(--morphink-color-input)',
         ghost: 'border border-transparent bg-transparent',
         soft: 'border border-transparent',
@@ -56,16 +57,26 @@ const textareaVariants = cva(
         tone: 'destructive',
         class: 'border-(color:--morphink-color-destructive) focus-visible:border-(color:--morphink-color-destructive)',
       },
+      {
+        variant: 'solid',
+        tone: 'primary',
+        class: 'bg-[color-mix(in_srgb,var(--morphink-color-primary)_12%,transparent)]',
+      },
+      {
+        variant: 'solid',
+        tone: 'destructive',
+        class: 'bg-[color-mix(in_srgb,var(--morphink-color-destructive)_12%,transparent)]',
+      },
       { variant: 'soft', tone: 'base', class: 'bg-(--morphink-color-muted)' },
       {
         variant: 'soft',
         tone: 'primary',
-        class: 'bg-[color-mix(in_srgb,var(--morphink-color-primary)_8%,transparent)]',
+        class: 'bg-[color-mix(in_srgb,var(--morphink-color-primary)_12%,transparent)]',
       },
       {
         variant: 'soft',
         tone: 'destructive',
-        class: 'bg-[color-mix(in_srgb,var(--morphink-color-destructive)_8%,transparent)]',
+        class: 'bg-[color-mix(in_srgb,var(--morphink-color-destructive)_12%,transparent)]',
       },
     ],
     defaultVariants: {

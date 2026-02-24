@@ -7,7 +7,7 @@
  * Style variants: base/ui/tabs/TabsBase.vue
  */
 import TabsBase from '../base/ui/tabs/TabsBase.vue'
-import type { TabsSize } from '../base/lib/props'
+import type { TabsSize, TabsVariant } from '../base/lib/props'
 
 type TabItem = {
   label: string
@@ -18,7 +18,7 @@ defineProps<{
   items: TabItem[]
   modelValue: string
   size?: TabsSize
-  variant?: 'pill' | 'underline'
+  variant?: TabsVariant
 }>()
 
 const emit = defineEmits<{

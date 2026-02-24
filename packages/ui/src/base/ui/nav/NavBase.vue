@@ -10,13 +10,13 @@ type NavItem = {
   active?: boolean
 }
 
-import type { NavSize } from '../../lib/props'
+import type { NavSize, NavVariant } from '../../lib/props'
 
 const props = withDefaults(
   defineProps<{
     items: NavItem[]
     size?: NavSize
-    variant?: 'subtle' | 'solid'
+    variant?: NavVariant
   }>(),
   {
     size: 'md',

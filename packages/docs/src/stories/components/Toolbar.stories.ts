@@ -1,12 +1,12 @@
 import { Toolbar, Button, Stack, Text } from '@morphink/ui'
-import { componentSizes } from '@morphink/ui'
+import { componentSizes, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/Toolbar',
   argTypes: {
     size: { control: { type: 'select' }, options: componentSizes.Toolbar },
-    variant: { control: { type: 'select' }, options: ['solid', 'subtle'] },
+    variant: { control: { type: 'select' }, options: componentVariants.Toolbar },
     title: { control: 'text' },
   },
   args: {

@@ -1,12 +1,12 @@
 import { Tabs, Text, Stack } from '@morphink/ui'
-import { componentSizes } from '@morphink/ui'
+import { componentSizes, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
 const meta: Meta = {
   title: 'Components/Tabs',
   argTypes: {
-    variant: { control: { type: 'select' }, options: ['pill', 'underline'] },
+    variant: { control: { type: 'select' }, options: componentVariants.Tabs },
     size: { control: { type: 'select' }, options: componentSizes.Tabs },
     modelValue: { control: 'text' },
     items: { control: 'object' },

@@ -52,9 +52,11 @@ const triggerVariants = cva(
   {
     variants: {
       variant: {
-        ghost: 'bg-transparent',
+        solid: 'border border-transparent bg-(--morphink-color-muted)',
         outline:
           'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-input)',
+        ghost: 'border border-transparent bg-transparent',
+        soft: 'border border-transparent bg-[color-mix(in_srgb,var(--morphink-color-primary)_12%,transparent)]',
       },
       size: {
         xs: 'h-7 px-2 text-xs',

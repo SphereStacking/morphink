@@ -6,7 +6,7 @@
  * Style variants: base/ui/nav/NavBase.vue
  */
 import NavBase from '../base/ui/nav/NavBase.vue'
-import type { NavSize } from '../base/lib/props'
+import type { NavSize, NavVariant } from '../base/lib/props'
 
 type NavItem = {
   label: string
@@ -18,7 +18,7 @@ withDefaults(
   defineProps<{
     items: NavItem[]
     size?: NavSize
-    variant?: 'subtle' | 'solid'
+    variant?: NavVariant
   }>(),
   {
     size: 'md',

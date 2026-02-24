@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { cva } from 'class-variance-authority'
 import { TabsRoot, TabsList, TabsTrigger, TabsContent } from 'reka-ui'
 import { cn } from '../../lib/utils'
-import type { TabsSize } from '../../lib/props'
+import type { TabsSize, TabsVariant } from '../../lib/props'
 
 type TabItem = {
   label: string
@@ -16,7 +16,7 @@ const props = withDefaults(
     items: TabItem[]
     modelValue: string
     size?: TabsSize
-    variant?: 'pill' | 'underline'
+    variant?: TabsVariant
   }>(),
   {
     size: 'md',

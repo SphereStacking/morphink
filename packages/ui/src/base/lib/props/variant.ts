@@ -6,10 +6,12 @@ export const componentVariants = {
   Badge: ['solid', 'soft', 'outline', 'ghost'],
   Panel: ['subtle', 'solid', 'elevated'],
   Card: ['elevated', 'outline', 'ghost', 'soft', 'interactive'],
-  Select: ['outline', 'ghost'],
+  Select: ['solid', 'outline', 'ghost', 'soft'],
   Toolbar: ['solid', 'subtle'],
-  Input: ['outline', 'ghost', 'soft'],
-  Textarea: ['outline', 'ghost', 'soft'],
+  Input: ['solid', 'outline', 'ghost', 'soft'],
+  Textarea: ['solid', 'outline', 'ghost', 'soft'],
+  Nav: ['subtle', 'solid'],
+  Tabs: ['pill', 'underline'],
 } as const
 
 export type ButtonVariant = (typeof componentVariants.Button)[number]
@@ -20,3 +22,5 @@ export type SelectVariant = (typeof componentVariants.Select)[number]
 export type ToolbarVariant = (typeof componentVariants.Toolbar)[number]
 export type InputVariant = (typeof componentVariants.Input)[number]
 export type TextareaVariant = (typeof componentVariants.Textarea)[number]
+export type NavVariant = (typeof componentVariants.Nav)[number]
+export type TabsVariant = (typeof componentVariants.Tabs)[number]
