@@ -13,7 +13,6 @@ const meta: Meta = {
     open: { control: 'boolean' },
     rounded: { control: { type: 'select' }, options: componentRounded.Dialog },
     shadow: { control: { type: 'select' }, options: componentShadow.Dialog },
-    onOpenChange: { action: 'onOpenChange' },
   },
   args: {
     size: 'md',
@@ -34,18 +33,13 @@ export const Playground: Story = {
     components: { Dialog, Button, Stack, Text },
     setup() {
       const open = ref(args.open)
-      const onOpenChange = (value: boolean) => {
-        open.value = value
-        args.onOpenChange?.(value)
-      }
-      return { args, open, onOpenChange }
+      return { args, open }
     },
     template: `
       <Stack gap="md">
         <Button @click="open = true">Open Dialog</Button>
         <Dialog
-          :open="open"
-          :on-open-change="onOpenChange"
+          v-model:open="open"
           :title="args.title"
           :description="args.description"
           :size="args.size"
@@ -68,27 +62,11 @@ export const Overview: Story = {
       const openSize = ref<'sm' | 'md' | 'lg' | null>(null)
       const openRounded = ref<'sm' | 'md' | 'lg' | null>(null)
       const openShadow = ref<'none' | 'sm' | 'md' | null>(null)
-      const onCloseDefault = (value: boolean) => {
-        openDefault.value = value
-      }
-      const onCloseSize = (value: boolean) => {
-        if (!value) openSize.value = null
-      }
-      const onCloseRounded = (value: boolean) => {
-        if (!value) openRounded.value = null
-      }
-      const onCloseShadow = (value: boolean) => {
-        if (!value) openShadow.value = null
-      }
       return {
         openDefault,
         openSize,
         openRounded,
         openShadow,
-        onCloseDefault,
-        onCloseSize,
-        onCloseRounded,
-        onCloseShadow,
       }
     },
     template: `
@@ -98,8 +76,7 @@ export const Overview: Story = {
           <Stack direction="row" gap="md" align="center" wrap>
             <Button @click="openDefault = true">Default</Button>
             <Dialog
-              :open="openDefault"
-              :on-open-change="onCloseDefault"
+              v-model:open="openDefault"
               title="Default"
               description="Default dialog"
             >
@@ -118,7 +95,7 @@ export const Overview: Story = {
               v-if="openSize"
               :open="true"
               :size="openSize"
-              :on-open-change="onCloseSize"
+              @update:open="(v) => { if (!v) openSize = null }"
               title="Size"
               description="Size variants"
             >
@@ -136,7 +113,7 @@ export const Overview: Story = {
               v-if="openRounded"
               :open="true"
               :rounded="openRounded"
-              :on-open-change="onCloseRounded"
+              @update:open="(v) => { if (!v) openRounded = null }"
               title="Rounded"
               description="Rounded variants"
             >
@@ -154,7 +131,7 @@ export const Overview: Story = {
               v-if="openShadow"
               :open="true"
               :shadow="openShadow"
-              :on-open-change="onCloseShadow"
+              @update:open="(v) => { if (!v) openShadow = null }"
               title="Shadow"
               description="Shadow variants"
             >

@@ -64,8 +64,8 @@ const titleVariants = cva('font-semibold', {
 type DialogVariants = VariantProps<typeof dialogVariants>
 const props = withDefaults(
   defineProps<{
-    open: boolean
-    onOpenChange?: (open: boolean) => void
+    open?: boolean
+    defaultOpen?: boolean
     title?: string
     description?: string
     size?: AlertDialogSize
@@ -83,9 +83,16 @@ const props = withDefaults(
   }
 )
 
-const handleOpenChange = (value: boolean) => {
-  props.onOpenChange?.(value)
-}
+const emit = defineEmits<{
+  'update:open': [value: boolean]
+}>()
+
+const rootProps = computed(() => {
+  const result: Record<string, unknown> = {}
+  if (props.open !== undefined) result.open = props.open
+  if (props.defaultOpen !== undefined) result.defaultOpen = props.defaultOpen
+  return result
+})
 
 const contentClass = computed(() =>
   cn(
@@ -104,7 +111,7 @@ const actionClass =
 </script>
 
 <template>
-  <AlertDialogRoot :open="open" @update:open="handleOpenChange">
+  <AlertDialogRoot v-bind="rootProps" @update:open="emit('update:open', $event)">
     <AlertDialogTrigger v-if="$slots.trigger" as-child>
       <slot name="trigger" />
     </AlertDialogTrigger>

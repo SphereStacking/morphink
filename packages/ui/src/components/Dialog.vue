@@ -7,12 +7,14 @@
  * Style variants: base/ui/dialog/DialogBase.vue
  */
 import DialogBase from '../base/ui/dialog/DialogBase.vue'
+import { useForwardPropsEmits } from 'reka-ui'
 import type { DialogRounded, DialogShadow, DialogSize } from '../base/lib/props'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
-    open: boolean
-    onOpenChange?: (open: boolean) => void
+    open?: boolean
+    defaultOpen?: boolean
+    modal?: boolean
     title?: string
     description?: string
     size?: DialogSize
@@ -27,19 +29,19 @@ withDefaults(
     shadow: 'md',
   }
 )
+
+const emit = defineEmits<{
+  'update:open': [value: boolean]
+}>()
+
+const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <DialogBase
-    :open="open"
-    :on-open-change="onOpenChange"
-    :title="title"
-    :description="description"
-    :size="size"
-    :close-label="closeLabel"
-    :rounded="rounded"
-    :shadow="shadow"
-  >
+  <DialogBase v-bind="forwarded">
+    <template v-if="$slots.trigger" #trigger>
+      <slot name="trigger" />
+    </template>
     <slot />
     <template v-if="$slots.footer" #footer>
       <slot name="footer" />
