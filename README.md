@@ -2,8 +2,8 @@
 
 # morphink
 
-<p>
-  <img src="packages/docs/public/ink-ui-icon.svg" alt="morphink icon" width="64" height="64" />
+<p align="center">
+  <img src="docs/brand-showcase.png" alt="morphink brand showcase" width="600" />
 </p>
 
 A design system boilerplate for Vue 3 — token pipeline, layered component architecture, and Storybook, ready to fork.

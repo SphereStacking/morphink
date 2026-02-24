@@ -2,8 +2,8 @@
 
 # morphink
 
-<p>
-  <img src="packages/docs/public/ink-ui-icon.svg" alt="morphink icon" width="64" height="64" />
+<p align="center">
+  <img src="docs/brand-showcase.png" alt="morphink brand showcase" width="600" />
 </p>
 
 Vue 3 のためのデザインシステムボイラープレート — トークンパイプライン、レイヤードコンポーネントアーキテクチャ、Storybook をフォークして使える形で提供。
