@@ -8,9 +8,11 @@ import type { ToolbarSize, ToolbarVariant } from '../../lib/props'
 const toolbarVariants = cva('flex items-center justify-between gap-(--morphink-space-lg)', {
   variants: {
     size: {
+      xs: 'px-(--morphink-space-sm) py-(--morphink-space-xs) text-(length:--morphink-font-size-label)',
       sm: 'px-(--morphink-space-md) py-(--morphink-space-sm) text-(length:--morphink-font-size-caption)',
       md: 'px-(--morphink-space-lg) py-(--morphink-space-md) text-(length:--morphink-font-size-body)',
       lg: 'px-(--morphink-space-xl) py-(--morphink-space-lg) text-(length:--morphink-font-size-h5)',
+      xl: 'px-(--morphink-space-2xl) py-(--morphink-space-xl) text-(length:--morphink-font-size-h4)',
     },
     variant: {
       solid:

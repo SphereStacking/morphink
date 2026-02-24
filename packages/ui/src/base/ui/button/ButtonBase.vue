@@ -95,9 +95,11 @@ const buttonVariants = cva(
         ),
       },
       size: {
+        xs: 'h-7 px-2 text-xs',
         sm: 'h-8 px-3 text-xs',
         md: 'h-10 px-4 text-sm',
         lg: 'h-12 px-5 text-base',
+        xl: 'h-14 px-6 text-lg',
       },
       rounded: {
         none: 'rounded-none',

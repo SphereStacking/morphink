@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { cva, type VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
+
+import type { SectionHeaderSize } from '../../lib/props'
 
 const headerVariants = cva('flex items-center justify-between', {
   variants: {
     size: {
+      xs: 'gap-(--morphink-space-sm)',
       sm: 'gap-(--morphink-space-md)',
       md: 'gap-(--morphink-space-lg)',
+      lg: 'gap-(--morphink-space-xl)',
+      xl: 'gap-(--morphink-space-2xl)',
     },
   },
   defaultVariants: {
@@ -18,8 +23,11 @@ const headerVariants = cva('flex items-center justify-between', {
 const titleVariants = cva('font-semibold', {
   variants: {
     size: {
+      xs: 'text-(length:--morphink-font-size-h6)',
       sm: 'text-(length:--morphink-font-size-h5)',
       md: 'text-(length:--morphink-font-size-h4)',
+      lg: 'text-(length:--morphink-font-size-h3)',
+      xl: 'text-(length:--morphink-font-size-h2)',
     },
   },
   defaultVariants: {
@@ -27,10 +35,9 @@ const titleVariants = cva('font-semibold', {
   },
 })
 
-type HeaderVariants = VariantProps<typeof headerVariants>
 const props = withDefaults(
   defineProps<{
-    size?: HeaderVariants['size']
+    size?: SectionHeaderSize
   }>(),
   {
     size: 'md',

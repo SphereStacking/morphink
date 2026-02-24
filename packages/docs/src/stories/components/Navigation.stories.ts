@@ -1,11 +1,12 @@
 import { Nav, Text, Stack } from '@morphink/ui'
+import { componentSizes } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/Navigation',
   argTypes: {
     items: { control: 'object' },
-    size: { control: { type: 'select' }, options: ['sm', 'md'] },
+    size: { control: { type: 'select' }, options: componentSizes.Nav },
     variant: { control: { type: 'select' }, options: ['subtle', 'solid'] },
   },
   args: {

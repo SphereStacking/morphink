@@ -10,10 +10,12 @@ type NavItem = {
   active?: boolean
 }
 
+import type { NavSize } from '../../lib/props'
+
 const props = withDefaults(
   defineProps<{
     items: NavItem[]
-    size?: 'sm' | 'md'
+    size?: NavSize
     variant?: 'subtle' | 'solid'
   }>(),
   {
@@ -26,8 +28,11 @@ const attrs = useAttrs()
 const navVariants = cva('inline-flex rounded-full', {
   variants: {
     size: {
+      xs: 'gap-(--morphink-space-xs) px-(--morphink-space-xs) py-1 text-(length:--morphink-font-size-label)',
       sm: 'gap-(--morphink-space-sm) px-(--morphink-space-sm) py-[6px] text-(length:--morphink-font-size-caption)',
       md: 'gap-(--morphink-space-md) px-(--morphink-space-md) py-(--morphink-space-sm) text-(length:--morphink-font-size-body)',
+      lg: 'gap-(--morphink-space-lg) px-(--morphink-space-lg) py-(--morphink-space-md) text-(length:--morphink-font-size-h5)',
+      xl: 'gap-(--morphink-space-xl) px-(--morphink-space-xl) py-(--morphink-space-lg) text-(length:--morphink-font-size-h4)',
     },
     variant: {
       subtle:

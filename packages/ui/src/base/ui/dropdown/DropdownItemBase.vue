@@ -24,9 +24,11 @@ const emit = defineEmits<{
 const size = inject(dropdownSizeKey, ref('md' as DropdownSize))
 
 const sizeClasses: Record<DropdownSize, string> = {
+  xs: 'py-0.5 px-1 text-[10px]',
   sm: 'py-1 px-1.5 text-xs',
   md: 'py-[6px] px-(--morphink-space-sm) text-[13px]',
   lg: 'py-2 px-3 text-sm',
+  xl: 'py-2.5 px-3.5 text-base',
 }
 
 const classes = computed(() =>

@@ -6,10 +6,11 @@
  * Style variants: base/ui/section-header/SectionHeaderBase.vue
  */
 import SectionHeaderBase from '../base/ui/section-header/SectionHeaderBase.vue'
+import type { SectionHeaderSize } from '../base/lib/props'
 
 withDefaults(
   defineProps<{
-    size?: 'sm' | 'md'
+    size?: SectionHeaderSize
   }>(),
   {
     size: 'md',

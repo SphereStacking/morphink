@@ -8,9 +8,11 @@ import type { BadgeRounded, BadgeSize, BadgeTone, BadgeVariant } from '../../lib
 const badgeVariants = cva(cn('inline-flex items-center font-semibold'), {
   variants: {
     size: {
+      xs: 'px-1.5 py-0 text-[10px]',
       sm: 'px-2 py-0.5 text-xs',
       md: 'px-2.5 py-0.5 text-xs',
       lg: 'px-3 py-1 text-sm',
+      xl: 'px-3.5 py-1 text-base',
     },
     variant: {
       solid: 'bg-(--badge-color) text-(--badge-fg)',

@@ -21,9 +21,11 @@ const dialogVariants = cva(
   {
     variants: {
       size: {
+        xs: 'w-[min(320px,92vw)] p-(--morphink-space-sm) gap-(--morphink-space-xs)',
         sm: 'w-[min(420px,92vw)] p-(--morphink-space-md) gap-(--morphink-space-sm)',
         md: 'w-[min(560px,92vw)] p-(--morphink-space-lg) gap-(--morphink-space-md)',
         lg: 'w-[min(720px,92vw)] p-(--morphink-space-xl) gap-(--morphink-space-md)',
+        xl: 'w-[min(900px,92vw)] p-(--morphink-space-2xl) gap-(--morphink-space-lg)',
       },
       rounded: {
         none: 'rounded-none',
@@ -50,9 +52,11 @@ const dialogVariants = cva(
 const titleVariants = cva('font-semibold', {
   variants: {
     size: {
+      xs: 'text-[14px]',
       sm: 'text-[16px]',
       md: 'text-[18px]',
       lg: 'text-[20px]',
+      xl: 'text-[24px]',
     },
   },
   defaultVariants: {

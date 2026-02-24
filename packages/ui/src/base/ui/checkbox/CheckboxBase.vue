@@ -34,9 +34,11 @@ const checkboxVariants = cva(
         ),
       },
       size: {
+        xs: 'size-3.5',
         sm: 'size-4',
         md: 'size-5',
         lg: 'size-6',
+        xl: 'size-7',
       },
       rounded: {
         none: 'rounded-none',
@@ -54,9 +56,11 @@ const checkboxVariants = cva(
 )
 
 const iconSizes: Record<NonNullable<CheckboxSize>, string> = {
+  xs: 'size-2.5',
   sm: 'size-3',
   md: 'size-3.5',
   lg: 'size-4',
+  xl: 'size-5',
 }
 
 const props = withDefaults(

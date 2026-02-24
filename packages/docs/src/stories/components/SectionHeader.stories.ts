@@ -1,10 +1,11 @@
 import { SectionHeader, Button, Stack, Text } from '@morphink/ui'
+import { componentSizes } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta = {
   title: 'Components/SectionHeader',
   argTypes: {
-    size: { control: { type: 'select' }, options: ['sm', 'md'] },
+    size: { control: { type: 'select' }, options: componentSizes.SectionHeader },
     title: { control: 'text' },
     subtitle: { control: 'text' },
     showSubtitle: { control: 'boolean' },

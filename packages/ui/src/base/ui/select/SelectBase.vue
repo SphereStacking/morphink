@@ -48,13 +48,20 @@ const emit = defineEmits<{
 }>()
 
 const triggerVariants = cva(
-  'inline-flex h-9 w-full items-center justify-between px-(--morphink-space-sm) text-[14px] text-(--morphink-color-foreground)',
+  'inline-flex w-full items-center justify-between text-(--morphink-color-foreground)',
   {
     variants: {
       variant: {
         ghost: 'bg-transparent',
         outline:
           'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-input)',
+      },
+      size: {
+        xs: 'h-7 px-2 text-xs',
+        sm: 'h-8 px-3 text-xs',
+        md: 'h-10 px-3 text-sm',
+        lg: 'h-12 px-4 text-base',
+        xl: 'h-14 px-5 text-lg',
       },
       rounded: {
         none: 'rounded-none',
@@ -66,6 +73,7 @@ const triggerVariants = cva(
     },
     defaultVariants: {
       variant: 'outline',
+      size: 'md',
       rounded: 'md',
     },
   }
@@ -74,13 +82,14 @@ const triggerClass = computed(() =>
   cn(
     triggerVariants({
       variant: props.variant,
+      size: props.size,
       rounded: props.rounded,
     })
   )
 )
 
 const contentVariants = cva(
-  'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover) p-[6px]',
+  'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover)',
   {
     variants: {
       rounded: {
@@ -96,10 +105,18 @@ const contentVariants = cva(
         md: 'shadow-(--morphink-shadow-md)',
         lg: 'shadow-(--morphink-shadow-lg)',
       },
+      size: {
+        xs: 'p-0.5',
+        sm: 'p-1',
+        md: 'p-[6px]',
+        lg: 'p-2',
+        xl: 'p-2.5',
+      },
     },
     defaultVariants: {
       rounded: 'md',
       shadow: 'md',
+      size: 'md',
     },
   }
 )
@@ -108,12 +125,25 @@ const contentClass = computed(() =>
     contentVariants({
       rounded: props.rounded,
       shadow: props.shadow,
+      size: props.size,
     })
   )
 )
 
-const itemClass =
-  'rounded-(--morphink-radius-sm) px-(--morphink-space-sm) py-[6px] text-[13px] text-(--morphink-color-foreground) focus:bg-(--morphink-color-muted) outline-hidden'
+const itemSizes: Record<string, string> = {
+  xs: 'px-2 py-1 text-xs',
+  sm: 'px-(--morphink-space-sm) py-1 text-xs',
+  md: 'px-(--morphink-space-sm) py-[6px] text-[13px]',
+  lg: 'px-3 py-2 text-sm',
+  xl: 'px-3.5 py-2.5 text-base',
+}
+
+const itemClass = computed(() =>
+  cn(
+    'rounded-(--morphink-radius-sm) text-(--morphink-color-foreground) focus:bg-(--morphink-color-muted) outline-hidden',
+    itemSizes[props.size]
+  )
+)
 </script>
 
 <template>

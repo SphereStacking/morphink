@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { cva } from 'class-variance-authority'
 import { TabsRoot, TabsList, TabsTrigger, TabsContent } from 'reka-ui'
 import { cn } from '../../lib/utils'
+import type { TabsSize } from '../../lib/props'
 
 type TabItem = {
   label: string
@@ -14,7 +15,7 @@ const props = withDefaults(
   defineProps<{
     items: TabItem[]
     modelValue: string
-    size?: 'sm' | 'md'
+    size?: TabsSize
     variant?: 'pill' | 'underline'
   }>(),
   {
@@ -30,8 +31,11 @@ const emit = defineEmits<{
 const wrapperVariants = cva('grid', {
   variants: {
     size: {
+      xs: 'gap-(--morphink-space-xs)',
       sm: 'gap-(--morphink-space-sm)',
       md: 'gap-(--morphink-space-md)',
+      lg: 'gap-(--morphink-space-lg)',
+      xl: 'gap-(--morphink-space-xl)',
     },
   },
   defaultVariants: {
@@ -46,8 +50,11 @@ const listVariants = cva('inline-flex', {
       underline: 'border-b border-(--morphink-color-border)',
     },
     size: {
+      xs: 'gap-(--morphink-space-xs)',
       sm: 'gap-(--morphink-space-sm)',
       md: 'gap-(--morphink-space-sm)',
+      lg: 'gap-(--morphink-space-md)',
+      xl: 'gap-(--morphink-space-md)',
     },
   },
   defaultVariants: {
@@ -59,8 +66,11 @@ const listVariants = cva('inline-flex', {
 const tabVariants = cva('font-semibold transition', {
   variants: {
     size: {
+      xs: 'px-[8px] py-[2px] text-[11px]',
       sm: 'px-[10px] py-[4px] text-[12px]',
       md: 'px-[14px] py-[6px] text-[13px]',
+      lg: 'px-[18px] py-[8px] text-[14px]',
+      xl: 'px-[22px] py-[10px] text-[16px]',
     },
     variant: {
       pill: 'rounded-full',
@@ -115,8 +125,11 @@ const panelVariants = cva(
   {
     variants: {
       size: {
+        xs: 'p-(--morphink-space-xs)',
         sm: 'p-(--morphink-space-sm)',
         md: 'p-(--morphink-space-md)',
+        lg: 'p-(--morphink-space-lg)',
+        xl: 'p-(--morphink-space-xl)',
       },
     },
     defaultVariants: {

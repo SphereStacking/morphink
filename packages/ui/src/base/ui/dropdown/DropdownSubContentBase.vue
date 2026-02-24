@@ -39,9 +39,11 @@ const contentVariants = cva(
         lg: 'shadow-(--morphink-shadow-lg)',
       },
       size: {
+        xs: 'p-0.5',
         sm: 'p-1',
         md: 'p-[6px]',
         lg: 'p-2',
+        xl: 'p-2.5',
       },
     },
     defaultVariants: {
