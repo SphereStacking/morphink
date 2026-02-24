@@ -2,44 +2,28 @@
 
 # morphink docs
 
-This repository is a product-independent design system foundation.
-It outputs tokens managed by Tokens Studio and visualizes them through UI components and Storybook.
+Design system documentation and development guides.
 
-## Purpose
+> For the design philosophy behind morphink, see [CONCEPT.md](../CONCEPT.md).
 
-- Avoid embedding shadcn-vue directly in products
-- Use tokens as the single source of truth
-- Share "how to build" through Storybook
+## Guides
 
-## Key Technologies
-
-- Tokens Studio + Style Dictionary
-- Reka UI (internal use for A11y-heavy primitives)
-- Tailwind (UI CSS build only)
-
-## Why Not Use shadcn-vue Directly?
-
-- **Consumer independence**: Products depend only on `@morphink/ui`, not internal implementation details
-- **Swappable implementation**: Replacing Tailwind or other internals doesn't change the public API
-- **Stable operations**: Token changes are absorbed within the UI layer, minimizing product impact
+- [Architecture](./architecture.md) — Three-layer component structure, token pipeline, design principles
+- [Workflows](./workflows.md) — Token updates, UI development, Storybook, lint & format
 
 ## Quick Start
 
 ```bash
 pnpm install
-pnpm run build:css
+pnpm run build
 pnpm run dev:docs
 ```
 
 Storybook: `http://localhost:6006/`
 
-## Directory
+## Key Technologies
 
-- `packages/tokens` - Tokens Studio source and build outputs
-- `packages/ui` - UI components (internally wraps shadcn-based primitives)
-- `packages/docs` - Storybook
-
-For details, see:
-
-- `docs/architecture.md`
-- `docs/workflows.md`
+- **Reka UI** — Headless a11y primitives (Dialog, Select, Dropdown, Tabs, etc.)
+- **Tokens Studio + Style Dictionary** — Token pipeline from design to code
+- **Tailwind CSS v4** — Utility-first CSS, compiled to `ui.css`
+- **CVA** (class-variance-authority) — Style variant definitions

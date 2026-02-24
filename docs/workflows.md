@@ -4,33 +4,50 @@
 
 ## Token Updates
 
-1. Make changes in Tokens Studio
-2. Update `packages/tokens/tokens/*.json`
-3. Generate outputs
+1. Edit token files in `packages/tokens/tokens/`
+2. Rebuild tokens:
 
 ```bash
 pnpm --filter @morphink/tokens build
 ```
 
-## UI Development
-
-1. Update base components (`packages/ui/src/base`)
-2. Reflect changes in wrapper components (`packages/ui/src/components`)
-3. Build Tailwind CSS output
+3. Rebuild UI CSS:
 
 ```bash
 pnpm --filter @morphink/ui build:css
 ```
 
+Or rebuild everything at once:
+
+```bash
+pnpm run build
+```
+
+## UI Development
+
+1. Create or update Base component (`packages/ui/src/base/ui/*/`)
+2. Create or update Public wrapper (`packages/ui/src/components/`)
+3. Add export to `packages/ui/src/index.ts`
+4. Add Storybook story (`packages/docs/src/stories/components/`)
+
 ## Storybook
 
 ```bash
-pnpm --filter @morphink/docs dev
+pnpm run dev:docs
+```
+
+## Lint & Format
+
+```bash
+pnpm run lint       # oxlint
+pnpm run format     # oxfmt --write
 ```
 
 ## Build Outputs
 
-- `packages/tokens/dist/css/tokens.css`
+- `packages/tokens/dist/css/tokens.css` — Light mode CSS variables
+- `packages/tokens/dist/css/tokens-dark.css` — Dark mode overrides
+- `packages/tokens/dist/css/utilities.css` — `mi-` prefixed utility classes
 - `packages/tokens/dist/json/tokens.json`
 - `packages/tokens/dist/ts/tokens.ts`
-- `packages/ui/dist/ui.css`
+- `packages/ui/dist/ui.css` — Compiled Tailwind CSS

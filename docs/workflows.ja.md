@@ -4,23 +4,31 @@
 
 ## トークン更新
 
-1. Tokens Studio で変更
-2. `packages/tokens/tokens/*.json` を更新
-3. 成果物を生成
+1. `packages/tokens/tokens/` のトークンファイルを編集
+2. トークン再ビルド:
 
 ```bash
 pnpm --filter @morphink/tokens build
 ```
 
-## UI 開発
-
-1. ベースコンポーネントを更新（`packages/ui/src/base`）
-2. ラッパーコンポーネントに反映（`packages/ui/src/components`）
-3. Tailwind CSS 出力をビルド
+3. UI CSS 再ビルド:
 
 ```bash
 pnpm --filter @morphink/ui build:css
 ```
+
+または一括ビルド:
+
+```bash
+pnpm run build
+```
+
+## UI 開発
+
+1. Base コンポーネントを作成・更新（`packages/ui/src/base/ui/*/`）
+2. Public ラッパーを作成・更新（`packages/ui/src/components/`）
+3. `packages/ui/src/index.ts` に export 追加
+4. Storybook ストーリーを追加（`packages/docs/src/stories/components/`）
 
 ## Storybook
 
@@ -28,9 +36,18 @@ pnpm --filter @morphink/ui build:css
 pnpm run dev:docs
 ```
 
+## Lint・フォーマット
+
+```bash
+pnpm run lint       # oxlint
+pnpm run format     # oxfmt --write
+```
+
 ## ビルド成果物
 
-- `packages/tokens/dist/css/tokens.css`
+- `packages/tokens/dist/css/tokens.css` — ライトモード CSS 変数
+- `packages/tokens/dist/css/tokens-dark.css` — ダークモードオーバーライド
+- `packages/tokens/dist/css/utilities.css` — `mi-` プレフィックス付きユーティリティクラス
 - `packages/tokens/dist/json/tokens.json`
 - `packages/tokens/dist/ts/tokens.ts`
-- `packages/ui/dist/ui.css`
+- `packages/ui/dist/ui.css` — コンパイル済み Tailwind CSS

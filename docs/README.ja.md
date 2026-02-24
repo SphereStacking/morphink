@@ -2,44 +2,28 @@
 
 # morphink docs
 
-このリポジトリはプロダクト非依存のデザインシステム基盤です。
-Tokens Studio で管理するトークンを出力し、UI コンポーネントと Storybook で可視化します。
+デザインシステムのドキュメントと開発ガイド。
 
-## 目的
+> morphink の設計思想については [CONCEPT.ja.md](../CONCEPT.ja.md) を参照。
 
-- shadcn-vue をプロダクトに直接組み込まない
-- トークンを唯一の信頼できるソースとして使う
-- Storybook を通じて「作り方」を共有する
+## ガイド
 
-## 主要技術
-
-- Tokens Studio + Style Dictionary
-- Reka UI（A11y が重要なプリミティブの内部利用）
-- Tailwind（UI CSS ビルド専用）
-
-## なぜ shadcn-vue を直接使わないのか？
-
-- **利用者の独立性**: プロダクトは `@morphink/ui` のみに依存し、内部実装の詳細を知らない
-- **実装の交換可能性**: Tailwind などの内部を差し替えても公開 API は変わらない
-- **安定した運用**: トークン変更は UI レイヤーで吸収し、プロダクトへの影響を最小化
+- [アーキテクチャ](./architecture.ja.md) — 3 層コンポーネント構造、トークンパイプライン、設計原則
+- [ワークフロー](./workflows.ja.md) — トークン更新、UI 開発、Storybook、lint・フォーマット
 
 ## クイックスタート
 
 ```bash
 pnpm install
-pnpm run build:css
+pnpm run build
 pnpm run dev:docs
 ```
 
 Storybook: `http://localhost:6006/`
 
-## ディレクトリ
+## 主要技術
 
-- `packages/tokens` - デザイントークンのソースとビルド成果物
-- `packages/ui` - UI コンポーネント（shadcn ベースのプリミティブをラップ）
-- `packages/docs` - Storybook
-
-詳細は以下を参照:
-
-- `docs/architecture.ja.md`
-- `docs/workflows.ja.md`
+- **Reka UI** — ヘッドレス a11y プリミティブ（Dialog, Select, Dropdown, Tabs 等）
+- **Tokens Studio + Style Dictionary** — デザインからコードへのトークンパイプライン
+- **Tailwind CSS v4** — ユーティリティファースト CSS、`ui.css` にコンパイル
+- **CVA**（class-variance-authority）— スタイルバリアント定義

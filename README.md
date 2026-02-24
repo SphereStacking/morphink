@@ -6,13 +6,15 @@
   <img src="packages/docs/public/ink-ui-icon.svg" alt="morphink icon" width="64" height="64" />
 </p>
 
-A Vue 3 design system starter kit with a token pipeline, built as a pnpm monorepo.
+A design system boilerplate for Vue 3 — token pipeline, layered component architecture, and Storybook, ready to fork.
+
+> **Why morphink?** See [CONCEPT.md](./CONCEPT.md) for the full design philosophy.
 
 ## Quick Start
 
 ```bash
 pnpm install
-pnpm run build:css
+pnpm run build
 pnpm run dev:docs
 ```
 
@@ -22,38 +24,33 @@ Storybook: `http://localhost:6006/`
 
 ```
 Tokens Studio
-  -> packages/tokens/tokens/*.json
-  -> Style Dictionary (build)
-  -> packages/tokens/dist (css/json/ts)
-  -> packages/ui/src/styles/tokens.css (import)
-  -> packages/ui/dist/ui.css
-  -> Storybook
+  → packages/tokens/tokens/*.json (alias / semantic / semantic-dark)
+  → Style Dictionary (build)
+  → packages/tokens/dist (css / json / ts)
+  → packages/ui/src/styles/tokens.css (import)
+  → Tailwind compile → packages/ui/dist/ui.css
+  → Storybook
 ```
 
 ## Package Structure
 
-- `packages/tokens` - Tokens Studio source and build outputs
-- `packages/ui` - UI components (internally wraps shadcn-based primitives)
-- `packages/docs` - Storybook for tokens and UI visualization
-
-## Tokens
-
-Sources are located at `packages/tokens/tokens`:
-
-- `packages/tokens/tokens/alias.json` - Palette and scales (raw values)
-- `packages/tokens/tokens/semantic.json` - Product-facing tokens
+| Package | Description |
+|---------|-------------|
+| `packages/tokens` | Design tokens source (Tokens Studio) and Style Dictionary build |
+| `packages/ui` | Vue 3 UI components — Reka UI headless primitives + CVA styling |
+| `packages/docs` | Storybook for component catalog and guidelines |
 
 ## Customization
 
-1. Edit token files in `packages/tokens/tokens/`
-2. Run `pnpm --filter @morphink/tokens build` to regenerate outputs
-3. Run `pnpm --filter @morphink/ui build:css` to rebuild the UI stylesheet
+1. Replace token values in `packages/tokens/tokens/` with your brand colors and scales
+2. Rebuild: `pnpm run build`
+3. Your design system is ready
 
 ## Documentation
 
-- `docs/README.md` - Overview and quick start
-- `docs/architecture.md` - Architecture and data flow
-- `docs/workflows.md` - Daily workflows (tokens/UI/docs)
+- [CONCEPT.md](./CONCEPT.md) — Architecture philosophy and design decisions
+- [docs/architecture.md](./docs/architecture.md) — Technical architecture and data flow
+- [docs/workflows.md](./docs/workflows.md) — Development workflows
 
 ## License
 

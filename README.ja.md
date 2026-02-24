@@ -6,13 +6,15 @@
   <img src="packages/docs/public/ink-ui-icon.svg" alt="morphink icon" width="64" height="64" />
 </p>
 
-Vue 3 デザインシステムスターターキット。トークンパイプライン付きの pnpm モノレポ構成。
+Vue 3 のためのデザインシステムボイラープレート — トークンパイプライン、レイヤードコンポーネントアーキテクチャ、Storybook をフォークして使える形で提供。
+
+> **なぜ morphink？** 設計思想の詳細は [CONCEPT.ja.md](./CONCEPT.ja.md) を参照。
 
 ## クイックスタート
 
 ```bash
 pnpm install
-pnpm run build:css
+pnpm run build
 pnpm run dev:docs
 ```
 
@@ -22,38 +24,33 @@ Storybook: `http://localhost:6006/`
 
 ```
 Tokens Studio
-  -> packages/tokens/tokens/*.json
-  -> Style Dictionary (ビルド)
-  -> packages/tokens/dist (css/json/ts)
-  -> packages/ui/src/styles/tokens.css (import)
-  -> packages/ui/dist/ui.css
-  -> Storybook
+  → packages/tokens/tokens/*.json (alias / semantic / semantic-dark)
+  → Style Dictionary (ビルド)
+  → packages/tokens/dist (css / json / ts)
+  → packages/ui/src/styles/tokens.css (import)
+  → Tailwind コンパイル → packages/ui/dist/ui.css
+  → Storybook
 ```
 
 ## パッケージ構成
 
-- `packages/tokens` - デザイントークンのソースとビルド成果物
-- `packages/ui` - UI コンポーネント（shadcn ベースのプリミティブをラップ）
-- `packages/docs` - トークンと UI の可視化用 Storybook
-
-## トークン
-
-ソースファイルは `packages/tokens/tokens` に配置:
-
-- `packages/tokens/tokens/alias.json` - パレットとスケール（生の値）
-- `packages/tokens/tokens/semantic.json` - プロダクト向けトークン
+| パッケージ | 説明 |
+|-----------|------|
+| `packages/tokens` | デザイントークンのソース（Tokens Studio）と Style Dictionary ビルド |
+| `packages/ui` | Vue 3 UI コンポーネント — Reka UI ヘッドレスプリミティブ + CVA スタイリング |
+| `packages/docs` | コンポーネントカタログとガイドラインの Storybook |
 
 ## カスタマイズ
 
-1. `packages/tokens/tokens/` 内のトークンファイルを編集
-2. `pnpm --filter @morphink/tokens build` で成果物を再生成
-3. `pnpm --filter @morphink/ui build:css` で UI スタイルシートを再ビルド
+1. `packages/tokens/tokens/` のトークン値をブランドカラーとスケールに差し替え
+2. 再ビルド: `pnpm run build`
+3. デザインシステムの準備完了
 
 ## ドキュメント
 
-- `docs/README.md` - 概要とクイックスタート
-- `docs/architecture.md` - アーキテクチャとデータフロー
-- `docs/workflows.md` - 日常ワークフロー（トークン / UI / ドキュメント）
+- [CONCEPT.ja.md](./CONCEPT.ja.md) — アーキテクチャ思想と設計判断
+- [docs/architecture.ja.md](./docs/architecture.ja.md) — 技術アーキテクチャとデータフロー
+- [docs/workflows.ja.md](./docs/workflows.ja.md) — 開発ワークフロー
 
 ## ライセンス
 

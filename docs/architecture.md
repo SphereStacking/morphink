@@ -2,31 +2,31 @@
 
 # Architecture
 
-## Layer Structure
+## Three-Layer Component Structure
 
-1. **Tokens**
-   - Single source of truth for design
-   - Managed by Tokens Studio, output via Style Dictionary
+```
+Public (components/)  →  Base (base/ui/*/)  →  Reka UI
+  Product API             CVA variants          Headless a11y
+```
 
-2. **UI**
-   - Wrapper components with shadcn-based primitives kept internal
-   - A11y-heavy parts use Reka UI primitives internally
-   - References token CSS variables for unified styling
+| Layer | Location | Naming | Role |
+|-------|----------|--------|------|
+| Public | `packages/ui/src/components/` | `Button.vue` | External API — thin wrapper over Base |
+| Base | `packages/ui/src/base/ui/*/` | `ButtonBase.vue` | CVA variants + Reka UI integration |
+| Props | `packages/ui/src/base/lib/props/` | `variant.ts`, `size.ts` | Shared prop type definitions |
 
-3. **Docs (Storybook)**
-   - Visualization of tokens and UI components
-   - Displays guidelines and usage examples
+All components are exported from `packages/ui/src/index.ts`.
 
-## Data Flow
+## Token Pipeline
 
 ```
 Tokens Studio
-  -> packages/tokens/tokens/*.json
-  -> Style Dictionary (build)
-  -> packages/tokens/dist (css/json/ts)
-  -> packages/ui/src/styles/tokens.css (import)
-  -> packages/ui/dist/ui.css
-  -> Storybook
+  → packages/tokens/tokens/*.json (alias / semantic / semantic-dark)
+  → Style Dictionary (build)
+  → packages/tokens/dist (css / json / ts)
+  → packages/ui/src/styles/tokens.css (import as CSS variables)
+  → Tailwind compile → packages/ui/dist/ui.css
+  → Storybook
 ```
 
 ## Package Structure
@@ -34,24 +34,32 @@ Tokens Studio
 ```
 packages/
   tokens/
-    tokens/           # alias/semantic
-    dist/             # build outputs
+    tokens/           # alias.json, semantic.json, semantic-dark.json
+    dist/             # build outputs (css, json, ts)
   ui/
-    src/base/         # base components
-    src/components/   # public wrappers
+    src/base/ui/      # Base components (*Base.vue)
+    src/base/lib/     # utilities (cn, cva variants, layout-utils, props)
+    src/components/   # Public wrappers
     dist/ui.css       # generated CSS
   docs/
     src/stories/      # Storybook stories
 ```
 
+## Component Patterns
+
+### Compound Components
+
+Card and Dropdown use the compound component pattern with sub-components:
+
+- **Card**: CardHeader / CardBody / CardFooter / CardTitle / CardDescription / CardMedia
+- **Dropdown**: 12 sub-components (Trigger, Content, Item, Separator, etc.) with provide/inject context propagation
+
+### Reka UI Wrapper Pattern
+
+Stateful Reka UI primitives (Dialog, Dropdown, Select, etc.) require `useForwardPropsEmits` from reka-ui to correctly handle controlled/uncontrolled mode. Direct binding of optional props passes `undefined`, causing Reka UI to enter controlled mode unexpectedly.
+
 ## Design Principles
 
-- **Internal implementation is not exposed**
-- **Prefer semantic tokens**
-- **Products can only directly consume token outputs**
-
-## Why Avoid Direct Dependencies
-
-- **Consumer independence**: Products use only `@morphink/ui`, unaware of internal implementation
-- **Swappable implementation**: Replacing Tailwind or other internals preserves the API
-- **Stable operations**: Token changes are absorbed in the UI layer, minimizing product impact
+- **Internal implementation is not exposed** — Products depend only on Public components
+- **Dependency isolation** — Swapping Reka UI or Tailwind affects only the Base layer
+- **Prefer semantic tokens** — Components reference `--morphink-color-primary`, never raw palette values

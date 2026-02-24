@@ -2,31 +2,31 @@
 
 # アーキテクチャ
 
-## レイヤー構成
+## コンポーネント 3 層構造
 
-1. **Tokens**
-   - デザインの唯一の信頼できるソース
-   - Tokens Studio で管理し、Style Dictionary で出力
+```
+Public (components/)  →  Base (base/ui/*/)  →  Reka UI
+  プロダクト API          CVA バリアント        ヘッドレス a11y
+```
 
-2. **UI**
-   - shadcn ベースのプリミティブを内部に持つラッパーコンポーネント
-   - A11y が重要な部分は Reka UI プリミティブを内部利用
-   - トークン CSS 変数を参照して統一的にスタイリング
+| 層 | 場所 | 命名 | 役割 |
+|---|---|---|---|
+| Public | `packages/ui/src/components/` | `Button.vue` | 外部公開 API — Base の薄いラッパー |
+| Base | `packages/ui/src/base/ui/*/` | `ButtonBase.vue` | CVA バリアント + Reka UI 統合 |
+| Props | `packages/ui/src/base/lib/props/` | `variant.ts`, `size.ts` | 共有 prop 型定義 |
 
-3. **Docs (Storybook)**
-   - トークンと UI コンポーネントの可視化
-   - ガイドラインと使用例を表示
+すべてのコンポーネントは `packages/ui/src/index.ts` から export。
 
-## データフロー
+## トークンパイプライン
 
 ```
 Tokens Studio
-  -> packages/tokens/tokens/*.json
-  -> Style Dictionary (ビルド)
-  -> packages/tokens/dist (css/json/ts)
-  -> packages/ui/src/styles/tokens.css (import)
-  -> packages/ui/dist/ui.css
-  -> Storybook
+  → packages/tokens/tokens/*.json (alias / semantic / semantic-dark)
+  → Style Dictionary (ビルド)
+  → packages/tokens/dist (css / json / ts)
+  → packages/ui/src/styles/tokens.css（CSS 変数として import）
+  → Tailwind コンパイル → packages/ui/dist/ui.css
+  → Storybook
 ```
 
 ## パッケージ構成
@@ -34,24 +34,32 @@ Tokens Studio
 ```
 packages/
   tokens/
-    tokens/           # alias/semantic
-    dist/             # ビルド成果物
+    tokens/           # alias.json, semantic.json, semantic-dark.json
+    dist/             # ビルド成果物 (css, json, ts)
   ui/
-    src/base/         # ベースコンポーネント
-    src/components/   # 公開ラッパー
+    src/base/ui/      # Base コンポーネント (*Base.vue)
+    src/base/lib/     # ユーティリティ (cn, CVA バリアント, layout-utils, props)
+    src/components/   # Public ラッパー
     dist/ui.css       # 生成 CSS
   docs/
     src/stories/      # Storybook ストーリー
 ```
 
+## コンポーネントパターン
+
+### Compound Component
+
+Card と Dropdown はサブコンポーネントを持つ compound component パターンを使用:
+
+- **Card**: CardHeader / CardBody / CardFooter / CardTitle / CardDescription / CardMedia
+- **Dropdown**: 12 サブコンポーネント（Trigger, Content, Item, Separator 等）+ provide/inject によるコンテキスト伝播
+
+### Reka UI ラッパーパターン
+
+状態管理が必要な Reka UI プリミティブ（Dialog, Dropdown, Select 等）は、reka-ui の `useForwardPropsEmits` を使ってラップする。optional props を直接バインドすると `undefined` が渡り、Reka UI が意図せず controlled モードに入る。
+
 ## 設計原則
 
-- **内部実装を公開しない**
-- **セマンティックトークンを優先する**
-- **プロダクトはトークン出力のみを直接利用できる**
-
-## 直接依存を避ける理由
-
-- **利用者の独立性**: プロダクトは `@morphink/ui` のみを使い、内部実装を知らない
-- **実装の交換可能性**: Tailwind などの内部を差し替えても API は維持される
-- **安定した運用**: トークン変更は UI レイヤーで吸収し、プロダクトへの影響を最小化
+- **内部実装を公開しない** — プロダクトは Public コンポーネントのみに依存
+- **依存の隔離** — Reka UI や Tailwind の差し替えは Base 層のみに影響
+- **セマンティックトークンを優先** — コンポーネントは `--morphink-color-primary` を参照し、生のパレット値は使わない
