@@ -45,7 +45,7 @@ export const Playground: Story = {
       return { args, value, onChange }
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Text muted>Value: {{ value ?? 'None' }}</Text>
         <Select
           :model-value="value"
@@ -88,40 +88,40 @@ export const Overview: Story = {
       }
     },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Select v-model="valueDefault" :options="options" placeholder="Select an option" />
           </Stack>
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Select v-model="valueOutline" :options="options" placeholder="Outline" variant="outline" />
             <Select v-model="valueGhost" :options="options" placeholder="Ghost" variant="ghost" />
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Select v-model="valueSize" :options="options" placeholder="Large" size="lg" />
             <Select v-model="valueSize" :options="options" placeholder="Medium" size="md" />
             <Select v-model="valueSize" :options="options" placeholder="Small" size="sm" />
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Select v-model="valueRounded" :options="options" placeholder="Rounded sm" rounded="sm" />
             <Select v-model="valueRounded" :options="options" placeholder="Rounded md" rounded="md" />
             <Select v-model="valueRounded" :options="options" placeholder="Rounded lg" rounded="lg" />
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Select v-model="valueShadow" :options="options" placeholder="Shadow none" shadow="none" />
             <Select v-model="valueShadow" :options="options" placeholder="Shadow sm" shadow="sm" />
             <Select v-model="valueShadow" :options="options" placeholder="Shadow md" shadow="md" />

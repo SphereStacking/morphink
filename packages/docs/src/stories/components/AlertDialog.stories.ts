@@ -43,7 +43,7 @@ export const Playground: Story = {
       return { args, open, onOpenChange }
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Button @click="open = true">Open Alert</Button>
         <AlertDialog
           :open="open"
@@ -95,10 +95,10 @@ export const Overview: Story = {
       }
     },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Button @click="openDefault = true">Default</Button>
             <AlertDialog
               :open="openDefault"
@@ -111,9 +111,9 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Button size="sm" @click="openSize = 'sm'">Small</Button>
             <Button size="sm" @click="openSize = 'md'">Medium</Button>
             <Button size="sm" @click="openSize = 'lg'">Large</Button>
@@ -129,9 +129,9 @@ export const Overview: Story = {
             </AlertDialog>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Button size="sm" @click="openRounded = 'sm'">Rounded sm</Button>
             <Button size="sm" @click="openRounded = 'md'">Rounded md</Button>
             <Button size="sm" @click="openRounded = 'lg'">Rounded lg</Button>
@@ -147,9 +147,9 @@ export const Overview: Story = {
             </AlertDialog>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Button size="sm" @click="openShadow = 'none'">Shadow none</Button>
             <Button size="sm" @click="openShadow = 'sm'">Shadow sm</Button>
             <Button size="sm" @click="openShadow = 'md'">Shadow md</Button>

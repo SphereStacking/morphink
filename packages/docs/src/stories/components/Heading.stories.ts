@@ -23,7 +23,7 @@ export const Playground: Story = {
       return { args }
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Heading :level="args.level">{{ args.text }}</Heading>
         <Text muted>Size and rhythm adjust based on level.</Text>
       </Stack>
@@ -35,15 +35,15 @@ export const Overview: Story = {
   render: () => ({
     components: { Heading, Stack },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Heading :level="2">Default heading</Heading>
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">level</div>
-          <Stack gap="8px">
+          <Stack gap="sm">
             <Heading :level="1">H1</Heading>
             <Heading :level="2">H2</Heading>
             <Heading :level="3">H3</Heading>

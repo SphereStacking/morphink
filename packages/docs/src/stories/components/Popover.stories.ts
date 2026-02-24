@@ -31,7 +31,7 @@ export const Playground: Story = {
       return { args }
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Popover
           :side="args.side"
           :align="args.align"
@@ -56,10 +56,10 @@ export const Overview: Story = {
   render: () => ({
     components: { Popover, Button, Stack, Text },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Popover>
               <template #trigger>
                 <Button size="sm">Default</Button>
@@ -71,9 +71,9 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">open</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Popover :open="false">
               <template #trigger>
                 <Button size="sm">Closed</Button>
@@ -92,9 +92,9 @@ export const Overview: Story = {
             </Popover>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">side</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Popover side="bottom">
               <template #trigger>
                 <Button size="sm">Bottom</Button>
@@ -129,9 +129,9 @@ export const Overview: Story = {
             </Popover>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">align</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Popover align="start">
               <template #trigger>
                 <Button size="sm">Start</Button>
@@ -158,9 +158,9 @@ export const Overview: Story = {
             </Popover>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Popover rounded="sm">
               <template #trigger>
                 <Button size="sm">Rounded sm</Button>
@@ -187,9 +187,9 @@ export const Overview: Story = {
             </Popover>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Popover shadow="none">
               <template #trigger>
                 <Button size="sm">Shadow none</Button>

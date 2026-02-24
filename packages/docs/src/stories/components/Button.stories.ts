@@ -52,68 +52,68 @@ export const Overview: Story = {
   render: () => ({
     components: { Button, Stack },
     template: `
-      <Stack direction="column" gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack direction="column" gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Button>Default</Button>
           </Stack>
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Button tone="primary" variant="solid">Solid</Button>
             <Button tone="primary" variant="outline">Outline</Button>
             <Button tone="primary" variant="ghost">Ghost</Button>
             <Button tone="primary" variant="soft">Soft</Button>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">tone</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Button tone="base">Base</Button>
             <Button tone="neutral">Neutral</Button>
           </Stack>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Button tone="primary">Primary</Button>
             <Button tone="secondary">Secondary</Button>
             <Button tone="tertiary">Tertiary</Button>
             <Button tone="accent">Accent</Button>
           </Stack>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Button tone="success">Success</Button>
             <Button tone="warning">Warning</Button>
             <Button tone="info">Info</Button>
             <Button tone="destructive">Destructive</Button>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
-          <Stack direction="row" gap="12px" align="center">
+          <Stack direction="row" gap="md" align="center">
             <Button size="lg">Large</Button>
             <Button size="md">Medium</Button>
             <Button size="sm">Small</Button>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">disabled</div>
-          <Stack direction="row" gap="12px" align="center">
+          <Stack direction="row" gap="md" align="center">
             <Button>Default</Button>
             <Button disabled>Disabled</Button>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Button rounded="sm">Rounded Sm</Button>
             <Button rounded="md">Rounded Md</Button>
             <Button rounded="full">Rounded Full</Button>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
-          <Stack direction="row" gap="12px" align="center" wrap>
+          <Stack direction="row" gap="md" align="center" wrap>
             <Button shadow="none">Shadow None</Button>
             <Button shadow="sm">Shadow Sm</Button>
             <Button shadow="md">Shadow Md</Button>

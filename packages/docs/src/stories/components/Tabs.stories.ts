@@ -38,7 +38,7 @@ export const Playground: Story = {
       return { args, active, onChange }
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Tabs
           :items="args.items"
           :model-value="active"
@@ -67,25 +67,25 @@ export const Overview: Story = {
       return { items, activeDefault, activeVariant, activeSize }
     },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Tabs v-model="activeDefault" :items="items" />
             <Text muted>Selected: {{ activeDefault }}</Text>
           </Stack>
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Tabs v-model="activeVariant" :items="items" variant="pill" />
             <Tabs v-model="activeVariant" :items="items" variant="underline" />
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Tabs v-model="activeSize" :items="items" size="sm" />
             <Tabs v-model="activeSize" :items="items" size="md" />
           </Stack>

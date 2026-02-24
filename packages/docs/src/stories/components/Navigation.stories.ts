@@ -29,7 +29,7 @@ export const Playground: Story = {
       return { args }
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Text muted>Preview active and hover states.</Text>
         <Nav :items="args.items" :size="args.size" :variant="args.variant" />
       </Stack>
@@ -49,22 +49,22 @@ export const Overview: Story = {
       return { items }
     },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Nav :items="items" />
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Nav :items="items" size="sm" />
             <Nav :items="items" size="md" />
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Nav :items="items" variant="subtle" />
             <Nav :items="items" variant="solid" />
           </Stack>

@@ -59,7 +59,7 @@ export const Playground: Story = {
       return { args }
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Text muted>Click to open the menu.</Text>
         <Dropdown>
           <DropdownTrigger>
@@ -91,7 +91,7 @@ export const WithIcons: Story = {
       Stack,
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Dropdown>
           <DropdownTrigger>
             <Button size="sm" variant="outline">Actions</Button>
@@ -149,7 +149,7 @@ export const WithCheckbox: Story = {
       return { showStatusBar, showActivityBar, showPanel, theme }
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Dropdown>
           <DropdownTrigger>
             <Button size="sm" variant="outline">View</Button>
@@ -188,7 +188,7 @@ export const WithSubMenu: Story = {
       Stack,
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Dropdown>
           <DropdownTrigger>
             <Button size="sm" variant="outline">Options</Button>
@@ -235,8 +235,8 @@ export const Sizes: Story = {
       Text,
     },
     template: `
-      <Stack direction="row" gap="24px" align="start" wrap>
-        <Stack direction="column" gap="8px" align="start">
+      <Stack direction="row" gap="xl" align="start" wrap>
+        <Stack direction="column" gap="sm" align="start">
           <Text variant="caption" muted>sm</Text>
           <Dropdown>
             <DropdownTrigger>
@@ -250,7 +250,7 @@ export const Sizes: Story = {
             </DropdownContent>
           </Dropdown>
         </Stack>
-        <Stack direction="column" gap="8px" align="start">
+        <Stack direction="column" gap="sm" align="start">
           <Text variant="caption" muted>md (default)</Text>
           <Dropdown>
             <DropdownTrigger>
@@ -264,7 +264,7 @@ export const Sizes: Story = {
             </DropdownContent>
           </Dropdown>
         </Stack>
-        <Stack direction="column" gap="8px" align="start">
+        <Stack direction="column" gap="sm" align="start">
           <Text variant="caption" muted>lg</Text>
           <Dropdown>
             <DropdownTrigger>

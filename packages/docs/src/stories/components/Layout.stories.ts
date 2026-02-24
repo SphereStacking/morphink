@@ -5,12 +5,15 @@ const meta: Meta = {
   title: 'Components/Layout',
   argTypes: {
     columns: { control: 'text' },
-    gap: { control: 'text' },
+    gap: {
+      control: { type: 'select' },
+      options: ['0', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'],
+    },
     direction: { control: { type: 'select' }, options: ['row', 'column'] },
   },
   args: {
-    columns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    gap: '16px',
+    columns: 'auto-fit',
+    gap: 'lg',
     direction: 'column',
   },
 }
@@ -25,7 +28,7 @@ export const Playground: Story = {
       return { args }
     },
     template: `
-      <Stack :direction="args.direction" gap="16px">
+      <Stack :direction="args.direction" gap="lg">
         <Heading :level="4">Layout Preview</Heading>
         <Grid :columns="args.columns" :gap="args.gap">
           <Card>
@@ -50,12 +53,12 @@ export const Overview: Story = {
   render: () => ({
     components: { Grid, Stack, Card, Text, Heading },
     template: `
-      <div style="display: grid; gap: 30px;">
-        <div style="display: grid; gap: 12px;">
+      <Stack gap="2xl">
+        <Stack gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Stack gap="16px">
+          <Stack gap="lg">
             <Heading :level="4">Default layout</Heading>
-            <Grid columns="repeat(auto-fit, minmax(200px, 1fr))" gap="16px">
+            <Grid min-width="200px" gap="lg">
               <Card>
                 <Heading :level="5">Block A</Heading>
                 <Text>Card content</Text>
@@ -70,11 +73,13 @@ export const Overview: Story = {
               </Card>
             </Grid>
           </Stack>
-        </div>
+        </Stack>
+
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <div style="display: grid; gap: 12px;">
+
+        <Stack gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">direction</div>
-          <Stack direction="row" gap="16px">
+          <Stack direction="row" gap="lg">
             <Card>
               <Heading :level="5">Row A</Heading>
               <Text>Stack row</Text>
@@ -84,7 +89,7 @@ export const Overview: Story = {
               <Text>Stack row</Text>
             </Card>
           </Stack>
-          <Stack direction="column" gap="16px">
+          <Stack direction="column" gap="lg">
             <Card>
               <Heading :level="5">Column A</Heading>
               <Text>Stack column</Text>
@@ -94,10 +99,11 @@ export const Overview: Story = {
               <Text>Stack column</Text>
             </Card>
           </Stack>
-        </div>
-        <div style="display: grid; gap: 12px;">
+        </Stack>
+
+        <Stack gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">columns</div>
-          <Grid columns="repeat(2, minmax(0, 1fr))" gap="16px">
+          <Grid :columns="2" gap="lg">
             <Card>
               <Heading :level="5">2 cols</Heading>
               <Text>Grid columns</Text>
@@ -107,7 +113,7 @@ export const Overview: Story = {
               <Text>Grid columns</Text>
             </Card>
           </Grid>
-          <Grid columns="repeat(3, minmax(0, 1fr))" gap="16px">
+          <Grid :columns="3" gap="lg">
             <Card>
               <Heading :level="5">3 cols</Heading>
               <Text>Grid columns</Text>
@@ -121,39 +127,40 @@ export const Overview: Story = {
               <Text>Grid columns</Text>
             </Card>
           </Grid>
-        </div>
-        <div style="display: grid; gap: 12px;">
+        </Stack>
+
+        <Stack gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">gap</div>
-          <Grid columns="repeat(3, minmax(0, 1fr))" gap="8px">
+          <Grid :columns="3" gap="sm">
             <Card>
-              <Heading :level="5">8px</Heading>
+              <Heading :level="5">sm (8px)</Heading>
               <Text>Grid gap</Text>
             </Card>
             <Card>
-              <Heading :level="5">8px</Heading>
+              <Heading :level="5">sm</Heading>
               <Text>Grid gap</Text>
             </Card>
             <Card>
-              <Heading :level="5">8px</Heading>
-              <Text>Grid gap</Text>
-            </Card>
-          </Grid>
-          <Grid columns="repeat(3, minmax(0, 1fr))" gap="24px">
-            <Card>
-              <Heading :level="5">24px</Heading>
-              <Text>Grid gap</Text>
-            </Card>
-            <Card>
-              <Heading :level="5">24px</Heading>
-              <Text>Grid gap</Text>
-            </Card>
-            <Card>
-              <Heading :level="5">24px</Heading>
+              <Heading :level="5">sm</Heading>
               <Text>Grid gap</Text>
             </Card>
           </Grid>
-        </div>
-      </div>
+          <Grid :columns="3" gap="xl">
+            <Card>
+              <Heading :level="5">xl (24px)</Heading>
+              <Text>Grid gap</Text>
+            </Card>
+            <Card>
+              <Heading :level="5">xl</Heading>
+              <Text>Grid gap</Text>
+            </Card>
+            <Card>
+              <Heading :level="5">xl</Heading>
+              <Text>Grid gap</Text>
+            </Card>
+          </Grid>
+        </Stack>
+      </Stack>
     `,
   }),
 }

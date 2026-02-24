@@ -25,7 +25,7 @@ export const Playground: Story = {
       return { args }
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Toolbar :size="args.size" :variant="args.variant">
           <template #title>
             <Text weight="semibold">{{ args.title }}</Text>
@@ -44,8 +44,8 @@ export const Overview: Story = {
   render: () => ({
     components: { Toolbar, Button, Stack, Text },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Toolbar>
             <template #title>
@@ -58,9 +58,9 @@ export const Overview: Story = {
           </Toolbar>
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Toolbar size="sm">
               <template #title>
                 <Text weight="semibold">Small</Text>
@@ -90,9 +90,9 @@ export const Overview: Story = {
             </Toolbar>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Toolbar variant="solid">
               <template #title>
                 <Text weight="semibold">Solid</Text>

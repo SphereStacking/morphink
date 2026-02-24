@@ -27,7 +27,7 @@ export const Playground: Story = {
       return { args }
     },
     template: `
-      <Stack gap="8px">
+      <Stack gap="sm">
         <Text :variant="args.variant" :weight="args.weight" :muted="args.muted">
           {{ args.text }}
         </Text>
@@ -40,32 +40,32 @@ export const Overview: Story = {
   render: () => ({
     components: { Text, Stack },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <Text>Default text</Text>
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-          <Stack gap="8px">
+          <Stack gap="sm">
             <Text variant="body">Body</Text>
             <Text variant="caption">Caption</Text>
             <Text variant="label">Label</Text>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">weight</div>
-          <Stack gap="8px">
+          <Stack gap="sm">
             <Text weight="regular">Regular</Text>
             <Text weight="medium">Medium</Text>
             <Text weight="semibold">Semibold</Text>
             <Text weight="bold">Bold</Text>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">muted</div>
-          <Stack gap="8px">
+          <Stack gap="sm">
             <Text :muted="false">Muted false</Text>
             <Text muted>Muted true</Text>
           </Stack>

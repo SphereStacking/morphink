@@ -30,7 +30,7 @@ export const Playground: Story = {
       return { args }
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Panel :variant="args.variant" :interactive="args.interactive" :rounded="args.rounded" :shadow="args.shadow">
           <Text>{{ args.body }}</Text>
           <Button size="sm" variant="ghost" style="margin-top: 8px;">Action</Button>
@@ -44,10 +44,10 @@ export const Overview: Story = {
   render: () => ({
     components: { Panel, Stack, Text, Button },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Panel>
               <Text>Default panel</Text>
               <Button size="sm" variant="ghost" style="margin-top: 8px;">Action</Button>
@@ -55,9 +55,9 @@ export const Overview: Story = {
           </Stack>
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Panel variant="subtle">
               <Text muted>Subtle panel</Text>
             </Panel>
@@ -69,9 +69,9 @@ export const Overview: Story = {
             </Panel>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">interactive</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Panel>
               <Text muted>Not interactive</Text>
             </Panel>
@@ -81,9 +81,9 @@ export const Overview: Story = {
             </Panel>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Panel rounded="sm">
               <Text>Rounded sm</Text>
             </Panel>
@@ -95,9 +95,9 @@ export const Overview: Story = {
             </Panel>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <Panel shadow="none">
               <Text>Shadow none</Text>
             </Panel>

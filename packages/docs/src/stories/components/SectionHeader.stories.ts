@@ -31,7 +31,7 @@ export const Playground: Story = {
       return { args }
     },
     template: `
-      <Stack gap="12px">
+      <Stack gap="md">
         <Text muted>Organize section headings and actions.</Text>
         <SectionHeader :size="args.size">
           <template #title>{{ args.title }}</template>
@@ -49,8 +49,8 @@ export const Overview: Story = {
   render: () => ({
     components: { SectionHeader, Button, Stack, Text },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
           <SectionHeader>
             <template #title>Default</template>
@@ -61,9 +61,9 @@ export const Overview: Story = {
           </SectionHeader>
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <SectionHeader size="sm">
               <template #title>Small</template>
               <template #subtitle>Subtitle</template>
@@ -80,9 +80,9 @@ export const Overview: Story = {
             </SectionHeader>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">showSubtitle</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <SectionHeader>
               <template #title>Subtitle on</template>
               <template #subtitle>Subtitle</template>
@@ -92,9 +92,9 @@ export const Overview: Story = {
             </SectionHeader>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">showAction</div>
-          <Stack gap="12px">
+          <Stack gap="md">
             <SectionHeader>
               <template #title>Action on</template>
               <template #action>

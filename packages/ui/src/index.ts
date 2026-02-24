@@ -83,3 +83,6 @@ export {
   componentTones,
   componentShadow,
 } from './base/lib/props'
+
+export type { SpaceToken } from './base/lib/props/space'
+export { spaceTokenMap, resolveSpace } from './base/lib/props/space'

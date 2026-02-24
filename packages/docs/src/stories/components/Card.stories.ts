@@ -62,9 +62,9 @@ export const Variants: Story = {
   render: () => ({
     components: { Card, CardHeader, CardBody, CardTitle, CardDescription, Text, Stack },
     template: `
-      <Stack gap="16px">
+      <Stack gap="lg">
         <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-        <Stack gap="16px" direction="row" wrap>
+        <Stack gap="lg" direction="row" wrap>
           <Card variant="elevated" style="width: 200px;">
             <CardHeader><CardTitle>Elevated</CardTitle></CardHeader>
             <CardBody><Text>Default card with shadow</Text></CardBody>
@@ -95,9 +95,9 @@ export const WithMedia: Story = {
   render: () => ({
     components: { Card, CardHeader, CardBody, CardFooter, CardTitle, CardDescription, CardMedia, Text, Button, Stack },
     template: `
-      <Stack gap="16px">
+      <Stack gap="lg">
         <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">with media</div>
-        <Stack gap="16px" direction="row" wrap>
+        <Stack gap="lg" direction="row" wrap>
           <Card style="width: 300px;">
             <CardMedia>
               <div style="height: 160px; background: linear-gradient(135deg, var(--morphink-color-primary), var(--morphink-color-accent));" />
@@ -135,10 +135,10 @@ export const RoundedAndShadow: Story = {
   render: () => ({
     components: { Card, CardHeader, CardBody, CardTitle, Text, Stack },
     template: `
-      <Stack gap="30px">
-        <Stack direction="column" gap="12px">
+      <Stack gap="2xl">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
-          <Stack gap="12px" direction="row" wrap>
+          <Stack gap="md" direction="row" wrap>
             <Card rounded="none" style="width: 160px;"><CardBody><Text>none</Text></CardBody></Card>
             <Card rounded="sm" style="width: 160px;"><CardBody><Text>sm</Text></CardBody></Card>
             <Card rounded="md" style="width: 160px;"><CardBody><Text>md</Text></CardBody></Card>
@@ -146,9 +146,9 @@ export const RoundedAndShadow: Story = {
             <Card rounded="xl" style="width: 160px;"><CardBody><Text>xl</Text></CardBody></Card>
           </Stack>
         </Stack>
-        <Stack direction="column" gap="12px">
+        <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
-          <Stack gap="12px" direction="row" wrap>
+          <Stack gap="md" direction="row" wrap>
             <Card shadow="none" style="width: 160px;"><CardBody><Text>none</Text></CardBody></Card>
             <Card shadow="sm" style="width: 160px;"><CardBody><Text>sm</Text></CardBody></Card>
             <Card shadow="md" style="width: 160px;"><CardBody><Text>md</Text></CardBody></Card>

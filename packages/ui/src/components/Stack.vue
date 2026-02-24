@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import StackBase from '../base/ui/layout/StackBase.vue'
+import type { SpaceToken } from '../base/lib/props/space'
 
 withDefaults(
   defineProps<{
     direction?: 'row' | 'column'
-    gap?: string
-    align?: string
-    justify?: string
+    gap?: SpaceToken | string
+    align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline'
+    justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'
     wrap?: boolean
   }>(),
   {
     direction: 'column',
-    gap: 'var(--morphink-space-md)',
+    gap: 'md',
     align: 'stretch',
-    justify: 'flex-start',
+    justify: 'start',
     wrap: false,
   }
 )
