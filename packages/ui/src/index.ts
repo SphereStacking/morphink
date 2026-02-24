@@ -47,6 +47,7 @@ export {
   componentRounded,
   componentTones,
   componentShadow,
+  componentResize,
 } from './base/lib/props'
 
 export type { SpaceToken } from './base/lib/props/space'

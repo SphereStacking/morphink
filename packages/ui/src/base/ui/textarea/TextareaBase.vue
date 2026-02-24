@@ -3,7 +3,7 @@ defineOptions({ inheritAttrs: false })
 import { computed, useAttrs } from 'vue'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
-import type { TextareaRounded, TextareaSize, TextareaTone, TextareaVariant } from '../../lib/props'
+import type { TextareaResize, TextareaRounded, TextareaSize, TextareaTone, TextareaVariant } from '../../lib/props'
 
 const textareaVariants = cva(
   cn(
@@ -90,7 +90,7 @@ const props = withDefaults(
     placeholder?: string
     readonly?: boolean
     rows?: number
-    resize?: 'none' | 'vertical' | 'horizontal' | 'both'
+    resize?: TextareaResize
   }>(),
   {
     variant: 'outline',

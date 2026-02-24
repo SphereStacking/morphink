@@ -1,5 +1,6 @@
 import { Stack, Textarea } from '@morphink/ui'
 import {
+  componentResize,
   componentRounded,
   componentSizes,
   componentTones,
@@ -18,7 +19,7 @@ const meta: Meta = {
     disabled: { control: 'boolean' },
     readonly: { control: 'boolean' },
     rows: { control: { type: 'number', min: 1, max: 20 } },
-    resize: { control: { type: 'select' }, options: ['none', 'vertical', 'horizontal', 'both'] },
+    resize: { control: { type: 'select' }, options: componentResize.Textarea },
   },
   args: {
     variant: 'outline',
