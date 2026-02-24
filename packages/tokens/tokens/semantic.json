@@ -233,6 +233,10 @@
         "value": "{color.destructive-700}",
         "type": "color"
       }
+    },
+    "scrim": {
+      "value": "rgba(3,3,2,0.5)",
+      "type": "color"
     }
   },
   "shadow": {

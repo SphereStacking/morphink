@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * DropdownSubTrigger — element that opens submenu.
+ *
+ * Part of Dropdown compound component.
+ * Style variants: base/ui/dropdown/DropdownSubTriggerBase.vue
+ */
 import DropdownSubTriggerBase from '../base/ui/dropdown/DropdownSubTriggerBase.vue'
 
 withDefaults(

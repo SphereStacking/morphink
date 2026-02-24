@@ -74,7 +74,7 @@ const props = withDefaults(
   }>(),
   {
     size: 'md',
-    closeLabel: '閉じる',
+    closeLabel: 'Close',
     rounded: 'lg',
     shadow: 'md',
   }
@@ -102,7 +102,7 @@ const titleClass = computed(() => titleVariants({ size: props.size }))
       <slot name="trigger" />
     </DialogTrigger>
     <DialogPortal>
-      <DialogOverlay class="fixed inset-0 bg-[rgba(17,17,17,0.45)]" />
+      <DialogOverlay class="fixed inset-0 bg-(--morphink-color-scrim)" />
       <DialogContent :class="contentClass">
         <div class="flex items-center justify-between gap-(--morphink-space-md)">
           <DialogTitle v-if="title" :class="titleClass">{{ title }}</DialogTitle>

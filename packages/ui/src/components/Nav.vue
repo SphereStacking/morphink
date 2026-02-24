@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * Nav — navigation container.
+ *
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/nav/NavBase.vue
+ */
 import NavBase from '../base/ui/nav/NavBase.vue'
 
 type NavItem = {

@@ -1,4 +1,11 @@
 <script setup lang="ts">
+/**
+ * AlertDialog — confirmation dialog.
+ *
+ * Wraps Reka UI primitive. Customize defaults or add
+ * product-level features here.
+ * Style variants: base/ui/alert-dialog/AlertDialogBase.vue
+ */
 import AlertDialogBase from '../base/ui/alert-dialog/AlertDialogBase.vue'
 import type { AlertDialogRounded, AlertDialogShadow, AlertDialogSize } from '../base/lib/props'
 

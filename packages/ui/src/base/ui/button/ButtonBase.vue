@@ -142,7 +142,7 @@ const buttonVariants = cva(
         tone: 'base',
         variant: 'solid',
         class:
-          'border-(color:--morphink-color-base-active) hover:bg-(--morphink-color-base-hover) active:bg-(--morphink-color-base-active)',
+          'hover:bg-(--morphink-color-base-hover) active:bg-(--morphink-color-base-active)',
       },
       {
         tone: 'base',

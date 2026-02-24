@@ -8,6 +8,7 @@ export const componentVariants = {
   Card: ['elevated', 'outline', 'ghost', 'soft', 'interactive'],
   Select: ['outline', 'ghost'],
   Toolbar: ['solid', 'subtle'],
+  Input: ['outline', 'ghost', 'soft'],
 } as const
 
 export type ButtonVariant = (typeof componentVariants.Button)[number]
@@ -16,3 +17,4 @@ export type PanelVariant = (typeof componentVariants.Panel)[number]
 export type CardVariant = (typeof componentVariants.Card)[number]
 export type SelectVariant = (typeof componentVariants.Select)[number]
 export type ToolbarVariant = (typeof componentVariants.Toolbar)[number]
+export type InputVariant = (typeof componentVariants.Input)[number]

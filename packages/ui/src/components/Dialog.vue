@@ -1,4 +1,11 @@
 <script setup lang="ts">
+/**
+ * Dialog — modal dialog overlay.
+ *
+ * Wraps Reka UI primitive. Customize defaults or add
+ * product-level features here.
+ * Style variants: base/ui/dialog/DialogBase.vue
+ */
 import DialogBase from '../base/ui/dialog/DialogBase.vue'
 import type { DialogRounded, DialogShadow, DialogSize } from '../base/lib/props'
 
@@ -15,7 +22,7 @@ withDefaults(
   }>(),
   {
     size: 'md',
-    closeLabel: '閉じる',
+    closeLabel: 'Close',
     rounded: 'lg',
     shadow: 'md',
   }

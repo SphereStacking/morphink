@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * Divider — visual separator.
+ *
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/divider/DividerBase.vue
+ */
 import DividerBase from '../base/ui/divider/DividerBase.vue'
 
 withDefaults(

@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * Stack — flex layout container.
+ *
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/layout/StackBase.vue
+ */
 import StackBase from '../base/ui/layout/StackBase.vue'
 import type { SpaceToken } from '../base/lib/props/space'
 

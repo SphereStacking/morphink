@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * DropdownCheckboxItem — toggleable menu item.
+ *
+ * Part of Dropdown compound component.
+ * Style variants: base/ui/dropdown/DropdownCheckboxItemBase.vue
+ */
 import DropdownCheckboxItemBase from '../base/ui/dropdown/DropdownCheckboxItemBase.vue'
 
 withDefaults(

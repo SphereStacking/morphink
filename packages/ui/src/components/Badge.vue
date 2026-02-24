@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * Badge — status or count indicator.
+ *
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/badge/BadgeBase.vue
+ */
 import BadgeBase from '../base/ui/badge/BadgeBase.vue'
 import type { BadgeRounded, BadgeSize, BadgeTone, BadgeVariant } from '../base/lib/props'
 

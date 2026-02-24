@@ -35,7 +35,7 @@ const props = withDefaults(
   {
     size: 'md',
     variant: 'outline',
-    placeholder: '選択してください',
+    placeholder: 'Select...',
     side: 'bottom',
     align: 'start',
     rounded: 'md',

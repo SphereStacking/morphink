@@ -1,4 +1,11 @@
 <script setup lang="ts">
+/**
+ * Tabs — tabbed content switcher.
+ *
+ * Wraps Reka UI primitive. Customize defaults or add
+ * product-level features here.
+ * Style variants: base/ui/tabs/TabsBase.vue
+ */
 import TabsBase from '../base/ui/tabs/TabsBase.vue'
 
 type TabItem = {

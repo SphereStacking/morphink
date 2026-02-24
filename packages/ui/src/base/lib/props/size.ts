@@ -9,6 +9,7 @@ export const componentSizes = {
   Select: ['sm', 'md'],
   Toolbar: ['sm', 'md', 'lg'],
   Dropdown: ['sm', 'md', 'lg'],
+  Input: ['xs', 'sm', 'md', 'lg', 'xl'],
 } as const
 
 export type BadgeSize = (typeof componentSizes.Badge)[number]
@@ -18,3 +19,4 @@ export type AlertDialogSize = (typeof componentSizes.AlertDialog)[number]
 export type SelectSize = (typeof componentSizes.Select)[number]
 export type ToolbarSize = (typeof componentSizes.Toolbar)[number]
 export type DropdownSize = (typeof componentSizes.Dropdown)[number]
+export type InputSize = (typeof componentSizes.Input)[number]

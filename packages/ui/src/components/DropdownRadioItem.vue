@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * DropdownRadioItem — exclusive selection item.
+ *
+ * Part of Dropdown compound component.
+ * Style variants: base/ui/dropdown/DropdownRadioItemBase.vue
+ */
 import DropdownRadioItemBase from '../base/ui/dropdown/DropdownRadioItemBase.vue'
 
 withDefaults(

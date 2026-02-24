@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * DropdownRadioGroup — exclusive selection group.
+ *
+ * Part of Dropdown compound component.
+ * Style variants: base/ui/dropdown/DropdownRadioGroupBase.vue
+ */
 import DropdownRadioGroupBase from '../base/ui/dropdown/DropdownRadioGroupBase.vue'
 import { useForwardPropsEmits, type AcceptableValue } from 'reka-ui'
 

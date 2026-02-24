@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * Table — data table.
+ *
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/table/TableBase.vue
+ */
 import TableBase from '../base/ui/table/TableBase.vue'
 import type { TableRounded } from '../base/lib/props'
 

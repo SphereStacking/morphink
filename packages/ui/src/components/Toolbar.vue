@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * Toolbar — horizontal action bar.
+ *
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/toolbar/ToolbarBase.vue
+ */
 import ToolbarBase from '../base/ui/toolbar/ToolbarBase.vue'
 import type { ToolbarSize, ToolbarVariant } from '../base/lib/props'
 

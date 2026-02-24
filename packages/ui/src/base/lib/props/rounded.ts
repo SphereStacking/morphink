@@ -10,6 +10,7 @@ export const componentRounded = {
   Dropdown: ['none', 'sm', 'md', 'lg', 'xl'],
   Select: ['none', 'sm', 'md', 'lg', 'xl'],
   Table: ['none', 'sm', 'md', 'lg', 'xl'],
+  Input: ['none', 'sm', 'md', 'lg', 'xl'],
 } as const
 
 export type ButtonRounded = (typeof componentRounded.Button)[number]
@@ -23,3 +24,4 @@ export type PopoverRounded = (typeof componentRounded.Popover)[number]
 export type DropdownRounded = (typeof componentRounded.Dropdown)[number]
 export type SelectRounded = (typeof componentRounded.Select)[number]
 export type TableRounded = (typeof componentRounded.Table)[number]
+export type InputRounded = (typeof componentRounded.Input)[number]

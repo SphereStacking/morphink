@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * Grid — CSS grid layout container.
+ *
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/layout/GridBase.vue
+ */
 import GridBase from '../base/ui/layout/GridBase.vue'
 import type { SpaceToken } from '../base/lib/props/space'
 

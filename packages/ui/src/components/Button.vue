@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * Button — clickable action trigger.
+ *
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/button/ButtonBase.vue
+ */
 import ButtonBase from '../base/ui/button/ButtonBase.vue'
 import type {
   ButtonRounded,

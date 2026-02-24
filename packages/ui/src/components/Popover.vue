@@ -1,4 +1,11 @@
 <script setup lang="ts">
+/**
+ * Popover — click-triggered floating panel.
+ *
+ * Wraps Reka UI primitive. Customize defaults or add
+ * product-level features here.
+ * Style variants: base/ui/popover/PopoverBase.vue
+ */
 import PopoverBase from '../base/ui/popover/PopoverBase.vue'
 import type { PopoverRounded, PopoverShadow } from '../base/lib/props'
 

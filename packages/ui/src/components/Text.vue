@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * Text — body text block.
+ *
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/typography/TextBase.vue
+ */
 import TextBase from '../base/ui/typography/TextBase.vue'
 
 type Variant = 'body' | 'caption' | 'label'

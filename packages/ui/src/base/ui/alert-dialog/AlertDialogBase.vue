@@ -109,7 +109,7 @@ const actionClass =
       <slot name="trigger" />
     </AlertDialogTrigger>
     <AlertDialogPortal>
-      <AlertDialogOverlay class="fixed inset-0 bg-[rgba(17,17,17,0.45)]" />
+      <AlertDialogOverlay class="fixed inset-0 bg-(--morphink-color-scrim)" />
       <AlertDialogContent :class="contentClass">
         <div class="flex items-center justify-between gap-(--morphink-space-md)">
           <AlertDialogTitle v-if="title" :class="titleClass">{{ title }}</AlertDialogTitle>

@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * DropdownContent — floating menu container.
+ *
+ * Part of Dropdown compound component.
+ * Style variants: base/ui/dropdown/DropdownContentBase.vue
+ */
 import DropdownContentBase from '../base/ui/dropdown/DropdownContentBase.vue'
 import type { DropdownRounded, DropdownShadow, DropdownSize } from '../base/lib/props'
 

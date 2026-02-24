@@ -1,4 +1,11 @@
 <script setup lang="ts">
+/**
+ * Select — single-value selector.
+ *
+ * Wraps Reka UI primitive. Customize defaults or add
+ * product-level features here.
+ * Style variants: base/ui/select/SelectBase.vue
+ */
 import SelectBase from '../base/ui/select/SelectBase.vue'
 import type { SelectRounded, SelectShadow, SelectSize, SelectVariant } from '../base/lib/props'
 
@@ -23,7 +30,7 @@ const props = withDefaults(
   {
     size: 'md',
     variant: 'outline',
-    placeholder: '選択してください',
+    placeholder: 'Select...',
     side: 'bottom',
     align: 'start',
     rounded: 'md',

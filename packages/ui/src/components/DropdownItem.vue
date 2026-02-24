@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * DropdownItem — selectable menu item.
+ *
+ * Part of Dropdown compound component.
+ * Style variants: base/ui/dropdown/DropdownItemBase.vue
+ */
 import DropdownItemBase from '../base/ui/dropdown/DropdownItemBase.vue'
 
 withDefaults(

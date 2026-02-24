@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * SectionHeader — section title with optional actions.
+ *
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/section-header/SectionHeaderBase.vue
+ */
 import SectionHeaderBase from '../base/ui/section-header/SectionHeaderBase.vue'
 
 withDefaults(

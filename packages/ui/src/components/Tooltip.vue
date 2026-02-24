@@ -1,4 +1,11 @@
 <script setup lang="ts">
+/**
+ * Tooltip — hover tooltip.
+ *
+ * Wraps Reka UI primitive. Customize defaults or add
+ * product-level features here.
+ * Style variants: base/ui/tooltip/TooltipBase.vue
+ */
 import TooltipBase from '../base/ui/tooltip/TooltipBase.vue'
 import type { TooltipRounded, TooltipShadow } from '../base/lib/props'
 

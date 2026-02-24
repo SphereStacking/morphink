@@ -1,4 +1,10 @@
 <script setup lang="ts">
+/**
+ * DropdownSub — nested submenu root.
+ *
+ * Part of Dropdown compound component.
+ * Style variants: base/ui/dropdown/DropdownSubBase.vue
+ */
 import DropdownSubBase from '../base/ui/dropdown/DropdownSubBase.vue'
 import { useForwardPropsEmits } from 'reka-ui'
 

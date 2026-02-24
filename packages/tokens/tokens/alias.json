@@ -109,39 +109,39 @@
       "type": "color"
     },
     "base-100": {
-      "value": "oklch(97.00% 0.0000 0.00)",
+      "value": "oklch(99.50% 0.0000 0.00)",
       "type": "color"
     },
     "base-200": {
-      "value": "oklch(97.00% 0.0000 0.00)",
+      "value": "oklch(99.00% 0.0000 0.00)",
       "type": "color"
     },
     "base-300": {
-      "value": "oklch(97.01% 0.0000 0.00)",
+      "value": "oklch(98.50% 0.0000 0.00)",
       "type": "color"
     },
     "base-400": {
-      "value": "oklch(97.01% 0.0000 0.00)",
+      "value": "oklch(98.00% 0.0000 0.00)",
       "type": "color"
     },
     "base-500": {
-      "value": "oklch(97.02% 0.0000 0.00)",
+      "value": "oklch(97.00% 0.0000 0.00)",
       "type": "color"
     },
     "base-600": {
-      "value": "oklch(87.52% 0.0000 0.00)",
+      "value": "oklch(90.00% 0.0000 0.00)",
       "type": "color"
     },
     "base-700": {
-      "value": "oklch(78.02% 0.0000 0.00)",
+      "value": "oklch(44.00% 0.0000 0.00)",
       "type": "color"
     },
     "base-800": {
-      "value": "oklch(68.52% 0.0000 0.00)",
+      "value": "oklch(30.00% 0.0000 0.00)",
       "type": "color"
     },
     "base-900": {
-      "value": "oklch(59.02% 0.0000 0.00)",
+      "value": "oklch(18.00% 0.0000 0.00)",
       "type": "color"
     },
     "accent-100": {
@@ -325,15 +325,15 @@
       "type": "color"
     },
     "black": {
-      "value": "#000000",
+      "value": "oklch(0.00% 0.0000 0.00)",
       "type": "color"
     },
     "gray-900": {
-      "value": "#111111",
+      "value": "oklch(16.60% 0.0000 0.00)",
       "type": "color"
     },
     "gray-600": {
-      "value": "#666666",
+      "value": "oklch(50.44% 0.0000 0.00)",
       "type": "color"
     },
     "gray-700": {
@@ -345,7 +345,7 @@
       "type": "color"
     },
     "gray-300": {
-      "value": "#cccccc",
+      "value": "oklch(83.69% 0.0000 0.00)",
       "type": "color"
     },
     "gray-400": {
@@ -357,15 +357,15 @@
       "type": "color"
     },
     "gray-200": {
-      "value": "#eeeeee",
+      "value": "oklch(95.24% 0.0000 0.00)",
       "type": "color"
     },
     "gray-100": {
-      "value": "#f5f5f5",
+      "value": "oklch(97.02% 0.0000 0.00)",
       "type": "color"
     },
     "white": {
-      "value": "#ffffff",
+      "value": "oklch(100.00% 0.0000 0.00)",
       "type": "color"
     }
   },

@@ -1,4 +1,11 @@
 <script setup lang="ts">
+/**
+ * Dropdown — context menu / dropdown menu.
+ *
+ * Root of compound component. See Dropdown* siblings.
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/dropdown/DropdownBase.vue
+ */
 import DropdownBase from '../base/ui/dropdown/DropdownBase.vue'
 import { useForwardPropsEmits } from 'reka-ui'
 
