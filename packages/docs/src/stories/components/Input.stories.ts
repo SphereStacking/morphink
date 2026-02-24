@@ -67,6 +67,8 @@ export const Overview: Story = {
           <Stack direction="column" gap="sm" style="max-width: 320px">
             <Input tone="base" placeholder="Base" />
             <Input tone="primary" placeholder="Primary" />
+            <Input tone="success" placeholder="Success" />
+            <Input tone="warning" placeholder="Warning" />
             <Input tone="destructive" placeholder="Destructive" />
           </Stack>
         </Stack>
@@ -117,6 +119,8 @@ export const Overview: Story = {
           <Stack direction="column" gap="sm" style="max-width: 320px">
             <Input variant="soft" tone="base" placeholder="Soft Base" />
             <Input variant="soft" tone="primary" placeholder="Soft Primary" />
+            <Input variant="soft" tone="success" placeholder="Soft Success" />
+            <Input variant="soft" tone="warning" placeholder="Soft Warning" />
             <Input variant="soft" tone="destructive" placeholder="Soft Destructive" />
           </Stack>
         </Stack>

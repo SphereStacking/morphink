@@ -12,7 +12,7 @@ import {
   SelectViewport,
 } from 'reka-ui'
 import { cn } from '../../lib/utils'
-import type { SelectRounded, SelectShadow, SelectSize, SelectVariant } from '../../lib/props'
+import type { SelectRounded, SelectShadow, SelectSize, SelectTone, SelectVariant } from '../../lib/props'
 
 type Option = {
   label: string
@@ -27,6 +27,7 @@ const props = withDefaults(
     placeholder?: string
     size?: SelectSize
     variant?: SelectVariant
+    tone?: SelectTone
     side?: 'top' | 'right' | 'bottom' | 'left'
     align?: 'start' | 'center' | 'end'
     rounded?: SelectRounded
@@ -35,6 +36,7 @@ const props = withDefaults(
   {
     size: 'md',
     variant: 'outline',
+    tone: 'base',
     placeholder: 'Select...',
     side: 'bottom',
     align: 'start',
@@ -48,15 +50,32 @@ const emit = defineEmits<{
 }>()
 
 const triggerVariants = cva(
-  'inline-flex w-full items-center justify-between text-(--morphink-color-foreground)',
+  cn(
+    'inline-flex w-full items-center justify-between text-(--morphink-color-foreground)',
+    'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color)'
+  ),
   {
     variants: {
       variant: {
-        solid: 'border border-transparent bg-(--morphink-color-muted)',
-        outline:
+        solid: 'border border-transparent bg-[color-mix(in_srgb,var(--field-color)_12%,transparent)]',
+        outline: cn(
           'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-input)',
+          'focus-visible:border-(color:--field-color)'
+        ),
         ghost: 'border border-transparent bg-transparent',
-        soft: 'border border-transparent bg-[color-mix(in_srgb,var(--morphink-color-primary)_12%,transparent)]',
+        soft: 'border border-transparent bg-[color-mix(in_srgb,var(--field-color)_12%,transparent)]',
+      },
+      tone: {
+        primary: '[--ring-color:var(--morphink-color-primary)] [--field-color:var(--morphink-color-primary)]',
+        secondary: '[--ring-color:var(--morphink-color-secondary)] [--field-color:var(--morphink-color-secondary)]',
+        tertiary: '[--ring-color:var(--morphink-color-tertiary)] [--field-color:var(--morphink-color-tertiary)]',
+        base: '[--ring-color:var(--morphink-color-ring)] [--field-color:var(--morphink-color-base)]',
+        accent: '[--ring-color:var(--morphink-color-accent)] [--field-color:var(--morphink-color-accent)]',
+        neutral: '[--ring-color:var(--morphink-color-neutral)] [--field-color:var(--morphink-color-neutral)]',
+        success: '[--ring-color:var(--morphink-color-success)] [--field-color:var(--morphink-color-success)]',
+        warning: '[--ring-color:var(--morphink-color-warning)] [--field-color:var(--morphink-color-warning)]',
+        info: '[--ring-color:var(--morphink-color-info)] [--field-color:var(--morphink-color-info)]',
+        destructive: '[--ring-color:var(--morphink-color-destructive)] [--field-color:var(--morphink-color-destructive)]',
       },
       size: {
         xs: 'h-7 px-2 text-xs',
@@ -73,8 +92,17 @@ const triggerVariants = cva(
         xl: 'rounded-(--morphink-radius-xl)',
       },
     },
+    compoundVariants: [
+      { variant: 'solid', tone: 'base', class: 'bg-(--morphink-color-muted)' },
+      { variant: 'solid', tone: 'neutral', class: 'bg-(--morphink-color-muted)' },
+      { variant: 'soft', tone: 'base', class: 'bg-(--morphink-color-muted)' },
+      { variant: 'soft', tone: 'neutral', class: 'bg-(--morphink-color-muted)' },
+      { variant: 'outline', tone: 'base', class: 'focus-visible:border-(color:--morphink-color-border)' },
+      { variant: 'outline', tone: 'destructive', class: 'border-(color:--field-color)' },
+    ],
     defaultVariants: {
       variant: 'outline',
+      tone: 'base',
       size: 'md',
       rounded: 'md',
     },
@@ -84,6 +112,7 @@ const triggerClass = computed(() =>
   cn(
     triggerVariants({
       variant: props.variant,
+      tone: props.tone,
       size: props.size,
       rounded: props.rounded,
     })

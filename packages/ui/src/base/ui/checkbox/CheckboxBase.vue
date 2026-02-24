@@ -12,25 +12,62 @@ const checkboxVariants = cva(
     'border-(--morphink-color-border)',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
-    'data-[state=checked]:border-transparent data-[state=indeterminate]:border-transparent'
+    'data-[state=checked]:border-transparent data-[state=indeterminate]:border-transparent',
+    'data-[state=checked]:bg-(--ctl-color) data-[state=checked]:text-(--ctl-fg)',
+    'data-[state=indeterminate]:bg-(--ctl-color) data-[state=indeterminate]:text-(--ctl-fg)'
   ),
   {
     variants: {
       tone: {
-        base: cn(
-          '[--ring-color:var(--morphink-color-ring)]',
-          'data-[state=checked]:bg-(--morphink-color-base) data-[state=checked]:text-(--morphink-color-base-foreground)',
-          'data-[state=indeterminate]:bg-(--morphink-color-base) data-[state=indeterminate]:text-(--morphink-color-base-foreground)'
-        ),
         primary: cn(
           '[--ring-color:var(--morphink-color-primary)]',
-          'data-[state=checked]:bg-(--morphink-color-primary) data-[state=checked]:text-(--morphink-color-primary-foreground)',
-          'data-[state=indeterminate]:bg-(--morphink-color-primary) data-[state=indeterminate]:text-(--morphink-color-primary-foreground)'
+          '[--ctl-color:var(--morphink-color-primary)]',
+          '[--ctl-fg:var(--morphink-color-primary-foreground)]'
+        ),
+        secondary: cn(
+          '[--ring-color:var(--morphink-color-secondary)]',
+          '[--ctl-color:var(--morphink-color-secondary)]',
+          '[--ctl-fg:var(--morphink-color-secondary-foreground)]'
+        ),
+        tertiary: cn(
+          '[--ring-color:var(--morphink-color-tertiary)]',
+          '[--ctl-color:var(--morphink-color-tertiary)]',
+          '[--ctl-fg:var(--morphink-color-tertiary-foreground)]'
+        ),
+        base: cn(
+          '[--ring-color:var(--morphink-color-ring)]',
+          '[--ctl-color:var(--morphink-color-base)]',
+          '[--ctl-fg:var(--morphink-color-base-foreground)]'
+        ),
+        accent: cn(
+          '[--ring-color:var(--morphink-color-accent)]',
+          '[--ctl-color:var(--morphink-color-accent)]',
+          '[--ctl-fg:var(--morphink-color-accent-foreground)]'
+        ),
+        neutral: cn(
+          '[--ring-color:var(--morphink-color-neutral)]',
+          '[--ctl-color:var(--morphink-color-neutral)]',
+          '[--ctl-fg:var(--morphink-color-neutral-foreground)]'
+        ),
+        success: cn(
+          '[--ring-color:var(--morphink-color-success)]',
+          '[--ctl-color:var(--morphink-color-success)]',
+          '[--ctl-fg:var(--morphink-color-success-foreground)]'
+        ),
+        warning: cn(
+          '[--ring-color:var(--morphink-color-warning)]',
+          '[--ctl-color:var(--morphink-color-warning)]',
+          '[--ctl-fg:var(--morphink-color-warning-foreground)]'
+        ),
+        info: cn(
+          '[--ring-color:var(--morphink-color-info)]',
+          '[--ctl-color:var(--morphink-color-info)]',
+          '[--ctl-fg:var(--morphink-color-info-foreground)]'
         ),
         destructive: cn(
           '[--ring-color:var(--morphink-color-destructive)]',
-          'data-[state=checked]:bg-(--morphink-color-destructive) data-[state=checked]:text-(--morphink-color-destructive-foreground)',
-          'data-[state=indeterminate]:bg-(--morphink-color-destructive) data-[state=indeterminate]:text-(--morphink-color-destructive-foreground)'
+          '[--ctl-color:var(--morphink-color-destructive)]',
+          '[--ctl-fg:var(--morphink-color-destructive-foreground)]'
         ),
       },
       size: {

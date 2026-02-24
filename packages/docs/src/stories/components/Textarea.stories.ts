@@ -70,6 +70,8 @@ export const Overview: Story = {
           <Stack direction="column" gap="sm" style="max-width: 320px">
             <Textarea tone="base" placeholder="Base" />
             <Textarea tone="primary" placeholder="Primary" />
+            <Textarea tone="success" placeholder="Success" />
+            <Textarea tone="warning" placeholder="Warning" />
             <Textarea tone="destructive" placeholder="Destructive" />
           </Stack>
         </Stack>
@@ -109,6 +111,8 @@ export const Overview: Story = {
           <Stack direction="column" gap="sm" style="max-width: 320px">
             <Textarea variant="soft" tone="base" placeholder="Soft Base" />
             <Textarea variant="soft" tone="primary" placeholder="Soft Primary" />
+            <Textarea variant="soft" tone="success" placeholder="Soft Success" />
+            <Textarea variant="soft" tone="warning" placeholder="Soft Warning" />
             <Textarea variant="soft" tone="destructive" placeholder="Soft Destructive" />
           </Stack>
         </Stack>

@@ -15,15 +15,25 @@ const textareaVariants = cva(
   {
     variants: {
       variant: {
-        solid: 'border border-transparent bg-(--morphink-color-muted)',
-        outline: 'border border-(--morphink-color-border) bg-(--morphink-color-input)',
+        solid: 'border border-transparent bg-[color-mix(in_srgb,var(--field-color)_12%,transparent)]',
+        outline: cn(
+          'border border-(--morphink-color-border) bg-(--morphink-color-input)',
+          'focus-visible:border-(color:--field-color)'
+        ),
         ghost: 'border border-transparent bg-transparent',
-        soft: 'border border-transparent',
+        soft: 'border border-transparent bg-[color-mix(in_srgb,var(--field-color)_12%,transparent)]',
       },
       tone: {
-        base: '[--ring-color:var(--morphink-color-ring)]',
-        primary: '[--ring-color:var(--morphink-color-primary)]',
-        destructive: '[--ring-color:var(--morphink-color-destructive)]',
+        primary: '[--ring-color:var(--morphink-color-primary)] [--field-color:var(--morphink-color-primary)]',
+        secondary: '[--ring-color:var(--morphink-color-secondary)] [--field-color:var(--morphink-color-secondary)]',
+        tertiary: '[--ring-color:var(--morphink-color-tertiary)] [--field-color:var(--morphink-color-tertiary)]',
+        base: '[--ring-color:var(--morphink-color-ring)] [--field-color:var(--morphink-color-base)]',
+        accent: '[--ring-color:var(--morphink-color-accent)] [--field-color:var(--morphink-color-accent)]',
+        neutral: '[--ring-color:var(--morphink-color-neutral)] [--field-color:var(--morphink-color-neutral)]',
+        success: '[--ring-color:var(--morphink-color-success)] [--field-color:var(--morphink-color-success)]',
+        warning: '[--ring-color:var(--morphink-color-warning)] [--field-color:var(--morphink-color-warning)]',
+        info: '[--ring-color:var(--morphink-color-info)] [--field-color:var(--morphink-color-info)]',
+        destructive: '[--ring-color:var(--morphink-color-destructive)] [--field-color:var(--morphink-color-destructive)]',
       },
       size: {
         xs: 'px-2 py-1.5 text-xs',
@@ -51,33 +61,12 @@ const textareaVariants = cva(
       },
     },
     compoundVariants: [
-      { variant: 'outline', tone: 'primary', class: 'focus-visible:border-(color:--morphink-color-primary)' },
-      {
-        variant: 'outline',
-        tone: 'destructive',
-        class: 'border-(color:--morphink-color-destructive) focus-visible:border-(color:--morphink-color-destructive)',
-      },
-      {
-        variant: 'solid',
-        tone: 'primary',
-        class: 'bg-[color-mix(in_srgb,var(--morphink-color-primary)_12%,transparent)]',
-      },
-      {
-        variant: 'solid',
-        tone: 'destructive',
-        class: 'bg-[color-mix(in_srgb,var(--morphink-color-destructive)_12%,transparent)]',
-      },
+      { variant: 'solid', tone: 'base', class: 'bg-(--morphink-color-muted)' },
+      { variant: 'solid', tone: 'neutral', class: 'bg-(--morphink-color-muted)' },
       { variant: 'soft', tone: 'base', class: 'bg-(--morphink-color-muted)' },
-      {
-        variant: 'soft',
-        tone: 'primary',
-        class: 'bg-[color-mix(in_srgb,var(--morphink-color-primary)_12%,transparent)]',
-      },
-      {
-        variant: 'soft',
-        tone: 'destructive',
-        class: 'bg-[color-mix(in_srgb,var(--morphink-color-destructive)_12%,transparent)]',
-      },
+      { variant: 'soft', tone: 'neutral', class: 'bg-(--morphink-color-muted)' },
+      { variant: 'outline', tone: 'base', class: 'focus-visible:border-(color:--morphink-color-border)' },
+      { variant: 'outline', tone: 'destructive', class: 'border-(color:--field-color)' },
     ],
     defaultVariants: {
       variant: 'outline',

@@ -76,6 +76,18 @@ export const Overview: Story = {
               <Switch tone="primary" :default-value="true" />
               <span class="text-sm text-[var(--morphink-color-foreground)]">Primary</span>
             </div>
+            <div class="flex items-center gap-3">
+              <Switch tone="success" :default-value="true" />
+              <span class="text-sm text-[var(--morphink-color-foreground)]">Success</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <Switch tone="warning" :default-value="true" />
+              <span class="text-sm text-[var(--morphink-color-foreground)]">Warning</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <Switch tone="destructive" :default-value="true" />
+              <span class="text-sm text-[var(--morphink-color-foreground)]">Destructive</span>
+            </div>
           </Stack>
         </Stack>
         <div class="border border-[var(--morphink-color-border)]"></div>

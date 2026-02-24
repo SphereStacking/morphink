@@ -1,5 +1,5 @@
 import { Select, Stack, Text } from '@morphink/ui'
-import { componentRounded, componentShadow, componentSizes, componentVariants } from '@morphink/ui'
+import { componentRounded, componentShadow, componentSizes, componentTones, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
@@ -11,6 +11,7 @@ const meta: Meta = {
     placeholder: { control: 'text' },
     size: { control: { type: 'select' }, options: componentSizes.Select },
     variant: { control: { type: 'select' }, options: componentVariants.Select },
+    tone: { control: { type: 'select' }, options: componentTones.Select },
     rounded: { control: { type: 'select' }, options: componentRounded.Select },
     shadow: { control: { type: 'select' }, options: componentShadow.Select },
     'update:modelValue': { action: 'update:modelValue' },
@@ -25,6 +26,7 @@ const meta: Meta = {
     placeholder: 'Select an option',
     size: 'md',
     variant: 'outline',
+    tone: 'base',
     rounded: 'md',
     shadow: 'md',
   },
@@ -53,6 +55,7 @@ export const Playground: Story = {
           :placeholder="args.placeholder"
           :size="args.size"
           :variant="args.variant"
+          :tone="args.tone"
           :rounded="args.rounded"
           :shadow="args.shadow"
           @update:model-value="onChange"
@@ -73,16 +76,22 @@ export const Overview: Story = {
       ]
       const valueDefault = ref<string | number | null>(null)
       const valueOutline = ref<string | number | null>(null)
+      const valueSolid = ref<string | number | null>(null)
       const valueGhost = ref<string | number | null>(null)
+      const valueSoft = ref<string | number | null>(null)
       const valueSize = ref<string | number | null>(null)
+      const valueTone = ref<string | number | null>(null)
       const valueRounded = ref<string | number | null>(null)
       const valueShadow = ref<string | number | null>(null)
       return {
         options,
         valueDefault,
         valueOutline,
+        valueSolid,
         valueGhost,
+        valueSoft,
         valueSize,
+        valueTone,
         valueRounded,
         valueShadow,
       }
@@ -99,8 +108,20 @@ export const Overview: Story = {
         <Stack direction="column" gap="md">
           <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
           <Stack direction="row" gap="md" align="center" wrap>
+            <Select v-model="valueSolid" :options="options" placeholder="Solid" variant="solid" />
             <Select v-model="valueOutline" :options="options" placeholder="Outline" variant="outline" />
             <Select v-model="valueGhost" :options="options" placeholder="Ghost" variant="ghost" />
+            <Select v-model="valueSoft" :options="options" placeholder="Soft" variant="soft" />
+          </Stack>
+        </Stack>
+        <Stack direction="column" gap="md">
+          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">tone</div>
+          <Stack direction="row" gap="md" align="center" wrap>
+            <Select v-model="valueTone" :options="options" placeholder="Base" tone="base" />
+            <Select v-model="valueTone" :options="options" placeholder="Primary" tone="primary" />
+            <Select v-model="valueTone" :options="options" placeholder="Success" tone="success" />
+            <Select v-model="valueTone" :options="options" placeholder="Warning" tone="warning" />
+            <Select v-model="valueTone" :options="options" placeholder="Destructive" tone="destructive" />
           </Stack>
         </Stack>
         <Stack direction="column" gap="md">

@@ -7,7 +7,7 @@
  * Style variants: base/ui/select/SelectBase.vue
  */
 import SelectBase from '../base/ui/select/SelectBase.vue'
-import type { SelectRounded, SelectShadow, SelectSize, SelectVariant } from '../base/lib/props'
+import type { SelectRounded, SelectShadow, SelectSize, SelectTone, SelectVariant } from '../base/lib/props'
 
 type Option = {
   label: string
@@ -22,6 +22,7 @@ const props = withDefaults(
     placeholder?: string
     size?: SelectSize
     variant?: SelectVariant
+    tone?: SelectTone
     side?: 'top' | 'right' | 'bottom' | 'left'
     align?: 'start' | 'center' | 'end'
     rounded?: SelectRounded
@@ -30,6 +31,7 @@ const props = withDefaults(
   {
     size: 'md',
     variant: 'outline',
+    tone: 'base',
     placeholder: 'Select...',
     side: 'bottom',
     align: 'start',
@@ -52,6 +54,7 @@ void props
     :placeholder="placeholder"
     :size="size"
     :variant="variant"
+    :tone="tone"
     :side="side"
     :align="align"
     :rounded="rounded"

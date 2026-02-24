@@ -87,6 +87,14 @@ export const Overview: Story = {
               <span class="text-sm text-[var(--morphink-color-foreground)]">Primary</span>
             </div>
             <div class="flex items-center gap-2">
+              <Checkbox tone="success" :default-value="true" />
+              <span class="text-sm text-[var(--morphink-color-foreground)]">Success</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Checkbox tone="warning" :default-value="true" />
+              <span class="text-sm text-[var(--morphink-color-foreground)]">Warning</span>
+            </div>
+            <div class="flex items-center gap-2">
               <Checkbox tone="destructive" :default-value="true" />
               <span class="text-sm text-[var(--morphink-color-foreground)]">Destructive</span>
             </div>
