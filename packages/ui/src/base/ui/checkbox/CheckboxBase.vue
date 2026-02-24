@@ -1,4 +1,5 @@
 <script setup lang="ts">
+defineOptions({ inheritAttrs: false })
 import { computed, useAttrs } from 'vue'
 import { CheckboxRoot, CheckboxIndicator, useForwardPropsEmits } from 'reka-ui'
 import { cva } from 'class-variance-authority'
