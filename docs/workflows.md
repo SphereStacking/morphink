@@ -47,7 +47,8 @@ pnpm run format     # oxfmt --write
 
 - `packages/tokens/dist/css/tokens.css` — Light mode CSS variables
 - `packages/tokens/dist/css/tokens-dark.css` — Dark mode overrides
-- `packages/tokens/dist/css/utilities.css` — `mi-` prefixed utility classes
+- `packages/tokens/dist/css/utilities.css` — `mi:` prefixed utility classes
+- `packages/tokens/dist/css/tailwind-theme.css` — Tailwind v4 theme preset
 - `packages/tokens/dist/json/tokens.json`
 - `packages/tokens/dist/ts/tokens.ts`
 - `packages/ui/dist/ui.css` — Compiled Tailwind CSS

@@ -11,6 +11,14 @@ Design system documentation and development guides.
 - [Architecture](./architecture.md) — Three-layer component structure, token pipeline, design principles
 - [Workflows](./workflows.md) — Token updates, UI development, Storybook, lint & format
 
+### Getting Started
+
+- [Fork from Template](./guides/getting-started-template.md) — Primary route: fork and customize
+- [Embed in Monorepo](./guides/getting-started-monorepo.md) — Add to an existing workspace
+- [Embed Flat](./guides/getting-started-flat.md) — Add without monorepo setup
+- [Publishing Your DS](./guides/publishing-your-design-system.md) — npm publish your forked DS
+- [Choosing Utilities](./guides/choosing-utilities.md) — mi:* classes vs Tailwind theme preset
+
 ## Quick Start
 
 ```bash

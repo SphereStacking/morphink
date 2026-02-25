@@ -68,6 +68,7 @@ Both reference the same tokens — only the entry point differs.
 - [CONCEPT.md](./CONCEPT.md) — Architecture philosophy and design decisions
 - [docs/architecture.md](./docs/architecture.md) — Technical architecture and data flow
 - [docs/workflows.md](./docs/workflows.md) — Development workflows
+- [docs/guides/](./docs/guides/) — Getting started guides for each adoption pattern
 
 ## License
 

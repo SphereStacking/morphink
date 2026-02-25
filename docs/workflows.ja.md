@@ -47,7 +47,8 @@ pnpm run format     # oxfmt --write
 
 - `packages/tokens/dist/css/tokens.css` — ライトモード CSS 変数
 - `packages/tokens/dist/css/tokens-dark.css` — ダークモードオーバーライド
-- `packages/tokens/dist/css/utilities.css` — `mi-` プレフィックス付きユーティリティクラス
+- `packages/tokens/dist/css/utilities.css` — `mi:` プレフィックス付きユーティリティクラス
+- `packages/tokens/dist/css/tailwind-theme.css` — Tailwind v4 テーマプリセット
 - `packages/tokens/dist/json/tokens.json`
 - `packages/tokens/dist/ts/tokens.ts`
 - `packages/ui/dist/ui.css` — コンパイル済み Tailwind CSS

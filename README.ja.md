@@ -68,6 +68,7 @@ Tokens Studio
 - [CONCEPT.ja.md](./CONCEPT.ja.md) — アーキテクチャ思想と設計判断
 - [docs/architecture.ja.md](./docs/architecture.ja.md) — 技術アーキテクチャとデータフロー
 - [docs/workflows.ja.md](./docs/workflows.ja.md) — 開発ワークフロー
+- [docs/guides/](./docs/guides/) — 利用パターン別はじめ方ガイド
 
 ## ライセンス
 
