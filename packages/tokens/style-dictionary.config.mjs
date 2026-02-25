@@ -17,19 +17,6 @@ const config = {
         },
       ],
     },
-    utilities: {
-      transformGroup: 'tokens-studio-kebab',
-      buildPath: 'dist/css/',
-      files: [
-        {
-          destination: 'utilities.css',
-          format: 'css/mi-utilities',
-          filter: (token) =>
-            ['color', 'space', 'radius', 'shadow'].includes(token.path?.[0]) &&
-            token.path.length === 2,
-        },
-      ],
-    },
     json: {
       transformGroup: 'tokens-studio',
       buildPath: 'dist/json/',

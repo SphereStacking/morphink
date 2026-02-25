@@ -1,3 +1,5 @@
+import { execSync } from 'node:child_process'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -7,9 +9,6 @@ import StyleDictionary from 'style-dictionary'
 import config from './style-dictionary.config.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-
-/** Utility class prefix — change this single value to rename all generated classes */
-const PREFIX = 'mi'
 
 /** CSS custom property prefix — prepended to all generated CSS variables */
 const VAR_PREFIX = 'morphink'
@@ -29,101 +28,6 @@ StyleDictionary.registerTransform({
       .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
       .toLowerCase()
     return `${VAR_PREFIX}-${name}`
-  },
-})
-
-StyleDictionary.registerFormat({
-  name: `css/${PREFIX}-utilities`,
-  format: ({ dictionary }) => {
-    const tokens = dictionary.allTokens
-    const colorTokens = tokens.filter(
-      (token) => token.path?.[0] === 'color' && token.path.length === 2
-    )
-    const spaceTokens = tokens.filter(
-      (token) => token.path?.[0] === 'space' && token.path.length === 2
-    )
-    const radiusTokens = tokens.filter(
-      (token) => token.path?.[0] === 'radius' && token.path.length === 2
-    )
-    const shadowTokens = tokens.filter(
-      (token) => token.path?.[0] === 'shadow' && token.path.length === 2
-    )
-    const lines = [`/* Auto-generated ${PREFIX} utilities */`]
-
-    for (const token of colorTokens) {
-      const key = token.path[1]
-      const varName = `--${token.name}`
-      lines.push(`.${PREFIX}-bg-${key} { background: var(${varName}); }`)
-      lines.push(`.${PREFIX}-text-${key} { color: var(${varName}); }`)
-      lines.push(`.${PREFIX}-border-${key} { border-color: var(${varName}); }`)
-    }
-
-    for (const token of spaceTokens) {
-      const key = token.path[1]
-      const varName = `--${token.name}`
-      lines.push(`.${PREFIX}-p-${key} { padding: var(${varName}); }`)
-      lines.push(
-        `.${PREFIX}-px-${key} { padding-left: var(${varName}); padding-right: var(${varName}); }`
-      )
-      lines.push(
-        `.${PREFIX}-py-${key} { padding-top: var(${varName}); padding-bottom: var(${varName}); }`
-      )
-      lines.push(`.${PREFIX}-pt-${key} { padding-top: var(${varName}); }`)
-      lines.push(`.${PREFIX}-pr-${key} { padding-right: var(${varName}); }`)
-      lines.push(`.${PREFIX}-pb-${key} { padding-bottom: var(${varName}); }`)
-      lines.push(`.${PREFIX}-pl-${key} { padding-left: var(${varName}); }`)
-      lines.push(`.${PREFIX}-m-${key} { margin: var(${varName}); }`)
-      lines.push(`.${PREFIX}-mx-${key} { margin-left: var(${varName}); margin-right: var(${varName}); }`)
-      lines.push(`.${PREFIX}-my-${key} { margin-top: var(${varName}); margin-bottom: var(${varName}); }`)
-      lines.push(`.${PREFIX}-mt-${key} { margin-top: var(${varName}); }`)
-      lines.push(`.${PREFIX}-mr-${key} { margin-right: var(${varName}); }`)
-      lines.push(`.${PREFIX}-mb-${key} { margin-bottom: var(${varName}); }`)
-      lines.push(`.${PREFIX}-ml-${key} { margin-left: var(${varName}); }`)
-      lines.push(`.${PREFIX}-gap-${key} { gap: var(${varName}); }`)
-      lines.push(
-        `.${PREFIX}-space-x-${key} > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 0; margin-right: calc(var(${varName}) * var(--tw-space-x-reverse)); margin-left: calc(var(${varName}) * calc(1 - var(--tw-space-x-reverse))); }`
-      )
-      lines.push(
-        `.${PREFIX}-space-y-${key} > :not([hidden]) ~ :not([hidden]) { --tw-space-y-reverse: 0; margin-top: calc(var(${varName}) * calc(1 - var(--tw-space-y-reverse))); margin-bottom: calc(var(${varName}) * var(--tw-space-y-reverse)); }`
-      )
-    }
-
-    lines.push(
-      `.${PREFIX}-space-x-reverse > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }`
-    )
-    lines.push(
-      `.${PREFIX}-space-y-reverse > :not([hidden]) ~ :not([hidden]) { --tw-space-y-reverse: 1; }`
-    )
-
-    for (const token of radiusTokens) {
-      const key = token.path[1]
-      const varName = `--${token.name}`
-      lines.push(`.${PREFIX}-rounded-${key} { border-radius: var(${varName}); }`)
-      lines.push(
-        `.${PREFIX}-rounded-t-${key} { border-top-left-radius: var(${varName}); border-top-right-radius: var(${varName}); }`
-      )
-      lines.push(
-        `.${PREFIX}-rounded-b-${key} { border-bottom-left-radius: var(${varName}); border-bottom-right-radius: var(${varName}); }`
-      )
-      lines.push(
-        `.${PREFIX}-rounded-l-${key} { border-top-left-radius: var(${varName}); border-bottom-left-radius: var(${varName}); }`
-      )
-      lines.push(
-        `.${PREFIX}-rounded-r-${key} { border-top-right-radius: var(${varName}); border-bottom-right-radius: var(${varName}); }`
-      )
-      lines.push(`.${PREFIX}-rounded-tl-${key} { border-top-left-radius: var(${varName}); }`)
-      lines.push(`.${PREFIX}-rounded-tr-${key} { border-top-right-radius: var(${varName}); }`)
-      lines.push(`.${PREFIX}-rounded-bl-${key} { border-bottom-left-radius: var(${varName}); }`)
-      lines.push(`.${PREFIX}-rounded-br-${key} { border-bottom-right-radius: var(${varName}); }`)
-    }
-
-    for (const token of shadowTokens) {
-      const key = token.path[1]
-      const varName = `--${token.name}`
-      lines.push(`.${PREFIX}-shadow-${key} { box-shadow: var(${varName}); }`)
-    }
-
-    return `${lines.join('\n')}\n`
   },
 })
 
@@ -165,3 +69,19 @@ const darkConfig = {
 }
 const sdDark = new StyleDictionary(darkConfig)
 await sdDark.buildAllPlatforms()
+
+// Build mi-utilities via Tailwind v4
+execSync('npx @tailwindcss/cli -i ./src/mi-utilities.css -o ./dist/css/utilities.css', {
+  cwd: __dirname,
+  stdio: 'inherit',
+})
+
+// Strip preflight and layer declarations from utilities output
+const utilitiesPath = join(__dirname, 'dist/css/utilities.css')
+let css = readFileSync(utilitiesPath, 'utf8')
+css = css
+  .replace(/@layer\s+theme\s*,\s*base\s*,\s*components\s*,\s*utilities\s*;/g, '')
+  .replace(/@layer\s+base\s*\{[\s\S]*?\n\}/g, '')
+  .replace(/@layer\s+utilities\s*\{([\s\S]*?)\n\}/g, '$1')
+  .replace(/^\s*\n/gm, '')
+writeFileSync(utilitiesPath, css)

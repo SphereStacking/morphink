@@ -1,0 +1,102 @@
+@import "tailwindcss" prefix(mi);
+
+@source "./safelist.html";
+
+@theme inline {
+  --color-*: initial;
+  --spacing-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --font-*: initial;
+  --text-*: initial;
+  --font-weight-*: initial;
+  --breakpoint-*: initial;
+  --blur-*: initial;
+  --ease-*: initial;
+  --animate-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --perspective-*: initial;
+  --width-*: initial;
+  --aspect-*: initial;
+
+  /* Colors */
+  --color-background: var(--morphink-color-background);
+  --color-foreground: var(--morphink-color-foreground);
+  --color-card: var(--morphink-color-card);
+  --color-card-foreground: var(--morphink-color-card-foreground);
+  --color-popover: var(--morphink-color-popover);
+  --color-popover-foreground: var(--morphink-color-popover-foreground);
+  --color-muted: var(--morphink-color-muted);
+  --color-muted-foreground: var(--morphink-color-muted-foreground);
+  --color-border: var(--morphink-color-border);
+  --color-input: var(--morphink-color-input);
+  --color-primary: var(--morphink-color-primary);
+  --color-primary-foreground: var(--morphink-color-primary-foreground);
+  --color-primary-hover: var(--morphink-color-primary-hover);
+  --color-primary-active: var(--morphink-color-primary-active);
+  --color-secondary: var(--morphink-color-secondary);
+  --color-secondary-foreground: var(--morphink-color-secondary-foreground);
+  --color-secondary-hover: var(--morphink-color-secondary-hover);
+  --color-secondary-active: var(--morphink-color-secondary-active);
+  --color-tertiary: var(--morphink-color-tertiary);
+  --color-tertiary-foreground: var(--morphink-color-tertiary-foreground);
+  --color-tertiary-hover: var(--morphink-color-tertiary-hover);
+  --color-tertiary-active: var(--morphink-color-tertiary-active);
+  --color-base: var(--morphink-color-base);
+  --color-base-foreground: var(--morphink-color-base-foreground);
+  --color-base-hover: var(--morphink-color-base-hover);
+  --color-base-active: var(--morphink-color-base-active);
+  --color-accent: var(--morphink-color-accent);
+  --color-accent-foreground: var(--morphink-color-accent-foreground);
+  --color-accent-hover: var(--morphink-color-accent-hover);
+  --color-accent-active: var(--morphink-color-accent-active);
+  --color-neutral: var(--morphink-color-neutral);
+  --color-neutral-foreground: var(--morphink-color-neutral-foreground);
+  --color-neutral-hover: var(--morphink-color-neutral-hover);
+  --color-neutral-active: var(--morphink-color-neutral-active);
+  --color-success: var(--morphink-color-success);
+  --color-success-foreground: var(--morphink-color-success-foreground);
+  --color-success-hover: var(--morphink-color-success-hover);
+  --color-success-active: var(--morphink-color-success-active);
+  --color-warning: var(--morphink-color-warning);
+  --color-warning-foreground: var(--morphink-color-warning-foreground);
+  --color-warning-hover: var(--morphink-color-warning-hover);
+  --color-warning-active: var(--morphink-color-warning-active);
+  --color-info: var(--morphink-color-info);
+  --color-info-foreground: var(--morphink-color-info-foreground);
+  --color-info-hover: var(--morphink-color-info-hover);
+  --color-info-active: var(--morphink-color-info-active);
+  --color-destructive: var(--morphink-color-destructive);
+  --color-destructive-foreground: var(--morphink-color-destructive-foreground);
+  --color-destructive-hover: var(--morphink-color-destructive-hover);
+  --color-destructive-active: var(--morphink-color-destructive-active);
+  --color-scrim: var(--morphink-color-scrim);
+
+  /* Spacing */
+  --spacing-0: 0px;
+  --spacing-xs: var(--morphink-space-xs);
+  --spacing-sm: var(--morphink-space-sm);
+  --spacing-md: var(--morphink-space-md);
+  --spacing-lg: var(--morphink-space-lg);
+  --spacing-xl: var(--morphink-space-xl);
+  --spacing-2xl: var(--morphink-space-2xl);
+  --spacing-3xl: var(--morphink-space-3xl);
+  --spacing-4xl: var(--morphink-space-4xl);
+  --spacing-5xl: var(--morphink-space-5xl);
+  --spacing-6xl: var(--morphink-space-6xl);
+
+  /* Radius */
+  --radius-none: var(--morphink-radius-none);
+  --radius-xs: var(--morphink-radius-xs);
+  --radius-sm: var(--morphink-radius-sm);
+  --radius-md: var(--morphink-radius-md);
+  --radius-lg: var(--morphink-radius-lg);
+  --radius-xl: var(--morphink-radius-xl);
+  --radius-full: var(--morphink-radius-full);
+
+  /* Shadow */
+  --shadow-sm: var(--morphink-shadow-sm);
+  --shadow-md: var(--morphink-shadow-md);
+  --shadow-lg: var(--morphink-shadow-lg);
+}
