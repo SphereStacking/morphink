@@ -10,6 +10,10 @@ const props = withDefaults(
     align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline'
     justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'
     wrap?: boolean
+    grow?: boolean
+    padding?: SpaceToken
+    paddingX?: SpaceToken
+    paddingY?: SpaceToken
   }>(),
   {
     direction: 'column',
@@ -17,16 +21,24 @@ const props = withDefaults(
     align: 'stretch',
     justify: 'start',
     wrap: false,
+    grow: false,
   }
 )
 
-const stackStyle = computed(() => ({
-  flexDirection: props.direction,
-  gap: resolveSpace(props.gap),
-  alignItems: resolveAlign(props.align, false),
-  justifyContent: resolveJustify(props.justify, false),
-  flexWrap: props.wrap ? ('wrap' as const) : ('nowrap' as const),
-}))
+const stackStyle = computed(() => {
+  const style: Record<string, string> = {
+    flexDirection: props.direction,
+    gap: resolveSpace(props.gap),
+    alignItems: resolveAlign(props.align, false),
+    justifyContent: resolveJustify(props.justify, false),
+    flexWrap: props.wrap ? 'wrap' : 'nowrap',
+  }
+  if (props.grow) style.flex = '1 1 0%'
+  if (props.padding) style.padding = resolveSpace(props.padding)
+  if (props.paddingX) style.paddingInline = resolveSpace(props.paddingX)
+  if (props.paddingY) style.paddingBlock = resolveSpace(props.paddingY)
+  return style
+})
 </script>
 
 <template>

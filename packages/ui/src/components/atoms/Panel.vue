@@ -1,0 +1,31 @@
+<script setup lang="ts">
+/**
+ * Panel — bordered content area.
+ *
+ * Public API layer. Customize defaults here.
+ * Style variants: base/ui/panel/PanelBase.vue
+ */
+import PanelBase from '../../base/ui/panel/PanelBase.vue'
+import type { PanelRounded, PanelShadow, PanelVariant } from '../../base/lib/props'
+
+withDefaults(
+  defineProps<{
+    variant?: PanelVariant
+    interactive?: boolean
+    rounded?: PanelRounded
+    shadow?: PanelShadow
+  }>(),
+  {
+    variant: 'subtle',
+    interactive: false,
+    rounded: 'md',
+    shadow: 'md',
+  }
+)
+</script>
+
+<template>
+  <PanelBase :variant="variant" :interactive="interactive" :rounded="rounded" :shadow="shadow">
+    <slot />
+  </PanelBase>
+</template>

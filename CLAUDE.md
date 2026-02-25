@@ -45,7 +45,9 @@ Tokens Studio → packages/tokens/tokens/*.json
 
 | 層 | 場所 | 命名 | 役割 |
 |---|---|---|---|
-| Public | `packages/ui/src/components/` | `Button.vue` | 外部公開 API（薄いラッパー） |
+| Public/atoms | `packages/ui/src/components/atoms/` | `Button.vue` | Atom — 単体の UI プリミティブ |
+| Public/molecules | `packages/ui/src/components/molecules/` | `FormField.vue` | Molecule — Atoms の組み合わせ |
+| Public/organisms | `packages/ui/src/components/organisms/` | `AppShell.vue` | Organism — 参考実装（カスタマイズ前提） |
 | Base | `packages/ui/src/base/ui/*/` | `ButtonBase.vue` | CVA バリアント + Reka UI 統合 |
 | Props | `packages/ui/src/base/lib/props/` | `variant.ts`, `size.ts` 等 | 共有 prop 定義 |
 
