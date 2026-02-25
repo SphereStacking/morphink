@@ -85,8 +85,8 @@ const forwarded = useForwardPropsEmits(props, emit)
 Grid と Stack は SpaceToken ベースの props API を持つ。
 
 ```ts
-type SpaceToken = '0' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
-// xs→4px, sm→8px, md→12px, lg→16px, xl→24px, 2xl→32px, 3xl→40px
+type SpaceToken = '0' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl'
+// xs→4px, sm→8px, md→12px, lg→16px, xl→24px, 2xl→32px, 3xl→40px, 4xl→48px, 5xl→64px, 6xl→80px
 ```
 
 - **Grid**: `columns`（number | 'auto-fit' | 'auto-fill' | string）, `rows`, `minWidth`, `gap`, `align`, `justify`

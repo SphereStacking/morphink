@@ -109,23 +109,23 @@
       "type": "color"
     },
     "base-100": {
-      "value": "oklch(99.50% 0.0000 0.00)",
-      "type": "color"
-    },
-    "base-200": {
       "value": "oklch(99.00% 0.0000 0.00)",
       "type": "color"
     },
+    "base-200": {
+      "value": "oklch(97.50% 0.0000 0.00)",
+      "type": "color"
+    },
     "base-300": {
-      "value": "oklch(98.50% 0.0000 0.00)",
+      "value": "oklch(96.00% 0.0000 0.00)",
       "type": "color"
     },
     "base-400": {
-      "value": "oklch(98.00% 0.0000 0.00)",
+      "value": "oklch(94.00% 0.0000 0.00)",
       "type": "color"
     },
     "base-500": {
-      "value": "oklch(97.00% 0.0000 0.00)",
+      "value": "oklch(91.00% 0.0000 0.00)",
       "type": "color"
     },
     "base-600": {
@@ -397,6 +397,18 @@
     "40": {
       "value": "40px",
       "type": "dimension"
+    },
+    "48": {
+      "value": "48px",
+      "type": "dimension"
+    },
+    "64": {
+      "value": "64px",
+      "type": "dimension"
+    },
+    "80": {
+      "value": "80px",
+      "type": "dimension"
     }
   },
   "radius": {
@@ -461,15 +473,15 @@
       }
     },
     "lineHeight": {
-      "1-2": {
+      "tight": {
         "value": "1.2",
         "type": "lineHeights"
       },
-      "1-4": {
+      "normal": {
         "value": "1.4",
         "type": "lineHeights"
       },
-      "1-6": {
+      "relaxed": {
         "value": "1.6",
         "type": "lineHeights"
       }

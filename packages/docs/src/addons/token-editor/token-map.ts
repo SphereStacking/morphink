@@ -142,7 +142,7 @@ export const tokenCategories: TokenCategory[] = [
     tokens: intentColors(
       'warning',
       'oklch(76.86% 0.1647 70.08)',
-      '#ffffff',
+      '#111111',
       'oklch(67.46% 0.1487 67.35)',
       'oklch(58.00% 0.1294 65.71)'
     ),
@@ -177,6 +177,9 @@ export const tokenCategories: TokenCategory[] = [
       dimension('--morphink-space-xl', 'XL', '24px'),
       dimension('--morphink-space-2xl', '2XL', '32px'),
       dimension('--morphink-space-3xl', '3XL', '40px'),
+      dimension('--morphink-space-4xl', '4XL', '48px'),
+      dimension('--morphink-space-5xl', '5XL', '64px'),
+      dimension('--morphink-space-6xl', '6XL', '80px'),
     ],
   },
   {

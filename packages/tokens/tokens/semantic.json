@@ -186,7 +186,7 @@
         "type": "color"
       },
       "foreground": {
-        "value": "{color.white}",
+        "value": "{color.gray-900}",
         "type": "color"
       },
       "hover": {
@@ -235,7 +235,7 @@
       }
     },
     "scrim": {
-      "value": "rgba(3,3,2,0.5)",
+      "value": "oklch(1.50% 0.0010 90.00 / 0.5)",
       "type": "color"
     }
   },
@@ -327,6 +327,18 @@
     },
     "3xl": {
       "value": "{space.40}",
+      "type": "dimension"
+    },
+    "4xl": {
+      "value": "{space.48}",
+      "type": "dimension"
+    },
+    "5xl": {
+      "value": "{space.64}",
+      "type": "dimension"
+    },
+    "6xl": {
+      "value": "{space.80}",
       "type": "dimension"
     }
   },
@@ -468,19 +480,19 @@
     },
     "lineHeight": {
       "body": {
-        "value": "{font.lineHeight.1-6}",
+        "value": "{font.lineHeight.relaxed}",
         "type": "lineHeights"
       },
       "caption": {
-        "value": "{font.lineHeight.1-6}",
+        "value": "{font.lineHeight.relaxed}",
         "type": "lineHeights"
       },
       "label": {
-        "value": "{font.lineHeight.1-4}",
+        "value": "{font.lineHeight.normal}",
         "type": "lineHeights"
       },
       "heading": {
-        "value": "{font.lineHeight.1-2}",
+        "value": "{font.lineHeight.tight}",
         "type": "lineHeights"
       }
     }

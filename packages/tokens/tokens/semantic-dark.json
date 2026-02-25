@@ -186,7 +186,7 @@
         "type": "color"
       },
       "foreground": {
-        "value": "{color.white}",
+        "value": "{color.gray-900}",
         "type": "color"
       },
       "hover": {
@@ -235,7 +235,7 @@
       }
     },
     "scrim": {
-      "value": "rgba(3,3,2,0.7)",
+      "value": "oklch(1.50% 0.0010 90.00 / 0.7)",
       "type": "color"
     }
   },
