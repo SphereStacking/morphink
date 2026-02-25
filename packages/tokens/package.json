@@ -11,6 +11,7 @@
     "./tokens.css": "./dist/css/tokens.css",
     "./tokens-dark.css": "./dist/css/tokens-dark.css",
     "./utilities.css": "./dist/css/utilities.css",
+    "./tailwind-theme.css": "./dist/css/tailwind-theme.css",
     "./tokens.json": "./dist/json/tokens.json",
     "./tokens.ts": "./dist/ts/tokens.ts"
   },

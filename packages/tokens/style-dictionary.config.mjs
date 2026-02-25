@@ -15,6 +15,10 @@ const config = {
           destination: 'tokens.css',
           format: 'css/variables',
         },
+        {
+          destination: 'tailwind-theme.css',
+          format: 'css/tailwind-theme',
+        },
       ],
     },
     json: {

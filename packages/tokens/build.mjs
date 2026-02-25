@@ -47,6 +47,54 @@ StyleDictionary.registerFormat({
   },
 })
 
+StyleDictionary.registerFormat({
+  name: 'css/tailwind-theme',
+  format: ({ dictionary }) => {
+    const sourceTokens = dictionary.allTokens.filter((t) => t.isSource)
+
+    const groups = { color: [], spacing: [], radius: [], shadow: [] }
+
+    for (const token of sourceTokens) {
+      const key = token.name.replace(`${VAR_PREFIX}-`, '')
+
+      if (key.startsWith('color-')) {
+        groups.color.push({ tw: key, ref: token.name })
+      } else if (key.startsWith('space-')) {
+        groups.spacing.push({
+          tw: key.replace('space-', 'spacing-'),
+          ref: token.name,
+        })
+      } else if (key.startsWith('radius-')) {
+        groups.radius.push({ tw: key, ref: token.name })
+      } else if (key.startsWith('shadow-')) {
+        groups.shadow.push({ tw: key, ref: token.name })
+      }
+    }
+
+    const resets = Object.keys(groups).map((k) => `  --${k}-*: initial;`)
+
+    const entries = Object.entries(groups).flatMap(([cat, tokens]) => {
+      if (!tokens.length) return []
+      return [
+        `\n  /* ${cat[0].toUpperCase() + cat.slice(1)} */`,
+        ...tokens.map((t) => `  --${t.tw}: var(--${t.ref});`),
+      ]
+    })
+
+    return [
+      '/**',
+      ' * Do not edit directly, this file was auto-generated.',
+      ' */',
+      '',
+      '@theme {',
+      ...resets,
+      ...entries,
+      '}',
+      '',
+    ].join('\n')
+  },
+})
+
 const sd = new StyleDictionary(config)
 
 await sd.buildAllPlatforms()
