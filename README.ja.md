@@ -46,6 +46,23 @@ Tokens Studio
 2. 再ビルド: `pnpm run build`
 3. デザインシステムの準備完了
 
+## 利用形態
+
+### morphink の取り込み方
+
+1. **テンプレートからフォーク** — GitHub で「Use this template」をクリックして独立リポジトリを作成。メインの想定ルート。npm 公開して自社 DS として配布することも可能。
+2. **モノレポ組み込み** — 既存プロジェクトの workspace に packages/tokens と packages/ui を追加。
+3. **フラット組み込み** — 既存プロジェクトの src 配下に展開（モノレポ化不要）。
+
+### DS コンシューマのユーティリティ選択
+
+| プロジェクトの状況 | 使うもの |
+|---|---|
+| Tailwind を導入できない | `utilities.css`（mi:\* クラス）|
+| Tailwind がある | `tailwind-theme.css`（Tailwind テーマプリセット）|
+
+どちらも同じトークンを参照する。入口が違うだけ。
+
 ## ドキュメント
 
 - [CONCEPT.ja.md](./CONCEPT.ja.md) — アーキテクチャ思想と設計判断

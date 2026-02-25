@@ -78,6 +78,32 @@ color.primary-500:          color.primary.base:         --morphink-color-primary
 
 This separation means you can completely change your visual identity by swapping alias.json, without touching a single component file.
 
+## Library Lifespan vs Application Lifespan
+
+Applications live 5 or 10 years. But during that time, CSS frameworks and headless UI libraries go through multiple generational shifts.
+
+morphink's three-layer architecture and mi:\* utilities are the answer to this asymmetry of lifespans.
+
+```
+Application (long-lived)
+  ↓ touch only this
+Component API + mi:* (stable contract)
+  ↓ this absorbs change
+Base layer (Tailwind + Reka UI)
+  ↓
+Libraries (short-lived)
+```
+
+When Tailwind v5 arrives, or Reka UI is replaced by another library, consumer code requires no changes.
+
+## Tailwind Is an Internal Implementation Detail
+
+morphink uses Tailwind internally, but does not force Tailwind on consumers.
+
+Consumers interact with three things only: component props, mi:\* utility classes, and CSS variables. No Tailwind knowledge or build configuration is required.
+
+This allows projects that want "just a modern design system" to adopt morphink without changing their existing CSS setup.
+
 ## What morphink Is Not
 
 - **Not an npm package you install.** You fork the repository and own the code.

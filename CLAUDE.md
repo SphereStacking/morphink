@@ -104,6 +104,21 @@ type SpaceToken = '0' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
 | rounded | none, sm, md, lg, xl, full |
 | shadow | none, sm, md, lg |
 
+### mi:* ユーティリティ
+
+- 位置づけ: Tailwind を内部実装に留めるための公開スタイリング API
+- 原則: トークンの消費手段であり、CSS フレームワークではない
+- スコープ: トークン由来のプロパティのみ（color / spacing / radius / shadow）
+- スコープ外: hover / focus / display / flex / width 等（トークンと無関係）
+- バリアント: レスポンシブのみ。インタラクション状態はコンポーネントの責務
+- 生成元: Tailwind v4 ビルド（prefix(mi) + カスタムテーマ）
+- ソース: packages/tokens/src/mi-utilities.css + safelist.html
+- 出力先: packages/tokens/dist/css/utilities.css
+- プレフィックス: `mi:`（Tailwind v4 バリアント記法、例: `mi:bg-primary`, `mi:p-md`）
+
+mi:* で hover/focus が必要だと感じたら、
+それはコンポーネントか props の追加を検討すべきサイン。
+
 ## コードスタイル
 
 - Vue SFC: `<script setup lang="ts">` / `defineProps` + `withDefaults` / `defineEmits`
@@ -111,7 +126,7 @@ type SpaceToken = '0' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
 - クラス合成: `cn()` (`packages/ui/src/base/lib/utils.ts`) = clsx + tailwind-merge
 - スタイルバリアント: `cva` (class-variance-authority)
 - CSS 変数プレフィックス: `--morphink-`
-- テーマクラス: `.mi-theme` / ユーティリティクラスプレフィックス: `mi-`
+- テーマクラス: `.mi-theme` / ユーティリティクラスプレフィックス: `mi:`
 - Tailwind v4 でのトークン参照: `bg-(--morphink-color-primary)`, `text-(--morphink-color-foreground)`
 - ホバー透過: `bg-[color-mix(in_srgb,var(--morphink-color-destructive)_8%,transparent)]`
 - semantic tokens を優先し、alias tokens や色の直書きは避ける

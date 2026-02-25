@@ -46,6 +46,23 @@ Tokens Studio
 2. Rebuild: `pnpm run build`
 3. Your design system is ready
 
+## Usage Patterns
+
+### How to adopt morphink
+
+1. **Fork from template** — Click "Use this template" on GitHub to create an independent repository. This is the primary intended route. You can also publish it as an npm package for your organization.
+2. **Embed in a monorepo** — Add packages/tokens and packages/ui to an existing workspace.
+3. **Embed flat** — Place the design system under src/ in an existing project (no monorepo required).
+
+### Utility choice for DS consumers
+
+| Project situation | Use |
+|---|---|
+| Cannot adopt Tailwind | `utilities.css` (mi:\* classes) |
+| Already has Tailwind | `tailwind-theme.css` (Tailwind theme preset) |
+
+Both reference the same tokens — only the entry point differs.
+
 ## Documentation
 
 - [CONCEPT.md](./CONCEPT.md) — Architecture philosophy and design decisions
