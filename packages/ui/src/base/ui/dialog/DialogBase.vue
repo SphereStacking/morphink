@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { cva, type VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 import {
   DialogRoot,
   DialogTrigger,
@@ -64,7 +64,6 @@ const titleVariants = cva('font-semibold', {
   },
 })
 
-type DialogVariants = VariantProps<typeof dialogVariants>
 const props = withDefaults(
   defineProps<{
     open?: boolean
@@ -115,12 +114,14 @@ const titleClass = computed(() => titleVariants({ size: props.size }))
       <slot name="trigger" />
     </DialogTrigger>
     <DialogPortal>
-      <DialogOverlay class="fixed inset-0 bg-(--morphink-color-scrim)" />
-      <DialogContent :class="contentClass">
+      <DialogOverlay class="fixed inset-0 bg-(--morphink-color-scrim) data-[state=open]:animate-[mi-overlay-in_200ms_ease-out] data-[state=closed]:animate-[mi-overlay-out_150ms_ease-in_forwards]" />
+      <DialogContent :class="contentClass" class="data-[state=open]:animate-[mi-dialog-in_200ms_ease-out] data-[state=closed]:animate-[mi-dialog-out_150ms_ease-in_forwards]">
         <div class="flex items-center justify-between gap-(--morphink-space-md)">
           <DialogTitle v-if="title" :class="titleClass">{{ title }}</DialogTitle>
           <DialogClose as-child>
-            <button class="text-[20px]" type="button" :aria-label="closeLabel">×</button>
+            <button class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) transition duration-150 hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)" type="button" :aria-label="closeLabel">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+            </button>
           </DialogClose>
         </div>
         <DialogDescription

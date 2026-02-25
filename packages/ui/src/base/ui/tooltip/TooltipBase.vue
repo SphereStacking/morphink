@@ -69,7 +69,7 @@ const contentClass = computed(() =>
       <slot />
     </TooltipTrigger>
     <TooltipPortal>
-      <TooltipContent :side="side" :align="align" :class="contentClass">
+      <TooltipContent :side="side" :align="align" :class="contentClass" class="data-[state=delayed-open]:animate-[mi-popover-in_150ms_ease-out] data-[state=closed]:animate-[mi-popover-out_100ms_ease-in_forwards]">
         <slot name="content">{{ content }}</slot>
       </TooltipContent>
     </TooltipPortal>

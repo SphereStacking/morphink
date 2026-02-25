@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { cva, type VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 import {
   AlertDialogRoot,
   AlertDialogTrigger,
@@ -65,7 +65,6 @@ const titleVariants = cva('font-semibold', {
   },
 })
 
-type DialogVariants = VariantProps<typeof dialogVariants>
 const props = withDefaults(
   defineProps<{
     open?: boolean
@@ -80,8 +79,8 @@ const props = withDefaults(
   }>(),
   {
     size: 'md',
-    confirmLabel: '確定',
-    cancelLabel: 'キャンセル',
+    confirmLabel: 'Confirm',
+    cancelLabel: 'Cancel',
     rounded: 'lg',
     shadow: 'md',
   }
@@ -108,10 +107,21 @@ const contentClass = computed(() =>
   )
 )
 const titleClass = computed(() => titleVariants({ size: props.size }))
-const cancelClass =
-  'inline-flex h-9 items-center justify-center rounded-(--morphink-radius-md) border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card) px-3 text-[13px] text-(--morphink-color-foreground)'
-const actionClass =
-  'inline-flex h-9 items-center justify-center rounded-(--morphink-radius-md) bg-(--morphink-color-accent) px-3 text-[13px] text-(--morphink-color-accent-foreground)'
+const buttonSizeMap: Record<string, string> = {
+  xs: 'h-7 px-2 text-xs',
+  sm: 'h-8 px-3 text-xs',
+  md: 'h-9 px-3 text-[13px]',
+  lg: 'h-10 px-4 text-sm',
+  xl: 'h-11 px-5 text-base',
+}
+const cancelClass = computed(() => cn(
+  'inline-flex items-center justify-center rounded-(--morphink-radius-md) border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card) text-(--morphink-color-foreground) transition duration-150 hover:bg-(--morphink-color-muted) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)',
+  buttonSizeMap[props.size ?? 'md'],
+))
+const actionClass = computed(() => cn(
+  'inline-flex items-center justify-center rounded-(--morphink-radius-md) bg-(--morphink-color-accent) text-(--morphink-color-accent-foreground) transition duration-150 hover:opacity-90 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-accent)',
+  buttonSizeMap[props.size ?? 'md'],
+))
 </script>
 
 <template>
@@ -120,12 +130,14 @@ const actionClass =
       <slot name="trigger" />
     </AlertDialogTrigger>
     <AlertDialogPortal>
-      <AlertDialogOverlay class="fixed inset-0 bg-(--morphink-color-scrim)" />
-      <AlertDialogContent :class="contentClass">
+      <AlertDialogOverlay class="fixed inset-0 bg-(--morphink-color-scrim) data-[state=open]:animate-[mi-overlay-in_200ms_ease-out] data-[state=closed]:animate-[mi-overlay-out_150ms_ease-in_forwards]" />
+      <AlertDialogContent :class="contentClass" class="data-[state=open]:animate-[mi-dialog-in_200ms_ease-out] data-[state=closed]:animate-[mi-dialog-out_150ms_ease-in_forwards]">
         <div class="flex items-center justify-between gap-(--morphink-space-md)">
           <AlertDialogTitle v-if="title" :class="titleClass">{{ title }}</AlertDialogTitle>
           <AlertDialogCancel as-child>
-            <button class="text-[20px]" type="button" :aria-label="cancelLabel">×</button>
+            <button class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) transition duration-150 hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)" type="button" :aria-label="cancelLabel">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+            </button>
           </AlertDialogCancel>
         </div>
         <AlertDialogDescription

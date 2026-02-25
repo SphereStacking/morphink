@@ -19,6 +19,8 @@ const props = withDefaults(
     type?: string
     placeholder?: string
     readonly?: boolean
+    ariaInvalid?: boolean
+    ariaDescribedby?: string
   }>(),
   {
     variant: 'outline',
@@ -46,6 +48,8 @@ const emit = defineEmits<{
     :type="props.type"
     :placeholder="props.placeholder"
     :readonly="props.readonly"
+    :aria-invalid="props.ariaInvalid"
+    :aria-describedby="props.ariaDescribedby"
     @update:model-value="emit('update:modelValue', $event)"
   />
 </template>

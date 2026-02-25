@@ -1,4 +1,4 @@
-import { FormField, Input, Select, Textarea, Checkbox, Stack } from '@morphink/ui'
+import { FormField, Input, Select, Textarea, Stack } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof FormField> = {

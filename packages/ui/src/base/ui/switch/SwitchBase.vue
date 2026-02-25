@@ -8,7 +8,8 @@ import type { SwitchSize, SwitchTone, SwitchVariant } from '../../lib/props'
 
 const switchVariants = cva(
   cn(
-    'inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 transition duration-150',
+    'relative inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 transition duration-150',
+    'before:absolute before:inset-[-8px] before:content-[""]',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
     'data-[state=unchecked]:bg-(--morphink-color-muted)',
@@ -107,7 +108,7 @@ const switchVariants = cva(
 
 const thumbVariants = cva(
   cn(
-    'pointer-events-none block rounded-full bg-white shadow-(--morphink-shadow-sm) transition duration-150',
+    'pointer-events-none block rounded-full bg-(--morphink-color-card) shadow-(--morphink-shadow-sm) transition duration-150',
     'data-[state=unchecked]:translate-x-0'
   ),
   {

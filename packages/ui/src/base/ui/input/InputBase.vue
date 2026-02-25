@@ -82,6 +82,8 @@ const props = withDefaults(
     type?: string
     placeholder?: string
     readonly?: boolean
+    ariaInvalid?: boolean
+    ariaDescribedby?: string
   }>(),
   {
     variant: 'outline',
@@ -125,6 +127,8 @@ function onInput(event: Event) {
     :placeholder="placeholder"
     :disabled="disabled"
     :readonly="readonly"
+    :aria-invalid="ariaInvalid || undefined"
+    :aria-describedby="ariaDescribedby || undefined"
     v-bind="attrs"
     @input="onInput"
   />

@@ -91,6 +91,8 @@ const props = withDefaults(
     readonly?: boolean
     rows?: number
     resize?: TextareaResize
+    ariaInvalid?: boolean
+    ariaDescribedby?: string
   }>(),
   {
     variant: 'outline',
@@ -136,6 +138,8 @@ function onInput(event: Event) {
     :disabled="disabled"
     :readonly="readonly"
     :rows="rows"
+    :aria-invalid="ariaInvalid || undefined"
+    :aria-describedby="ariaDescribedby || undefined"
     v-bind="attrs"
     @input="onInput"
   />

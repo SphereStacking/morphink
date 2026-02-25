@@ -20,3 +20,41 @@ body {
   background: var(--morphink-color-background);
   font-family: var(--morphink-font-family);
 }
+
+/* --- Overlay / Dialog / Popover animations --- */
+
+@keyframes mi-overlay-in {
+  from { opacity: 0; }
+}
+
+@keyframes mi-overlay-out {
+  to { opacity: 0; }
+}
+
+@keyframes mi-dialog-in {
+  from { opacity: 0; scale: 0.95; }
+}
+
+@keyframes mi-dialog-out {
+  to { opacity: 0; scale: 0.95; }
+}
+
+@keyframes mi-popover-in {
+  from { opacity: 0; scale: 0.96; }
+}
+
+@keyframes mi-popover-out {
+  to { opacity: 0; scale: 0.96; }
+}
+
+/* --- Accessibility: reduced motion --- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

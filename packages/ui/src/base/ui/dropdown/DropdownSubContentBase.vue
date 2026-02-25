@@ -70,6 +70,7 @@ const contentClass = computed(() =>
     <DropdownMenuSubContent
       :side-offset="sideOffset"
       :class="contentClass"
+      class="data-[state=open]:animate-[mi-popover-in_150ms_ease-out] data-[state=closed]:animate-[mi-popover-out_100ms_ease-in_forwards]"
     >
       <slot />
     </DropdownMenuSubContent>

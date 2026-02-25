@@ -8,7 +8,8 @@ import type { CheckboxRounded, CheckboxSize, CheckboxTone, CheckboxVariant } fro
 
 const checkboxVariants = cva(
   cn(
-    'inline-flex shrink-0 items-center justify-center border transition duration-150',
+    'relative inline-flex shrink-0 items-center justify-center border transition duration-150',
+    'before:absolute before:inset-[-10px] before:content-[""]',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
     'data-[state=checked]:border-transparent data-[state=indeterminate]:border-transparent',

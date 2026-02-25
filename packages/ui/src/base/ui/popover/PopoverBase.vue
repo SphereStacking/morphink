@@ -26,6 +26,12 @@ const handleOpenChange = (value: boolean) => {
   props.onOpenChange?.(value)
 }
 
+const rootProps = computed(() => {
+  const result: Record<string, unknown> = {}
+  if (props.open !== undefined) result.open = props.open
+  return result
+})
+
 const contentVariants = cva(
   'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover) p-(--morphink-space-md)',
   {
@@ -61,12 +67,12 @@ const contentClass = computed(() =>
 </script>
 
 <template>
-  <PopoverRoot :open="open" @update:open="handleOpenChange">
+  <PopoverRoot v-bind="rootProps" @update:open="handleOpenChange">
     <PopoverTrigger as-child>
       <slot name="trigger" />
     </PopoverTrigger>
     <PopoverPortal>
-      <PopoverContent :side="side" :align="align" :class="contentClass">
+      <PopoverContent :side="side" :align="align" :class="contentClass" class="data-[state=open]:animate-[mi-popover-in_150ms_ease-out] data-[state=closed]:animate-[mi-popover-out_100ms_ease-in_forwards]">
         <slot name="content" />
       </PopoverContent>
     </PopoverPortal>

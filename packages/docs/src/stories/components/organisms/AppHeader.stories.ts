@@ -1,4 +1,4 @@
-import { AppHeader, Nav, Button, Badge } from '@morphink/ui'
+import { AppHeader, Nav, Button } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof AppHeader> = {

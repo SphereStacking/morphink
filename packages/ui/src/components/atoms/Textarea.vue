@@ -20,6 +20,8 @@ const props = withDefaults(
     readonly?: boolean
     rows?: number
     resize?: TextareaResize
+    ariaInvalid?: boolean
+    ariaDescribedby?: string
   }>(),
   {
     variant: 'outline',
