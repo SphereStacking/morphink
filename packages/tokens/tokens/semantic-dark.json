@@ -235,7 +235,7 @@
       }
     },
     "scrim": {
-      "value": "oklch(1.50% 0.0010 90.00 / 0.7)",
+      "value": "oklch(0% 0 0 / 0.7)",
       "type": "color"
     }
   },
