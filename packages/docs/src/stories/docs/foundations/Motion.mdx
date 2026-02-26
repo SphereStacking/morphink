@@ -1,18 +1,388 @@
 import { Meta, Title, Subtitle } from '@storybook/addon-docs/blocks'
+import { useState, useEffect } from 'react'
 
-<Meta title="Foundations/[TBD] Motion" />
+<Meta title="Foundations/Motion" />
 
 <Title>Motion</Title>
-<Subtitle>Organize motion design fundamentals</Subtitle>
+<Subtitle>Communicate state, guide attention, and add polish through animation</Subtitle>
+
+export const TokenGrid = ({ children, minWidth = '240px' }) => (
+  <div
+    style={{
+      display: 'grid',
+      gap: '12px',
+      gridTemplateColumns: `repeat(auto-fit, minmax(${minWidth}, 1fr))`,
+    }}
+  >
+    {children}
+  </div>
+)
+
+export const TokenCard = ({ token, value, usage, preview }) => (
+  <div
+    style={{
+      border: '1px solid var(--morphink-color-border)',
+      borderRadius: 'var(--morphink-radius-md)',
+      padding: '12px',
+      background: 'var(--morphink-color-card)',
+    }}
+  >
+    <div style={{ marginBottom: '10px' }}>{preview}</div>
+    <div
+      style={{
+        fontSize: '11px',
+        lineHeight: '1.2',
+        color: 'var(--morphink-color-muted-foreground)',
+      }}
+    >
+      Token
+    </div>
+    <div>
+      <code>{token}</code>
+    </div>
+    <div
+      style={{
+        marginTop: '6px',
+        fontSize: '11px',
+        lineHeight: '1.2',
+        color: 'var(--morphink-color-muted-foreground)',
+      }}
+    >
+      Value
+    </div>
+    <div>
+      <code style={{ fontSize: '12px' }}>{value}</code>
+    </div>
+    {usage ? (
+      <div
+        style={{
+          marginTop: '6px',
+          fontSize: '11px',
+          lineHeight: '1.4',
+          color: 'var(--morphink-color-muted-foreground)',
+        }}
+      >
+        {usage}
+      </div>
+    ) : null}
+  </div>
+)
+
+{/* --- Animated preview components (play once → hold → replay) --- */}
+
+export const DurationBar = ({ token, cycle = 1500 }) => {
+  const [key, setKey] = useState(0)
+  useEffect(() => {
+    const id = setInterval(() => setKey(k => k + 1), cycle)
+    return () => clearInterval(id)
+  }, [cycle])
+  return (
+    <div
+      style={{
+        position: 'relative',
+        height: '6px',
+        borderRadius: '999px',
+        background: 'var(--morphink-color-muted)',
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        key={key}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          height: '100%',
+          width: '40px',
+          borderRadius: '999px',
+          background: 'var(--morphink-color-accent)',
+          animation: `motionSlide var(${token}) ease-in-out forwards`,
+        }}
+      />
+    </div>
+  )
+}
+
+export const EasingBar = ({ token, cycle = 1600 }) => {
+  const [key, setKey] = useState(0)
+  useEffect(() => {
+    const id = setInterval(() => setKey(k => k + 1), cycle)
+    return () => clearInterval(id)
+  }, [cycle])
+  return (
+    <div
+      style={{
+        position: 'relative',
+        height: '6px',
+        borderRadius: '999px',
+        background: 'var(--morphink-color-muted)',
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        key={key}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          height: '100%',
+          width: '40px',
+          borderRadius: '999px',
+          background: 'var(--morphink-color-primary)',
+          animation: `motionSlide 600ms var(${token}) forwards`,
+        }}
+      />
+    </div>
+  )
+}
+
+export const ShorthandDot = ({ token, cycle = 1500 }) => {
+  const [key, setKey] = useState(0)
+  useEffect(() => {
+    const id = setInterval(() => setKey(k => k + 1), cycle)
+    return () => clearInterval(id)
+  }, [cycle])
+  return (
+    <div
+      style={{
+        position: 'relative',
+        height: '24px',
+        borderRadius: '999px',
+        background: 'var(--morphink-color-muted)',
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        key={key}
+        style={{
+          position: 'absolute',
+          top: '4px',
+          left: '4px',
+          width: '16px',
+          height: '16px',
+          borderRadius: '50%',
+          background: 'var(--morphink-color-accent)',
+          animation: `motionSlideDot var(${token}) forwards`,
+        }}
+      />
+    </div>
+  )
+}
+
+export const KeyframeRow = ({ name, description }) => (
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'baseline',
+      gap: '12px',
+      padding: '8px 0',
+      borderBottom: '1px solid var(--morphink-color-border)',
+    }}
+  >
+    <code style={{ fontSize: '13px', whiteSpace: 'nowrap' }}>{name}</code>
+    <span
+      style={{
+        fontSize: '13px',
+        color: 'var(--morphink-color-muted-foreground)',
+      }}
+    >
+      {description}
+    </span>
+  </div>
+)
+
+<style>{`
+  @keyframes motionSlide {
+    from { left: 0; }
+    to   { left: calc(100% - 40px); }
+  }
+  @keyframes motionSlideDot {
+    from { left: 4px; }
+    to   { left: calc(100% - 20px); }
+  }
+`}</style>
 
 ## Overview
 
-> **WIP** — This page is under construction.
+morphink uses token-based motion to ensure consistent, accessible animation. Duration and easing primitives combine into **motion shorthands** that are applied across all components.
 
-A page to organize motion principles and usage.
+**Principle**: Animations should feel responsive and purposeful, never decorative.
 
-## Token List
+---
 
-TBD
+## Duration
+
+How long an animation lasts. Each bar plays once at the token's speed, pauses, then replays.
+
+<TokenGrid>
+  <TokenCard
+    token="duration.instant"
+    value="0ms"
+    usage="Immediate state change, no visible transition"
+    preview={<DurationBar token="--morphink-duration-instant" />}
+  />
+  <TokenCard
+    token="duration.fast"
+    value="100ms"
+    usage="Hover, focus, press feedback"
+    preview={<DurationBar token="--morphink-duration-fast" />}
+  />
+  <TokenCard
+    token="duration.normal"
+    value="200ms"
+    usage="Toggle, open/close, state change"
+    preview={<DurationBar token="--morphink-duration-normal" />}
+  />
+  <TokenCard
+    token="duration.slow"
+    value="300ms"
+    usage="Dialog, popover, overlay enter"
+    preview={<DurationBar token="--morphink-duration-slow" />}
+  />
+  <TokenCard
+    token="duration.slower"
+    value="500ms"
+    usage="Complex or large-area transitions"
+    preview={<DurationBar token="--morphink-duration-slower" />}
+  />
+</TokenGrid>
+
+---
+
+## Easing
+
+How an animation accelerates and decelerates. All previews use the same 600ms duration so you can compare the curve.
+
+<TokenGrid>
+  <TokenCard
+    token="easing.standard"
+    value="cubic-bezier(0.2, 0, 0, 1)"
+    usage="General purpose — fast start, gentle stop"
+    preview={<EasingBar token="--morphink-easing-standard" />}
+  />
+  <TokenCard
+    token="easing.decelerate"
+    value="cubic-bezier(0, 0, 0, 1)"
+    usage="Elements entering the screen"
+    preview={<EasingBar token="--morphink-easing-decelerate" />}
+  />
+  <TokenCard
+    token="easing.accelerate"
+    value="cubic-bezier(0.3, 0, 1, 1)"
+    usage="Elements leaving the screen"
+    preview={<EasingBar token="--morphink-easing-accelerate" />}
+  />
+  <TokenCard
+    token="easing.emphasized-decelerate"
+    value="cubic-bezier(0.05, 0.7, 0.1, 1)"
+    usage="Dramatic entrance — dialog, overlay"
+    preview={<EasingBar token="--morphink-easing-emphasized-decelerate" />}
+  />
+  <TokenCard
+    token="easing.emphasized-accelerate"
+    value="cubic-bezier(0.3, 0, 0.8, 0.15)"
+    usage="Quick exit — dialog, overlay"
+    preview={<EasingBar token="--morphink-easing-emphasized-accelerate" />}
+  />
+  <TokenCard
+    token="easing.linear"
+    value="linear"
+    usage="Constant speed — progress bars, spinners"
+    preview={<EasingBar token="--morphink-easing-linear" />}
+  />
+  <TokenCard
+    token="easing.spring"
+    value="linear(...) 52 stops"
+    usage="Bouncy feel — emphasis, notification"
+    preview={<EasingBar token="--morphink-easing-spring" />}
+  />
+</TokenGrid>
+
+---
+
+## Motion Shorthands
+
+Pre-composed `duration + easing` pairs for common scenarios. Use these instead of combining primitives manually.
+
+<TokenGrid>
+  <TokenCard
+    token="motion-interaction"
+    value="fast + standard (100ms)"
+    usage="Hover, focus, press"
+    preview={<ShorthandDot token="--morphink-motion-interaction" />}
+  />
+  <TokenCard
+    token="motion-state"
+    value="normal + standard (200ms)"
+    usage="Open/close, toggle"
+    preview={<ShorthandDot token="--morphink-motion-state" />}
+  />
+  <TokenCard
+    token="motion-enter"
+    value="slow + emphasized-decelerate (300ms)"
+    usage="Dialog, popover, overlay appear"
+    preview={<ShorthandDot token="--morphink-motion-enter" />}
+  />
+  <TokenCard
+    token="motion-leave"
+    value="normal + emphasized-accelerate (200ms)"
+    usage="Dialog, popover, overlay exit"
+    preview={<ShorthandDot token="--morphink-motion-leave" />}
+  />
+  <TokenCard
+    token="motion-emphasis"
+    value="normal + spring (200ms)"
+    usage="Badge, notification, attention"
+    preview={<ShorthandDot token="--morphink-motion-emphasis" />}
+  />
+  <TokenCard
+    token="motion-layout"
+    value="slow + standard (300ms)"
+    usage="Resize, reorder, layout shift"
+    preview={<ShorthandDot token="--morphink-motion-layout" />}
+  />
+</TokenGrid>
+
+---
+
+## Keyframes
+
+Built-in keyframe animations for components. See each component's Story for live demos.
+
+<KeyframeRow name="mi-overlay-in / out" description="Overlay backdrop fade in/out" />
+<KeyframeRow name="mi-dialog-in / out" description="Dialog scale + slide up with opacity" />
+<KeyframeRow name="mi-popover-in / out" description="Popover scale + directional slide" />
+<KeyframeRow name="mi-dropdown-in / out" description="Dropdown slide down + fade" />
+<KeyframeRow name="mi-checkmark-draw" description="Checkbox checkmark stroke draw animation" />
+<KeyframeRow name="mi-switch-bounce" description="Switch thumb bounce on toggle" />
+<KeyframeRow name="mi-badge-enter" description="Badge scale-in entrance" />
+<KeyframeRow name="mi-stagger-in" description="Sequential item appear (list/menu)" />
+<KeyframeRow name="mi-shake" description="Input error shake feedback" />
+
+---
+
+## Accessibility
+
+morphink uses a **token-based** approach to `prefers-reduced-motion`:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --morphink-duration-fast: 0ms;
+    --morphink-duration-normal: 0ms;
+    --morphink-duration-slow: 0ms;
+    --morphink-duration-slower: 0ms;
+  }
+}
+```
+
+All duration tokens become `0ms`, which instantly collapses every transition and animation that references them. No per-component overrides needed.
+
+---
 
 ## Notes for designers
+
+- Always use **motion shorthands** (`motion-enter`, `motion-leave`, etc.) rather than combining duration + easing manually.
+- **Enter > Leave**: Entrances should be slower and more deliberate; exits should be faster and less attention-grabbing.
+- **Spatial vs Effects**: Position/size changes (spatial) can use overshoot (spring). Color/opacity changes (effects) should not overshoot.
+- Avoid pure decorative animation. Every motion should communicate a state change or guide the user's attention.

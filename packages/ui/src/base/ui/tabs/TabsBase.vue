@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch, onMounted, nextTick } from 'vue'
 import { cva } from 'class-variance-authority'
 import { TabsRoot, TabsList, TabsTrigger, TabsContent } from 'reka-ui'
 import { cn } from '../../lib/utils'
@@ -63,7 +63,7 @@ const listVariants = cva('inline-flex', {
   },
 })
 
-const tabVariants = cva('font-semibold transition', {
+const tabVariants = cva(cn('font-semibold', '[transition-property:color,background-color,box-shadow]', '[transition-duration:var(--morphink-duration-fast)]', '[transition-timing-function:var(--morphink-easing-standard)]'), {
   variants: {
     size: {
       xs: 'px-[8px] py-[2px] text-[11px]',
@@ -74,7 +74,7 @@ const tabVariants = cva('font-semibold transition', {
     },
     variant: {
       pill: 'rounded-full',
-      underline: 'border-b-2 border-transparent',
+      underline: '',
     },
     active: {
       true: '',
@@ -101,13 +101,12 @@ const tabVariants = cva('font-semibold transition', {
     {
       variant: 'underline',
       active: true,
-      class:
-        'text-(--morphink-color-foreground) border-b-(--morphink-border-width-strong) border-(--morphink-color-accent) text-(--morphink-color-accent)',
+      class: 'text-(--morphink-color-accent)',
     },
     {
       variant: 'underline',
       active: false,
-      class: 'text-(--morphink-color-muted-foreground) border-transparent',
+      class: 'text-(--morphink-color-muted-foreground)',
     },
   ],
   defaultVariants: {
@@ -148,12 +147,31 @@ const tabClass = (active: boolean, disabled?: boolean) =>
     active,
     disabled: Boolean(disabled),
   })
+
+// Underline indicator slide
+const tabsListRef = ref<HTMLElement | null>(null)
+const indicatorStyle = ref<Record<string, string>>({})
+
+function updateIndicator() {
+  if (!tabsListRef.value || props.variant !== 'underline') return
+  const activeEl = tabsListRef.value.querySelector('[data-state="active"]') as HTMLElement
+  if (!activeEl) return
+  const listRect = tabsListRef.value.getBoundingClientRect()
+  const activeRect = activeEl.getBoundingClientRect()
+  indicatorStyle.value = {
+    transform: `translateX(${activeRect.left - listRect.left}px)`,
+    width: `${activeRect.width}px`,
+  }
+}
+
+watch(() => props.modelValue, () => nextTick(updateIndicator))
+onMounted(() => nextTick(updateIndicator))
 </script>
 
 <template>
   <TabsRoot :model-value="modelValue" @update:model-value="emit('update:modelValue', $event)">
     <div :class="wrapperClass">
-      <TabsList :class="listClass">
+      <TabsList ref="tabsListRef" :class="listClass" class="relative">
         <TabsTrigger
           v-for="item in items"
           :key="item.value"
@@ -163,6 +181,11 @@ const tabClass = (active: boolean, disabled?: boolean) =>
         >
           {{ item.label }}
         </TabsTrigger>
+        <div
+          v-if="variant === 'underline'"
+          class="absolute bottom-0 left-0 h-[2px] bg-(--morphink-color-accent) [transition-property:transform,width] [transition-duration:var(--morphink-duration-normal)] [transition-timing-function:var(--morphink-easing-standard)]"
+          :style="indicatorStyle"
+        />
       </TabsList>
       <TabsContent :value="modelValue" :class="panelClass">
         <slot />

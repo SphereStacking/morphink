@@ -8,7 +8,10 @@ import type { CheckboxRounded, CheckboxSize, CheckboxTone, CheckboxVariant } fro
 
 const checkboxVariants = cva(
   cn(
-    'relative inline-flex shrink-0 items-center justify-center border transition duration-150',
+    'relative inline-flex shrink-0 items-center justify-center border',
+    '[transition-property:border-color,box-shadow]',
+    '[transition-duration:var(--morphink-duration-fast)]',
+    '[transition-timing-function:var(--morphink-easing-standard)]',
     'before:absolute before:inset-[-10px] before:content-[""]',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
@@ -196,7 +199,11 @@ const classes = computed(() =>
         stroke-linejoin="round"
         :class="iconSizes[size]"
       >
-        <polyline points="20 6 9 17 4 12" />
+        <polyline
+          points="4 12 9 17 20 6"
+          style="stroke-dasharray: 24"
+          class="animate-[mi-checkmark-draw_var(--morphink-duration-normal)_var(--morphink-easing-standard)_both]"
+        />
       </svg>
       <svg
         v-else

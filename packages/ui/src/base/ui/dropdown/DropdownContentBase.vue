@@ -4,7 +4,7 @@ import { DropdownMenuPortal, DropdownMenuContent } from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 import type { DropdownRounded, DropdownShadow, DropdownSize } from '../../lib/props'
-import { dropdownSizeKey } from './dropdownContext'
+import { dropdownSizeKey, dropdownItemCounterKey } from './dropdownContext'
 
 const props = withDefaults(
   defineProps<{
@@ -26,6 +26,9 @@ const props = withDefaults(
 )
 
 provide(dropdownSizeKey, toRef(props, 'size'))
+
+let itemCounter = 0
+provide(dropdownItemCounterKey, { next: () => itemCounter++ })
 
 const contentVariants = cva(
   'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover)',
@@ -78,7 +81,7 @@ const contentClass = computed(() =>
       :align="align"
       :side-offset="sideOffset"
       :class="contentClass"
-      class="data-[state=open]:animate-[mi-popover-in_150ms_ease-out] data-[state=closed]:animate-[mi-popover-out_100ms_ease-in_forwards]"
+      class="data-[state=open]:animate-[mi-dropdown-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-dropdown-out_var(--morphink-motion-leave)_forwards]"
     >
       <slot />
     </DropdownMenuContent>

@@ -21,6 +21,7 @@ withDefaults(
     shadow?: TooltipShadow
   }>(),
   {
+    open: undefined,
     side: 'top',
     align: 'center',
     delay: 200,

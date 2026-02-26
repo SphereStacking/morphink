@@ -19,6 +19,7 @@ withDefaults(
     shadow?: PopoverShadow
   }>(),
   {
+    open: undefined,
     side: 'bottom',
     align: 'center',
     rounded: 'lg',

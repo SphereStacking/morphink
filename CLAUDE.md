@@ -106,6 +106,43 @@ type SpaceToken = '0' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
 | rounded | none, sm, md, lg, xl, full |
 | shadow | none, sm, md, lg |
 
+### Motion トークン
+
+MD3 / Carbon / WCAG 2.2 を参照基盤とする Motion Token System。
+
+#### Alias トークン（`packages/tokens/tokens/alias.json`）
+
+| カテゴリ | トークン | 値 |
+|---|---|---|
+| duration | instant / fast / normal / slow / slower | 0ms / 100ms / 200ms / 300ms / 500ms |
+| easing | standard / decelerate / accelerate / emphasized-decelerate / emphasized-accelerate / linear / spring | cubic-bezier 値 / linear() |
+| stagger | item / max-items | 30 / 8 |
+
+#### Motion Shorthand 変数（`packages/ui/src/styles/base.css` 手書き）
+
+| 変数 | duration | easing | 用途 |
+|---|---|---|---|
+| `--morphink-motion-interaction` | fast (100ms) | standard | hover, focus, press |
+| `--morphink-motion-state` | normal (200ms) | standard | open/close, toggle |
+| `--morphink-motion-enter` | slow (300ms) | emphasized-decelerate | overlay, dialog enter |
+| `--morphink-motion-leave` | normal (200ms) | emphasized-accelerate | overlay, dialog exit |
+| `--morphink-motion-emphasis` | normal (200ms) | spring | badge, notification |
+| `--morphink-motion-layout` | slow (300ms) | standard | resize, reorder |
+
+#### コンポーネントでの使用パターン
+
+```html
+<!-- Transition: 明示的な property + トークン参照 -->
+<div class="[transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)]">
+
+<!-- Animation: Tailwind arbitrary value + shorthand 変数 -->
+<div class="data-[state=open]:animate-[mi-dialog-in_var(--morphink-motion-enter)_both]">
+```
+
+#### prefers-reduced-motion
+
+トークンベース: `@media (prefers-reduced-motion: reduce)` で duration 変数を 0ms に上書き。個別の `!important` 不要。
+
 ### mi:* ユーティリティ
 
 - 位置づけ: Tailwind を内部実装に留めるための公開スタイリング API

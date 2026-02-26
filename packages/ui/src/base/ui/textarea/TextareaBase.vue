@@ -7,7 +7,10 @@ import type { TextareaResize, TextareaRounded, TextareaSize, TextareaTone, Texta
 
 const textareaVariants = cva(
   cn(
-    'w-full transition duration-150',
+    'w-full',
+    '[transition-property:border-color,box-shadow,background-color]',
+    '[transition-duration:var(--morphink-duration-fast)]',
+    '[transition-timing-function:var(--morphink-easing-standard)]',
     'text-(--morphink-color-foreground) placeholder:text-(--morphink-color-muted-foreground)',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color)',
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed'
@@ -120,6 +123,7 @@ const classes = computed(() =>
       resize: props.resize,
       disabled: props.disabled,
     }),
+    props.ariaInvalid && 'animate-[mi-shake_var(--morphink-motion-emphasis)_both]',
     attrs.class
   )
 )

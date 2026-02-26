@@ -183,7 +183,7 @@ const itemClass = computed(() =>
       <SelectValue :placeholder="placeholder" />
     </SelectTrigger>
     <SelectPortal>
-      <SelectContent :class="contentClass" :side="side" :align="align">
+      <SelectContent :class="contentClass" :side="side" :align="align" class="data-[state=open]:animate-[mi-dropdown-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-dropdown-out_var(--morphink-motion-leave)_forwards]">
         <SelectViewport>
           <SelectItem
             v-for="option in options"

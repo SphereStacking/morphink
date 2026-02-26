@@ -14,7 +14,10 @@ import type {
 const buttonVariants = cva(
   cn(
     'inline-flex items-center justify-center gap-2 font-semibold',
-    'border border-(--morphink-border-width-default) border-transparent transition duration-150',
+    'border border-(--morphink-border-width-default) border-transparent',
+    '[transition-property:background-color,color,border-color,box-shadow,opacity,translate,scale]',
+    '[transition-duration:var(--morphink-duration-fast)]',
+    '[transition-timing-function:var(--morphink-easing-standard)]',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color)'
   ),
   {
@@ -22,24 +25,25 @@ const buttonVariants = cva(
       variant: {
         solid: cn(
           'bg-(--btn-color) text-(--btn-fg)',
-          'hover:bg-(--btn-hover) active:bg-(--btn-active)',
+          'hover:bg-(--btn-hover) hover:-translate-y-px',
+          'active:bg-(--btn-active) active:scale-[0.98] active:translate-y-0',
         ),
         outline: cn(
           'bg-transparent border border-(--morphink-border-width-default)',
           'text-(--btn-accent) border-(color:--btn-color)',
-          'hover:bg-(--btn-hover) hover:text-(--btn-fg) hover:border-(color:--btn-hover)',
-          'active:bg-(--btn-active) active:text-(--btn-fg) active:border-(color:--btn-active)',
+          'hover:bg-(--btn-hover) hover:text-(--btn-fg) hover:border-(color:--btn-hover) hover:-translate-y-px',
+          'active:bg-(--btn-active) active:text-(--btn-fg) active:border-(color:--btn-active) active:scale-[0.98] active:translate-y-0',
         ),
         ghost: cn(
           'bg-transparent border-transparent text-(--btn-accent)',
-          'hover:bg-(--btn-color) hover:text-(--btn-fg)',
-          'active:bg-(--btn-active) active:text-(--btn-fg)',
+          'hover:bg-(--btn-color) hover:text-(--btn-fg) hover:scale-[1.02]',
+          'active:bg-(--btn-active) active:text-(--btn-fg) active:scale-[0.98]',
         ),
         soft: cn(
           'border-0',
           'bg-[color-mix(in_srgb,var(--btn-color)_12%,transparent)] text-(--btn-accent)',
-          'hover:bg-[color-mix(in_srgb,var(--btn-hover)_18%,transparent)]',
-          'active:bg-[color-mix(in_srgb,var(--btn-active)_24%,transparent)]',
+          'hover:bg-[color-mix(in_srgb,var(--btn-hover)_18%,transparent)] hover:scale-[1.02]',
+          'active:bg-[color-mix(in_srgb,var(--btn-active)_24%,transparent)] active:scale-[0.98]',
         ),
       },
       tone: {
@@ -116,7 +120,7 @@ const buttonVariants = cva(
         lg: 'shadow-(--morphink-shadow-lg)',
       },
       disabled: {
-        true: 'opacity-(--morphink-opacity-disabled) cursor-not-allowed shadow-none',
+        true: 'opacity-(--morphink-opacity-disabled) cursor-not-allowed pointer-events-none shadow-none',
         false: '',
       },
     },

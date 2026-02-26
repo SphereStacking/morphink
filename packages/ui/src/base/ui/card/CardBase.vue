@@ -17,8 +17,15 @@ const cardVariants = cva(
         ghost:
           'border-transparent bg-transparent hover:bg-(--morphink-color-muted)',
         soft: 'border-transparent bg-(--morphink-color-muted)',
-        interactive:
-          'border-(--morphink-color-border) cursor-pointer transition-shadow hover:shadow-(--morphink-shadow-lg) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)',
+        interactive: cn(
+          'border-(--morphink-color-border) cursor-pointer',
+          '[transition-property:translate,box-shadow]',
+          '[transition-duration:var(--morphink-duration-fast)]',
+          '[transition-timing-function:var(--morphink-easing-standard)]',
+          'hover:-translate-y-0.5 hover:shadow-(--morphink-shadow-lg)',
+          'active:translate-y-0 active:shadow-(--morphink-shadow-sm)',
+          'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)',
+        ),
       },
       rounded: {
         none: 'rounded-none',

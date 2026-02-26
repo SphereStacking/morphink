@@ -3,7 +3,7 @@ import { computed, inject, ref } from 'vue'
 import { DropdownMenuItem } from 'reka-ui'
 import { cn } from '../../lib/utils'
 import type { DropdownSize } from '../../lib/props'
-import { dropdownSizeKey } from './dropdownContext'
+import { dropdownSizeKey, dropdownItemCounterKey } from './dropdownContext'
 
 const props = withDefaults(
   defineProps<{
@@ -22,6 +22,10 @@ const emit = defineEmits<{
 }>()
 
 const size = inject(dropdownSizeKey, ref('md' as DropdownSize))
+
+const counter = inject(dropdownItemCounterKey, null)
+const itemIndex = counter ? counter.next() : 0
+const staggerDelay = computed(() => `${Math.min(itemIndex, 8) * 30}ms`)
 
 const sizeClasses: Record<DropdownSize, string> = {
   xs: 'py-0.5 px-1 text-[10px]',
@@ -48,6 +52,8 @@ const classes = computed(() =>
     :disabled="disabled"
     :text-value="textValue"
     :class="classes"
+    :style="{ animationDelay: staggerDelay }"
+    class="animate-[mi-stagger-in_var(--morphink-motion-enter)_both]"
     @select="emit('select', $event)"
   >
     <span v-if="$slots.icon" class="shrink-0">

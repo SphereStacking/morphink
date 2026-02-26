@@ -15,6 +15,7 @@ const props = withDefaults(
     shadow?: PopoverShadow
   }>(),
   {
+    open: undefined,
     side: 'bottom',
     align: 'center',
     rounded: 'lg',
@@ -64,6 +65,16 @@ const contentClass = computed(() =>
     })
   )
 )
+
+const translateMap: Record<string, string> = {
+  bottom: '0 -4px',
+  top: '0 4px',
+  right: '-4px 0',
+  left: '4px 0',
+}
+const popoverStyle = computed(() => ({
+  '--mi-popover-translate': translateMap[props.side] ?? '0 -4px',
+}))
 </script>
 
 <template>
@@ -72,7 +83,7 @@ const contentClass = computed(() =>
       <slot name="trigger" />
     </PopoverTrigger>
     <PopoverPortal>
-      <PopoverContent :side="side" :align="align" :class="contentClass" class="data-[state=open]:animate-[mi-popover-in_150ms_ease-out] data-[state=closed]:animate-[mi-popover-out_100ms_ease-in_forwards]">
+      <PopoverContent :side="side" :align="align" :class="contentClass" :style="popoverStyle" class="data-[state=open]:animate-[mi-popover-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-popover-out_var(--morphink-motion-leave)_forwards]">
         <slot name="content" />
       </PopoverContent>
     </PopoverPortal>
