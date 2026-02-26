@@ -2,8 +2,10 @@ import { Panel, Stack, Text, Button } from '@morphink/ui'
 import { componentRounded, componentShadow, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-const meta: Meta = {
+const meta: Meta<typeof Panel> = {
   title: 'Components/Atoms/Panel',
+  component: Panel,
+  tags: ['autodocs'],
   argTypes: {
     variant: { control: { type: 'select' }, options: componentVariants.Panel },
     interactive: { control: 'boolean' },
@@ -21,9 +23,9 @@ const meta: Meta = {
 }
 
 export default meta
-type Story = StoryObj
+type Story = StoryObj<typeof Panel>
 
-export const Playground: Story = {
+export const Default: Story = {
   render: (args) => ({
     components: { Panel, Stack, Text, Button },
     setup() {
@@ -40,75 +42,65 @@ export const Playground: Story = {
   }),
 }
 
-export const Overview: Story = {
+export const Variants: Story = {
+  render: () => ({
+    components: { Panel, Stack, Text },
+    template: `
+      <Stack gap="md">
+        <Panel variant="subtle">
+          <Text muted>Subtle panel</Text>
+        </Panel>
+        <Panel variant="solid">
+          <Text>Solid panel</Text>
+        </Panel>
+        <Panel variant="elevated">
+          <Text>Elevated panel</Text>
+        </Panel>
+      </Stack>
+    `,
+  }),
+}
+
+export const Interactive: Story = {
   render: () => ({
     components: { Panel, Stack, Text, Button },
     template: `
-      <Stack gap="2xl">
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Stack gap="md">
-            <Panel>
-              <Text>Default panel</Text>
-              <Button size="sm" variant="ghost" style="margin-top: 8px;">Action</Button>
-            </Panel>
-          </Stack>
-        </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-          <Stack gap="md">
-            <Panel variant="subtle">
-              <Text muted>Subtle panel</Text>
-            </Panel>
-            <Panel variant="solid">
-              <Text>Solid panel</Text>
-            </Panel>
-            <Panel variant="elevated">
-              <Text>Elevated panel</Text>
-            </Panel>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">interactive</div>
-          <Stack gap="md">
-            <Panel>
-              <Text muted>Not interactive</Text>
-            </Panel>
-            <Panel interactive>
-              <Text>Interactive</Text>
-              <Button size="sm" variant="ghost" style="margin-top: 8px;">Action</Button>
-            </Panel>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
-          <Stack gap="md">
-            <Panel rounded="sm">
-              <Text>Rounded sm</Text>
-            </Panel>
-            <Panel rounded="md">
-              <Text>Rounded md</Text>
-            </Panel>
-            <Panel rounded="lg">
-              <Text>Rounded lg</Text>
-            </Panel>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
-          <Stack gap="md">
-            <Panel shadow="none">
-              <Text>Shadow none</Text>
-            </Panel>
-            <Panel shadow="sm">
-              <Text>Shadow sm</Text>
-            </Panel>
-            <Panel shadow="md">
-              <Text>Shadow md</Text>
-            </Panel>
-          </Stack>
-        </Stack>
+      <Stack gap="md">
+        <Panel>
+          <Text muted>Not interactive</Text>
+        </Panel>
+        <Panel interactive>
+          <Text>Interactive</Text>
+          <Button size="sm" variant="ghost" style="margin-top: 8px;">Action</Button>
+        </Panel>
+      </Stack>
+    `,
+  }),
+}
+
+export const RoundedAndShadow: Story = {
+  render: () => ({
+    components: { Panel, Stack, Text },
+    template: `
+      <Stack gap="md">
+        <Panel rounded="sm">
+          <Text>Rounded sm</Text>
+        </Panel>
+        <Panel rounded="md">
+          <Text>Rounded md</Text>
+        </Panel>
+        <Panel rounded="lg">
+          <Text>Rounded lg</Text>
+        </Panel>
+        <Panel shadow="none">
+          <Text>Shadow none</Text>
+        </Panel>
+        <Panel shadow="sm">
+          <Text>Shadow sm</Text>
+        </Panel>
+        <Panel shadow="md">
+          <Text>Shadow md</Text>
+        </Panel>
       </Stack>
     `,
   }),

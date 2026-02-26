@@ -22,8 +22,10 @@ import {
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
-const meta: Meta = {
+const meta: Meta<typeof Dropdown> = {
   title: 'Components/Atoms/Dropdown',
+  component: Dropdown,
+  tags: ['autodocs'],
   argTypes: {
     side: { control: { type: 'select' }, options: ['top', 'right', 'bottom', 'left'] },
     align: { control: { type: 'select' }, options: ['start', 'center', 'end'] },
@@ -41,7 +43,7 @@ const meta: Meta = {
 }
 
 export default meta
-type Story = StoryObj
+type Story = StoryObj<typeof Dropdown>
 
 export const Playground: Story = {
   render: (args) => ({

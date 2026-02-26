@@ -2,8 +2,10 @@ import { SectionHeader, Button, Stack, Text } from '@morphink/ui'
 import { componentSizes } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-const meta: Meta = {
+const meta: Meta<typeof SectionHeader> = {
   title: 'Components/Atoms/SectionHeader',
+  component: SectionHeader,
+  tags: ['autodocs'],
   argTypes: {
     size: { control: { type: 'select' }, options: componentSizes.SectionHeader },
     title: { control: 'text' },
@@ -23,9 +25,9 @@ const meta: Meta = {
 }
 
 export default meta
-type Story = StoryObj
+type Story = StoryObj<typeof SectionHeader>
 
-export const Playground: Story = {
+export const Default: Story = {
   render: (args) => ({
     components: { SectionHeader, Button, Stack, Text },
     setup() {
@@ -46,67 +48,51 @@ export const Playground: Story = {
   }),
 }
 
-export const Overview: Story = {
+export const Sizes: Story = {
   render: () => ({
-    components: { SectionHeader, Button, Stack, Text },
+    components: { SectionHeader, Button, Stack },
     template: `
-      <Stack gap="2xl">
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <SectionHeader>
-            <template #title>Default</template>
-            <template #subtitle>Subtitle</template>
-            <template #action>
-              <Button size="sm" variant="outline">Action</Button>
-            </template>
-          </SectionHeader>
-        </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
-          <Stack gap="md">
-            <SectionHeader size="sm">
-              <template #title>Small</template>
-              <template #subtitle>Subtitle</template>
-              <template #action>
-                <Button size="sm" variant="ghost">Action</Button>
-              </template>
-            </SectionHeader>
-            <SectionHeader size="md">
-              <template #title>Medium</template>
-              <template #subtitle>Subtitle</template>
-              <template #action>
-                <Button size="sm">Action</Button>
-              </template>
-            </SectionHeader>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">showSubtitle</div>
-          <Stack gap="md">
-            <SectionHeader>
-              <template #title>Subtitle on</template>
-              <template #subtitle>Subtitle</template>
-            </SectionHeader>
-            <SectionHeader>
-              <template #title>Subtitle off</template>
-            </SectionHeader>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">showAction</div>
-          <Stack gap="md">
-            <SectionHeader>
-              <template #title>Action on</template>
-              <template #action>
-                <Button size="sm" variant="outline">Action</Button>
-              </template>
-            </SectionHeader>
-            <SectionHeader>
-              <template #title>Action off</template>
-            </SectionHeader>
-          </Stack>
-        </Stack>
+      <Stack gap="md">
+        <SectionHeader size="sm">
+          <template #title>Small</template>
+          <template #subtitle>Subtitle</template>
+          <template #action>
+            <Button size="sm" variant="ghost">Action</Button>
+          </template>
+        </SectionHeader>
+        <SectionHeader size="md">
+          <template #title>Medium</template>
+          <template #subtitle>Subtitle</template>
+          <template #action>
+            <Button size="sm">Action</Button>
+          </template>
+        </SectionHeader>
+      </Stack>
+    `,
+  }),
+}
+
+export const Minimal: Story = {
+  render: () => ({
+    components: { SectionHeader, Button, Stack },
+    template: `
+      <Stack gap="md">
+        <SectionHeader>
+          <template #title>Subtitle on</template>
+          <template #subtitle>Subtitle</template>
+        </SectionHeader>
+        <SectionHeader>
+          <template #title>Subtitle off</template>
+        </SectionHeader>
+        <SectionHeader>
+          <template #title>Action on</template>
+          <template #action>
+            <Button size="sm" variant="outline">Action</Button>
+          </template>
+        </SectionHeader>
+        <SectionHeader>
+          <template #title>Action off</template>
+        </SectionHeader>
       </Stack>
     `,
   }),

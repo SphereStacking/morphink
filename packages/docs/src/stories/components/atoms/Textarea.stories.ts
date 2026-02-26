@@ -8,8 +8,10 @@ import {
 } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-const meta: Meta = {
+const meta: Meta<typeof Textarea> = {
   title: 'Components/Atoms/Textarea',
+  component: Textarea,
+  tags: ['autodocs'],
   argTypes: {
     variant: { control: { type: 'select' }, options: componentVariants.Textarea },
     size: { control: { type: 'select' }, options: componentSizes.Textarea },
@@ -35,9 +37,9 @@ const meta: Meta = {
 }
 
 export default meta
-type Story = StoryObj
+type Story = StoryObj<typeof Textarea>
 
-export const Playground: Story = {
+export const Default: Story = {
   render: (args) => ({
     components: { Textarea },
     setup() {
@@ -51,71 +53,86 @@ export const Playground: Story = {
   }),
 }
 
-export const Overview: Story = {
+export const Variants: Story = {
   render: () => ({
     components: { Textarea, Stack },
     template: `
-      <Stack direction="column" gap="2xl">
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-          <Stack direction="column" gap="sm" style="max-width: 320px">
-            <Textarea variant="outline" placeholder="Outline" />
-            <Textarea variant="ghost" placeholder="Ghost" />
-            <Textarea variant="soft" placeholder="Soft" />
-          </Stack>
-        </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">tone</div>
-          <Stack direction="column" gap="sm" style="max-width: 320px">
-            <Textarea tone="base" placeholder="Base" />
-            <Textarea tone="primary" placeholder="Primary" />
-            <Textarea tone="success" placeholder="Success" />
-            <Textarea tone="warning" placeholder="Warning" />
-            <Textarea tone="destructive" placeholder="Destructive" />
-          </Stack>
-        </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
-          <Stack direction="column" gap="sm" style="max-width: 320px">
-            <Textarea size="xs" placeholder="Extra Small" />
-            <Textarea size="sm" placeholder="Small" />
-            <Textarea size="md" placeholder="Medium" />
-            <Textarea size="lg" placeholder="Large" />
-            <Textarea size="xl" placeholder="Extra Large" />
-          </Stack>
-        </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">states</div>
-          <Stack direction="column" gap="sm" style="max-width: 320px">
-            <Textarea placeholder="Default" />
-            <Textarea placeholder="Disabled" disabled />
-            <Textarea placeholder="Readonly" readonly model-value="Readonly value" />
-          </Stack>
-        </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">resize</div>
-          <Stack direction="column" gap="sm" style="max-width: 320px">
-            <Textarea resize="none" placeholder="No resize" />
-            <Textarea resize="vertical" placeholder="Vertical resize" />
-            <Textarea resize="horizontal" placeholder="Horizontal resize" />
-            <Textarea resize="both" placeholder="Both resize" />
-          </Stack>
-        </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">soft + tone</div>
-          <Stack direction="column" gap="sm" style="max-width: 320px">
-            <Textarea variant="soft" tone="base" placeholder="Soft Base" />
-            <Textarea variant="soft" tone="primary" placeholder="Soft Primary" />
-            <Textarea variant="soft" tone="success" placeholder="Soft Success" />
-            <Textarea variant="soft" tone="warning" placeholder="Soft Warning" />
-            <Textarea variant="soft" tone="destructive" placeholder="Soft Destructive" />
-          </Stack>
-        </Stack>
+      <Stack direction="column" gap="sm" style="max-width: 320px">
+        <Textarea variant="outline" placeholder="Outline" />
+        <Textarea variant="ghost" placeholder="Ghost" />
+        <Textarea variant="soft" placeholder="Soft" />
+      </Stack>
+    `,
+  }),
+}
+
+export const Tones: Story = {
+  render: () => ({
+    components: { Textarea, Stack },
+    template: `
+      <Stack direction="column" gap="sm" style="max-width: 320px">
+        <Textarea tone="base" placeholder="Base" />
+        <Textarea tone="primary" placeholder="Primary" />
+        <Textarea tone="success" placeholder="Success" />
+        <Textarea tone="warning" placeholder="Warning" />
+        <Textarea tone="destructive" placeholder="Destructive" />
+      </Stack>
+    `,
+  }),
+}
+
+export const Sizes: Story = {
+  render: () => ({
+    components: { Textarea, Stack },
+    template: `
+      <Stack direction="column" gap="sm" style="max-width: 320px">
+        <Textarea size="xs" placeholder="Extra Small" />
+        <Textarea size="sm" placeholder="Small" />
+        <Textarea size="md" placeholder="Medium" />
+        <Textarea size="lg" placeholder="Large" />
+        <Textarea size="xl" placeholder="Extra Large" />
+      </Stack>
+    `,
+  }),
+}
+
+export const States: Story = {
+  render: () => ({
+    components: { Textarea, Stack },
+    template: `
+      <Stack direction="column" gap="sm" style="max-width: 320px">
+        <Textarea placeholder="Default" />
+        <Textarea placeholder="Disabled" disabled />
+        <Textarea placeholder="Readonly" readonly model-value="Readonly value" />
+      </Stack>
+    `,
+  }),
+}
+
+export const Resize: Story = {
+  render: () => ({
+    components: { Textarea, Stack },
+    template: `
+      <Stack direction="column" gap="sm" style="max-width: 320px">
+        <Textarea resize="none" placeholder="No resize" />
+        <Textarea resize="vertical" placeholder="Vertical resize" />
+        <Textarea resize="horizontal" placeholder="Horizontal resize" />
+        <Textarea resize="both" placeholder="Both resize" />
+      </Stack>
+    `,
+  }),
+}
+
+export const SoftTone: Story = {
+  render: () => ({
+    components: { Textarea, Stack },
+    template: `
+      <Stack direction="column" gap="sm" style="max-width: 320px">
+        <Textarea variant="soft" tone="base" placeholder="Soft Base" />
+        <Textarea variant="soft" tone="primary" placeholder="Soft Primary" />
+        <Textarea variant="soft" tone="success" placeholder="Soft Success" />
+        <Textarea variant="soft" tone="warning" placeholder="Soft Warning" />
+        <Textarea variant="soft" tone="destructive" placeholder="Soft Destructive" />
       </Stack>
     `,
   }),

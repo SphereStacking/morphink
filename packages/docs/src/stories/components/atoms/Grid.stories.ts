@@ -1,8 +1,10 @@
 import { Grid, Panel, Text, Stack } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-const meta: Meta = {
+const meta: Meta<typeof Grid> = {
   title: 'Components/Atoms/Grid',
+  component: Grid,
+  tags: ['autodocs'],
   argTypes: {
     columns: { control: 'text' },
     minWidth: { control: 'text' },
@@ -29,9 +31,9 @@ const meta: Meta = {
 }
 
 export default meta
-type Story = StoryObj
+type Story = StoryObj<typeof Grid>
 
-export const Playground: Story = {
+export const Default: Story = {
   render: (args) => ({
     components: { Grid, Panel, Text, Stack },
     setup() {
@@ -57,69 +59,63 @@ export const Playground: Story = {
   }),
 }
 
-export const Overview: Story = {
+export const FixedColumns: Story = {
   render: () => ({
     components: { Grid, Panel, Text, Stack },
     template: `
-      <Stack gap="xl">
-        <Stack gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">auto-fit (default)</div>
-          <Grid gap="lg">
-            <Panel><Text>Block A</Text></Panel>
-            <Panel><Text>Block B</Text></Panel>
-            <Panel><Text>Block C</Text></Panel>
-          </Grid>
-        </Stack>
+      <Stack gap="md">
+        <Grid :columns="2" gap="lg">
+          <Panel><Text>2 cols</Text></Panel>
+          <Panel><Text>2 cols</Text></Panel>
+        </Grid>
+        <Grid :columns="3" gap="lg">
+          <Panel><Text>3 cols</Text></Panel>
+          <Panel><Text>3 cols</Text></Panel>
+          <Panel><Text>3 cols</Text></Panel>
+        </Grid>
+      </Stack>
+    `,
+  }),
+}
 
-        <div class="border border-[var(--morphink-color-border)]"></div>
+export const GapTokens: Story = {
+  render: () => ({
+    components: { Grid, Panel, Text, Stack },
+    template: `
+      <Stack gap="md">
+        <Grid :columns="3" gap="sm">
+          <Panel><Text>sm (8px)</Text></Panel>
+          <Panel><Text>sm</Text></Panel>
+          <Panel><Text>sm</Text></Panel>
+        </Grid>
+        <Grid :columns="3" gap="xl">
+          <Panel><Text>xl (24px)</Text></Panel>
+          <Panel><Text>xl</Text></Panel>
+          <Panel><Text>xl</Text></Panel>
+        </Grid>
+      </Stack>
+    `,
+  }),
+}
 
-        <Stack gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">fixed columns</div>
-          <Grid :columns="2" gap="lg">
-            <Panel><Text>2 cols</Text></Panel>
-            <Panel><Text>2 cols</Text></Panel>
-          </Grid>
-          <Grid :columns="3" gap="lg">
-            <Panel><Text>3 cols</Text></Panel>
-            <Panel><Text>3 cols</Text></Panel>
-            <Panel><Text>3 cols</Text></Panel>
-          </Grid>
-        </Stack>
-
-        <Stack gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">gap tokens</div>
-          <Grid :columns="3" gap="sm">
-            <Panel><Text>sm (8px)</Text></Panel>
-            <Panel><Text>sm</Text></Panel>
-            <Panel><Text>sm</Text></Panel>
-          </Grid>
-          <Grid :columns="3" gap="xl">
-            <Panel><Text>xl (24px)</Text></Panel>
-            <Panel><Text>xl</Text></Panel>
-            <Panel><Text>xl</Text></Panel>
-          </Grid>
-        </Stack>
-
-        <Stack gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rows</div>
-          <Grid :columns="3" :rows="2" gap="lg" style="height: 200px;">
-            <Panel><Text>1</Text></Panel>
-            <Panel><Text>2</Text></Panel>
-            <Panel><Text>3</Text></Panel>
-            <Panel><Text>4</Text></Panel>
-            <Panel><Text>5</Text></Panel>
-            <Panel><Text>6</Text></Panel>
-          </Grid>
-        </Stack>
-
-        <Stack gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">align</div>
-          <Grid :columns="3" gap="lg" align="center" style="height: 120px;">
-            <Panel style="height: 40px;"><Text>center</Text></Panel>
-            <Panel style="height: 60px;"><Text>center</Text></Panel>
-            <Panel style="height: 80px;"><Text>center</Text></Panel>
-          </Grid>
-        </Stack>
+export const Alignment: Story = {
+  render: () => ({
+    components: { Grid, Panel, Text, Stack },
+    template: `
+      <Stack gap="md">
+        <Grid :columns="3" :rows="2" gap="lg" style="height: 200px;">
+          <Panel><Text>1</Text></Panel>
+          <Panel><Text>2</Text></Panel>
+          <Panel><Text>3</Text></Panel>
+          <Panel><Text>4</Text></Panel>
+          <Panel><Text>5</Text></Panel>
+          <Panel><Text>6</Text></Panel>
+        </Grid>
+        <Grid :columns="3" gap="lg" align="center" style="height: 120px;">
+          <Panel style="height: 40px;"><Text>center</Text></Panel>
+          <Panel style="height: 60px;"><Text>center</Text></Panel>
+          <Panel style="height: 80px;"><Text>center</Text></Panel>
+        </Grid>
       </Stack>
     `,
   }),

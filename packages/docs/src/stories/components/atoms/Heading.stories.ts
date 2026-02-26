@@ -1,8 +1,10 @@
-import { Heading, Text, Stack } from '@morphink/ui'
+import { Heading, Stack } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-const meta: Meta = {
+const meta: Meta<typeof Heading> = {
   title: 'Components/Atoms/Heading',
+  component: Heading,
+  tags: ['autodocs'],
   argTypes: {
     level: { control: { type: 'select' }, options: [1, 2, 3, 4, 5, 6] },
     text: { control: 'text' },
@@ -14,44 +16,31 @@ const meta: Meta = {
 }
 
 export default meta
-type Story = StoryObj
+type Story = StoryObj<typeof Heading>
 
-export const Playground: Story = {
+export const Default: Story = {
   render: (args) => ({
-    components: { Heading, Text, Stack },
+    components: { Heading },
     setup() {
       return { args }
     },
     template: `
-      <Stack gap="md">
-        <Heading :level="args.level">{{ args.text }}</Heading>
-        <Text muted>Size and rhythm adjust based on level.</Text>
-      </Stack>
+      <Heading :level="args.level">{{ args.text }}</Heading>
     `,
   }),
 }
 
-export const Overview: Story = {
+export const Levels: Story = {
   render: () => ({
     components: { Heading, Stack },
     template: `
-      <Stack gap="2xl">
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Heading :level="2">Default heading</Heading>
-        </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">level</div>
-          <Stack gap="sm">
-            <Heading :level="1">H1</Heading>
-            <Heading :level="2">H2</Heading>
-            <Heading :level="3">H3</Heading>
-            <Heading :level="4">H4</Heading>
-            <Heading :level="5">H5</Heading>
-            <Heading :level="6">H6</Heading>
-          </Stack>
-        </Stack>
+      <Stack gap="sm">
+        <Heading :level="1">H1</Heading>
+        <Heading :level="2">H2</Heading>
+        <Heading :level="3">H3</Heading>
+        <Heading :level="4">H4</Heading>
+        <Heading :level="5">H5</Heading>
+        <Heading :level="6">H6</Heading>
       </Stack>
     `,
   }),

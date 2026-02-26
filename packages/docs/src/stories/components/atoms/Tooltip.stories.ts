@@ -2,8 +2,10 @@ import { Tooltip, Button, Stack, Text } from '@morphink/ui'
 import { componentRounded, componentShadow } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-const meta: Meta = {
+const meta: Meta<typeof Tooltip> = {
   title: 'Components/Atoms/Tooltip',
+  component: Tooltip,
+  tags: ['autodocs'],
   argTypes: {
     content: { control: 'text' },
     side: { control: { type: 'select' }, options: ['top', 'right', 'bottom', 'left'] },
@@ -26,9 +28,9 @@ const meta: Meta = {
 }
 
 export default meta
-type Story = StoryObj
+type Story = StoryObj<typeof Tooltip>
 
-export const Playground: Story = {
+export const Default: Story = {
   render: (args) => ({
     components: { Tooltip, Button, Stack, Text },
     setup() {
@@ -54,104 +56,80 @@ export const Playground: Story = {
   }),
 }
 
-export const Overview: Story = {
+export const Sides: Story = {
   render: () => ({
-    components: { Tooltip, Button, Stack, Text },
+    components: { Tooltip, Button, Stack },
     template: `
-      <Stack gap="2xl">
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Stack gap="md">
-            <Tooltip content="Content">
-              <Button size="sm">Default</Button>
-            </Tooltip>
-          </Stack>
-        </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">open</div>
-          <Stack direction="row" gap="md" align="center" wrap>
-            <Tooltip content="Closed" :open="false">
-              <Button size="sm">Closed</Button>
-            </Tooltip>
-            <Tooltip content="Open" :open="true">
-              <Button size="sm">Open</Button>
-            </Tooltip>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">side</div>
-          <Stack direction="row" gap="md" align="center" wrap>
-            <Tooltip content="Bottom" side="bottom">
-              <Button size="sm">Bottom</Button>
-            </Tooltip>
-            <Tooltip content="Top" side="top">
-              <Button size="sm">Top</Button>
-            </Tooltip>
-            <Tooltip content="Right" side="right">
-              <Button size="sm">Right</Button>
-            </Tooltip>
-            <Tooltip content="Left" side="left">
-              <Button size="sm">Left</Button>
-            </Tooltip>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">align</div>
-          <Stack direction="row" gap="md" align="center" wrap>
-            <Tooltip content="Start" align="start">
-              <Button size="sm">Start</Button>
-            </Tooltip>
-            <Tooltip content="Center" align="center">
-              <Button size="sm">Center</Button>
-            </Tooltip>
-            <Tooltip content="End" align="end">
-              <Button size="sm">End</Button>
-            </Tooltip>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">delay</div>
-          <Stack direction="row" gap="md" align="center" wrap>
-            <Tooltip content="0ms" :delay="0">
-              <Button size="sm">0ms</Button>
-            </Tooltip>
-            <Tooltip content="200ms" :delay="200">
-              <Button size="sm">200ms</Button>
-            </Tooltip>
-            <Tooltip content="500ms" :delay="500">
-              <Button size="sm">500ms</Button>
-            </Tooltip>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
-          <Stack direction="row" gap="md" align="center" wrap>
-            <Tooltip content="Rounded sm" rounded="sm">
-              <Button size="sm">Rounded sm</Button>
-            </Tooltip>
-            <Tooltip content="Rounded md" rounded="md">
-              <Button size="sm">Rounded md</Button>
-            </Tooltip>
-            <Tooltip content="Rounded lg" rounded="lg">
-              <Button size="sm">Rounded lg</Button>
-            </Tooltip>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
-          <Stack direction="row" gap="md" align="center" wrap>
-            <Tooltip content="Shadow none" shadow="none">
-              <Button size="sm">Shadow none</Button>
-            </Tooltip>
-            <Tooltip content="Shadow sm" shadow="sm">
-              <Button size="sm">Shadow sm</Button>
-            </Tooltip>
-            <Tooltip content="Shadow md" shadow="md">
-              <Button size="sm">Shadow md</Button>
-            </Tooltip>
-          </Stack>
-        </Stack>
+      <Stack direction="row" gap="md" align="center" wrap>
+        <Tooltip content="Bottom" side="bottom">
+          <Button size="sm">Bottom</Button>
+        </Tooltip>
+        <Tooltip content="Top" side="top">
+          <Button size="sm">Top</Button>
+        </Tooltip>
+        <Tooltip content="Right" side="right">
+          <Button size="sm">Right</Button>
+        </Tooltip>
+        <Tooltip content="Left" side="left">
+          <Button size="sm">Left</Button>
+        </Tooltip>
+      </Stack>
+    `,
+  }),
+}
+
+export const Align: Story = {
+  render: () => ({
+    components: { Tooltip, Button, Stack },
+    template: `
+      <Stack direction="row" gap="md" align="center" wrap>
+        <Tooltip content="Start" align="start">
+          <Button size="sm">Start</Button>
+        </Tooltip>
+        <Tooltip content="Center" align="center">
+          <Button size="sm">Center</Button>
+        </Tooltip>
+        <Tooltip content="End" align="end">
+          <Button size="sm">End</Button>
+        </Tooltip>
+      </Stack>
+    `,
+  }),
+}
+
+export const Rounded: Story = {
+  render: () => ({
+    components: { Tooltip, Button, Stack },
+    template: `
+      <Stack direction="row" gap="md" align="center" wrap>
+        <Tooltip content="Rounded sm" rounded="sm">
+          <Button size="sm">Rounded sm</Button>
+        </Tooltip>
+        <Tooltip content="Rounded md" rounded="md">
+          <Button size="sm">Rounded md</Button>
+        </Tooltip>
+        <Tooltip content="Rounded lg" rounded="lg">
+          <Button size="sm">Rounded lg</Button>
+        </Tooltip>
+      </Stack>
+    `,
+  }),
+}
+
+export const Shadow: Story = {
+  render: () => ({
+    components: { Tooltip, Button, Stack },
+    template: `
+      <Stack direction="row" gap="md" align="center" wrap>
+        <Tooltip content="Shadow none" shadow="none">
+          <Button size="sm">Shadow none</Button>
+        </Tooltip>
+        <Tooltip content="Shadow sm" shadow="sm">
+          <Button size="sm">Shadow sm</Button>
+        </Tooltip>
+        <Tooltip content="Shadow md" shadow="md">
+          <Button size="sm">Shadow md</Button>
+        </Tooltip>
       </Stack>
     `,
   }),

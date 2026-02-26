@@ -3,8 +3,10 @@ import { componentSizes, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
-const meta: Meta = {
+const meta: Meta<typeof Tabs> = {
   title: 'Components/Atoms/Tabs',
+  component: Tabs,
+  tags: ['autodocs'],
   argTypes: {
     variant: { control: { type: 'select' }, options: componentVariants.Tabs },
     size: { control: { type: 'select' }, options: componentSizes.Tabs },
@@ -25,9 +27,9 @@ const meta: Meta = {
 }
 
 export default meta
-type Story = StoryObj
+type Story = StoryObj<typeof Tabs>
 
-export const Playground: Story = {
+export const Default: Story = {
   render: (args) => ({
     components: { Tabs, Stack, Text },
     setup() {
@@ -53,7 +55,7 @@ export const Playground: Story = {
   }),
 }
 
-export const Overview: Story = {
+export const Variants: Story = {
   render: () => ({
     components: { Tabs, Text, Stack },
     setup() {
@@ -62,35 +64,34 @@ export const Overview: Story = {
         { label: 'Layout', value: 'layout' },
         { label: 'Tokens', value: 'tokens' },
       ]
-      const activeDefault = ref('overview')
       const activeVariant = ref('overview')
-      const activeSize = ref('overview')
-      return { items, activeDefault, activeVariant, activeSize }
+      return { items, activeVariant }
     },
     template: `
-      <Stack gap="2xl">
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Stack gap="md">
-            <Tabs v-model="activeDefault" :items="items" />
-            <Text muted>Selected: {{ activeDefault }}</Text>
-          </Stack>
-        </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-          <Stack gap="md">
-            <Tabs v-model="activeVariant" :items="items" variant="pill" />
-            <Tabs v-model="activeVariant" :items="items" variant="underline" />
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">size</div>
-          <Stack gap="md">
-            <Tabs v-model="activeSize" :items="items" size="sm" />
-            <Tabs v-model="activeSize" :items="items" size="md" />
-          </Stack>
-        </Stack>
+      <Stack gap="md">
+        <Tabs v-model="activeVariant" :items="items" variant="pill" />
+        <Tabs v-model="activeVariant" :items="items" variant="underline" />
+      </Stack>
+    `,
+  }),
+}
+
+export const Sizes: Story = {
+  render: () => ({
+    components: { Tabs, Text, Stack },
+    setup() {
+      const items = [
+        { label: 'Overview', value: 'overview' },
+        { label: 'Layout', value: 'layout' },
+        { label: 'Tokens', value: 'tokens' },
+      ]
+      const activeSize = ref('overview')
+      return { items, activeSize }
+    },
+    template: `
+      <Stack gap="md">
+        <Tabs v-model="activeSize" :items="items" size="sm" />
+        <Tabs v-model="activeSize" :items="items" size="md" />
       </Stack>
     `,
   }),

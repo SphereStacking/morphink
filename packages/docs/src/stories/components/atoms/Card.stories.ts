@@ -14,8 +14,10 @@ import {
 import { componentRounded, componentShadow, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-const meta: Meta = {
+const meta: Meta<typeof Card> = {
   title: 'Components/Atoms/Card',
+  component: Card,
+  tags: ['autodocs'],
   argTypes: {
     variant: { control: { type: 'select' }, options: componentVariants.Card },
     rounded: { control: { type: 'select' }, options: componentRounded.Card },
@@ -29,7 +31,7 @@ const meta: Meta = {
 }
 
 export default meta
-type Story = StoryObj
+type Story = StoryObj<typeof Card>
 
 export const Playground: Story = {
   render: (args) => ({

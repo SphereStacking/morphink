@@ -1,8 +1,10 @@
 import { Text, Stack } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-const meta: Meta = {
+const meta: Meta<typeof Text> = {
   title: 'Components/Atoms/Text',
+  component: Text,
+  tags: ['autodocs'],
   argTypes: {
     variant: { control: { type: 'select' }, options: ['body', 'caption', 'label'] },
     weight: { control: { type: 'select' }, options: ['regular', 'medium', 'semibold', 'bold'] },
@@ -18,58 +20,56 @@ const meta: Meta = {
 }
 
 export default meta
-type Story = StoryObj
+type Story = StoryObj<typeof Text>
 
-export const Playground: Story = {
+export const Default: Story = {
   render: (args) => ({
-    components: { Text, Stack },
+    components: { Text },
     setup() {
       return { args }
     },
     template: `
+      <Text :variant="args.variant" :weight="args.weight" :muted="args.muted">
+        {{ args.text }}
+      </Text>
+    `,
+  }),
+}
+
+export const Variants: Story = {
+  render: () => ({
+    components: { Text, Stack },
+    template: `
       <Stack gap="sm">
-        <Text :variant="args.variant" :weight="args.weight" :muted="args.muted">
-          {{ args.text }}
-        </Text>
+        <Text variant="body">Body</Text>
+        <Text variant="caption">Caption</Text>
+        <Text variant="label">Label</Text>
       </Stack>
     `,
   }),
 }
 
-export const Overview: Story = {
+export const Weights: Story = {
   render: () => ({
     components: { Text, Stack },
     template: `
-      <Stack gap="2xl">
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">default</div>
-          <Text>Default text</Text>
-        </Stack>
-        <div class="border border-[var(--morphink-color-border)]"></div>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
-          <Stack gap="sm">
-            <Text variant="body">Body</Text>
-            <Text variant="caption">Caption</Text>
-            <Text variant="label">Label</Text>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">weight</div>
-          <Stack gap="sm">
-            <Text weight="regular">Regular</Text>
-            <Text weight="medium">Medium</Text>
-            <Text weight="semibold">Semibold</Text>
-            <Text weight="bold">Bold</Text>
-          </Stack>
-        </Stack>
-        <Stack direction="column" gap="md">
-          <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">muted</div>
-          <Stack gap="sm">
-            <Text :muted="false">Muted false</Text>
-            <Text muted>Muted true</Text>
-          </Stack>
-        </Stack>
+      <Stack gap="sm">
+        <Text weight="regular">Regular</Text>
+        <Text weight="medium">Medium</Text>
+        <Text weight="semibold">Semibold</Text>
+        <Text weight="bold">Bold</Text>
+      </Stack>
+    `,
+  }),
+}
+
+export const Muted: Story = {
+  render: () => ({
+    components: { Text, Stack },
+    template: `
+      <Stack gap="sm">
+        <Text :muted="false">Muted false</Text>
+        <Text muted>Muted true</Text>
       </Stack>
     `,
   }),
