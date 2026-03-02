@@ -3,7 +3,7 @@ import { componentSizes, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof Toolbar> = {
-  title: 'Components/Atoms/Toolbar',
+  title: 'Components/Molecules/Toolbar',
   component: Toolbar,
   tags: ['autodocs'],
   argTypes: {

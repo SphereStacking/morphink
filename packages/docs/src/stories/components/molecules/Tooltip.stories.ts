@@ -3,7 +3,7 @@ import { componentRounded, componentShadow } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Components/Atoms/Tooltip',
+  title: 'Components/Molecules/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   argTypes: {

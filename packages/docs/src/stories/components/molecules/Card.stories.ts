@@ -15,7 +15,7 @@ import { componentRounded, componentShadow, componentVariants } from '@morphink/
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof Card> = {
-  title: 'Components/Atoms/Card',
+  title: 'Components/Molecules/Card',
   component: Card,
   tags: ['autodocs'],
   argTypes: {
@@ -56,6 +56,26 @@ export const Playground: Story = {
           <Button variant="outline" size="sm">Secondary</Button>
         </CardFooter>
       </Card>
+    `,
+  }),
+}
+
+export const Minimal: Story = {
+  render: () => ({
+    components: { Card, CardBody, Text, Stack },
+    template: `
+      <Stack gap="lg" direction="row" wrap>
+        <Card style="width: 280px;">
+          <CardBody>
+            <Text>The simplest Card usage — just Card + CardBody for quick content grouping.</Text>
+          </CardBody>
+        </Card>
+        <Card variant="outline" style="width: 280px;">
+          <CardBody>
+            <Text>Outline variant with body only. No header or footer needed.</Text>
+          </CardBody>
+        </Card>
+      </Stack>
     `,
   }),
 }

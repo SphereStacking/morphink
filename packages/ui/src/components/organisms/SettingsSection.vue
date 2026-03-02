@@ -6,9 +6,9 @@
  * Fork and customize for your product's settings pages.
  */
 import Stack from '../atoms/Stack.vue'
-import SectionHeader from '../atoms/SectionHeader.vue'
-import Card from '../atoms/Card.vue'
-import CardBody from '../atoms/CardBody.vue'
+import SectionHeader from '../molecules/SectionHeader.vue'
+import Card from '../molecules/Card.vue'
+import CardBody from '../molecules/CardBody.vue'
 
 defineProps<{
   title: string

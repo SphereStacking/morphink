@@ -3,7 +3,7 @@ import { componentRounded, componentShadow } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof Popover> = {
-  title: 'Components/Atoms/Popover',
+  title: 'Components/Molecules/Popover',
   component: Popover,
   tags: ['autodocs'],
   argTypes: {

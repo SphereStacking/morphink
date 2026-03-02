@@ -3,7 +3,7 @@ import { componentSizes } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof SectionHeader> = {
-  title: 'Components/Atoms/SectionHeader',
+  title: 'Components/Molecules/SectionHeader',
   component: SectionHeader,
   tags: ['autodocs'],
   argTypes: {

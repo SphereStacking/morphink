@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
 const meta: Meta<typeof Select> = {
-  title: 'Components/Atoms/Select',
+  title: 'Components/Molecules/Select',
   component: Select,
   tags: ['autodocs'],
   argTypes: {

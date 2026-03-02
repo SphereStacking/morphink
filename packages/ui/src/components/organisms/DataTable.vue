@@ -7,7 +7,7 @@
  */
 import { ref, computed } from 'vue'
 import Stack from '../atoms/Stack.vue'
-import Table from '../atoms/Table.vue'
+import Table from '../molecules/Table.vue'
 import Button from '../atoms/Button.vue'
 import Text from '../atoms/Text.vue'
 import SearchInput from '../molecules/SearchInput.vue'

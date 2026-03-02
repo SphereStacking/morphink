@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
 const meta: Meta<typeof Tabs> = {
-  title: 'Components/Atoms/Tabs',
+  title: 'Components/Molecules/Tabs',
   component: Tabs,
   tags: ['autodocs'],
   argTypes: {

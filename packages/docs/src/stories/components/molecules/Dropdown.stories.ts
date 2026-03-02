@@ -23,7 +23,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
 const meta: Meta<typeof Dropdown> = {
-  title: 'Components/Atoms/Dropdown',
+  title: 'Components/Molecules/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
   argTypes: {

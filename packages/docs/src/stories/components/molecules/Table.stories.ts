@@ -3,7 +3,7 @@ import { componentRounded } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof Table> = {
-  title: 'Components/Atoms/Table',
+  title: 'Components/Molecules/Table',
   component: Table,
   tags: ['autodocs'],
   argTypes: {

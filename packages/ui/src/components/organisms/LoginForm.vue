@@ -6,11 +6,11 @@
  * Fork and customize for your product's authentication flow.
  */
 import { ref } from 'vue'
-import Card from '../atoms/Card.vue'
-import CardHeader from '../atoms/CardHeader.vue'
-import CardBody from '../atoms/CardBody.vue'
-import CardFooter from '../atoms/CardFooter.vue'
-import CardTitle from '../atoms/CardTitle.vue'
+import Card from '../molecules/Card.vue'
+import CardHeader from '../molecules/CardHeader.vue'
+import CardBody from '../molecules/CardBody.vue'
+import CardFooter from '../molecules/CardFooter.vue'
+import CardTitle from '../molecules/CardTitle.vue'
 import Stack from '../atoms/Stack.vue'
 import Button from '../atoms/Button.vue'
 import Input from '../atoms/Input.vue'
