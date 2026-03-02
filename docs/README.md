@@ -2,22 +2,27 @@
 
 # morphink docs
 
-Design system documentation and development guides.
+Documentation and development guides for the morphink design system boilerplate.
 
 > For the design philosophy behind morphink, see [CONCEPT.md](../CONCEPT.md).
 
+## Architecture & Workflow
+
+- [Architecture](./architecture.md) — Three-layer component structure, token pipeline, props system, CSS variable naming, motion system
+- [Workflows](./workflows.md) — Token updates, adding new components, Storybook, lint & format, build outputs
+
+## Getting Started
+
+Choose the adoption pattern that fits your project:
+
+- [Fork from Template](./guides/getting-started-template.md) — Primary route: fork and customize (recommended)
+- [Embed in Monorepo](./guides/getting-started-monorepo.md) — Add to an existing pnpm workspace
+- [Embed Flat](./guides/getting-started-flat.md) — Add without monorepo setup
+
 ## Guides
 
-- [Architecture](./architecture.md) — Three-layer component structure, token pipeline, design principles
-- [Workflows](./workflows.md) — Token updates, UI development, Storybook, lint & format
-
-### Getting Started
-
-- [Fork from Template](./guides/getting-started-template.md) — Primary route: fork and customize
-- [Embed in Monorepo](./guides/getting-started-monorepo.md) — Add to an existing workspace
-- [Embed Flat](./guides/getting-started-flat.md) — Add without monorepo setup
-- [Publishing Your DS](./guides/publishing-your-design-system.md) — npm publish your forked DS
-- [Choosing Utilities](./guides/choosing-utilities.md) — mi:* classes vs Tailwind theme preset
+- [Publishing Your Design System](./guides/publishing-your-design-system.md) — npm publish your forked DS as `@myorg/tokens` + `@myorg/ui`
+- [Choosing Utilities](./guides/choosing-utilities.md) — `mi:*` utility classes vs Tailwind theme preset
 
 ## Quick Start
 
@@ -31,7 +36,11 @@ Storybook: `http://localhost:6006/`
 
 ## Key Technologies
 
-- **Reka UI** — Headless a11y primitives (Dialog, Select, Dropdown, Tabs, etc.)
-- **Tokens Studio + Style Dictionary** — Token pipeline from design to code
-- **Tailwind CSS v4** — Utility-first CSS, compiled to `ui.css`
-- **CVA** (class-variance-authority) — Style variant definitions
+| Technology | Role |
+|-----------|------|
+| [Reka UI](https://reka-ui.com/) | Headless a11y primitives (Dialog, Select, Dropdown, Tabs, etc.) |
+| [Tokens Studio](https://tokens.studio/) + [Style Dictionary](https://amzn.github.io/style-dictionary/) | Token pipeline from design tools to code |
+| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first CSS, compiled to `ui.css` (internal detail) |
+| [CVA](https://cva.style/) | Style variant definitions (class-variance-authority) |
+| [Storybook](https://storybook.js.org/) | Component catalog, token visualization, design guidelines |
+| [oxlint](https://oxc.rs/) / [oxfmt](https://oxc.rs/) | Fast linting and formatting |
