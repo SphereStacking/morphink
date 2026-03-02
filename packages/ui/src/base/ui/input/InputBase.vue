@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue'
 import { cva } from 'class-variance-authority'
+
+defineOptions({ inheritAttrs: false })
 import { cn } from '../../lib/utils'
 import type { InputRounded, InputSize, InputTone, InputVariant } from '../../lib/props'
 
@@ -17,7 +19,8 @@ const inputVariants = cva(
   {
     variants: {
       variant: {
-        solid: 'border border-transparent bg-[color-mix(in_srgb,var(--field-color)_12%,transparent)]',
+        solid:
+          'border border-transparent bg-[color-mix(in_srgb,var(--field-color)_12%,transparent)]',
         outline: cn(
           'border border-(--morphink-color-border) bg-(--morphink-color-input)',
           'focus-visible:border-(color:--field-color)'
@@ -26,16 +29,24 @@ const inputVariants = cva(
         soft: 'border border-transparent bg-[color-mix(in_srgb,var(--field-color)_12%,transparent)]',
       },
       tone: {
-        primary: '[--ring-color:var(--morphink-color-primary)] [--field-color:var(--morphink-color-primary)]',
-        secondary: '[--ring-color:var(--morphink-color-secondary)] [--field-color:var(--morphink-color-secondary)]',
-        tertiary: '[--ring-color:var(--morphink-color-tertiary)] [--field-color:var(--morphink-color-tertiary)]',
+        primary:
+          '[--ring-color:var(--morphink-color-primary)] [--field-color:var(--morphink-color-primary)]',
+        secondary:
+          '[--ring-color:var(--morphink-color-secondary)] [--field-color:var(--morphink-color-secondary)]',
+        tertiary:
+          '[--ring-color:var(--morphink-color-tertiary)] [--field-color:var(--morphink-color-tertiary)]',
         base: '[--ring-color:var(--morphink-color-ring)] [--field-color:var(--morphink-color-base)]',
-        accent: '[--ring-color:var(--morphink-color-accent)] [--field-color:var(--morphink-color-accent)]',
-        neutral: '[--ring-color:var(--morphink-color-neutral)] [--field-color:var(--morphink-color-neutral)]',
-        success: '[--ring-color:var(--morphink-color-success)] [--field-color:var(--morphink-color-success)]',
-        warning: '[--ring-color:var(--morphink-color-warning)] [--field-color:var(--morphink-color-warning)]',
+        accent:
+          '[--ring-color:var(--morphink-color-accent)] [--field-color:var(--morphink-color-accent)]',
+        neutral:
+          '[--ring-color:var(--morphink-color-neutral)] [--field-color:var(--morphink-color-neutral)]',
+        success:
+          '[--ring-color:var(--morphink-color-success)] [--field-color:var(--morphink-color-success)]',
+        warning:
+          '[--ring-color:var(--morphink-color-warning)] [--field-color:var(--morphink-color-warning)]',
         info: '[--ring-color:var(--morphink-color-info)] [--field-color:var(--morphink-color-info)]',
-        destructive: '[--ring-color:var(--morphink-color-destructive)] [--field-color:var(--morphink-color-destructive)]',
+        destructive:
+          '[--ring-color:var(--morphink-color-destructive)] [--field-color:var(--morphink-color-destructive)]',
       },
       size: {
         xs: 'h-7 px-2 text-xs',
@@ -61,7 +72,11 @@ const inputVariants = cva(
       { variant: 'solid', tone: 'neutral', class: 'bg-(--morphink-color-muted)' },
       { variant: 'soft', tone: 'base', class: 'bg-(--morphink-color-muted)' },
       { variant: 'soft', tone: 'neutral', class: 'bg-(--morphink-color-muted)' },
-      { variant: 'outline', tone: 'base', class: 'focus-visible:border-(color:--morphink-color-border)' },
+      {
+        variant: 'outline',
+        tone: 'base',
+        class: 'focus-visible:border-(color:--morphink-color-border)',
+      },
       { variant: 'outline', tone: 'destructive', class: 'border-(color:--field-color)' },
     ],
     defaultVariants: {

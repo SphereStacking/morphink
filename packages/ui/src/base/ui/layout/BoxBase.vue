@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
 import type { SpaceToken } from '../../lib/props/space'
 import { resolveSpace } from '../../lib/layout-utils'
+import { cn } from '../../lib/utils'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(
   defineProps<{
@@ -44,10 +47,12 @@ const boxStyle = computed(() => {
   if (!props.shrink) style.flexShrink = '0'
   return style
 })
+
+const attrs = useAttrs()
 </script>
 
 <template>
-  <component :is="as" :style="boxStyle">
+  <component :is="as" :style="boxStyle" :class="cn(attrs.class)">
     <slot />
   </component>
 </template>

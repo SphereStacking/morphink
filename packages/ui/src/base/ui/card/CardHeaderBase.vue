@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import { cn } from '../../lib/utils'
+
+defineOptions({ inheritAttrs: false })
 </script>
 
 <template>
-  <div :class="cn('flex items-center gap-(--morphink-space-md) px-(--morphink-space-lg) pt-(--morphink-space-lg)', $attrs.class as string)">
+  <div
+    :class="
+      cn(
+        'flex items-center gap-(--morphink-space-md) px-(--morphink-space-lg) pt-(--morphink-space-lg)',
+        $attrs.class as string
+      )
+    "
+  >
     <div class="flex-1">
       <slot />
     </div>

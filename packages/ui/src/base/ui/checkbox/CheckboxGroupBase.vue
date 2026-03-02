@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { computed, provide, ref, toRef, watch } from 'vue'
+import { computed, provide, ref, toRef, useAttrs, watch } from 'vue'
 import type { CheckboxRounded, CheckboxSize, CheckboxTone, CheckboxVariant } from '../../lib/props'
+import { cn } from '../../lib/utils'
+
+defineOptions({ inheritAttrs: false })
 import {
   checkboxSizeKey,
   checkboxVariantKey,
@@ -67,12 +70,21 @@ provide(checkboxGroupKey, {
   modelValue: currentValue,
   toggle,
 })
+
+const attrs = useAttrs()
 </script>
 
 <template>
   <div
     role="group"
-    :class="orientation === 'horizontal' ? 'flex flex-row gap-(--morphink-space-lg)' : 'flex flex-col gap-(--morphink-space-sm)'"
+    :class="
+      cn(
+        orientation === 'horizontal'
+          ? 'flex flex-row gap-(--morphink-space-lg)'
+          : 'flex flex-col gap-(--morphink-space-sm)',
+        attrs.class
+      )
+    "
   >
     <slot />
   </div>

@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
+
+defineOptions({ inheritAttrs: false })
 
 type Level = 1 | 2 | 3 | 4 | 5 | 6
 
@@ -36,8 +38,9 @@ const props = withDefaults(
   }
 )
 
+const attrs = useAttrs()
 const tag = computed(() => `h${props.level}`)
-const classes = computed(() => headingVariants({ level: props.level }))
+const classes = computed(() => cn(headingVariants({ level: props.level }), attrs.class))
 </script>
 
 <template>

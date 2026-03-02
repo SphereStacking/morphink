@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
 import type { SpaceToken } from '../../lib/props/space'
 import { resolveSpace, resolveAlign, resolveJustify } from '../../lib/layout-utils'
+import { cn } from '../../lib/utils'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(
   defineProps<{
@@ -39,10 +42,12 @@ const stackStyle = computed(() => {
   if (props.paddingY) style.paddingBlock = resolveSpace(props.paddingY)
   return style
 })
+
+const attrs = useAttrs()
 </script>
 
 <template>
-  <div :style="stackStyle" class="flex">
+  <div :style="stackStyle" :class="cn('flex', attrs.class)">
     <slot />
   </div>
 </template>

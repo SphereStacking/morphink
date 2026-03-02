@@ -1,7 +1,16 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
 import type { SpaceToken } from '../../lib/props/space'
-import { resolveColumns, resolveRows, resolveSpace, resolveAlign, resolveJustify } from '../../lib/layout-utils'
+import {
+  resolveColumns,
+  resolveRows,
+  resolveSpace,
+  resolveAlign,
+  resolveJustify,
+} from '../../lib/layout-utils'
+import { cn } from '../../lib/utils'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(
   defineProps<{
@@ -43,10 +52,12 @@ const gridStyle = computed(() => {
 
   return style
 })
+
+const attrs = useAttrs()
 </script>
 
 <template>
-  <div :style="gridStyle" class="grid">
+  <div :style="gridStyle" :class="cn('grid', attrs.class)">
     <slot />
   </div>
 </template>

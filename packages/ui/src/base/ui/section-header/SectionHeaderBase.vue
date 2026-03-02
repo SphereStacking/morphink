@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
+
+defineOptions({ inheritAttrs: false })
 
 import type { SectionHeaderSize } from '../../lib/props'
 
@@ -44,7 +46,8 @@ const props = withDefaults(
   }
 )
 
-const classes = computed(() => headerVariants({ size: props.size }))
+const attrs = useAttrs()
+const classes = computed(() => cn(headerVariants({ size: props.size }), attrs.class))
 const titleClass = computed(() => titleVariants({ size: props.size }))
 </script>
 
