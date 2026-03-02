@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+defineOptions({ inheritAttrs: false })
+
+import { computed, useAttrs } from 'vue'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 
@@ -43,25 +45,31 @@ const props = withDefaults(
     variant?: TextVariants['variant']
     weight?: TextVariants['weight']
     muted?: boolean
+    as?: string
   }>(),
   {
     variant: 'body',
     weight: 'regular',
     muted: false,
+    as: 'p',
   }
 )
 
+const attrs = useAttrs()
 const classes = computed(() =>
-  textVariants({
-    variant: props.variant,
-    weight: props.weight,
-    muted: props.muted,
-  })
+  cn(
+    textVariants({
+      variant: props.variant,
+      weight: props.weight,
+      muted: props.muted,
+    }),
+    attrs.class as string
+  )
 )
 </script>
 
 <template>
-  <p :class="classes">
+  <component :is="as" v-bind="{ ...attrs, class: undefined }" :class="classes">
     <slot />
-  </p>
+  </component>
 </template>

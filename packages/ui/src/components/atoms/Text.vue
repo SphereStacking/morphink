@@ -15,17 +15,19 @@ withDefaults(
     variant?: Variant
     weight?: Weight
     muted?: boolean
+    as?: string
   }>(),
   {
     variant: 'body',
     weight: 'regular',
     muted: false,
+    as: 'p',
   }
 )
 </script>
 
 <template>
-  <TextBase :variant="variant" :weight="weight" :muted="muted">
+  <TextBase :variant="variant" :weight="weight" :muted="muted" :as="as">
     <slot />
   </TextBase>
 </template>

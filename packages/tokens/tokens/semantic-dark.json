@@ -54,6 +54,12 @@
         "type": "color"
       }
     },
+    "ring": {
+      "base": {
+        "value": "{color.primary-400}",
+        "type": "color"
+      }
+    },
     "primary": {
       "base": {
         "value": "{color.primary-400}",
