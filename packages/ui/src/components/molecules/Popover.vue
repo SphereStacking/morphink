@@ -7,12 +7,12 @@
  * Style variants: base/ui/popover/PopoverBase.vue
  */
 import PopoverBase from '../../base/ui/popover/PopoverBase.vue'
+import { useForwardPropsEmits } from 'reka-ui'
 import type { PopoverRounded, PopoverShadow } from '../../base/lib/props'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     open?: boolean
-    onOpenChange?: (open: boolean) => void
     side?: 'top' | 'right' | 'bottom' | 'left'
     align?: 'start' | 'center' | 'end'
     rounded?: PopoverRounded
@@ -26,17 +26,16 @@ withDefaults(
     shadow: 'md',
   }
 )
+
+const emit = defineEmits<{
+  'update:open': [value: boolean]
+}>()
+
+const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <PopoverBase
-    :open="open"
-    :on-open-change="onOpenChange"
-    :side="side"
-    :align="align"
-    :rounded="rounded"
-    :shadow="shadow"
-  >
+  <PopoverBase v-bind="forwarded">
     <template #trigger>
       <slot name="trigger" />
     </template>

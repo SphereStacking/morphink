@@ -82,6 +82,15 @@ const forwarded = useForwardPropsEmits(props, emit)
 適用が必要: Root/Sub（`open`）、RadioGroup/CheckboxGroup（`modelValue`）
 不要: Trigger, Content, Item, Separator（状態管理 props なし）
 
+#### パターン選択基準
+
+| シナリオ | パターン | 例 |
+|---------|---------|-----|
+| Base 層 + Root のみラップ | `useForwardPropsEmits(props, emit)` 直接 | DropdownBase, TooltipBase, PopoverBase |
+| Base 層 + Group context 連携 | `rekaProps` computed + `useForwardPropsEmits` | CheckboxBase, RadioGroupBase, SwitchBase |
+| Base 層 + 複合コンポーネント | 手動バインド（例外） | SelectBase, TabsBase（style props を Root に渡さないため） |
+| Public 層 | 常に `useForwardPropsEmits(props, emit)` で Base に転送 | Dialog, Select, Tooltip 等すべて |
+
 ### レイアウトコンポーネント
 
 Grid と Stack は SpaceToken ベースの props API を持つ。
@@ -142,6 +151,30 @@ MD3 / Carbon / WCAG 2.2 を参照基盤とする Motion Token System。
 #### prefers-reduced-motion
 
 トークンベース: `@media (prefers-reduced-motion: reduce)` で duration 変数を 0ms に上書き。個別の `!important` 不要。
+
+### CSS 変数命名規則
+
+| レイヤー | プレフィックス | 定義元 | スコープ |
+|---------|--------------|--------|---------|
+| グローバルトークン | `--morphink-*` | Style Dictionary (`packages/tokens/dist/`) | `:root` |
+| Motion Shorthand | `--morphink-motion-*` | `base.css` 手書き | `:root` |
+| コンポーネント内部変数 | `--<abbr>-*` | CVA tone/variant で設定 | 要素 |
+| ダイナミック変数 | `--mi-*` | computed style | インスタンス |
+| キーフレーム名 | `mi-*` | `base.css` 手書き | グローバル |
+
+#### コンポーネント内部変数
+
+tone variant 内で `[--btn-color:var(--morphink-color-primary)]` の形式で semantic token にバインドする。
+
+| プレフィックス | 対象 | 変数 |
+|--------------|------|------|
+| `--btn-*` | ButtonBase | color, fg, hover, active, accent |
+| `--badge-*` | BadgeBase | color, fg, accent |
+| `--ctl-*` | CheckboxBase, SwitchBase, RadioBase | color, fg |
+| `--alert-*` | AlertBase | color, fg, accent |
+| `--ring-color` | 複数コンポーネント共通 | focus ring 色 |
+
+新規コンポーネントでは 2〜4 文字の略称をプレフィックスとし、semantic token を参照する。
 
 ### mi:* ユーティリティ
 

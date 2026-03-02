@@ -14,7 +14,7 @@ const meta: Meta<typeof Tooltip> = {
     open: { control: 'boolean' },
     rounded: { control: { type: 'select' }, options: componentRounded.Tooltip },
     shadow: { control: { type: 'select' }, options: componentShadow.Tooltip },
-    onOpenChange: { action: 'onOpenChange' },
+    'onUpdate:open': { action: 'update:open' },
   },
   args: {
     content: 'Supplementary info',
@@ -47,7 +47,7 @@ export const Default: Story = {
           :open="args.open"
           :rounded="args.rounded"
           :shadow="args.shadow"
-          :on-open-change="args.onOpenChange"
+          @update:open="args['onUpdate:open']"
         >
           <Button size="sm">Tooltip</Button>
         </Tooltip>

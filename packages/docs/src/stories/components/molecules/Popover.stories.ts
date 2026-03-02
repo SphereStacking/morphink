@@ -12,7 +12,7 @@ const meta: Meta<typeof Popover> = {
     open: { control: 'boolean' },
     rounded: { control: { type: 'select' }, options: componentRounded.Popover },
     shadow: { control: { type: 'select' }, options: componentShadow.Popover },
-    onOpenChange: { action: 'onOpenChange' },
+    'onUpdate:open': { action: 'update:open' },
   },
   args: {
     side: 'bottom',
@@ -40,7 +40,7 @@ export const Default: Story = {
           :open="args.open"
           :rounded="args.rounded"
           :shadow="args.shadow"
-          :on-open-change="args.onOpenChange"
+          @update:open="args['onUpdate:open']"
         >
           <template #trigger>
             <Button size="sm">Popover</Button>

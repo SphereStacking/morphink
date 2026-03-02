@@ -7,6 +7,7 @@
  * Style variants: base/ui/tabs/TabsBase.vue
  */
 import TabsBase from '../../base/ui/tabs/TabsBase.vue'
+import { useForwardPropsEmits } from 'reka-ui'
 import type { TabsSize, TabsVariant } from '../../base/lib/props'
 
 type TabItem = {
@@ -14,7 +15,7 @@ type TabItem = {
   value: string
 }
 
-defineProps<{
+const props = defineProps<{
   items: TabItem[]
   modelValue: string
   size?: TabsSize
@@ -24,16 +25,12 @@ defineProps<{
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
+
+const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <TabsBase
-    :items="items"
-    :model-value="modelValue"
-    :size="size"
-    :variant="variant"
-    @update:model-value="emit('update:modelValue', $event)"
-  >
+  <TabsBase v-bind="forwarded">
     <slot />
   </TabsBase>
 </template>

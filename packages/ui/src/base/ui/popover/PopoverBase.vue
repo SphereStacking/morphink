@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { PopoverRoot, PopoverTrigger, PopoverContent, PopoverPortal } from 'reka-ui'
+import {
+  PopoverRoot,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverPortal,
+  useForwardPropsEmits,
+} from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 import type { PopoverRounded, PopoverShadow } from '../../lib/props'
@@ -8,7 +14,6 @@ import type { PopoverRounded, PopoverShadow } from '../../lib/props'
 const props = withDefaults(
   defineProps<{
     open?: boolean
-    onOpenChange?: (open: boolean) => void
     side?: 'top' | 'right' | 'bottom' | 'left'
     align?: 'start' | 'center' | 'end'
     rounded?: PopoverRounded
@@ -23,15 +28,14 @@ const props = withDefaults(
   }
 )
 
-const handleOpenChange = (value: boolean) => {
-  props.onOpenChange?.(value)
-}
+const emit = defineEmits<{
+  'update:open': [value: boolean]
+}>()
 
-const rootProps = computed(() => {
-  const result: Record<string, unknown> = {}
-  if (props.open !== undefined) result.open = props.open
-  return result
-})
+const rekaProps = computed(() => ({
+  ...(props.open !== undefined && { open: props.open }),
+}))
+const forwarded = useForwardPropsEmits(rekaProps, emit)
 
 const contentVariants = cva(
   'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover) p-(--morphink-space-md)',
@@ -78,7 +82,7 @@ const popoverStyle = computed(() => ({
 </script>
 
 <template>
-  <PopoverRoot v-bind="rootProps" @update:open="handleOpenChange">
+  <PopoverRoot v-bind="forwarded">
     <PopoverTrigger as-child>
       <slot name="trigger" />
     </PopoverTrigger>

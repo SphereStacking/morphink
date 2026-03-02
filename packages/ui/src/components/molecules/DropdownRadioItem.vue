@@ -6,8 +6,9 @@
  * Style variants: base/ui/dropdown/DropdownRadioItemBase.vue
  */
 import DropdownRadioItemBase from '../../base/ui/dropdown/DropdownRadioItemBase.vue'
+import { useForwardPropsEmits } from 'reka-ui'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     value: string
     disabled?: boolean
@@ -21,15 +22,12 @@ withDefaults(
 const emit = defineEmits<{
   (e: 'select', event: Event): void
 }>()
+
+const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <DropdownRadioItemBase
-    :value="value"
-    :disabled="disabled"
-    :text-value="textValue"
-    @select="emit('select', $event)"
-  >
+  <DropdownRadioItemBase v-bind="forwarded">
     <slot />
   </DropdownRadioItemBase>
 </template>

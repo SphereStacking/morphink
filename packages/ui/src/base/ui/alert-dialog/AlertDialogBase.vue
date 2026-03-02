@@ -11,6 +11,7 @@ import {
   AlertDialogDescription,
   AlertDialogAction,
   AlertDialogCancel,
+  useForwardPropsEmits,
 } from 'reka-ui'
 import { cn } from '../../lib/utils'
 import type { AlertDialogRounded, AlertDialogShadow, AlertDialogSize } from '../../lib/props'
@@ -90,12 +91,11 @@ const emit = defineEmits<{
   'update:open': [value: boolean]
 }>()
 
-const rootProps = computed(() => {
-  const result: Record<string, unknown> = {}
-  if (props.open !== undefined) result.open = props.open
-  if (props.defaultOpen !== undefined) result.defaultOpen = props.defaultOpen
-  return result
-})
+const rekaProps = computed(() => ({
+  ...(props.open !== undefined && { open: props.open }),
+  ...(props.defaultOpen !== undefined && { defaultOpen: props.defaultOpen }),
+}))
+const forwarded = useForwardPropsEmits(rekaProps, emit)
 
 const contentClass = computed(() =>
   cn(
@@ -129,7 +129,7 @@ const actionClass = computed(() =>
 </script>
 
 <template>
-  <AlertDialogRoot v-bind="rootProps" @update:open="emit('update:open', $event)">
+  <AlertDialogRoot v-bind="forwarded">
     <AlertDialogTrigger v-if="$slots.trigger" as-child>
       <slot name="trigger" />
     </AlertDialogTrigger>

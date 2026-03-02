@@ -6,8 +6,9 @@
  * Style variants: base/ui/dropdown/DropdownCheckboxItemBase.vue
  */
 import DropdownCheckboxItemBase from '../../base/ui/dropdown/DropdownCheckboxItemBase.vue'
+import { useForwardPropsEmits } from 'reka-ui'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     modelValue?: boolean | 'indeterminate'
     disabled?: boolean
@@ -23,16 +24,12 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: boolean): void
   (e: 'select', event: Event): void
 }>()
+
+const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <DropdownCheckboxItemBase
-    :model-value="modelValue"
-    :disabled="disabled"
-    :text-value="textValue"
-    @update:model-value="emit('update:modelValue', $event)"
-    @select="emit('select', $event)"
-  >
+  <DropdownCheckboxItemBase v-bind="forwarded">
     <slot />
   </DropdownCheckboxItemBase>
 </template>

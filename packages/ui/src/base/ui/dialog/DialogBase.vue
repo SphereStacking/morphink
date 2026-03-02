@@ -10,6 +10,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogClose,
+  useForwardPropsEmits,
 } from 'reka-ui'
 import { cn } from '../../lib/utils'
 import type { DialogRounded, DialogShadow, DialogSize } from '../../lib/props'
@@ -88,13 +89,12 @@ const emit = defineEmits<{
   'update:open': [value: boolean]
 }>()
 
-const rootProps = computed(() => {
-  const result: Record<string, unknown> = {}
-  if (props.open !== undefined) result.open = props.open
-  if (props.defaultOpen !== undefined) result.defaultOpen = props.defaultOpen
-  if (props.modal !== undefined) result.modal = props.modal
-  return result
-})
+const rekaProps = computed(() => ({
+  ...(props.open !== undefined && { open: props.open }),
+  ...(props.defaultOpen !== undefined && { defaultOpen: props.defaultOpen }),
+  ...(props.modal !== undefined && { modal: props.modal }),
+}))
+const forwarded = useForwardPropsEmits(rekaProps, emit)
 
 const contentClass = computed(() =>
   cn(
@@ -109,7 +109,7 @@ const titleClass = computed(() => titleVariants({ size: props.size }))
 </script>
 
 <template>
-  <DialogRoot v-bind="rootProps" @update:open="emit('update:open', $event)">
+  <DialogRoot v-bind="forwarded">
     <DialogTrigger v-if="$slots.trigger" as-child>
       <slot name="trigger" />
     </DialogTrigger>

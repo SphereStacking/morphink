@@ -5,6 +5,7 @@ import {
   TooltipTrigger,
   TooltipContent,
   TooltipPortal,
+  useForwardPropsEmits,
 } from 'reka-ui'
 import { computed } from 'vue'
 import { cva } from 'class-variance-authority'
@@ -15,7 +16,6 @@ const props = withDefaults(
   defineProps<{
     content?: string
     open?: boolean
-    onOpenChange?: (open: boolean) => void
     side?: 'top' | 'right' | 'bottom' | 'left'
     align?: 'start' | 'center' | 'end'
     delay?: number
@@ -32,15 +32,14 @@ const props = withDefaults(
   }
 )
 
-const handleOpenChange = (value: boolean) => {
-  props.onOpenChange?.(value)
-}
+const emit = defineEmits<{
+  'update:open': [value: boolean]
+}>()
 
-const rootProps = computed(() => {
-  const result: Record<string, unknown> = {}
-  if (props.open !== undefined) result.open = props.open
-  return result
-})
+const rekaProps = computed(() => ({
+  ...(props.open !== undefined && { open: props.open }),
+}))
+const forwarded = useForwardPropsEmits(rekaProps, emit)
 
 const contentVariants = cva(
   'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover) px-2 py-1 text-[12px] text-(--morphink-color-popover-foreground)',
@@ -88,7 +87,7 @@ const tooltipStyle = computed(() => ({
 
 <template>
   <TooltipProvider :delay-duration="delay">
-    <TooltipRoot v-bind="rootProps" @update:open="handleOpenChange">
+    <TooltipRoot v-bind="forwarded">
       <TooltipTrigger as-child>
         <slot />
       </TooltipTrigger>
