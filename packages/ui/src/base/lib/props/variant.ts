@@ -15,6 +15,7 @@ export const componentVariants = {
   Nav: ['subtle', 'solid'],
   Tabs: ['pill', 'underline'],
   Alert: ['solid', 'soft', 'outline'],
+  Radio: ['outline', 'solid', 'ghost', 'soft'],
 } as const
 
 export type ButtonVariant = (typeof componentVariants.Button)[number]
@@ -30,3 +31,4 @@ export type SwitchVariant = (typeof componentVariants.Switch)[number]
 export type NavVariant = (typeof componentVariants.Nav)[number]
 export type TabsVariant = (typeof componentVariants.Tabs)[number]
 export type AlertVariant = (typeof componentVariants.Alert)[number]
+export type RadioVariant = (typeof componentVariants.Radio)[number]

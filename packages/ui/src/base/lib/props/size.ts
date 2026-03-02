@@ -17,6 +17,7 @@ export const componentSizes = {
   Nav: ['xs', 'sm', 'md', 'lg', 'xl'],
   SectionHeader: ['xs', 'sm', 'md', 'lg', 'xl'],
   Avatar: ['xs', 'sm', 'md', 'lg', 'xl'],
+  Radio: ['xs', 'sm', 'md', 'lg', 'xl'],
 } as const
 
 export type BadgeSize = (typeof componentSizes.Badge)[number]
@@ -34,3 +35,4 @@ export type TabsSize = (typeof componentSizes.Tabs)[number]
 export type NavSize = (typeof componentSizes.Nav)[number]
 export type SectionHeaderSize = (typeof componentSizes.SectionHeader)[number]
 export type AvatarSize = (typeof componentSizes.Avatar)[number]
+export type RadioSize = (typeof componentSizes.Radio)[number]

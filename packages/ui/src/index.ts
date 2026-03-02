@@ -3,6 +3,9 @@ export { default as Button } from './components/atoms/Button.vue'
 export { default as Input } from './components/atoms/Input.vue'
 export { default as Textarea } from './components/atoms/Textarea.vue'
 export { default as Checkbox } from './components/atoms/Checkbox.vue'
+export { default as CheckboxGroup } from './components/atoms/CheckboxGroup.vue'
+export { default as RadioGroup } from './components/atoms/RadioGroup.vue'
+export { default as Radio } from './components/atoms/Radio.vue'
 export { default as Switch } from './components/atoms/Switch.vue'
 
 // ─── Atoms: Display ───

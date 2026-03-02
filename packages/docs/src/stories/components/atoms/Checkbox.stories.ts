@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { Checkbox, Stack } from '@morphink/ui'
+import { Checkbox, CheckboxGroup, Stack } from '@morphink/ui'
 import {
   componentRounded,
   componentSizes,
@@ -199,6 +199,55 @@ export const Rounded: Story = {
           <span class="text-sm text-[var(--morphink-color-foreground)]">Full</span>
         </div>
       </Stack>
+    `,
+  }),
+}
+
+export const Group: Story = {
+  render: () => ({
+    components: { Checkbox, CheckboxGroup },
+    setup() {
+      const selected = ref(['apple', 'cherry'])
+      return { selected }
+    },
+    template: `
+      <CheckboxGroup v-model="selected">
+        <div class="flex items-center gap-2">
+          <Checkbox value="apple" />
+          <span class="text-sm text-[var(--morphink-color-foreground)]">Apple</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <Checkbox value="banana" />
+          <span class="text-sm text-[var(--morphink-color-foreground)]">Banana</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <Checkbox value="cherry" />
+          <span class="text-sm text-[var(--morphink-color-foreground)]">Cherry</span>
+        </div>
+      </CheckboxGroup>
+      <p class="mt-4 text-sm text-[var(--morphink-color-muted-foreground)]">Selected: {{ selected.join(', ') }}</p>
+    `,
+  }),
+}
+
+export const GroupHorizontal: Story = {
+  render: () => ({
+    components: { Checkbox, CheckboxGroup },
+    template: `
+      <CheckboxGroup orientation="horizontal" :default-value="['sm']" tone="accent">
+        <div class="flex items-center gap-2">
+          <Checkbox value="sm" />
+          <span class="text-sm text-[var(--morphink-color-foreground)]">Small</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <Checkbox value="md" />
+          <span class="text-sm text-[var(--morphink-color-foreground)]">Medium</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <Checkbox value="lg" />
+          <span class="text-sm text-[var(--morphink-color-foreground)]">Large</span>
+        </div>
+      </CheckboxGroup>
     `,
   }),
 }

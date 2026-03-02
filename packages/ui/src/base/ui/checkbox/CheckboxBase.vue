@@ -1,10 +1,17 @@
 <script setup lang="ts">
 defineOptions({ inheritAttrs: false })
-import { computed, useAttrs } from 'vue'
+import { computed, inject, ref, useAttrs } from 'vue'
 import { CheckboxRoot, CheckboxIndicator, useForwardPropsEmits } from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 import type { CheckboxRounded, CheckboxSize, CheckboxTone, CheckboxVariant } from '../../lib/props'
+import {
+  checkboxSizeKey,
+  checkboxVariantKey,
+  checkboxToneKey,
+  checkboxRoundedKey,
+  checkboxGroupKey,
+} from './checkboxContext'
 
 const checkboxVariants = cva(
   cn(
@@ -17,7 +24,9 @@ const checkboxVariants = cva(
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
     'data-[state=checked]:border-transparent data-[state=indeterminate]:border-transparent',
     'data-[state=checked]:bg-(--ctl-color) data-[state=checked]:text-(--ctl-fg)',
-    'data-[state=indeterminate]:bg-(--ctl-color) data-[state=indeterminate]:text-(--ctl-fg)'
+    'data-[state=indeterminate]:bg-(--ctl-color) data-[state=indeterminate]:text-(--ctl-fg)',
+    'data-[state=checked]:animate-[mi-checkbox-pulse_var(--morphink-duration-normal)_var(--morphink-easing-standard)_both]',
+    'data-[state=indeterminate]:animate-[mi-checkbox-pulse_var(--morphink-duration-normal)_var(--morphink-easing-standard)_both]'
   ),
   {
     variants: {
@@ -161,24 +170,65 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: boolean | 'indeterminate'): void
 }>()
 
-const rekaProps = computed(() => ({
-  ...(props.modelValue !== undefined && { modelValue: props.modelValue }),
-  ...(props.defaultValue !== undefined && { defaultValue: props.defaultValue }),
-  disabled: props.disabled,
-  ...(props.name !== undefined && { name: props.name }),
-  ...(props.value !== undefined && { value: props.value }),
-  ...(props.id !== undefined && { id: props.id }),
-}))
-const forwarded = useForwardPropsEmits(rekaProps, emit)
+// --- Group context (inject) ---
+const injectedSize = inject(checkboxSizeKey, ref('md' as CheckboxSize))
+const injectedVariant = inject(checkboxVariantKey, ref('outline' as CheckboxVariant))
+const injectedTone = inject(checkboxToneKey, ref('primary' as CheckboxTone))
+const injectedRounded = inject(checkboxRoundedKey, ref('sm' as CheckboxRounded))
+const group = inject(checkboxGroupKey, null)
+
+const resolvedSize = computed(() => injectedSize.value !== 'md' ? injectedSize.value : props.size)
+const resolvedVariant = computed(() => injectedVariant.value !== 'outline' ? injectedVariant.value : props.variant)
+const resolvedTone = computed(() => injectedTone.value !== 'primary' ? injectedTone.value : props.tone)
+const resolvedRounded = computed(() => injectedRounded.value !== 'sm' ? injectedRounded.value : props.rounded)
+
+// When inside a group, derive checked state from the group's modelValue
+const groupChecked = computed(() => {
+  if (!group || !props.value) return undefined
+  return group.modelValue.value.includes(props.value)
+})
+
+function handleGroupToggle(checked: boolean | 'indeterminate') {
+  if (group && props.value) {
+    group.toggle(props.value)
+  }
+  emit('update:modelValue', checked)
+}
+
+const rekaProps = computed(() => {
+  // Group mode: use groupChecked as modelValue
+  if (group && props.value) {
+    return {
+      modelValue: groupChecked.value,
+      disabled: props.disabled,
+      ...(props.name !== undefined && { name: props.name }),
+      value: props.value,
+      ...(props.id !== undefined && { id: props.id }),
+    }
+  }
+  // Standalone mode
+  return {
+    ...(props.modelValue !== undefined && { modelValue: props.modelValue }),
+    ...(props.defaultValue !== undefined && { defaultValue: props.defaultValue }),
+    disabled: props.disabled,
+    ...(props.name !== undefined && { name: props.name }),
+    ...(props.value !== undefined && { value: props.value }),
+    ...(props.id !== undefined && { id: props.id }),
+  }
+})
+const emitProxy = group
+  ? { 'update:modelValue': handleGroupToggle } as typeof emit
+  : emit
+const forwarded = useForwardPropsEmits(rekaProps, emitProxy)
 
 const attrs = useAttrs()
 const classes = computed(() =>
   cn(
     checkboxVariants({
-      variant: props.variant,
-      tone: props.tone,
-      size: props.size,
-      rounded: props.rounded,
+      variant: resolvedVariant.value,
+      tone: resolvedTone.value,
+      size: resolvedSize.value,
+      rounded: resolvedRounded.value,
     }),
     attrs.class
   )
@@ -197,7 +247,7 @@ const classes = computed(() =>
         stroke-width="3"
         stroke-linecap="round"
         stroke-linejoin="round"
-        :class="iconSizes[size]"
+        :class="iconSizes[resolvedSize]"
       >
         <polyline
           points="4 12 9 17 20 6"
@@ -214,7 +264,7 @@ const classes = computed(() =>
         stroke-width="3"
         stroke-linecap="round"
         stroke-linejoin="round"
-        :class="iconSizes[size]"
+        :class="iconSizes[resolvedSize]"
       >
         <line x1="5" y1="12" x2="19" y2="12" />
       </svg>
