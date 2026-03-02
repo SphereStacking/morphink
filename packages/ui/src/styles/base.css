@@ -109,6 +109,11 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Alert: dismiss fade-out */
+@keyframes mi-alert-dismiss {
+  to { opacity: 0; scale: 0.98; }
+}
+
 /* Input error: shake feedback */
 @keyframes mi-shake {
   0%, 100% { transform: translateX(0); }

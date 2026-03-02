@@ -13,6 +13,7 @@ export const componentRounded = {
   Input: ['none', 'sm', 'md', 'lg', 'xl'],
   Textarea: ['none', 'sm', 'md', 'lg', 'xl'],
   Checkbox: ['none', 'sm', 'md', 'full'],
+  Alert: ['none', 'sm', 'md', 'lg', 'xl'],
 } as const
 
 export type ButtonRounded = (typeof componentRounded.Button)[number]
@@ -29,3 +30,4 @@ export type TableRounded = (typeof componentRounded.Table)[number]
 export type InputRounded = (typeof componentRounded.Input)[number]
 export type TextareaRounded = (typeof componentRounded.Textarea)[number]
 export type CheckboxRounded = (typeof componentRounded.Checkbox)[number]
+export type AlertRounded = (typeof componentRounded.Alert)[number]

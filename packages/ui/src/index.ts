@@ -16,6 +16,11 @@ export { default as Box } from './components/atoms/Box.vue'
 export { default as Stack } from './components/atoms/Stack.vue'
 export { default as Grid } from './components/atoms/Grid.vue'
 
+// ─── Atoms: Feedback ───
+export { default as Alert } from './components/atoms/Alert.vue'
+export { default as AlertTitle } from './components/atoms/AlertTitle.vue'
+export { default as AlertDescription } from './components/atoms/AlertDescription.vue'
+
 // ─── Atoms: Container ───
 export { default as Panel } from './components/atoms/Panel.vue'
 

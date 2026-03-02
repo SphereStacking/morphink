@@ -14,6 +14,7 @@ export const componentVariants = {
   Switch: ['outline', 'solid', 'ghost', 'soft'],
   Nav: ['subtle', 'solid'],
   Tabs: ['pill', 'underline'],
+  Alert: ['solid', 'soft', 'outline'],
 } as const
 
 export type ButtonVariant = (typeof componentVariants.Button)[number]
@@ -28,3 +29,4 @@ export type CheckboxVariant = (typeof componentVariants.Checkbox)[number]
 export type SwitchVariant = (typeof componentVariants.Switch)[number]
 export type NavVariant = (typeof componentVariants.Nav)[number]
 export type TabsVariant = (typeof componentVariants.Tabs)[number]
+export type AlertVariant = (typeof componentVariants.Alert)[number]

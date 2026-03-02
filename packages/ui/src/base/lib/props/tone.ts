@@ -21,6 +21,7 @@ export const componentTones = {
   Checkbox: tones,
   Switch: tones,
   Select: tones,
+  Alert: ['info', 'success', 'warning', 'destructive', 'neutral'],
 } as const
 
 export type ButtonTone = (typeof componentTones.Button)[number]
@@ -30,3 +31,4 @@ export type TextareaTone = (typeof componentTones.Textarea)[number]
 export type CheckboxTone = (typeof componentTones.Checkbox)[number]
 export type SwitchTone = (typeof componentTones.Switch)[number]
 export type SelectTone = (typeof componentTones.Select)[number]
+export type AlertTone = (typeof componentTones.Alert)[number]
