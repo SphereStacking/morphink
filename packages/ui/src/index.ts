@@ -9,6 +9,7 @@ export { default as Switch } from './components/atoms/Switch.vue'
 export { default as Text } from './components/atoms/Text.vue'
 export { default as Heading } from './components/atoms/Heading.vue'
 export { default as Badge } from './components/atoms/Badge.vue'
+export { default as Avatar } from './components/atoms/Avatar.vue'
 export { default as Divider } from './components/atoms/Divider.vue'
 
 // ─── Atoms: Layout ───
