@@ -24,9 +24,7 @@ const checkboxVariants = cva(
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
     'data-[state=checked]:border-transparent data-[state=indeterminate]:border-transparent',
     'data-[state=checked]:bg-(--ctl-color) data-[state=checked]:text-(--ctl-fg)',
-    'data-[state=indeterminate]:bg-(--ctl-color) data-[state=indeterminate]:text-(--ctl-fg)',
-    'data-[state=checked]:animate-[mi-checkbox-pulse_var(--morphink-duration-normal)_var(--morphink-easing-standard)_both]',
-    'data-[state=indeterminate]:animate-[mi-checkbox-pulse_var(--morphink-duration-normal)_var(--morphink-easing-standard)_both]'
+    'data-[state=indeterminate]:bg-(--ctl-color) data-[state=indeterminate]:text-(--ctl-fg)'
   ),
   {
     variants: {
