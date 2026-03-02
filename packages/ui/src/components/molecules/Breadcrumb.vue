@@ -29,30 +29,42 @@ function handleClick(event: Event, href?: string) {
 </script>
 
 <template>
-  <nav aria-label="Breadcrumb"
+  <nav
+    aria-label="Breadcrumb"
     :style="{
       display: 'flex',
       alignItems: 'center',
       gap: 'var(--morphink-space-xs)',
-      flexWrap: 'wrap'
-    }">
+      flexWrap: 'wrap',
+    }"
+  >
     <template v-for="(item, index) in items" :key="index">
       <Text v-if="index > 0" variant="caption" muted aria-hidden="true">
         <slot name="separator">{{ separator }}</slot>
       </Text>
-      <a v-if="item.href && index < items.length - 1"
+      <a
+        v-if="item.href && index < items.length - 1"
         :href="item.href"
         :style="{
           color: 'var(--morphink-color-muted-foreground)',
           textDecoration: 'none',
           fontSize: 'var(--morphink-font-size-caption)',
         }"
-        @click="handleClick($event, item.href)">
+        @click="handleClick($event, item.href)"
+      >
         {{ item.label }}
       </a>
-      <Text v-else variant="caption" :muted="index < items.length - 1"
+      <Text
+        v-else
+        variant="caption"
+        :muted="index < items.length - 1"
         :aria-current="index === items.length - 1 ? 'page' : undefined"
-        :style="index === items.length - 1 ? { color: 'var(--morphink-color-foreground)', fontWeight: '500' } : {}">
+        :style="
+          index === items.length - 1
+            ? { color: 'var(--morphink-color-foreground)', fontWeight: '500' }
+            : {}
+        "
+      >
         {{ item.label }}
       </Text>
     </template>

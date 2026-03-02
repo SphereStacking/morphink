@@ -18,7 +18,9 @@ type Story = StoryObj<typeof LoginForm>
 export const Default: Story = {
   render: (args) => ({
     components: { LoginForm },
-    setup() { return { args } },
+    setup() {
+      return { args }
+    },
     template: `
       <div style="display: flex; justify-content: center; padding: var(--morphink-space-2xl)">
         <LoginForm v-bind="args" />
@@ -34,7 +36,9 @@ export const Default: Story = {
 export const Loading: Story = {
   render: (args) => ({
     components: { LoginForm },
-    setup() { return { args } },
+    setup() {
+      return { args }
+    },
     template: `
       <div style="display: flex; justify-content: center; padding: var(--morphink-space-2xl)">
         <LoginForm v-bind="args" />
@@ -50,7 +54,9 @@ export const Loading: Story = {
 export const WithFooter: Story = {
   render: (args) => ({
     components: { LoginForm, Text },
-    setup() { return { args } },
+    setup() {
+      return { args }
+    },
     template: `
       <div style="display: flex; justify-content: center; padding: var(--morphink-space-2xl)">
         <LoginForm v-bind="args">

@@ -12,7 +12,13 @@ import {
   SelectViewport,
 } from 'reka-ui'
 import { cn } from '../../lib/utils'
-import type { SelectRounded, SelectShadow, SelectSize, SelectTone, SelectVariant } from '../../lib/props'
+import type {
+  SelectRounded,
+  SelectShadow,
+  SelectSize,
+  SelectTone,
+  SelectVariant,
+} from '../../lib/props'
 
 type Option = {
   label: string
@@ -57,7 +63,8 @@ const triggerVariants = cva(
   {
     variants: {
       variant: {
-        solid: 'border border-transparent bg-[color-mix(in_srgb,var(--field-color)_12%,transparent)]',
+        solid:
+          'border border-transparent bg-[color-mix(in_srgb,var(--field-color)_12%,transparent)]',
         outline: cn(
           'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-input)',
           'focus-visible:border-(color:--field-color)'
@@ -66,16 +73,24 @@ const triggerVariants = cva(
         soft: 'border border-transparent bg-[color-mix(in_srgb,var(--field-color)_12%,transparent)]',
       },
       tone: {
-        primary: '[--ring-color:var(--morphink-color-primary)] [--field-color:var(--morphink-color-primary)]',
-        secondary: '[--ring-color:var(--morphink-color-secondary)] [--field-color:var(--morphink-color-secondary)]',
-        tertiary: '[--ring-color:var(--morphink-color-tertiary)] [--field-color:var(--morphink-color-tertiary)]',
+        primary:
+          '[--ring-color:var(--morphink-color-primary)] [--field-color:var(--morphink-color-primary)]',
+        secondary:
+          '[--ring-color:var(--morphink-color-secondary)] [--field-color:var(--morphink-color-secondary)]',
+        tertiary:
+          '[--ring-color:var(--morphink-color-tertiary)] [--field-color:var(--morphink-color-tertiary)]',
         base: '[--ring-color:var(--morphink-color-ring)] [--field-color:var(--morphink-color-base)]',
-        accent: '[--ring-color:var(--morphink-color-accent)] [--field-color:var(--morphink-color-accent)]',
-        neutral: '[--ring-color:var(--morphink-color-neutral)] [--field-color:var(--morphink-color-neutral)]',
-        success: '[--ring-color:var(--morphink-color-success)] [--field-color:var(--morphink-color-success)]',
-        warning: '[--ring-color:var(--morphink-color-warning)] [--field-color:var(--morphink-color-warning)]',
+        accent:
+          '[--ring-color:var(--morphink-color-accent)] [--field-color:var(--morphink-color-accent)]',
+        neutral:
+          '[--ring-color:var(--morphink-color-neutral)] [--field-color:var(--morphink-color-neutral)]',
+        success:
+          '[--ring-color:var(--morphink-color-success)] [--field-color:var(--morphink-color-success)]',
+        warning:
+          '[--ring-color:var(--morphink-color-warning)] [--field-color:var(--morphink-color-warning)]',
         info: '[--ring-color:var(--morphink-color-info)] [--field-color:var(--morphink-color-info)]',
-        destructive: '[--ring-color:var(--morphink-color-destructive)] [--field-color:var(--morphink-color-destructive)]',
+        destructive:
+          '[--ring-color:var(--morphink-color-destructive)] [--field-color:var(--morphink-color-destructive)]',
       },
       size: {
         xs: 'h-7 px-2 text-xs',
@@ -97,7 +112,11 @@ const triggerVariants = cva(
       { variant: 'solid', tone: 'neutral', class: 'bg-(--morphink-color-muted)' },
       { variant: 'soft', tone: 'base', class: 'bg-(--morphink-color-muted)' },
       { variant: 'soft', tone: 'neutral', class: 'bg-(--morphink-color-muted)' },
-      { variant: 'outline', tone: 'base', class: 'focus-visible:border-(color:--morphink-color-border)' },
+      {
+        variant: 'outline',
+        tone: 'base',
+        class: 'focus-visible:border-(color:--morphink-color-border)',
+      },
       { variant: 'outline', tone: 'destructive', class: 'border-(color:--field-color)' },
     ],
     defaultVariants: {
@@ -183,7 +202,12 @@ const itemClass = computed(() =>
       <SelectValue :placeholder="placeholder" />
     </SelectTrigger>
     <SelectPortal>
-      <SelectContent :class="contentClass" :side="side" :align="align" class="data-[state=open]:animate-[mi-dropdown-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-dropdown-out_var(--morphink-motion-leave)_forwards]">
+      <SelectContent
+        :class="contentClass"
+        :side="side"
+        :align="align"
+        class="data-[state=open]:animate-[mi-dropdown-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-dropdown-out_var(--morphink-motion-leave)_forwards]"
+      >
         <SelectViewport>
           <SelectItem
             v-for="option in options"

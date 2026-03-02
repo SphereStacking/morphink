@@ -32,7 +32,17 @@ withDefaults(
 </script>
 
 <template>
-  <StackBase :direction="direction" :gap="gap" :align="align" :justify="justify" :wrap="wrap" :grow="grow" :padding="padding" :padding-x="paddingX" :padding-y="paddingY">
+  <StackBase
+    :direction="direction"
+    :gap="gap"
+    :align="align"
+    :justify="justify"
+    :wrap="wrap"
+    :grow="grow"
+    :padding="padding"
+    :padding-x="paddingX"
+    :padding-y="paddingY"
+  >
     <slot />
   </StackBase>
 </template>

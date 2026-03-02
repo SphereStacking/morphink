@@ -83,7 +83,13 @@ const popoverStyle = computed(() => ({
       <slot name="trigger" />
     </PopoverTrigger>
     <PopoverPortal>
-      <PopoverContent :side="side" :align="align" :class="contentClass" :style="popoverStyle" class="data-[state=open]:animate-[mi-popover-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-popover-out_var(--morphink-motion-leave)_forwards]">
+      <PopoverContent
+        :side="side"
+        :align="align"
+        :class="contentClass"
+        :style="popoverStyle"
+        class="data-[state=open]:animate-[mi-popover-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-popover-out_var(--morphink-motion-leave)_forwards]"
+      >
         <slot name="content" />
       </PopoverContent>
     </PopoverPortal>

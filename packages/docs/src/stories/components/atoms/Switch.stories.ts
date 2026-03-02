@@ -1,7 +1,7 @@
-import { ref } from 'vue'
 import { Switch, Stack } from '@morphink/ui'
 import { componentSizes, componentTones, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
+import { ref } from 'vue'
 
 const meta: Meta<typeof Switch> = {
   title: 'Components/Atoms/Switch',

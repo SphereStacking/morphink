@@ -6,7 +6,13 @@
  * Style variants: base/ui/textarea/TextareaBase.vue
  */
 import TextareaBase from '../../base/ui/textarea/TextareaBase.vue'
-import type { TextareaResize, TextareaRounded, TextareaSize, TextareaTone, TextareaVariant } from '../../base/lib/props'
+import type {
+  TextareaResize,
+  TextareaRounded,
+  TextareaSize,
+  TextareaTone,
+  TextareaVariant,
+} from '../../base/lib/props'
 
 const props = withDefaults(
   defineProps<{

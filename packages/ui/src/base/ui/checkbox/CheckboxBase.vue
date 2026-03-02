@@ -37,10 +37,7 @@ const checkboxVariants = cva(
           'border-transparent bg-(--morphink-color-muted)',
           'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]'
         ),
-        ghost: cn(
-          'border-transparent',
-          'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'
-        ),
+        ghost: cn('border-transparent', 'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'),
         soft: cn(
           'border-transparent',
           'bg-[color-mix(in_srgb,var(--ctl-color)_12%,transparent)]',
@@ -116,14 +113,22 @@ const checkboxVariants = cva(
       },
     },
     compoundVariants: [
-      { variant: 'soft', tone: 'base', class: cn(
-        'bg-(--morphink-color-muted)',
-        'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
-      )},
-      { variant: 'soft', tone: 'neutral', class: cn(
-        'bg-(--morphink-color-muted)',
-        'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
-      )},
+      {
+        variant: 'soft',
+        tone: 'base',
+        class: cn(
+          'bg-(--morphink-color-muted)',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
+        ),
+      },
+      {
+        variant: 'soft',
+        tone: 'neutral',
+        class: cn(
+          'bg-(--morphink-color-muted)',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
+        ),
+      },
     ],
     defaultVariants: {
       variant: 'outline',
@@ -175,10 +180,16 @@ const injectedTone = inject(checkboxToneKey, ref('primary' as CheckboxTone))
 const injectedRounded = inject(checkboxRoundedKey, ref('sm' as CheckboxRounded))
 const group = inject(checkboxGroupKey, null)
 
-const resolvedSize = computed(() => injectedSize.value !== 'md' ? injectedSize.value : props.size)
-const resolvedVariant = computed(() => injectedVariant.value !== 'outline' ? injectedVariant.value : props.variant)
-const resolvedTone = computed(() => injectedTone.value !== 'primary' ? injectedTone.value : props.tone)
-const resolvedRounded = computed(() => injectedRounded.value !== 'sm' ? injectedRounded.value : props.rounded)
+const resolvedSize = computed(() => (injectedSize.value !== 'md' ? injectedSize.value : props.size))
+const resolvedVariant = computed(() =>
+  injectedVariant.value !== 'outline' ? injectedVariant.value : props.variant
+)
+const resolvedTone = computed(() =>
+  injectedTone.value !== 'primary' ? injectedTone.value : props.tone
+)
+const resolvedRounded = computed(() =>
+  injectedRounded.value !== 'sm' ? injectedRounded.value : props.rounded
+)
 
 // When inside a group, derive checked state from the group's modelValue
 const groupChecked = computed(() => {
@@ -214,9 +225,7 @@ const rekaProps = computed(() => {
     ...(props.id !== undefined && { id: props.id }),
   }
 })
-const emitProxy = group
-  ? { 'update:modelValue': handleGroupToggle } as typeof emit
-  : emit
+const emitProxy = group ? ({ 'update:modelValue': handleGroupToggle } as typeof emit) : emit
 const forwarded = useForwardPropsEmits(rekaProps, emitProxy)
 
 const attrs = useAttrs()

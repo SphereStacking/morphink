@@ -18,7 +18,7 @@ const badgeVariants = cva(cn('inline-flex items-center font-semibold'), {
       solid: 'bg-(--badge-color) text-(--badge-fg)',
       outline: cn(
         'border border-(--morphink-border-width-default) bg-transparent',
-        'text-(--badge-accent) border-(color:--badge-color)',
+        'text-(--badge-accent) border-(color:--badge-color)'
       ),
       ghost: 'bg-transparent border-transparent text-(--badge-accent)',
       soft: 'bg-[color-mix(in_srgb,var(--badge-color)_12%,transparent)] text-(--badge-accent)',
@@ -27,52 +27,52 @@ const badgeVariants = cva(cn('inline-flex items-center font-semibold'), {
       primary: cn(
         '[--badge-color:var(--morphink-color-primary)]',
         '[--badge-fg:var(--morphink-color-primary-foreground)]',
-        '[--badge-accent:var(--morphink-color-primary)]',
+        '[--badge-accent:var(--morphink-color-primary)]'
       ),
       secondary: cn(
         '[--badge-color:var(--morphink-color-secondary)]',
         '[--badge-fg:var(--morphink-color-secondary-foreground)]',
-        '[--badge-accent:var(--morphink-color-secondary)]',
+        '[--badge-accent:var(--morphink-color-secondary)]'
       ),
       tertiary: cn(
         '[--badge-color:var(--morphink-color-tertiary)]',
         '[--badge-fg:var(--morphink-color-tertiary-foreground)]',
-        '[--badge-accent:var(--morphink-color-tertiary)]',
+        '[--badge-accent:var(--morphink-color-tertiary)]'
       ),
       base: cn(
         '[--badge-color:var(--morphink-color-base)]',
         '[--badge-fg:var(--morphink-color-base-foreground)]',
-        '[--badge-accent:var(--morphink-color-base-foreground)]',
+        '[--badge-accent:var(--morphink-color-base-foreground)]'
       ),
       accent: cn(
         '[--badge-color:var(--morphink-color-accent)]',
         '[--badge-fg:var(--morphink-color-accent-foreground)]',
-        '[--badge-accent:var(--morphink-color-accent)]',
+        '[--badge-accent:var(--morphink-color-accent)]'
       ),
       neutral: cn(
         '[--badge-color:var(--morphink-color-neutral)]',
         '[--badge-fg:var(--morphink-color-neutral-foreground)]',
-        '[--badge-accent:var(--morphink-color-neutral-foreground)]',
+        '[--badge-accent:var(--morphink-color-neutral-foreground)]'
       ),
       success: cn(
         '[--badge-color:var(--morphink-color-success)]',
         '[--badge-fg:var(--morphink-color-success-foreground)]',
-        '[--badge-accent:var(--morphink-color-success)]',
+        '[--badge-accent:var(--morphink-color-success)]'
       ),
       warning: cn(
         '[--badge-color:var(--morphink-color-warning)]',
         '[--badge-fg:var(--morphink-color-warning-foreground)]',
-        '[--badge-accent:var(--morphink-color-warning)]',
+        '[--badge-accent:var(--morphink-color-warning)]'
       ),
       info: cn(
         '[--badge-color:var(--morphink-color-info)]',
         '[--badge-fg:var(--morphink-color-info-foreground)]',
-        '[--badge-accent:var(--morphink-color-info)]',
+        '[--badge-accent:var(--morphink-color-info)]'
       ),
       destructive: cn(
         '[--badge-color:var(--morphink-color-destructive)]',
         '[--badge-fg:var(--morphink-color-destructive-foreground)]',
-        '[--badge-accent:var(--morphink-color-destructive)]',
+        '[--badge-accent:var(--morphink-color-destructive)]'
       ),
     },
     rounded: {
@@ -88,14 +88,15 @@ const badgeVariants = cva(cn('inline-flex items-center font-semibold'), {
     {
       tone: 'base',
       variant: 'solid',
-      class: 'border border-(--morphink-border-width-default) border-(color:--morphink-color-base-active)',
+      class:
+        'border border-(--morphink-border-width-default) border-(color:--morphink-color-base-active)',
     },
     {
       tone: 'base',
       variant: 'soft',
       class: cn(
         'bg-[color-mix(in_srgb,var(--morphink-color-base-hover)_30%,transparent)]',
-        'border border-(--morphink-border-width-default) border-(color:--morphink-color-base-active)',
+        'border border-(--morphink-border-width-default) border-(color:--morphink-color-base-active)'
       ),
     },
     {

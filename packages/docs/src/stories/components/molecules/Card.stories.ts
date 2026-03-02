@@ -35,7 +35,18 @@ type Story = StoryObj<typeof Card>
 
 export const Playground: Story = {
   render: (args) => ({
-    components: { Card, CardHeader, CardBody, CardFooter, CardTitle, CardDescription, Text, Button, Divider, Stack },
+    components: {
+      Card,
+      CardHeader,
+      CardBody,
+      CardFooter,
+      CardTitle,
+      CardDescription,
+      Text,
+      Button,
+      Divider,
+      Stack,
+    },
     setup() {
       return { args }
     },
@@ -115,7 +126,18 @@ export const Variants: Story = {
 
 export const WithMedia: Story = {
   render: () => ({
-    components: { Card, CardHeader, CardBody, CardFooter, CardTitle, CardDescription, CardMedia, Text, Button, Stack },
+    components: {
+      Card,
+      CardHeader,
+      CardBody,
+      CardFooter,
+      CardTitle,
+      CardDescription,
+      CardMedia,
+      Text,
+      Button,
+      Stack,
+    },
     template: `
       <Stack gap="lg">
         <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">with media</div>

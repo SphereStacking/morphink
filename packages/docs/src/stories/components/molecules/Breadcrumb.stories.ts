@@ -37,9 +37,6 @@ export const CustomSeparator: Story = {
 
 export const TwoItems: Story = {
   args: {
-    items: [
-      { label: 'Home', href: '/' },
-      { label: 'About' },
-    ],
+    items: [{ label: 'Home', href: '/' }, { label: 'About' }],
   },
 }

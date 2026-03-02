@@ -6,16 +6,13 @@ import { cn } from '../../lib/utils'
 import type { CardRounded, CardShadow, CardVariant } from '../../lib/props'
 
 const cardVariants = cva(
-  cn(
-    'overflow-hidden border-(--morphink-border-width-default) bg-(--morphink-color-card)'
-  ),
+  cn('overflow-hidden border-(--morphink-border-width-default) bg-(--morphink-color-card)'),
   {
     variants: {
       variant: {
         elevated: 'border-(--morphink-color-border)',
         outline: 'border-(--morphink-color-border) shadow-none',
-        ghost:
-          'border-transparent bg-transparent hover:bg-(--morphink-color-muted)',
+        ghost: 'border-transparent bg-transparent hover:bg-(--morphink-color-muted)',
         soft: 'border-transparent bg-(--morphink-color-muted)',
         interactive: cn(
           'border-(--morphink-color-border) cursor-pointer',
@@ -24,7 +21,7 @@ const cardVariants = cva(
           '[transition-timing-function:var(--morphink-easing-standard)]',
           'hover:-translate-y-0.5 hover:shadow-(--morphink-shadow-lg)',
           'active:translate-y-0 active:shadow-(--morphink-shadow-sm)',
-          'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)',
+          'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)'
         ),
       },
       rounded: {

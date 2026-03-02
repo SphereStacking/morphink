@@ -1,4 +1,5 @@
 import type { InjectionKey, Ref } from 'vue'
+
 import type { CheckboxRounded, CheckboxSize, CheckboxTone, CheckboxVariant } from '../../lib/props'
 
 export const checkboxSizeKey: InjectionKey<Ref<CheckboxSize>> = Symbol('checkboxSize')

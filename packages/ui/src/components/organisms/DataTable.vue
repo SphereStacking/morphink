@@ -55,7 +55,9 @@ const filteredRows = computed(() => {
   )
 })
 
-const totalPages = computed(() => Math.max(1, Math.ceil(filteredRows.value.length / props.pageSize)))
+const totalPages = computed(() =>
+  Math.max(1, Math.ceil(filteredRows.value.length / props.pageSize))
+)
 
 const paginatedRows = computed(() => {
   const start = (currentPage.value - 1) * props.pageSize
@@ -84,17 +86,18 @@ function handleSearch(value: string) {
       :striped="striped"
       :rounded="rounded"
     />
-    <EmptyState
-      v-else
-      :title="emptyTitle"
-      :description="emptyDescription"
-    />
+    <EmptyState v-else :title="emptyTitle" :description="emptyDescription" />
     <Stack v-if="totalPages > 1" direction="row" gap="sm" align="center" justify="between">
       <Button size="sm" variant="outline" :disabled="currentPage <= 1" @click="currentPage--">
         Previous
       </Button>
       <Text variant="caption" muted>Page {{ currentPage }} of {{ totalPages }}</Text>
-      <Button size="sm" variant="outline" :disabled="currentPage >= totalPages" @click="currentPage++">
+      <Button
+        size="sm"
+        variant="outline"
+        :disabled="currentPage >= totalPages"
+        @click="currentPage++"
+      >
         Next
       </Button>
     </Stack>

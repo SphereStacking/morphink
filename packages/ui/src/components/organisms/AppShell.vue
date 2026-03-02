@@ -26,25 +26,40 @@ withDefaults(
 </script>
 
 <template>
-  <Stack direction="row" gap="0"
+  <Stack
+    direction="row"
+    gap="0"
     :style="{
       minHeight: '100vh',
       background: 'var(--morphink-color-background)',
-      color: 'var(--morphink-color-foreground)'
-    }">
-    <Box v-if="$slots.sidebar" as="aside" :shrink="false" overflowY="auto" overflowX="hidden"
+      color: 'var(--morphink-color-foreground)',
+    }"
+  >
+    <Box
+      v-if="$slots.sidebar"
+      as="aside"
+      :shrink="false"
+      overflowY="auto"
+      overflowX="hidden"
       :style="{
         transition: 'width 200ms',
         width: sidebarCollapsed ? '0' : sidebarWidth,
-        borderRight: 'var(--morphink-border-width-default) solid var(--morphink-color-border)'
-      }">
+        borderRight: 'var(--morphink-border-width-default) solid var(--morphink-color-border)',
+      }"
+    >
       <div v-show="!sidebarCollapsed" :style="{ height: '100%', width: sidebarWidth }">
         <slot name="sidebar" />
       </div>
     </Box>
     <Stack gap="0" grow :style="{ minWidth: 0 }">
-      <Box v-if="$slots.header" as="header" :shrink="false"
-        :style="{ borderBottom: 'var(--morphink-border-width-default) solid var(--morphink-color-border)' }">
+      <Box
+        v-if="$slots.header"
+        as="header"
+        :shrink="false"
+        :style="{
+          borderBottom: 'var(--morphink-border-width-default) solid var(--morphink-color-border)',
+        }"
+      >
         <slot name="header" />
       </Box>
       <Box as="main" grow>

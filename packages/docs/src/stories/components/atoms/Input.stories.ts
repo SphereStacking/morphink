@@ -1,10 +1,5 @@
 import { Input, Stack } from '@morphink/ui'
-import {
-  componentRounded,
-  componentSizes,
-  componentTones,
-  componentVariants,
-} from '@morphink/ui'
+import { componentRounded, componentSizes, componentTones, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof Input> = {
@@ -19,7 +14,10 @@ const meta: Meta<typeof Input> = {
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },
     readonly: { control: 'boolean' },
-    type: { control: { type: 'select' }, options: ['text', 'password', 'email', 'number', 'search', 'tel', 'url'] },
+    type: {
+      control: { type: 'select' },
+      options: ['text', 'password', 'email', 'number', 'search', 'tel', 'url'],
+    },
   },
   args: {
     variant: 'outline',

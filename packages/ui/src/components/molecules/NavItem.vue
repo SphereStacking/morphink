@@ -44,7 +44,9 @@ function handleClick(event: Event, href?: string) {
       textDecoration: 'none',
       cursor: 'pointer',
       transition: 'background 150ms, color 150ms',
-      background: active ? 'color-mix(in srgb, var(--morphink-color-accent) 10%, transparent)' : 'transparent',
+      background: active
+        ? 'color-mix(in srgb, var(--morphink-color-accent) 10%, transparent)'
+        : 'transparent',
       color: active ? 'var(--morphink-color-accent)' : 'var(--morphink-color-foreground)',
     }"
     @click="handleClick($event, href)"

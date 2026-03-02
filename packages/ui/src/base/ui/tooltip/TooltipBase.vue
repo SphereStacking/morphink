@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { TooltipProvider, TooltipRoot, TooltipTrigger, TooltipContent, TooltipPortal } from 'reka-ui'
+import {
+  TooltipProvider,
+  TooltipRoot,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipPortal,
+} from 'reka-ui'
 import { computed } from 'vue'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
@@ -87,7 +93,13 @@ const tooltipStyle = computed(() => ({
         <slot />
       </TooltipTrigger>
       <TooltipPortal>
-        <TooltipContent :side="side" :align="align" :class="contentClass" :style="tooltipStyle" class="data-[state=delayed-open]:animate-[mi-popover-in_var(--morphink-duration-normal)_var(--morphink-easing-decelerate)_both] data-[state=closed]:animate-[mi-popover-out_var(--morphink-duration-fast)_var(--morphink-easing-accelerate)_forwards]">
+        <TooltipContent
+          :side="side"
+          :align="align"
+          :class="contentClass"
+          :style="tooltipStyle"
+          class="data-[state=delayed-open]:animate-[mi-popover-in_var(--morphink-duration-normal)_var(--morphink-easing-decelerate)_both] data-[state=closed]:animate-[mi-popover-out_var(--morphink-duration-fast)_var(--morphink-easing-accelerate)_forwards]"
+        >
           <slot name="content">{{ content }}</slot>
         </TooltipContent>
       </TooltipPortal>

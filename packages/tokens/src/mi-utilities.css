@@ -1,4 +1,4 @@
-@import "tailwindcss" prefix(mi);
+@import 'tailwindcss' prefix(mi);
 
 @source "./safelist.html";
 

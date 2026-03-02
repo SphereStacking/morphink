@@ -19,12 +19,7 @@ function color(cssVar: string, label: string, defaultValue: string): TokenEntry 
   return { cssVar, label, defaultValue, type: 'color' }
 }
 
-function dimension(
-  cssVar: string,
-  label: string,
-  defaultValue: string,
-  max = 64
-): TokenEntry {
+function dimension(cssVar: string, label: string, defaultValue: string, max = 64): TokenEntry {
   return { cssVar, label, defaultValue, type: 'dimension', min: 0, max, step: 1 }
 }
 
@@ -225,8 +220,16 @@ export const tokenCategories: TokenCategory[] = [
       text('--morphink-border-width-default', 'Border Default', '1px'),
       text('--morphink-border-width-strong', 'Border Strong', '2px'),
       text('--morphink-shadow-sm', 'Shadow SM', '0 1px 2px 0 rgba(0, 0, 0, 0.05)'),
-      text('--morphink-shadow-md', 'Shadow MD', '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'),
-      text('--morphink-shadow-lg', 'Shadow LG', '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'),
+      text(
+        '--morphink-shadow-md',
+        'Shadow MD',
+        '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+      ),
+      text(
+        '--morphink-shadow-lg',
+        'Shadow LG',
+        '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+      ),
     ],
   },
 ]

@@ -22,7 +22,9 @@ export const Default: Story = {
 export const WithNav: Story = {
   render: (args) => ({
     components: { AppHeader, Nav, Button },
-    setup() { return { args } },
+    setup() {
+      return { args }
+    },
     template: `
       <AppHeader v-bind="args">
         <template #nav>

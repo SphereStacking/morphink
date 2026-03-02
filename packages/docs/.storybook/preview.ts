@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/vue3-vite'
+
 import { EVENT_RESET_ALL, EVENT_SET_TOKEN } from '../src/addons/token-editor/constants'
 
 import '@morphink/ui/styles/tokens.css'

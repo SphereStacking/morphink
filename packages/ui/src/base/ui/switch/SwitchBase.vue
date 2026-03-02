@@ -92,14 +92,22 @@ const switchVariants = cva(
       },
     },
     compoundVariants: [
-      { variant: 'soft', tone: 'base', class: cn(
-        'data-[state=unchecked]:bg-(--morphink-color-muted)',
-        'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
-      )},
-      { variant: 'soft', tone: 'neutral', class: cn(
-        'data-[state=unchecked]:bg-(--morphink-color-muted)',
-        'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
-      )},
+      {
+        variant: 'soft',
+        tone: 'base',
+        class: cn(
+          'data-[state=unchecked]:bg-(--morphink-color-muted)',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
+        ),
+      },
+      {
+        variant: 'soft',
+        tone: 'neutral',
+        class: cn(
+          'data-[state=unchecked]:bg-(--morphink-color-muted)',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,var(--morphink-color-muted))]'
+        ),
+      },
     ],
     defaultVariants: {
       variant: 'solid',

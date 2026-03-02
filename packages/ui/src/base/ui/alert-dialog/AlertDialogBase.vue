@@ -114,14 +114,18 @@ const buttonSizeMap: Record<string, string> = {
   lg: 'h-10 px-4 text-sm',
   xl: 'h-11 px-5 text-base',
 }
-const cancelClass = computed(() => cn(
-  'inline-flex items-center justify-center rounded-(--morphink-radius-md) border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card) text-(--morphink-color-foreground) [transition-property:background-color,color,border-color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)',
-  buttonSizeMap[props.size ?? 'md'],
-))
-const actionClass = computed(() => cn(
-  'inline-flex items-center justify-center rounded-(--morphink-radius-md) bg-(--morphink-color-accent) text-(--morphink-color-accent-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-accent-hover) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-accent)',
-  buttonSizeMap[props.size ?? 'md'],
-))
+const cancelClass = computed(() =>
+  cn(
+    'inline-flex items-center justify-center rounded-(--morphink-radius-md) border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card) text-(--morphink-color-foreground) [transition-property:background-color,color,border-color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)',
+    buttonSizeMap[props.size ?? 'md']
+  )
+)
+const actionClass = computed(() =>
+  cn(
+    'inline-flex items-center justify-center rounded-(--morphink-radius-md) bg-(--morphink-color-accent) text-(--morphink-color-accent-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-accent-hover) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-accent)',
+    buttonSizeMap[props.size ?? 'md']
+  )
+)
 </script>
 
 <template>
@@ -130,13 +134,35 @@ const actionClass = computed(() => cn(
       <slot name="trigger" />
     </AlertDialogTrigger>
     <AlertDialogPortal>
-      <AlertDialogOverlay class="fixed inset-0 bg-(--morphink-color-scrim) data-[state=open]:animate-[mi-overlay-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-overlay-out_var(--morphink-motion-leave)_50ms_forwards]" />
-      <AlertDialogContent :class="contentClass" class="data-[state=open]:animate-[mi-dialog-in_var(--morphink-motion-enter)_50ms_both] data-[state=closed]:animate-[mi-dialog-out_var(--morphink-motion-leave)_forwards]">
+      <AlertDialogOverlay
+        class="fixed inset-0 bg-(--morphink-color-scrim) data-[state=open]:animate-[mi-overlay-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-overlay-out_var(--morphink-motion-leave)_50ms_forwards]"
+      />
+      <AlertDialogContent
+        :class="contentClass"
+        class="data-[state=open]:animate-[mi-dialog-in_var(--morphink-motion-enter)_50ms_both] data-[state=closed]:animate-[mi-dialog-out_var(--morphink-motion-leave)_forwards]"
+      >
         <div class="flex items-center justify-between gap-(--morphink-space-md)">
           <AlertDialogTitle v-if="title" :class="titleClass">{{ title }}</AlertDialogTitle>
           <AlertDialogCancel as-child>
-            <button class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)" type="button" :aria-label="cancelLabel">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+            <button
+              class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)"
+              type="button"
+              :aria-label="cancelLabel"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="size-4"
+                aria-hidden="true"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
             </button>
           </AlertDialogCancel>
         </div>

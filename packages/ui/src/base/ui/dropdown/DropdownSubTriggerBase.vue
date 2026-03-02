@@ -44,11 +44,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <DropdownMenuSubTrigger
-    :disabled="disabled"
-    :text-value="textValue"
-    :class="classes"
-  >
+  <DropdownMenuSubTrigger :disabled="disabled" :text-value="textValue" :class="classes">
     <span class="flex items-center gap-2">
       <span v-if="$slots.icon" class="shrink-0">
         <slot name="icon" />

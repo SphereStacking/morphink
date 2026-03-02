@@ -1,12 +1,7 @@
-import { ref } from 'vue'
 import { Checkbox, CheckboxGroup, Stack } from '@morphink/ui'
-import {
-  componentRounded,
-  componentSizes,
-  componentTones,
-  componentVariants,
-} from '@morphink/ui'
+import { componentRounded, componentSizes, componentTones, componentVariants } from '@morphink/ui'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
+import { ref } from 'vue'
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Components/Atoms/Checkbox',

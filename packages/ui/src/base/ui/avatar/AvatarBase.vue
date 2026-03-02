@@ -72,8 +72,9 @@ const classes = computed(() =>
       size: props.size,
       rounded: props.rounded,
     }),
-    showFallback.value && 'bg-(--morphink-color-muted) text-(--morphink-color-muted-foreground) font-medium',
-    attrs.class,
+    showFallback.value &&
+      'bg-(--morphink-color-muted) text-(--morphink-color-muted-foreground) font-medium',
+    attrs.class
   )
 )
 </script>
@@ -84,18 +85,35 @@ const classes = computed(() =>
       v-if="src && imageStatus !== 'error'"
       :src="src"
       :alt="alt"
-      :class="cn(
-        'size-full object-cover',
-        imageStatus === 'loading' && 'opacity-0',
-        imageStatus === 'loaded' && 'opacity-100 [transition-property:opacity] [transition-duration:var(--morphink-duration-normal)] [transition-timing-function:var(--morphink-easing-standard)]',
-      )"
+      :class="
+        cn(
+          'size-full object-cover',
+          imageStatus === 'loading' && 'opacity-0',
+          imageStatus === 'loaded' &&
+            'opacity-100 [transition-property:opacity] [transition-duration:var(--morphink-duration-normal)] [transition-timing-function:var(--morphink-easing-standard)]'
+        )
+      "
       @load="onImageLoad"
       @error="onImageError"
     />
     <span v-if="showFallback" class="absolute inset-0 flex items-center justify-center">
       <slot name="fallback">
         <span v-if="fallback">{{ fallback }}</span>
-        <svg v-else xmlns="http://www.w3.org/2000/svg" width="60%" height="60%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+        <svg
+          v-else
+          xmlns="http://www.w3.org/2000/svg"
+          width="60%"
+          height="60%"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
       </slot>
     </span>
   </span>

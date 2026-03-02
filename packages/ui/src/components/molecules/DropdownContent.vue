@@ -29,7 +29,14 @@ withDefaults(
 </script>
 
 <template>
-  <DropdownContentBase :side="side" :align="align" :side-offset="sideOffset" :rounded="rounded" :shadow="shadow" :size="size">
+  <DropdownContentBase
+    :side="side"
+    :align="align"
+    :side-offset="sideOffset"
+    :rounded="rounded"
+    :shadow="shadow"
+    :size="size"
+  >
     <slot />
   </DropdownContentBase>
 </template>

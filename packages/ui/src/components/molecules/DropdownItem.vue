@@ -25,7 +25,12 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <DropdownItemBase :disabled="disabled" :destructive="destructive" :text-value="textValue" @select="emit('select', $event)">
+  <DropdownItemBase
+    :disabled="disabled"
+    :destructive="destructive"
+    :text-value="textValue"
+    @select="emit('select', $event)"
+  >
     <template v-if="$slots.icon" #icon>
       <slot name="icon" />
     </template>

@@ -24,7 +24,12 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <DropdownRadioItemBase :value="value" :disabled="disabled" :text-value="textValue" @select="emit('select', $event)">
+  <DropdownRadioItemBase
+    :value="value"
+    :disabled="disabled"
+    :text-value="textValue"
+    @select="emit('select', $event)"
+  >
     <slot />
   </DropdownRadioItemBase>
 </template>

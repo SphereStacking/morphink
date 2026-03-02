@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useChannel } from 'storybook/manager-api'
+
 import { EVENT_RESET_ALL, EVENT_SET_TOKEN } from './constants'
 import { tokenCategories, type TokenEntry } from './token-map'
 
@@ -412,11 +413,7 @@ function TokenControl({
         {token.type === 'color' && (
           <div className="ite-color-control">
             <div className="ite-swatch-wrap">
-              <div
-                className="ite-swatch"
-                style={{ background: display }}
-                title={display}
-              />
+              <div className="ite-swatch" style={{ background: display }} title={display} />
               <input
                 className="ite-color-picker"
                 type="color"
@@ -442,11 +439,7 @@ function TokenControl({
               min={token.min}
               max={token.max}
               step={token.step}
-              value={
-                token.type === 'dimension'
-                  ? parseInt(display) || 0
-                  : parseFloat(display) || 0
-              }
+              value={token.type === 'dimension' ? parseInt(display) || 0 : parseFloat(display) || 0}
               onChange={(e) =>
                 onChange(
                   token.cssVar,
@@ -454,9 +447,7 @@ function TokenControl({
                 )
               }
             />
-            <span className={`ite-range-value ${changed ? 'is-changed' : ''}`}>
-              {display}
-            </span>
+            <span className={`ite-range-value ${changed ? 'is-changed' : ''}`}>{display}</span>
           </div>
         )}
 

@@ -17,7 +17,9 @@ type Story = StoryObj<typeof SettingsSection>
 export const Default: Story = {
   render: (args) => ({
     components: { SettingsSection, FormField, Input, Stack },
-    setup() { return { args } },
+    setup() {
+      return { args }
+    },
     template: `
       <SettingsSection v-bind="args">
         <Stack gap="lg">
@@ -40,7 +42,9 @@ export const Default: Story = {
 export const WithAction: Story = {
   render: (args) => ({
     components: { SettingsSection, FormFieldCheckbox, Button, Stack },
-    setup() { return { args } },
+    setup() {
+      return { args }
+    },
     template: `
       <SettingsSection v-bind="args">
         <template #action>

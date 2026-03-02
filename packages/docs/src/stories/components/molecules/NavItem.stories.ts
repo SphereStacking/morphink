@@ -42,7 +42,9 @@ export const WithBadge: Story = {
 export const WithIcon: Story = {
   render: (args) => ({
     components: { NavItem },
-    setup() { return { args } },
+    setup() {
+      return { args }
+    },
     template: `
       <NavItem v-bind="args">
         <template #icon>

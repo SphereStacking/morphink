@@ -20,7 +20,9 @@ defineProps<{
     <slot name="icon" />
     <Stack gap="xs" align="center">
       <Heading :level="3">{{ title }}</Heading>
-      <Text v-if="description" variant="body" muted :style="{ textAlign: 'center' }">{{ description }}</Text>
+      <Text v-if="description" variant="body" muted :style="{ textAlign: 'center' }">{{
+        description
+      }}</Text>
     </Stack>
     <slot name="action" />
   </Stack>

@@ -34,10 +34,12 @@ body {
   --morphink-motion-state: var(--morphink-duration-normal) var(--morphink-easing-standard);
 
   /* overlay, dialog, popover appear — 300ms emphasized-decelerate */
-  --morphink-motion-enter: var(--morphink-duration-slow) var(--morphink-easing-emphasized-decelerate);
+  --morphink-motion-enter: var(--morphink-duration-slow)
+    var(--morphink-easing-emphasized-decelerate);
 
   /* overlay, dialog, popover exit — 200ms emphasized-accelerate */
-  --morphink-motion-leave: var(--morphink-duration-normal) var(--morphink-easing-emphasized-accelerate);
+  --morphink-motion-leave: var(--morphink-duration-normal)
+    var(--morphink-easing-emphasized-accelerate);
 
   /* attention, badge, notification — 200ms spring */
   --morphink-motion-emphasis: var(--morphink-duration-normal) var(--morphink-easing-spring);
@@ -49,82 +51,147 @@ body {
 /* --- Overlay / Dialog / Popover animations --- */
 
 @keyframes mi-overlay-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes mi-overlay-out {
-  to { opacity: 0; }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes mi-dialog-in {
-  from { opacity: 0; scale: 0.95; transform: translateY(8px); }
+  from {
+    opacity: 0;
+    scale: 0.95;
+    transform: translateY(8px);
+  }
 }
 
 @keyframes mi-dialog-out {
-  to { opacity: 0; scale: 0.95; transform: translateY(8px); }
+  to {
+    opacity: 0;
+    scale: 0.95;
+    transform: translateY(8px);
+  }
 }
 
 @keyframes mi-popover-in {
-  from { opacity: 0; scale: 0.96; translate: var(--mi-popover-translate, 0 -4px); }
+  from {
+    opacity: 0;
+    scale: 0.96;
+    translate: var(--mi-popover-translate, 0 -4px);
+  }
 }
 
 @keyframes mi-popover-out {
-  to { opacity: 0; scale: 0.96; translate: var(--mi-popover-translate, 0 -4px); }
+  to {
+    opacity: 0;
+    scale: 0.96;
+    translate: var(--mi-popover-translate, 0 -4px);
+  }
 }
 
 /* Dropdown: slide-down + fade (no scale) */
 @keyframes mi-dropdown-in {
-  from { opacity: 0; translate: 0 -4px; }
+  from {
+    opacity: 0;
+    translate: 0 -4px;
+  }
 }
 
 @keyframes mi-dropdown-out {
-  to { opacity: 0; }
+  to {
+    opacity: 0;
+  }
 }
 
 /* --- Component-specific keyframes --- */
 
 /* Checkbox: checkmark stroke draw */
 @keyframes mi-checkmark-draw {
-  from { stroke-dashoffset: 24; }
-  to { stroke-dashoffset: 0; }
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 /* Switch: thumb bounce on toggle */
 @keyframes mi-switch-bounce {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Badge: enter with scale */
 @keyframes mi-badge-enter {
-  from { transform: scale(0); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Stagger: list item sequential appear */
 @keyframes mi-stagger-in {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Alert: dismiss fade-out */
 @keyframes mi-alert-dismiss {
-  to { opacity: 0; scale: 0.98; }
+  to {
+    opacity: 0;
+    scale: 0.98;
+  }
 }
 
 /* Input error: shake feedback */
 @keyframes mi-shake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-4px); }
-  40%, 80% { transform: translateX(4px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-4px);
+  }
+  40%,
+  80% {
+    transform: translateX(4px);
+  }
 }
 
 /* Radio: dot scale-in */
 @keyframes mi-radio-dot-in {
-  from { transform: scale(0); }
-  to { transform: scale(1); }
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* --- Accessibility: reduced motion --- */

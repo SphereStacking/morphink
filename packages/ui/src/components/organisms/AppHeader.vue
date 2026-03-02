@@ -19,11 +19,17 @@ withDefaults(
 </script>
 
 <template>
-  <Stack direction="row" gap="md" align="center" paddingX="lg" paddingY="sm"
+  <Stack
+    direction="row"
+    gap="md"
+    align="center"
+    paddingX="lg"
+    paddingY="sm"
     :style="{
       borderBottom: 'var(--morphink-border-width-default) solid var(--morphink-color-border)',
-      background: 'var(--morphink-color-card)'
-    }">
+      background: 'var(--morphink-color-card)',
+    }"
+  >
     <slot name="logo">
       <Heading v-if="title" :level="5">{{ title }}</Heading>
     </slot>

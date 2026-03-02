@@ -7,7 +7,13 @@
  * Style variants: base/ui/select/SelectBase.vue
  */
 import SelectBase from '../../base/ui/select/SelectBase.vue'
-import type { SelectRounded, SelectShadow, SelectSize, SelectTone, SelectVariant } from '../../base/lib/props'
+import type {
+  SelectRounded,
+  SelectShadow,
+  SelectSize,
+  SelectTone,
+  SelectVariant,
+} from '../../base/lib/props'
 
 type Option = {
   label: string

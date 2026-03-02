@@ -23,7 +23,9 @@ type Story = StoryObj<typeof Box>
 export const Default: Story = {
   render: (args) => ({
     components: { Box, Text },
-    setup() { return { args } },
+    setup() {
+      return { args }
+    },
     template: `
       <Box v-bind="args" :style="{ border: 'var(--morphink-border-width-default) solid var(--morphink-color-border)' }">
         <Text>Content inside a Box</Text>

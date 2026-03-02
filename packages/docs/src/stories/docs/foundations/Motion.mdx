@@ -73,7 +73,7 @@ export const TokenCard = ({ token, value, usage, preview }) => (
 export const DurationBar = ({ token, cycle = 1500 }) => {
   const [key, setKey] = useState(0)
   useEffect(() => {
-    const id = setInterval(() => setKey(k => k + 1), cycle)
+    const id = setInterval(() => setKey((k) => k + 1), cycle)
     return () => clearInterval(id)
   }, [cycle])
   return (
@@ -106,7 +106,7 @@ export const DurationBar = ({ token, cycle = 1500 }) => {
 export const EasingBar = ({ token, cycle = 1600 }) => {
   const [key, setKey] = useState(0)
   useEffect(() => {
-    const id = setInterval(() => setKey(k => k + 1), cycle)
+    const id = setInterval(() => setKey((k) => k + 1), cycle)
     return () => clearInterval(id)
   }, [cycle])
   return (
@@ -139,7 +139,7 @@ export const EasingBar = ({ token, cycle = 1600 }) => {
 export const ShorthandDot = ({ token, cycle = 1500 }) => {
   const [key, setKey] = useState(0)
   useEffect(() => {
-    const id = setInterval(() => setKey(k => k + 1), cycle)
+    const id = setInterval(() => setKey((k) => k + 1), cycle)
     return () => clearInterval(id)
   }, [cycle])
   return (

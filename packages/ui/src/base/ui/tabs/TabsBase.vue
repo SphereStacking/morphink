@@ -63,59 +63,67 @@ const listVariants = cva('inline-flex', {
   },
 })
 
-const tabVariants = cva(cn('font-semibold', '[transition-property:color,background-color,box-shadow]', '[transition-duration:var(--morphink-duration-fast)]', '[transition-timing-function:var(--morphink-easing-standard)]'), {
-  variants: {
-    size: {
-      xs: 'px-[8px] py-[2px] text-[11px]',
-      sm: 'px-[10px] py-[4px] text-[12px]',
-      md: 'px-[14px] py-[6px] text-[13px]',
-      lg: 'px-[18px] py-[8px] text-[14px]',
-      xl: 'px-[22px] py-[10px] text-[16px]',
+const tabVariants = cva(
+  cn(
+    'font-semibold',
+    '[transition-property:color,background-color,box-shadow]',
+    '[transition-duration:var(--morphink-duration-fast)]',
+    '[transition-timing-function:var(--morphink-easing-standard)]'
+  ),
+  {
+    variants: {
+      size: {
+        xs: 'px-[8px] py-[2px] text-[11px]',
+        sm: 'px-[10px] py-[4px] text-[12px]',
+        md: 'px-[14px] py-[6px] text-[13px]',
+        lg: 'px-[18px] py-[8px] text-[14px]',
+        xl: 'px-[22px] py-[10px] text-[16px]',
+      },
+      variant: {
+        pill: 'rounded-full',
+        underline: '',
+      },
+      active: {
+        true: '',
+        false: '',
+      },
+      disabled: {
+        true: 'opacity-(--morphink-opacity-disabled) pointer-events-none',
+        false: '',
+      },
     },
-    variant: {
-      pill: 'rounded-full',
-      underline: '',
-    },
-    active: {
-      true: '',
-      false: '',
-    },
-    disabled: {
-      true: 'opacity-(--morphink-opacity-disabled) pointer-events-none',
-      false: '',
-    },
-  },
-  compoundVariants: [
-    {
-      variant: 'pill',
-      active: true,
-      class:
-        'bg-(--morphink-color-card) text-(--morphink-color-foreground) shadow-[0_6px_12px_rgba(0,0,0,0.08)]',
-    },
-    {
+    compoundVariants: [
+      {
+        variant: 'pill',
+        active: true,
+        class:
+          'bg-(--morphink-color-card) text-(--morphink-color-foreground) shadow-[0_6px_12px_rgba(0,0,0,0.08)]',
+      },
+      {
+        variant: 'pill',
+        active: false,
+        class:
+          'text-(--morphink-color-muted-foreground) hover:text-(--morphink-color-accent) hover:bg-(--morphink-color-muted)',
+      },
+      {
+        variant: 'underline',
+        active: true,
+        class: 'text-(--morphink-color-accent)',
+      },
+      {
+        variant: 'underline',
+        active: false,
+        class: 'text-(--morphink-color-muted-foreground)',
+      },
+    ],
+    defaultVariants: {
+      size: 'md',
       variant: 'pill',
       active: false,
-      class:
-        'text-(--morphink-color-muted-foreground) hover:text-(--morphink-color-accent) hover:bg-(--morphink-color-muted)',
+      disabled: false,
     },
-    {
-      variant: 'underline',
-      active: true,
-      class: 'text-(--morphink-color-accent)',
-    },
-    {
-      variant: 'underline',
-      active: false,
-      class: 'text-(--morphink-color-muted-foreground)',
-    },
-  ],
-  defaultVariants: {
-    size: 'md',
-    variant: 'pill',
-    active: false,
-    disabled: false,
-  },
-})
+  }
+)
 
 const panelVariants = cva(
   cn(
@@ -164,7 +172,10 @@ function updateIndicator() {
   }
 }
 
-watch(() => props.modelValue, () => nextTick(updateIndicator))
+watch(
+  () => props.modelValue,
+  () => nextTick(updateIndicator)
+)
 onMounted(() => nextTick(updateIndicator))
 </script>
 

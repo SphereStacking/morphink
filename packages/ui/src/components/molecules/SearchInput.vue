@@ -47,7 +47,8 @@ const iconOffset = computed(() => {
 
 <template>
   <Box position="relative">
-    <Box position="absolute"
+    <Box
+      position="absolute"
       :style="{
         left: iconOffset,
         top: '50%',
@@ -55,9 +56,23 @@ const iconOffset = computed(() => {
         pointerEvents: 'none',
         color: 'var(--morphink-color-muted-foreground)',
         display: 'flex',
-        alignItems: 'center'
-      }">
-      <svg xmlns="http://www.w3.org/2000/svg" :width="iconSize" :height="iconSize" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        alignItems: 'center',
+      }"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        :width="iconSize"
+        :height="iconSize"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.3-4.3" />
+      </svg>
     </Box>
     <Input
       :model-value="modelValue"
@@ -66,7 +81,10 @@ const iconOffset = computed(() => {
       :style="{ paddingLeft: `calc(${iconOffset} + ${iconSize}px + ${iconOffset})` }"
       @update:model-value="emit('update:modelValue', String($event))"
     />
-    <Box v-if="hasValue" position="absolute" as="button"
+    <Box
+      v-if="hasValue"
+      position="absolute"
+      as="button"
       :style="{
         right: iconOffset,
         top: '50%',
@@ -77,10 +95,24 @@ const iconOffset = computed(() => {
         color: 'var(--morphink-color-muted-foreground)',
         display: 'flex',
         alignItems: 'center',
-        padding: 0
+        padding: 0,
       }"
-      @click="emit('update:modelValue', '')">
-      <svg xmlns="http://www.w3.org/2000/svg" :width="iconSize" :height="iconSize" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      @click="emit('update:modelValue', '')"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        :width="iconSize"
+        :height="iconSize"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </svg>
     </Box>
   </Box>
 </template>

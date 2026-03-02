@@ -16,7 +16,8 @@ const textVariants = cva(
     variants: {
       variant: {
         body: 'text-(length:--morphink-font-size-body) leading-(--morphink-font-line-height-body)',
-        caption: 'text-(length:--morphink-font-size-caption) leading-(--morphink-font-line-height-caption)',
+        caption:
+          'text-(length:--morphink-font-size-caption) leading-(--morphink-font-line-height-caption)',
         label:
           'text-(length:--morphink-font-size-label) leading-(--morphink-font-line-height-label) uppercase tracking-[0.08em]',
       },

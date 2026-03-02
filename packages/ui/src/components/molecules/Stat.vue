@@ -30,7 +30,9 @@ const trendTone = computed(() => {
     <Text variant="caption" muted>{{ label }}</Text>
     <Stack direction="row" gap="sm" align="baseline">
       <Heading :level="3">{{ value }}</Heading>
-      <Badge v-if="trend && trendValue" :tone="trendTone" size="sm" variant="soft">{{ trendValue }}</Badge>
+      <Badge v-if="trend && trendValue" :tone="trendTone" size="sm" variant="soft">{{
+        trendValue
+      }}</Badge>
     </Stack>
     <Text v-if="description" variant="caption" muted>{{ description }}</Text>
   </Stack>

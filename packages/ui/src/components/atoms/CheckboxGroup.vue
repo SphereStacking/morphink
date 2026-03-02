@@ -6,7 +6,12 @@
  * Style variants: base/ui/checkbox/CheckboxGroupBase.vue
  */
 import CheckboxGroupBase from '../../base/ui/checkbox/CheckboxGroupBase.vue'
-import type { CheckboxRounded, CheckboxSize, CheckboxTone, CheckboxVariant } from '../../base/lib/props'
+import type {
+  CheckboxRounded,
+  CheckboxSize,
+  CheckboxTone,
+  CheckboxVariant,
+} from '../../base/lib/props'
 
 const props = withDefaults(
   defineProps<{
