@@ -20,9 +20,7 @@ describe('Grid', () => {
   // ── gridTemplateColumns ──────────────────────────
   it('デフォルトで gridTemplateColumns が repeat(auto-fit, minmax(240px, 1fr))', () => {
     const wrapper = mount(Grid)
-    expect(wrapper.element.style.gridTemplateColumns).toBe(
-      'repeat(auto-fit, minmax(240px, 1fr))'
-    )
+    expect(wrapper.element.style.gridTemplateColumns).toBe('repeat(auto-fit, minmax(240px, 1fr))')
   })
 
   it('columns=3 で gridTemplateColumns が repeat(3, minmax(0, 1fr))', () => {
@@ -32,9 +30,7 @@ describe('Grid', () => {
 
   it('columns="auto-fill" で gridTemplateColumns に auto-fill が含まれる', () => {
     const wrapper = mount(Grid, { props: { columns: 'auto-fill' } })
-    expect(wrapper.element.style.gridTemplateColumns).toBe(
-      'repeat(auto-fill, minmax(240px, 1fr))'
-    )
+    expect(wrapper.element.style.gridTemplateColumns).toBe('repeat(auto-fill, minmax(240px, 1fr))')
   })
 
   // ── gridTemplateRows ─────────────────────────────
