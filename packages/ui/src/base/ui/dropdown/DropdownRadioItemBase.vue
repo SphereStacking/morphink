@@ -2,6 +2,7 @@
 import { computed, inject, ref } from 'vue'
 import { DropdownMenuRadioItem, DropdownMenuItemIndicator } from 'reka-ui'
 import { cn } from '../../lib/utils'
+import IconCircle from '../icons/IconCircle.vue'
 import type { DropdownSize } from '../../lib/props'
 import { dropdownSizeKey } from './dropdownContext'
 
@@ -57,14 +58,7 @@ const classes = computed(() =>
     @select="emit('select', $event)"
   >
     <DropdownMenuItemIndicator class="shrink-0">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        :class="indicatorSizes[size]"
-      >
-        <circle cx="12" cy="12" r="5" />
-      </svg>
+      <IconCircle :class="indicatorSizes[size]" />
     </DropdownMenuItemIndicator>
     <slot />
   </DropdownMenuRadioItem>

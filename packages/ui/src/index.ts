@@ -87,6 +87,17 @@ export { default as LoginForm } from './components/organisms/LoginForm.vue'
 export { default as DataTable } from './components/organisms/DataTable.vue'
 export { default as SettingsSection } from './components/organisms/SettingsSection.vue'
 
+// ─── Icons (internal, available for customization) ───
+export {
+  IconCheck,
+  IconChevronRight,
+  IconCircle,
+  IconClose,
+  IconMinus,
+  IconSearch,
+  IconUser,
+} from './base/ui/icons'
+
 export {
   componentVariants,
   componentSizes,

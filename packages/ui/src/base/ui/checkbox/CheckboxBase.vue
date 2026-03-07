@@ -4,6 +4,8 @@ import { computed, inject, ref, useAttrs } from 'vue'
 import { CheckboxRoot, CheckboxIndicator, useForwardPropsEmits } from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
+import IconCheck from '../icons/IconCheck.vue'
+import IconMinus from '../icons/IconMinus.vue'
 import type { CheckboxRounded, CheckboxSize, CheckboxTone, CheckboxVariant } from '../../lib/props'
 import {
   checkboxSizeKey,
@@ -245,36 +247,13 @@ const classes = computed(() =>
 <template>
   <CheckboxRoot v-bind="forwarded" :class="classes" v-slot="{ state }">
     <CheckboxIndicator class="flex items-center justify-center">
-      <svg
+      <IconCheck
         v-if="state !== 'indeterminate'"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
         :class="iconSizes[resolvedSize]"
-      >
-        <polyline
-          points="4 12 9 17 20 6"
-          style="stroke-dasharray: 24"
-          class="animate-[mi-checkmark-draw_var(--morphink-duration-normal)_var(--morphink-easing-standard)_both]"
-        />
-      </svg>
-      <svg
-        v-else
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
         stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        :class="iconSizes[resolvedSize]"
-      >
-        <line x1="5" y1="12" x2="19" y2="12" />
-      </svg>
+        class="[&_polyline]:[stroke-dasharray:24] [&_polyline]:animate-[mi-checkmark-draw_var(--morphink-duration-normal)_var(--morphink-easing-standard)_both]"
+      />
+      <IconMinus v-else :class="iconSizes[resolvedSize]" stroke-width="3" />
     </CheckboxIndicator>
   </CheckboxRoot>
 </template>

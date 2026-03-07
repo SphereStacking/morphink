@@ -4,6 +4,7 @@ import { computed, ref, useAttrs, watch } from 'vue'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 import type { AvatarRounded, AvatarSize } from '../../lib/props'
+import IconUser from '../icons/IconUser.vue'
 
 const avatarVariants = cva(
   cn('relative inline-flex items-center justify-center overflow-hidden shrink-0', 'select-none'),
@@ -99,21 +100,7 @@ const classes = computed(() =>
     <span v-if="showFallback" class="absolute inset-0 flex items-center justify-center">
       <slot name="fallback">
         <span v-if="fallback">{{ fallback }}</span>
-        <svg
-          v-else
-          xmlns="http://www.w3.org/2000/svg"
-          width="60%"
-          height="60%"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-          <circle cx="12" cy="7" r="4" />
-        </svg>
+        <IconUser v-else class="size-[60%]" />
       </slot>
     </span>
   </span>

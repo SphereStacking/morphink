@@ -2,6 +2,7 @@
 import { computed, inject, ref } from 'vue'
 import { DropdownMenuCheckboxItem, DropdownMenuItemIndicator } from 'reka-ui'
 import { cn } from '../../lib/utils'
+import IconCheck from '../icons/IconCheck.vue'
 import type { DropdownSize } from '../../lib/props'
 import { dropdownSizeKey } from './dropdownContext'
 
@@ -60,18 +61,7 @@ const classes = computed(() =>
     @select="emit('select', $event)"
   >
     <DropdownMenuItemIndicator class="shrink-0">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        :class="indicatorSizes[size]"
-      >
-        <polyline points="20 6 9 17 4 12" />
-      </svg>
+      <IconCheck :class="indicatorSizes[size]" />
     </DropdownMenuItemIndicator>
     <slot />
   </DropdownMenuCheckboxItem>

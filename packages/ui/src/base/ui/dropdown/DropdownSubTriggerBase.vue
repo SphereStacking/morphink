@@ -2,6 +2,7 @@
 import { computed, inject, ref } from 'vue'
 import { DropdownMenuSubTrigger } from 'reka-ui'
 import { cn } from '../../lib/utils'
+import IconChevronRight from '../icons/IconChevronRight.vue'
 import type { DropdownSize } from '../../lib/props'
 import { dropdownSizeKey } from './dropdownContext'
 
@@ -51,17 +52,8 @@ const classes = computed(() =>
       </span>
       <slot />
     </span>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+    <IconChevronRight
       :class="['shrink-0 text-(--morphink-color-muted-foreground)', arrowSizes[size]]"
-    >
-      <polyline points="9 18 15 12 9 6" />
-    </svg>
+    />
   </DropdownMenuSubTrigger>
 </template>

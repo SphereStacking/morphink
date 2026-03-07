@@ -13,6 +13,7 @@ import {
   AlertDialogCancel,
   useForwardPropsEmits,
 } from 'reka-ui'
+import IconClose from '../icons/IconClose.vue'
 import { cn } from '../../lib/utils'
 import type { AlertDialogRounded, AlertDialogShadow, AlertDialogSize } from '../../lib/props'
 
@@ -149,20 +150,7 @@ const actionClass = computed(() =>
               type="button"
               :aria-label="cancelLabel"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="size-4"
-                aria-hidden="true"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
+              <IconClose class="size-4" aria-hidden="true" />
             </button>
           </AlertDialogCancel>
         </div>

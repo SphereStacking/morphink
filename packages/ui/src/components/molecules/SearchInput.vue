@@ -8,6 +8,8 @@ import { computed } from 'vue'
 import Box from '../atoms/Box.vue'
 import Input from '../atoms/Input.vue'
 import type { InputSize } from '../../base/lib/props'
+import IconSearch from '../../base/ui/icons/IconSearch.vue'
+import IconClose from '../../base/ui/icons/IconClose.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -59,20 +61,7 @@ const iconOffset = computed(() => {
         alignItems: 'center',
       }"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        :width="iconSize"
-        :height="iconSize"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <circle cx="11" cy="11" r="8" />
-        <path d="m21 21-4.3-4.3" />
-      </svg>
+      <IconSearch :width="iconSize" :height="iconSize" />
     </Box>
     <Input
       :model-value="modelValue"
@@ -99,20 +88,7 @@ const iconOffset = computed(() => {
       }"
       @click="emit('update:modelValue', '')"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        :width="iconSize"
-        :height="iconSize"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M18 6 6 18" />
-        <path d="m6 6 12 12" />
-      </svg>
+      <IconClose :width="iconSize" :height="iconSize" />
     </Box>
   </Box>
 </template>
