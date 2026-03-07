@@ -7,6 +7,7 @@
  */
 import BoxBase from '../../base/ui/layout/BoxBase.vue'
 import type { SpaceToken } from '../../base/lib/props/space'
+import type { BoxRounded } from '../../base/lib/props/rounded'
 
 withDefaults(
   defineProps<{
@@ -24,11 +25,14 @@ withDefaults(
     position?: 'relative' | 'absolute' | 'fixed' | 'sticky'
     grow?: boolean
     shrink?: boolean
+    rounded?: BoxRounded
+    border?: boolean
   }>(),
   {
     as: 'div',
     grow: false,
     shrink: true,
+    border: false,
   }
 )
 </script>
@@ -49,6 +53,8 @@ withDefaults(
     :position="position"
     :grow="grow"
     :shrink="shrink"
+    :rounded="rounded"
+    :border="border"
   >
     <slot />
   </BoxBase>

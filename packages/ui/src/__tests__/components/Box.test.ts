@@ -57,4 +57,28 @@ describe('Box', () => {
     const wrapper = mount(Box, { props: { shrink: false } })
     expect(wrapper.element.style.flexShrink).toBe('0')
   })
+
+  // ── rounded ──────────────────────────────────────
+  it('rounded="md" で borderRadius スタイルがセットされる', () => {
+    const wrapper = mount(Box, { props: { rounded: 'md' } })
+    expect(wrapper.element.style.borderRadius).toBe('var(--morphink-radius-md)')
+  })
+
+  it('rounded="full" で borderRadius が 9999px になる', () => {
+    const wrapper = mount(Box, { props: { rounded: 'full' } })
+    expect(wrapper.element.style.borderRadius).toBe('9999px')
+  })
+
+  // ── border ───────────────────────────────────────
+  it('border=true で border スタイルがセットされる', () => {
+    const wrapper = mount(Box, { props: { border: true } })
+    expect(wrapper.element.style.borderWidth).toBe('1px')
+    expect(wrapper.element.style.borderStyle).toBe('solid')
+    expect(wrapper.element.style.borderColor).toBe('var(--morphink-color-border)')
+  })
+
+  it('border=false（デフォルト）で border スタイルがない', () => {
+    const wrapper = mount(Box)
+    expect(wrapper.element.style.borderWidth).toBe('')
+  })
 })

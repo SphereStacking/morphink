@@ -1,8 +1,18 @@
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue'
 import type { SpaceToken } from '../../lib/props/space'
+import type { BoxRounded } from '../../lib/props/rounded'
 import { resolveSpace } from '../../lib/layout-utils'
 import { cn } from '../../lib/utils'
+
+const roundedMap: Record<string, string> = {
+  none: '0',
+  sm: 'var(--morphink-radius-sm)',
+  md: 'var(--morphink-radius-md)',
+  lg: 'var(--morphink-radius-lg)',
+  xl: 'var(--morphink-radius-xl)',
+  full: '9999px',
+}
 
 defineOptions({ inheritAttrs: false })
 
@@ -22,11 +32,14 @@ const props = withDefaults(
     position?: 'relative' | 'absolute' | 'fixed' | 'sticky'
     grow?: boolean
     shrink?: boolean
+    rounded?: BoxRounded
+    border?: boolean
   }>(),
   {
     as: 'div',
     grow: false,
     shrink: true,
+    border: false,
   }
 )
 
@@ -45,6 +58,12 @@ const boxStyle = computed(() => {
   if (props.position) style.position = props.position
   if (props.grow) style.flex = '1 1 0%'
   if (!props.shrink) style.flexShrink = '0'
+  if (props.rounded) style.borderRadius = roundedMap[props.rounded] ?? props.rounded
+  if (props.border) {
+    style.borderWidth = '1px'
+    style.borderStyle = 'solid'
+    style.borderColor = 'var(--morphink-color-border)'
+  }
   return style
 })
 
