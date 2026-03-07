@@ -48,14 +48,15 @@ const forwarded = useForwardPropsEmits(props, emit)
 
 ### 適用が必要な場面
 
-利用者と Reka UI の間の **全ラッパー層** で適用する:
+**Base 層のみ** で適用する（Public 層は明示的 prop バインド + emit 転送。`reka-ui` を直接 import しない）:
 
-| コンポーネント種別 | 状態管理 props | useForwardPropsEmits 必要 |
-|---|---|---|
-| Root (DialogRoot, DropdownMenuRoot) | `open` | はい |
-| Sub (DropdownMenuSub) | `open` | はい |
-| RadioGroup, CheckboxGroup | `modelValue` | はい |
-| Trigger, Content, Item, Separator | なし | 不要 |
+| 層 | コンポーネント種別 | 状態管理 props | useForwardPropsEmits |
+|---|---|---|---|
+| Base | Root (DialogRoot, DropdownMenuRoot) | `open` | 必要 |
+| Base | Sub (DropdownMenuSub) | `open` | 必要 |
+| Base | RadioGroup, CheckboxGroup | `modelValue` | 必要 |
+| Base | Trigger, Content, Item, Separator | なし | 不要 |
+| Public | すべて | — | 不要（明示的 `:prop` + `@emit`） |
 
 ### 不要な場面
 

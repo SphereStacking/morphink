@@ -83,19 +83,20 @@ const sizeClasses: Record<Size, string> = {
 
 ### 4. Public コンポーネント
 
-**状態管理 props あり** — `useForwardPropsEmits` 使用:
+**状態管理 props あり** — 明示的バインド（`reka-ui` を直接 import しない）:
 ```vue
 <script setup lang="ts">
 import NewComponentBase from '../base/ui/new-component/NewComponentBase.vue'
-import { useForwardPropsEmits } from 'reka-ui'
-const props = defineProps<{ open?: boolean }>()
-const emit = defineEmits<{ (e: 'update:open', value: boolean): void }>()
-const forwarded = useForwardPropsEmits(props, emit)
+defineProps<{ open?: boolean; size?: Size }>()
+defineEmits<{ (e: 'update:open', value: boolean): void }>()
 </script>
 <template>
-  <NewComponentBase v-bind="forwarded"><slot /></NewComponentBase>
+  <NewComponentBase :open="open" :size="size" @update:open="$emit('update:open', $event)">
+    <slot />
+  </NewComponentBase>
 </template>
 ```
+Base 層が `useForwardPropsEmits` で undefined を除外するため、Public 層は直接バインドで安全。
 
 **スタイリング props のみ** — デフォルト値付き直接バインド:
 ```vue
