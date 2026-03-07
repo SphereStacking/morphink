@@ -14,6 +14,8 @@ const meta: Meta<typeof Box> = {
     position: { control: 'select', options: ['relative', 'absolute', 'fixed', 'sticky'] },
     grow: { control: 'boolean' },
     shrink: { control: 'boolean' },
+    rounded: { control: 'select', options: ['none', 'sm', 'md', 'lg', 'xl', 'full'] },
+    border: { control: 'boolean' },
   },
 }
 
@@ -27,22 +29,38 @@ export const Default: Story = {
       return { args }
     },
     template: `
-      <Box v-bind="args" :style="{ border: 'var(--morphink-border-width-default) solid var(--morphink-color-border)' }">
+      <Box v-bind="args">
         <Text>Content inside a Box</Text>
       </Box>
     `,
   }),
   args: {
     padding: 'lg',
+    border: true,
   },
+}
+
+export const Rounded: Story = {
+  render: () => ({
+    components: { Box, Stack, Text },
+    template: `
+      <Stack direction="row" gap="md">
+        <Box padding="md" border rounded="none"><Text>none</Text></Box>
+        <Box padding="md" border rounded="sm"><Text>sm</Text></Box>
+        <Box padding="md" border rounded="md"><Text>md</Text></Box>
+        <Box padding="md" border rounded="lg"><Text>lg</Text></Box>
+        <Box padding="md" border rounded="xl"><Text>xl</Text></Box>
+        <Box padding="md" border rounded="full"><Text>full</Text></Box>
+      </Stack>
+    `,
+  }),
 }
 
 export const Overflow: Story = {
   render: () => ({
     components: { Box, Text },
     template: `
-      <Box overflow="auto" height="120px" padding="md"
-        :style="{ border: 'var(--morphink-border-width-default) solid var(--morphink-color-border)' }">
+      <Box overflow="auto" height="120px" padding="md" border rounded="md">
         <Text v-for="i in 20" :key="i">Line {{ i }} — scrollable content</Text>
       </Box>
     `,
@@ -54,10 +72,10 @@ export const FlexGrow: Story = {
     components: { Box, Stack, Text },
     template: `
       <Stack direction="row" gap="md" :style="{ height: '200px' }">
-        <Box padding="md" :style="{ border: 'var(--morphink-border-width-default) solid var(--morphink-color-border)', width: '100px' }">
+        <Box padding="md" border :style="{ width: '100px' }">
           <Text>Fixed</Text>
         </Box>
-        <Box grow padding="md" :style="{ border: 'var(--morphink-border-width-default) solid var(--morphink-color-border)' }">
+        <Box grow padding="md" border>
           <Text>Grows to fill remaining space</Text>
         </Box>
       </Stack>
