@@ -54,8 +54,8 @@ export const Showcase: Story = {
     },
     template: `
       <div class="mi-theme" data-theme="dark" style="
-        width: 100%;
-        height: 100vh;
+        width: 1200px;
+        height: 630px;
         background: var(--morphink-color-background);
         color: var(--morphink-color-foreground);
         position: relative;
