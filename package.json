@@ -12,7 +12,8 @@
     "dev:docs": "pnpm --filter @morphink/docs dev",
     "lint": "oxlint packages/",
     "format": "oxfmt --write packages/",
-    "format:check": "oxfmt --check packages/"
+    "format:check": "oxfmt --check packages/",
+    "test": "pnpm --filter @morphink/ui test"
   },
   "devDependencies": {
     "oxlint": "^1.49.0",

@@ -13,7 +13,9 @@
     "build": "pnpm run build:css",
     "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/ui.css",
     "dev": "echo \"UI dev not configured yet\"",
-    "lint": "echo \"Lint runs at root level\""
+    "lint": "echo \"Lint runs at root level\"",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@morphink/tokens": "workspace:*",
@@ -24,7 +26,11 @@
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.0",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^20.8.3",
     "tailwindcss": "^4.0.0",
+    "vitest": "^4.0.18",
     "vue": "^3.4.0"
   },
   "peerDependencies": {
