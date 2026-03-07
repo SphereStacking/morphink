@@ -7,7 +7,6 @@
  * Style variants: base/ui/select/SelectBase.vue
  */
 import SelectBase from '../../base/ui/select/SelectBase.vue'
-import { useForwardPropsEmits } from 'reka-ui'
 import type {
   SelectRounded,
   SelectShadow,
@@ -22,7 +21,7 @@ type Option = {
   disabled?: boolean
 }
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     modelValue: string | number | null
     options: Option[]
@@ -47,13 +46,23 @@ const props = withDefaults(
   }
 )
 
-const emit = defineEmits<{
+defineEmits<{
   (e: 'update:modelValue', value: string | number | null): void
 }>()
-
-const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <SelectBase v-bind="forwarded" />
+  <SelectBase
+    :model-value="modelValue"
+    :options="options"
+    :placeholder="placeholder"
+    :size="size"
+    :variant="variant"
+    :tone="tone"
+    :side="side"
+    :align="align"
+    :rounded="rounded"
+    :shadow="shadow"
+    @update:model-value="$emit('update:modelValue', $event)"
+  />
 </template>

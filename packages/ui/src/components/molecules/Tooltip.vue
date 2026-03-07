@@ -7,10 +7,9 @@
  * Style variants: base/ui/tooltip/TooltipBase.vue
  */
 import TooltipBase from '../../base/ui/tooltip/TooltipBase.vue'
-import { useForwardPropsEmits } from 'reka-ui'
 import type { TooltipRounded, TooltipShadow } from '../../base/lib/props'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     content?: string
     open?: boolean
@@ -30,15 +29,22 @@ const props = withDefaults(
   }
 )
 
-const emit = defineEmits<{
+defineEmits<{
   'update:open': [value: boolean]
 }>()
-
-const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <TooltipBase v-bind="forwarded">
+  <TooltipBase
+    :content="content"
+    :open="open"
+    :side="side"
+    :align="align"
+    :delay="delay"
+    :rounded="rounded"
+    :shadow="shadow"
+    @update:open="$emit('update:open', $event)"
+  >
     <slot />
     <template v-if="$slots.content" #content>
       <slot name="content" />

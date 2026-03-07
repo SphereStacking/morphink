@@ -6,10 +6,9 @@
  * Style variants: base/ui/radio/RadioGroupBase.vue
  */
 import RadioGroupBase from '../../base/ui/radio/RadioGroupBase.vue'
-import { useForwardPropsEmits } from 'reka-ui'
 import type { RadioSize, RadioTone, RadioVariant } from '../../base/lib/props'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     modelValue?: string
     defaultValue?: string
@@ -29,15 +28,23 @@ const props = withDefaults(
   }
 )
 
-const emit = defineEmits<{
+defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
-
-const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <RadioGroupBase v-bind="forwarded">
+  <RadioGroupBase
+    :model-value="modelValue"
+    :default-value="defaultValue"
+    :orientation="orientation"
+    :disabled="disabled"
+    :name="name"
+    :size="size"
+    :variant="variant"
+    :tone="tone"
+    @update:model-value="$emit('update:modelValue', $event)"
+  >
     <slot />
   </RadioGroupBase>
 </template>

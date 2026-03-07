@@ -6,10 +6,9 @@
  * Style variants: base/ui/switch/SwitchBase.vue
  */
 import SwitchBase from '../../base/ui/switch/SwitchBase.vue'
-import { useForwardPropsEmits } from 'reka-ui'
 import type { SwitchSize, SwitchTone, SwitchVariant } from '../../base/lib/props'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     modelValue?: boolean
     defaultValue?: boolean
@@ -29,13 +28,22 @@ const props = withDefaults(
   }
 )
 
-const emit = defineEmits<{
+defineEmits<{
   (e: 'update:modelValue', value: boolean): void
 }>()
-
-const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <SwitchBase v-bind="forwarded" />
+  <SwitchBase
+    :model-value="modelValue"
+    :default-value="defaultValue"
+    :variant="variant"
+    :tone="tone"
+    :size="size"
+    :disabled="disabled"
+    :name="name"
+    :value="value"
+    :id="id"
+    @update:model-value="$emit('update:modelValue', $event)"
+  />
 </template>

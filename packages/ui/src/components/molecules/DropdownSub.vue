@@ -6,22 +6,23 @@
  * Style variants: base/ui/dropdown/DropdownSubBase.vue
  */
 import DropdownSubBase from '../../base/ui/dropdown/DropdownSubBase.vue'
-import { useForwardPropsEmits } from 'reka-ui'
 
-const props = defineProps<{
+defineProps<{
   open?: boolean
   defaultOpen?: boolean
 }>()
 
-const emit = defineEmits<{
+defineEmits<{
   (e: 'update:open', value: boolean): void
 }>()
-
-const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <DropdownSubBase v-bind="forwarded">
+  <DropdownSubBase
+    :open="open"
+    :default-open="defaultOpen"
+    @update:open="$emit('update:open', $event)"
+  >
     <slot />
   </DropdownSubBase>
 </template>

@@ -6,11 +6,10 @@
  * product-level features here.
  * Style variants: base/ui/alert-dialog/AlertDialogBase.vue
  */
-import { useForwardPropsEmits } from 'reka-ui'
 import AlertDialogBase from '../../base/ui/alert-dialog/AlertDialogBase.vue'
 import type { AlertDialogRounded, AlertDialogShadow, AlertDialogSize } from '../../base/lib/props'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     open?: boolean
     defaultOpen?: boolean
@@ -31,12 +30,22 @@ const props = withDefaults(
   }
 )
 
-const emit = defineEmits<{ 'update:open': [value: boolean] }>()
-const forwarded = useForwardPropsEmits(props, emit)
+defineEmits<{ 'update:open': [value: boolean] }>()
 </script>
 
 <template>
-  <AlertDialogBase v-bind="forwarded">
+  <AlertDialogBase
+    :open="open"
+    :default-open="defaultOpen"
+    :title="title"
+    :description="description"
+    :size="size"
+    :confirm-label="confirmLabel"
+    :cancel-label="cancelLabel"
+    :rounded="rounded"
+    :shadow="shadow"
+    @update:open="$emit('update:open', $event)"
+  >
     <slot />
     <template v-if="$slots.footer" #footer>
       <slot name="footer" />

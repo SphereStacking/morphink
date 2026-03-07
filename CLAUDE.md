@@ -89,7 +89,7 @@ const forwarded = useForwardPropsEmits(props, emit)
 | Base 層 + Root のみラップ | `useForwardPropsEmits(props, emit)` 直接 | DropdownBase, TooltipBase, PopoverBase |
 | Base 層 + Group context 連携 | `rekaProps` computed + `useForwardPropsEmits` | CheckboxBase, RadioGroupBase, SwitchBase |
 | Base 層 + 複合コンポーネント | 手動バインド（例外） | SelectBase, TabsBase（style props を Root に渡さないため） |
-| Public 層 | 常に `useForwardPropsEmits(props, emit)` で Base に転送 | Dialog, Select, Tooltip 等すべて |
+| Public 層 | 明示的な prop バインド + emit 転送。`reka-ui` を直接 import しない | Dialog, Select, Tooltip 等すべて |
 
 ### レイアウトコンポーネント
 

@@ -6,21 +6,23 @@
  * Style variants: base/ui/dropdown/DropdownRadioGroupBase.vue
  */
 import DropdownRadioGroupBase from '../../base/ui/dropdown/DropdownRadioGroupBase.vue'
-import { useForwardPropsEmits, type AcceptableValue } from 'reka-ui'
 
-const props = defineProps<{
+type AcceptableValue = string | number | boolean | Record<string, unknown>
+
+defineProps<{
   modelValue?: AcceptableValue
 }>()
 
-const emit = defineEmits<{
+defineEmits<{
   (e: 'update:modelValue', value: AcceptableValue): void
 }>()
-
-const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <DropdownRadioGroupBase v-bind="forwarded">
+  <DropdownRadioGroupBase
+    :model-value="modelValue"
+    @update:model-value="$emit('update:modelValue', $event)"
+  >
     <slot />
   </DropdownRadioGroupBase>
 </template>

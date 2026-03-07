@@ -6,7 +6,6 @@
  * Style variants: base/ui/checkbox/CheckboxBase.vue
  */
 import CheckboxBase from '../../base/ui/checkbox/CheckboxBase.vue'
-import { useForwardPropsEmits } from 'reka-ui'
 import type {
   CheckboxRounded,
   CheckboxSize,
@@ -14,7 +13,7 @@ import type {
   CheckboxVariant,
 } from '../../base/lib/props'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     modelValue?: boolean | 'indeterminate'
     defaultValue?: boolean | 'indeterminate'
@@ -36,13 +35,23 @@ const props = withDefaults(
   }
 )
 
-const emit = defineEmits<{
+defineEmits<{
   (e: 'update:modelValue', value: boolean | 'indeterminate'): void
 }>()
-
-const forwarded = useForwardPropsEmits(props, emit)
 </script>
 
 <template>
-  <CheckboxBase v-bind="forwarded" />
+  <CheckboxBase
+    :model-value="modelValue"
+    :default-value="defaultValue"
+    :variant="variant"
+    :tone="tone"
+    :size="size"
+    :rounded="rounded"
+    :disabled="disabled"
+    :name="name"
+    :value="value"
+    :id="id"
+    @update:model-value="$emit('update:modelValue', $event)"
+  />
 </template>
