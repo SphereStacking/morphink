@@ -16,9 +16,10 @@
     "@storybook/addon-docs": "10.2.10",
     "@storybook/vue3-vite": "10.2.10",
     "@types/react": "^19.2.14",
-    "@vitejs/plugin-vue": "^6.0.0",
+    "@vitejs/plugin-vue": "^5.2.4",
     "@vue/compiler-sfc": "^3.4.38",
     "remark-gfm": "^4.0.0",
+    "sb-addon-vue-csf": "^0.0.2",
     "storybook": "10.2.10",
     "vue": "^3.4.38"
   }
