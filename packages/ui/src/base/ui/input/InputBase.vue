@@ -49,11 +49,11 @@ const inputVariants = cva(
           '[--ring-color:var(--morphink-color-destructive)] [--field-color:var(--morphink-color-destructive)]',
       },
       size: {
-        xs: 'h-7 px-2 text-xs',
-        sm: 'h-8 px-3 text-xs',
-        md: 'h-10 px-3 text-sm',
-        lg: 'h-12 px-4 text-base',
-        xl: 'h-14 px-5 text-lg',
+        xs: 'h-(--morphink-space-28) px-(--morphink-space-8) text-[length:var(--morphink-font-size-12)]',
+        sm: 'h-(--morphink-space-32) px-(--morphink-space-12) text-[length:var(--morphink-font-size-12)]',
+        md: 'h-(--morphink-space-40) px-(--morphink-space-12) text-[length:var(--morphink-font-size-14)]',
+        lg: 'h-(--morphink-space-48) px-(--morphink-space-16) text-[length:var(--morphink-font-size-16)]',
+        xl: 'h-(--morphink-space-56) px-(--morphink-space-20) text-[length:var(--morphink-font-size-18)]',
       },
       rounded: {
         none: 'rounded-none',

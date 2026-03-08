@@ -24,7 +24,9 @@ export const WithInput: Story = {
     },
     template: `
       <FormField v-bind="args">
-        <Input placeholder="Enter your name" />
+        <template #default="fieldProps">
+          <Input v-bind="fieldProps" placeholder="Enter your name" />
+        </template>
       </FormField>
     `,
   }),
@@ -42,7 +44,9 @@ export const WithError: Story = {
     },
     template: `
       <FormField v-bind="args">
-        <Input placeholder="Enter email" tone="destructive" />
+        <template #default="fieldProps">
+          <Input v-bind="fieldProps" placeholder="Enter email" />
+        </template>
       </FormField>
     `,
   }),
@@ -61,7 +65,9 @@ export const WithTextarea: Story = {
     },
     template: `
       <FormField v-bind="args">
-        <Textarea placeholder="Write your message..." />
+        <template #default="fieldProps">
+          <Textarea v-bind="fieldProps" placeholder="Write your message..." />
+        </template>
       </FormField>
     `,
   }),
@@ -73,18 +79,61 @@ export const WithTextarea: Story = {
 
 export const MultipleFields: Story = {
   render: () => ({
-    components: { FormField, Input, Select, Stack },
+    components: { FormField, Input, Stack },
     template: `
       <Stack gap="lg" style="max-width: 400px">
         <FormField label="Name" required>
-          <Input placeholder="John Doe" />
+          <template #default="fieldProps">
+            <Input v-bind="fieldProps" placeholder="John Doe" />
+          </template>
         </FormField>
         <FormField label="Email" required error="This field is required">
-          <Input placeholder="john@example.com" tone="destructive" />
+          <template #default="fieldProps">
+            <Input v-bind="fieldProps" placeholder="john@example.com" />
+          </template>
         </FormField>
         <FormField label="Phone" helper="Optional">
-          <Input placeholder="+1 (555) 000-0000" />
+          <template #default="fieldProps">
+            <Input v-bind="fieldProps" placeholder="+1 (555) 000-0000" />
+          </template>
         </FormField>
+      </Stack>
+    `,
+  }),
+}
+
+export const ValidationExample: Story = {
+  render: () => ({
+    components: { FormField, Input, Stack },
+    data() {
+      return { email: '', emailError: '' }
+    },
+    methods: {
+      validateEmail() {
+        if (!this.email) {
+          this.emailError = 'Email is required'
+        } else if (!this.email.includes('@')) {
+          this.emailError = 'Please enter a valid email address'
+        } else {
+          this.emailError = ''
+        }
+      },
+    },
+    template: `
+      <Stack gap="lg" style="max-width: 400px">
+        <FormField label="Email" required :error="emailError">
+          <template #default="fieldProps">
+            <Input
+              v-bind="fieldProps"
+              v-model="email"
+              placeholder="user@example.com"
+              @blur="validateEmail"
+            />
+          </template>
+        </FormField>
+        <p style="font-size: 12px; color: var(--morphink-color-muted-foreground)">
+          Blur the input to trigger validation
+        </p>
       </Stack>
     `,
   }),

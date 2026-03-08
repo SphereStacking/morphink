@@ -54,11 +54,11 @@ const textareaVariants = cva(
           '[--ring-color:var(--morphink-color-destructive)] [--field-color:var(--morphink-color-destructive)]',
       },
       size: {
-        xs: 'px-2 py-1.5 text-xs',
-        sm: 'px-3 py-2 text-xs',
-        md: 'px-3 py-2 text-sm',
-        lg: 'px-4 py-3 text-base',
-        xl: 'px-5 py-3 text-lg',
+        xs: 'px-(--morphink-space-8) py-1.5 text-[length:var(--morphink-font-size-12)]',
+        sm: 'px-(--morphink-space-12) py-2 text-[length:var(--morphink-font-size-12)]',
+        md: 'px-(--morphink-space-12) py-2 text-[length:var(--morphink-font-size-14)]',
+        lg: 'px-(--morphink-space-16) py-3 text-[length:var(--morphink-font-size-16)]',
+        xl: 'px-(--morphink-space-20) py-3 text-[length:var(--morphink-font-size-18)]',
       },
       rounded: {
         none: 'rounded-none',

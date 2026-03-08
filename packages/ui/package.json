@@ -3,15 +3,28 @@
   "version": "0.1.0",
   "license": "MIT",
   "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
   "exports": {
-    ".": "./src/index.ts",
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.mjs",
+      "default": "./src/index.ts"
+    },
+    "./source": "./src/index.ts",
     "./styles/tokens.css": "./src/styles/tokens.css",
     "./styles/base.css": "./src/styles/base.css",
     "./styles/ui.css": "./dist/ui.css"
   },
   "scripts": {
-    "build": "pnpm run build:css",
+    "build": "pnpm run build:css && pnpm run build:js && pnpm run build:types",
     "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/ui.css",
+    "build:js": "vite build",
+    "build:types": "vue-tsc -p tsconfig.build.json --noCheck",
     "dev": "echo \"UI dev not configured yet\"",
     "lint": "echo \"Lint runs at root level\"",
     "test": "vitest run",
@@ -30,10 +43,12 @@
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^20.8.3",
     "tailwindcss": "^4.0.0",
+    "vite": "^7.3.1",
     "vitest": "^4.0.18",
-    "vue": "^3.4.0"
+    "vue": "^3.4.0",
+    "vue-tsc": "^3.2.5"
   },
   "peerDependencies": {
-    "vue": "^3.4.0"
+    "vue": "^3.5.0"
   }
 }
