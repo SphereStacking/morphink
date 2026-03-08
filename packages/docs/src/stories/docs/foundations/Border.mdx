@@ -12,7 +12,7 @@ export const TokenGrid = ({ children }) => (
   </div>
 )
 
-export const TokenCard = ({ token, value, preview }) => (
+export const TokenCard = ({ token, value, usage, preview }) => (
   <div
     style={{
       border: '1px solid var(--morphink-color-border)',
@@ -48,10 +48,22 @@ export const TokenCard = ({ token, value, preview }) => (
     <div>
       <code>{value}</code>
     </div>
+    {usage ? (
+      <div
+        style={{
+          marginTop: '6px',
+          fontSize: 'var(--morphink-font-size-caption)',
+          lineHeight: 'var(--morphink-font-line-height-caption)',
+          color: 'var(--morphink-color-muted-foreground)',
+        }}
+      >
+        {usage}
+      </div>
+    ) : null}
   </div>
 )
 
-<Meta title="Foundations/[TBD] Border" />
+<Meta title="Foundations/Border" />
 
 <Title>Border</Title>
 <Subtitle>Organize border standards</Subtitle>
@@ -66,6 +78,7 @@ A page to organize border width and stroke specifications.
   <TokenCard
     token="border.width.default"
     value="1px"
+    usage="Standard border"
     preview={
       <div
         style={{
@@ -80,6 +93,7 @@ A page to organize border width and stroke specifications.
   <TokenCard
     token="border.width.strong"
     value="2px"
+    usage="Emphasized border"
     preview={
       <div
         style={{
@@ -94,6 +108,7 @@ A page to organize border width and stroke specifications.
   <TokenCard
     token="border.width.heavy"
     value="4px"
+    usage="Heavy accent border"
     preview={
       <div
         style={{
@@ -108,6 +123,7 @@ A page to organize border width and stroke specifications.
   <TokenCard
     token="border.width.none"
     value="0px"
+    usage="No border"
     preview={
       <div
         style={{
@@ -119,63 +135,27 @@ A page to organize border width and stroke specifications.
       />
     }
   />
-  <TokenCard
-    token="border.width.0"
-    value="0px"
-    preview={
-      <div
-        style={{
-          height: '32px',
-          borderRadius: 'var(--morphink-radius-sm)',
-          background: 'var(--morphink-color-card)',
-        }}
-      />
-    }
-  />
-  <TokenCard
-    token="border.width.1"
-    value="1px"
-    preview={
-      <div
-        style={{
-          height: '32px',
-          borderRadius: 'var(--morphink-radius-sm)',
-          background: 'var(--morphink-color-card)',
-          border: 'var(--border-width1) solid var(--morphink-color-border)',
-        }}
-      />
-    }
-  />
-  <TokenCard
-    token="border.width.2"
-    value="2px"
-    preview={
-      <div
-        style={{
-          height: '32px',
-          borderRadius: 'var(--morphink-radius-sm)',
-          background: 'var(--morphink-color-card)',
-          border: 'var(--border-width2) solid var(--morphink-color-border)',
-        }}
-      />
-    }
-  />
-  <TokenCard
-    token="border.width.4"
-    value="4px"
-    preview={
-      <div
-        style={{
-          height: '32px',
-          borderRadius: 'var(--morphink-radius-sm)',
-          background: 'var(--morphink-color-card)',
-          border: '4px solid var(--morphink-color-border)',
-        }}
-      />
-    }
-  />
 </TokenGrid>
 
-## Notes for designers
+## Utilities
 
-TBD
+### Border Color
+
+```
+mi:border-{color}
+```
+
+Example: `mi:border-primary`, `mi:border-accent`
+
+### Border Width
+
+Border width is controlled via component props:
+- `Box` — `border` prop (`true` | `'default'` | `'strong'` | `'heavy'`)
+- `Divider` — `weight` prop (`'default'` | `'strong'` | `'heavy'`)
+
+## Usage Guidelines
+
+- Use `default` (1px) for standard separators and card outlines.
+- Use `strong` (2px) when extra visual emphasis is needed.
+- Reserve `heavy` (4px) for decorative accents or key section highlights.
+- Prefer semantic tokens (`border.width.default` etc.) over alias tokens (`border.width.1` etc.).
