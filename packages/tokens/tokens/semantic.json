@@ -390,12 +390,20 @@
   },
   "border": {
     "width": {
+      "none": {
+        "value": "{border.width.0}",
+        "type": "dimension"
+      },
       "default": {
         "value": "{border.width.1}",
         "type": "dimension"
       },
       "strong": {
         "value": "{border.width.2}",
+        "type": "dimension"
+      },
+      "heavy": {
+        "value": "{border.width.4}",
         "type": "dimension"
       }
     }

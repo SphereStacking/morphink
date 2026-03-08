@@ -92,6 +92,47 @@ A page to organize border width and stroke specifications.
     }
   />
   <TokenCard
+    token="border.width.heavy"
+    value="4px"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-card)',
+          border: 'var(--morphink-border-width-heavy) solid var(--morphink-color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="border.width.none"
+    value="0px"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-card)',
+          border: 'var(--morphink-border-width-none) solid var(--morphink-color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="border.width.0"
+    value="0px"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-card)',
+        }}
+      />
+    }
+  />
+  <TokenCard
     token="border.width.1"
     value="1px"
     preview={
@@ -115,6 +156,20 @@ A page to organize border width and stroke specifications.
           borderRadius: 'var(--morphink-radius-sm)',
           background: 'var(--morphink-color-card)',
           border: 'var(--border-width2) solid var(--morphink-color-border)',
+        }}
+      />
+    }
+  />
+  <TokenCard
+    token="border.width.4"
+    value="4px"
+    preview={
+      <div
+        style={{
+          height: '32px',
+          borderRadius: 'var(--morphink-radius-sm)',
+          background: 'var(--morphink-color-card)',
+          border: '4px solid var(--morphink-color-border)',
         }}
       />
     }

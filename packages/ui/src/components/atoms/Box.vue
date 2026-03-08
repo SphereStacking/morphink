@@ -8,6 +8,7 @@
 import BoxBase from '../../base/ui/layout/BoxBase.vue'
 import type { SpaceToken } from '../../base/lib/props/space'
 import type { BoxRounded } from '../../base/lib/props/rounded'
+import type { BorderWeight } from '../../base/lib/props/border-weight'
 
 withDefaults(
   defineProps<{
@@ -26,7 +27,7 @@ withDefaults(
     grow?: boolean
     shrink?: boolean
     rounded?: BoxRounded
-    border?: boolean
+    border?: boolean | BorderWeight
   }>(),
   {
     as: 'div',

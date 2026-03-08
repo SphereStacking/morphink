@@ -15,7 +15,7 @@ const meta: Meta<typeof Box> = {
     grow: { control: 'boolean' },
     shrink: { control: 'boolean' },
     rounded: { control: 'select', options: ['none', 'sm', 'md', 'lg', 'xl', 'full'] },
-    border: { control: 'boolean' },
+    border: { control: 'select', options: [false, 'default', 'strong', 'heavy'] },
   },
 }
 

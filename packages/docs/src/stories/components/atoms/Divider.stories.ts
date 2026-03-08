@@ -7,9 +7,11 @@ const meta: Meta<typeof Divider> = {
   tags: ['autodocs'],
   argTypes: {
     vertical: { control: 'boolean' },
+    weight: { control: 'select', options: ['none', 'default', 'strong', 'heavy'] },
   },
   args: {
     vertical: false,
+    weight: 'default',
   },
 }
 
@@ -23,10 +25,10 @@ export const Default: Story = {
       return { args }
     },
     template: `
-      <Stack gap="md">
-        <Text>Content above</Text>
-        <Divider />
-        <Text muted>Content below</Text>
+      <Stack :direction="args.vertical ? 'row' : 'column'" :align="args.vertical ? 'center' : undefined" gap="md">
+        <Text>Section A</Text>
+        <Divider v-bind="args" />
+        <Text>Section B</Text>
       </Stack>
     `,
   }),
@@ -36,10 +38,32 @@ export const Vertical: Story = {
   render: () => ({
     components: { Divider, Stack, Text },
     template: `
-      <Stack direction="row" align="center" gap="lg">
-        <Text>Left</Text>
+      <Stack direction="row" align="center" gap="md">
+        <Text>Section A</Text>
         <Divider vertical />
-        <Text>Right</Text>
+        <Text>Section B</Text>
+      </Stack>
+    `,
+  }),
+}
+
+export const Weight: Story = {
+  render: () => ({
+    components: { Divider, Stack, Text },
+    template: `
+      <Stack direction="column" gap="lg">
+        <Stack direction="column" gap="sm">
+          <Text size="sm" color="muted">default (1px)</Text>
+          <Divider weight="default" />
+        </Stack>
+        <Stack direction="column" gap="sm">
+          <Text size="sm" color="muted">strong (2px)</Text>
+          <Divider weight="strong" />
+        </Stack>
+        <Stack direction="column" gap="sm">
+          <Text size="sm" color="muted">heavy (4px)</Text>
+          <Divider weight="heavy" />
+        </Stack>
       </Stack>
     `,
   }),

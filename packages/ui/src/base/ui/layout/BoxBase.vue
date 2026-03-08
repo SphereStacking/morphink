@@ -2,6 +2,7 @@
 import { computed, useAttrs } from 'vue'
 import type { SpaceToken } from '../../lib/props/space'
 import type { BoxRounded } from '../../lib/props/rounded'
+import type { BorderWeight } from '../../lib/props/border-weight'
 import { resolveSpace } from '../../lib/layout-utils'
 import { cn } from '../../lib/utils'
 
@@ -33,7 +34,7 @@ const props = withDefaults(
     grow?: boolean
     shrink?: boolean
     rounded?: BoxRounded
-    border?: boolean
+    border?: boolean | BorderWeight
   }>(),
   {
     as: 'div',
@@ -60,7 +61,8 @@ const boxStyle = computed(() => {
   if (!props.shrink) style.flexShrink = '0'
   if (props.rounded) style.borderRadius = roundedMap[props.rounded] ?? props.rounded
   if (props.border) {
-    style.borderWidth = '1px'
+    const weight = props.border === true ? 'default' : props.border
+    style.borderWidth = `var(--morphink-border-width-${weight})`
     style.borderStyle = 'solid'
     style.borderColor = 'var(--morphink-color-border)'
   }

@@ -72,9 +72,19 @@ describe('Box', () => {
   // ── border ───────────────────────────────────────
   it('border=true で border スタイルがセットされる', () => {
     const wrapper = mount(Box, { props: { border: true } })
-    expect(wrapper.element.style.borderWidth).toBe('1px')
+    expect(wrapper.element.style.borderWidth).toBe('var(--morphink-border-width-default)')
     expect(wrapper.element.style.borderStyle).toBe('solid')
     expect(wrapper.element.style.borderColor).toBe('var(--morphink-color-border)')
+  })
+
+  it('border="strong" で borderWidth が strong トークンを参照する', () => {
+    const wrapper = mount(Box, { props: { border: 'strong' } })
+    expect(wrapper.element.style.borderWidth).toBe('var(--morphink-border-width-strong)')
+  })
+
+  it('border="heavy" で borderWidth が heavy トークンを参照する', () => {
+    const wrapper = mount(Box, { props: { border: 'heavy' } })
+    expect(wrapper.element.style.borderWidth).toBe('var(--morphink-border-width-heavy)')
   })
 
   it('border=false（デフォルト）で border スタイルがない', () => {
