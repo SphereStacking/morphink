@@ -1,0 +1,9 @@
+{
+  "codeConnect": {
+    "parser": "vue",
+    "include": ["src/components/**/*.figma.ts"],
+    "importPaths": {
+      "@morphink/ui": "src/index.ts"
+    }
+  }
+}
