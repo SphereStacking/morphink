@@ -1,0 +1,64 @@
+{
+  "duration": {
+    "instant": {
+      "$value": "0ms",
+      "$type": "other"
+    },
+    "fast": {
+      "$value": "100ms",
+      "$type": "other"
+    },
+    "normal": {
+      "$value": "200ms",
+      "$type": "other"
+    },
+    "slow": {
+      "$value": "300ms",
+      "$type": "other"
+    },
+    "slower": {
+      "$value": "500ms",
+      "$type": "other"
+    }
+  },
+  "easing": {
+    "standard": {
+      "$value": "cubic-bezier(0.2, 0, 0, 1)",
+      "$type": "other"
+    },
+    "decelerate": {
+      "$value": "cubic-bezier(0, 0, 0, 1)",
+      "$type": "other"
+    },
+    "accelerate": {
+      "$value": "cubic-bezier(0.3, 0, 1, 1)",
+      "$type": "other"
+    },
+    "emphasized-decelerate": {
+      "$value": "cubic-bezier(0.05, 0.7, 0.1, 1)",
+      "$type": "other"
+    },
+    "emphasized-accelerate": {
+      "$value": "cubic-bezier(0.3, 0, 0.8, 0.15)",
+      "$type": "other"
+    },
+    "linear": {
+      "$value": "linear",
+      "$type": "other"
+    },
+    "spring": {
+      "$value": "linear(0, 0.006, 0.025, 0.058, 0.104, 0.162, 0.231, 0.31, 0.396, 0.489, 0.585, 0.683, 0.779, 0.87, 0.953, 1.026, 1.085, 1.131, 1.162, 1.178, 1.181, 1.172, 1.152, 1.122, 1.086, 1.045, 1.002, 0.96, 0.92, 0.886, 0.858, 0.838, 0.826, 0.821, 0.824, 0.832, 0.845, 0.861, 0.879, 0.898, 0.917, 0.935, 0.951, 0.964, 0.975, 0.983, 0.989, 0.993, 0.996, 0.998, 0.999, 1)",
+      "$type": "other"
+    }
+  },
+  "stagger": {
+    "item": {
+      "$value": "30",
+      "$type": "other"
+    },
+    "max-items": {
+      "$value": "8",
+      "$type": "other"
+    }
+  }
+}

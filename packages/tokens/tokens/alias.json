@@ -1,602 +1,540 @@
 {
   "color": {
     "primary-100": {
-      "value": "oklch(90.27% 0.0507 15.62)",
-      "type": "color"
+      "$value": "oklch(90.27% 0.0507 15.62)",
+      "$type": "color"
     },
     "primary-200": {
-      "value": "oklch(83.86% 0.0894 16.22)",
-      "type": "color"
+      "$value": "oklch(83.86% 0.0894 16.22)",
+      "$type": "color"
     },
     "primary-300": {
-      "value": "oklch(77.18% 0.1354 16.57)",
-      "type": "color"
+      "$value": "oklch(77.18% 0.1354 16.57)",
+      "$type": "color"
     },
     "primary-400": {
-      "value": "oklch(71.49% 0.1798 17.43)",
-      "type": "color"
+      "$value": "oklch(71.49% 0.1798 17.43)",
+      "$type": "color"
     },
     "primary-500": {
-      "value": "oklch(65.96% 0.2111 18.36)",
-      "type": "color"
+      "$value": "oklch(65.96% 0.2111 18.36)",
+      "$type": "color"
     },
     "primary-600": {
-      "value": "oklch(56.46% 0.2005 18.36)",
-      "type": "color"
+      "$value": "oklch(56.46% 0.2005 18.36)",
+      "$type": "color"
     },
     "primary-700": {
-      "value": "oklch(46.96% 0.1794 18.36)",
-      "type": "color"
+      "$value": "oklch(46.96% 0.1794 18.36)",
+      "$type": "color"
     },
     "primary-800": {
-      "value": "oklch(37.46% 0.1477 18.36)",
-      "type": "color"
+      "$value": "oklch(37.46% 0.1477 18.36)",
+      "$type": "color"
     },
     "primary-900": {
-      "value": "oklch(28.89% 0.1163 21.68)",
-      "type": "color"
+      "$value": "oklch(28.89% 0.1163 21.68)",
+      "$type": "color"
     },
     "secondary-100": {
-      "value": "oklch(83.47% 0.0839 254.19)",
-      "type": "color"
+      "$value": "oklch(83.47% 0.0839 254.19)",
+      "$type": "color"
     },
     "secondary-200": {
-      "value": "oklch(76.40% 0.1208 259.95)",
-      "type": "color"
+      "$value": "oklch(76.40% 0.1208 259.95)",
+      "$type": "color"
     },
     "secondary-300": {
-      "value": "oklch(69.15% 0.1618 261.89)",
-      "type": "color"
+      "$value": "oklch(69.15% 0.1618 261.89)",
+      "$type": "color"
     },
     "secondary-400": {
-      "value": "oklch(62.11% 0.1980 262.88)",
-      "type": "color"
+      "$value": "oklch(62.11% 0.1980 262.88)",
+      "$type": "color"
     },
     "secondary-500": {
-      "value": "oklch(54.61% 0.2152 262.88)",
-      "type": "color"
+      "$value": "oklch(54.61% 0.2152 262.88)",
+      "$type": "color"
     },
     "secondary-600": {
-      "value": "oklch(45.11% 0.2044 262.88)",
-      "type": "color"
+      "$value": "oklch(45.11% 0.2044 262.88)",
+      "$type": "color"
     },
     "secondary-700": {
-      "value": "oklch(35.65% 0.1826 263.16)",
-      "type": "color"
+      "$value": "oklch(35.65% 0.1826 263.16)",
+      "$type": "color"
     },
     "secondary-800": {
-      "value": "oklch(26.23% 0.1497 263.93)",
-      "type": "color"
+      "$value": "oklch(26.23% 0.1497 263.93)",
+      "$type": "color"
     },
     "secondary-900": {
-      "value": "oklch(17.62% 0.1221 264.05)",
-      "type": "color"
+      "$value": "oklch(17.62% 0.1221 264.05)",
+      "$type": "color"
     },
     "tertiary-100": {
-      "value": "oklch(95.77% 0.0610 188.48)",
-      "type": "color"
+      "$value": "oklch(95.77% 0.0610 188.48)",
+      "$type": "color"
     },
     "tertiary-200": {
-      "value": "oklch(90.34% 0.0800 182.50)",
-      "type": "color"
+      "$value": "oklch(90.34% 0.0800 182.50)",
+      "$type": "color"
     },
     "tertiary-300": {
-      "value": "oklch(83.69% 0.0984 182.50)",
-      "type": "color"
+      "$value": "oklch(83.69% 0.0984 182.50)",
+      "$type": "color"
     },
     "tertiary-400": {
-      "value": "oklch(77.03% 0.1132 182.50)",
-      "type": "color"
+      "$value": "oklch(77.03% 0.1132 182.50)",
+      "$type": "color"
     },
     "tertiary-500": {
-      "value": "oklch(70.38% 0.1230 182.50)",
-      "type": "color"
+      "$value": "oklch(70.38% 0.1230 182.50)",
+      "$type": "color"
     },
     "tertiary-600": {
-      "value": "oklch(61.25% 0.1098 181.89)",
-      "type": "color"
+      "$value": "oklch(61.25% 0.1098 181.89)",
+      "$type": "color"
     },
     "tertiary-700": {
-      "value": "oklch(51.96% 0.0934 181.39)",
-      "type": "color"
+      "$value": "oklch(51.96% 0.0934 181.39)",
+      "$type": "color"
     },
     "tertiary-800": {
-      "value": "oklch(42.39% 0.0763 181.30)",
-      "type": "color"
+      "$value": "oklch(42.39% 0.0763 181.30)",
+      "$type": "color"
     },
     "tertiary-900": {
-      "value": "oklch(33.09% 0.0599 180.40)",
-      "type": "color"
+      "$value": "oklch(33.09% 0.0599 180.40)",
+      "$type": "color"
     },
     "base-100": {
-      "value": "oklch(99.00% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(99.00% 0.0000 0.00)",
+      "$type": "color"
     },
     "base-200": {
-      "value": "oklch(97.50% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(97.50% 0.0000 0.00)",
+      "$type": "color"
     },
     "base-300": {
-      "value": "oklch(96.00% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(96.00% 0.0000 0.00)",
+      "$type": "color"
     },
     "base-400": {
-      "value": "oklch(94.00% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(94.00% 0.0000 0.00)",
+      "$type": "color"
     },
     "base-500": {
-      "value": "oklch(91.00% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(91.00% 0.0000 0.00)",
+      "$type": "color"
     },
     "base-600": {
-      "value": "oklch(90.00% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(90.00% 0.0000 0.00)",
+      "$type": "color"
     },
     "base-700": {
-      "value": "oklch(44.00% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(44.00% 0.0000 0.00)",
+      "$type": "color"
     },
     "base-800": {
-      "value": "oklch(30.00% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(30.00% 0.0000 0.00)",
+      "$type": "color"
     },
     "base-900": {
-      "value": "oklch(18.00% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(18.00% 0.0000 0.00)",
+      "$type": "color"
     },
     "accent-100": {
-      "value": "oklch(77.54% 0.1363 304.00)",
-      "type": "color"
+      "$value": "oklch(77.54% 0.1363 304.00)",
+      "$type": "color"
     },
     "accent-200": {
-      "value": "oklch(70.04% 0.1610 304.00)",
-      "type": "color"
+      "$value": "oklch(70.04% 0.1610 304.00)",
+      "$type": "color"
     },
     "accent-300": {
-      "value": "oklch(62.54% 0.1982 304.00)",
-      "type": "color"
+      "$value": "oklch(62.54% 0.1982 304.00)",
+      "$type": "color"
     },
     "accent-400": {
-      "value": "oklch(55.04% 0.2279 304.00)",
-      "type": "color"
+      "$value": "oklch(55.04% 0.2279 304.00)",
+      "$type": "color"
     },
     "accent-500": {
-      "value": "oklch(47.54% 0.2477 304.00)",
-      "type": "color"
+      "$value": "oklch(47.54% 0.2477 304.00)",
+      "$type": "color"
     },
     "accent-600": {
-      "value": "oklch(40.60% 0.2142 302.13)",
-      "type": "color"
+      "$value": "oklch(40.60% 0.2142 302.13)",
+      "$type": "color"
     },
     "accent-700": {
-      "value": "oklch(32.98% 0.1757 300.33)",
-      "type": "color"
+      "$value": "oklch(32.98% 0.1757 300.33)",
+      "$type": "color"
     },
     "accent-800": {
-      "value": "oklch(24.65% 0.1327 298.47)",
-      "type": "color"
+      "$value": "oklch(24.65% 0.1327 298.47)",
+      "$type": "color"
     },
     "accent-900": {
-      "value": "oklch(17.06% 0.0941 294.30)",
-      "type": "color"
+      "$value": "oklch(17.06% 0.0941 294.30)",
+      "$type": "color"
     },
     "success-100": {
-      "value": "oklch(92.71% 0.0935 149.21)",
-      "type": "color"
+      "$value": "oklch(92.71% 0.0935 149.21)",
+      "$type": "color"
     },
     "success-200": {
-      "value": "oklch(85.21% 0.1104 149.21)",
-      "type": "color"
+      "$value": "oklch(85.21% 0.1104 149.21)",
+      "$type": "color"
     },
     "success-300": {
-      "value": "oklch(77.71% 0.1359 149.21)",
-      "type": "color"
+      "$value": "oklch(77.71% 0.1359 149.21)",
+      "$type": "color"
     },
     "success-400": {
-      "value": "oklch(70.21% 0.1563 149.21)",
-      "type": "color"
+      "$value": "oklch(70.21% 0.1563 149.21)",
+      "$type": "color"
     },
     "success-500": {
-      "value": "oklch(62.71% 0.1699 149.21)",
-      "type": "color"
+      "$value": "oklch(62.71% 0.1699 149.21)",
+      "$type": "color"
     },
     "success-600": {
-      "value": "oklch(53.55% 0.1562 147.69)",
-      "type": "color"
+      "$value": "oklch(53.55% 0.1562 147.69)",
+      "$type": "color"
     },
     "success-700": {
-      "value": "oklch(44.32% 0.1351 146.08)",
-      "type": "color"
+      "$value": "oklch(44.32% 0.1351 146.08)",
+      "$type": "color"
     },
     "success-800": {
-      "value": "oklch(34.85% 0.1091 145.16)",
-      "type": "color"
+      "$value": "oklch(34.85% 0.1091 145.16)",
+      "$type": "color"
     },
     "success-900": {
-      "value": "oklch(25.61% 0.0871 142.50)",
-      "type": "color"
+      "$value": "oklch(25.61% 0.0871 142.50)",
+      "$type": "color"
     },
     "warning-100": {
-      "value": "oklch(94.32% 0.0758 91.18)",
-      "type": "color"
+      "$value": "oklch(94.32% 0.0758 91.18)",
+      "$type": "color"
     },
     "warning-200": {
-      "value": "oklch(90.09% 0.0957 81.09)",
-      "type": "color"
+      "$value": "oklch(90.09% 0.0957 81.09)",
+      "$type": "color"
     },
     "warning-300": {
-      "value": "oklch(85.66% 0.1242 75.49)",
-      "type": "color"
+      "$value": "oklch(85.66% 0.1242 75.49)",
+      "$type": "color"
     },
     "warning-400": {
-      "value": "oklch(81.62% 0.1499 71.01)",
-      "type": "color"
+      "$value": "oklch(81.62% 0.1499 71.01)",
+      "$type": "color"
     },
     "warning-500": {
-      "value": "oklch(76.86% 0.1647 70.08)",
-      "type": "color"
+      "$value": "oklch(76.86% 0.1647 70.08)",
+      "$type": "color"
     },
     "warning-600": {
-      "value": "oklch(67.46% 0.1487 67.35)",
-      "type": "color"
+      "$value": "oklch(67.46% 0.1487 67.35)",
+      "$type": "color"
     },
     "warning-700": {
-      "value": "oklch(58.00% 0.1294 65.71)",
-      "type": "color"
+      "$value": "oklch(58.00% 0.1294 65.71)",
+      "$type": "color"
     },
     "warning-800": {
-      "value": "oklch(48.46% 0.1076 66.31)",
-      "type": "color"
+      "$value": "oklch(48.46% 0.1076 66.31)",
+      "$type": "color"
     },
     "warning-900": {
-      "value": "oklch(39.00% 0.0884 63.66)",
-      "type": "color"
+      "$value": "oklch(39.00% 0.0884 63.66)",
+      "$type": "color"
     },
     "info-100": {
-      "value": "oklch(95.72% 0.0608 197.12)",
-      "type": "color"
+      "$value": "oklch(95.72% 0.0608 197.12)",
+      "$type": "color"
     },
     "info-200": {
-      "value": "oklch(89.03% 0.0784 220.11)",
-      "type": "color"
+      "$value": "oklch(89.03% 0.0784 220.11)",
+      "$type": "color"
     },
     "info-300": {
-      "value": "oklch(82.28% 0.1085 231.53)",
-      "type": "color"
+      "$value": "oklch(82.28% 0.1085 231.53)",
+      "$type": "color"
     },
     "info-400": {
-      "value": "oklch(75.60% 0.1360 237.32)",
-      "type": "color"
+      "$value": "oklch(75.60% 0.1360 237.32)",
+      "$type": "color"
     },
     "info-500": {
-      "value": "oklch(68.47% 0.1479 237.32)",
-      "type": "color"
+      "$value": "oklch(68.47% 0.1479 237.32)",
+      "$type": "color"
     },
     "info-600": {
-      "value": "oklch(59.35% 0.1350 239.59)",
-      "type": "color"
+      "$value": "oklch(59.35% 0.1350 239.59)",
+      "$type": "color"
     },
     "info-700": {
-      "value": "oklch(50.05% 0.1174 241.36)",
-      "type": "color"
+      "$value": "oklch(50.05% 0.1174 241.36)",
+      "$type": "color"
     },
     "info-800": {
-      "value": "oklch(40.50% 0.0959 241.88)",
-      "type": "color"
+      "$value": "oklch(40.50% 0.0959 241.88)",
+      "$type": "color"
     },
     "info-900": {
-      "value": "oklch(31.18% 0.0786 245.04)",
-      "type": "color"
+      "$value": "oklch(31.18% 0.0786 245.04)",
+      "$type": "color"
     },
     "destructive-100": {
-      "value": "oklch(84.57% 0.0848 29.93)",
-      "type": "color"
+      "$value": "oklch(84.57% 0.0848 29.93)",
+      "$type": "color"
     },
     "destructive-200": {
-      "value": "oklch(78.59% 0.1244 27.91)",
-      "type": "color"
+      "$value": "oklch(78.59% 0.1244 27.91)",
+      "$type": "color"
     },
     "destructive-300": {
-      "value": "oklch(72.49% 0.1704 27.34)",
-      "type": "color"
+      "$value": "oklch(72.49% 0.1704 27.34)",
+      "$type": "color"
     },
     "destructive-400": {
-      "value": "oklch(65.21% 0.1979 27.33)",
-      "type": "color"
+      "$value": "oklch(65.21% 0.1979 27.33)",
+      "$type": "color"
     },
     "destructive-500": {
-      "value": "oklch(57.71% 0.2152 27.33)",
-      "type": "color"
+      "$value": "oklch(57.71% 0.2152 27.33)",
+      "$type": "color"
     },
     "destructive-600": {
-      "value": "oklch(48.72% 0.1994 28.45)",
-      "type": "color"
+      "$value": "oklch(48.72% 0.1994 28.45)",
+      "$type": "color"
     },
     "destructive-700": {
-      "value": "oklch(40.39% 0.1658 29.23)",
-      "type": "color"
+      "$value": "oklch(40.39% 0.1658 29.23)",
+      "$type": "color"
     },
     "destructive-800": {
-      "value": "oklch(31.33% 0.1286 29.23)",
-      "type": "color"
+      "$value": "oklch(31.33% 0.1286 29.23)",
+      "$type": "color"
     },
     "destructive-900": {
-      "value": "oklch(22.90% 0.0940 29.23)",
-      "type": "color"
+      "$value": "oklch(22.90% 0.0940 29.23)",
+      "$type": "color"
     },
     "black": {
-      "value": "oklch(0.00% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(0.00% 0.0000 0.00)",
+      "$type": "color"
     },
     "gray-900": {
-      "value": "oklch(16.60% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(16.60% 0.0000 0.00)",
+      "$type": "color"
     },
     "gray-600": {
-      "value": "oklch(50.44% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(50.44% 0.0000 0.00)",
+      "$type": "color"
     },
     "gray-700": {
-      "value": "oklch(37.54% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(37.54% 0.0000 0.00)",
+      "$type": "color"
     },
     "gray-800": {
-      "value": "oklch(24.08% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(24.08% 0.0000 0.00)",
+      "$type": "color"
     },
     "gray-300": {
-      "value": "oklch(83.69% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(83.69% 0.0000 0.00)",
+      "$type": "color"
     },
     "gray-400": {
-      "value": "oklch(73.89% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(73.89% 0.0000 0.00)",
+      "$type": "color"
     },
     "gray-500": {
-      "value": "oklch(62.80% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(62.80% 0.0000 0.00)",
+      "$type": "color"
     },
     "gray-200": {
-      "value": "oklch(95.24% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(95.24% 0.0000 0.00)",
+      "$type": "color"
     },
     "gray-100": {
-      "value": "oklch(97.02% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(97.02% 0.0000 0.00)",
+      "$type": "color"
     },
     "white": {
-      "value": "oklch(100.00% 0.0000 0.00)",
-      "type": "color"
+      "$value": "oklch(100.00% 0.0000 0.00)",
+      "$type": "color"
     }
   },
   "space": {
     "4": {
-      "value": "4px",
-      "type": "dimension"
+      "$value": "4px",
+      "$type": "dimension"
     },
     "8": {
-      "value": "8px",
-      "type": "dimension"
+      "$value": "8px",
+      "$type": "dimension"
     },
     "12": {
-      "value": "12px",
-      "type": "dimension"
+      "$value": "12px",
+      "$type": "dimension"
     },
     "16": {
-      "value": "16px",
-      "type": "dimension"
+      "$value": "16px",
+      "$type": "dimension"
     },
     "20": {
-      "value": "20px",
-      "type": "dimension"
+      "$value": "20px",
+      "$type": "dimension"
     },
     "24": {
-      "value": "24px",
-      "type": "dimension"
+      "$value": "24px",
+      "$type": "dimension"
     },
     "28": {
-      "value": "28px",
-      "type": "dimension"
+      "$value": "28px",
+      "$type": "dimension"
     },
     "32": {
-      "value": "32px",
-      "type": "dimension"
+      "$value": "32px",
+      "$type": "dimension"
     },
     "40": {
-      "value": "40px",
-      "type": "dimension"
+      "$value": "40px",
+      "$type": "dimension"
     },
     "48": {
-      "value": "48px",
-      "type": "dimension"
+      "$value": "48px",
+      "$type": "dimension"
     },
     "56": {
-      "value": "56px",
-      "type": "dimension"
+      "$value": "56px",
+      "$type": "dimension"
     },
     "64": {
-      "value": "64px",
-      "type": "dimension"
+      "$value": "64px",
+      "$type": "dimension"
     },
     "80": {
-      "value": "80px",
-      "type": "dimension"
+      "$value": "80px",
+      "$type": "dimension"
     }
   },
   "radius": {
     "0": {
-      "value": "0px",
-      "type": "dimension"
+      "$value": "0px",
+      "$type": "dimension"
     },
     "2": {
-      "value": "2px",
-      "type": "dimension"
+      "$value": "2px",
+      "$type": "dimension"
     },
     "4": {
-      "value": "4px",
-      "type": "dimension"
+      "$value": "4px",
+      "$type": "dimension"
     },
     "8": {
-      "value": "8px",
-      "type": "dimension"
+      "$value": "8px",
+      "$type": "dimension"
     },
     "12": {
-      "value": "12px",
-      "type": "dimension"
+      "$value": "12px",
+      "$type": "dimension"
     },
     "16": {
-      "value": "16px",
-      "type": "dimension"
+      "$value": "16px",
+      "$type": "dimension"
     }
   },
   "font": {
     "size": {
       "11": {
-        "value": "11px",
-        "type": "fontSizes"
+        "$value": "11px",
+        "$type": "fontSizes"
       },
       "12": {
-        "value": "12px",
-        "type": "fontSizes"
+        "$value": "12px",
+        "$type": "fontSizes"
       },
       "14": {
-        "value": "14px",
-        "type": "fontSizes"
+        "$value": "14px",
+        "$type": "fontSizes"
       },
       "16": {
-        "value": "16px",
-        "type": "fontSizes"
+        "$value": "16px",
+        "$type": "fontSizes"
       },
       "18": {
-        "value": "18px",
-        "type": "fontSizes"
+        "$value": "18px",
+        "$type": "fontSizes"
       },
       "20": {
-        "value": "20px",
-        "type": "fontSizes"
+        "$value": "20px",
+        "$type": "fontSizes"
       },
       "24": {
-        "value": "24px",
-        "type": "fontSizes"
+        "$value": "24px",
+        "$type": "fontSizes"
       },
       "28": {
-        "value": "28px",
-        "type": "fontSizes"
+        "$value": "28px",
+        "$type": "fontSizes"
       }
     },
     "lineHeight": {
       "tight": {
-        "value": "1.2",
-        "type": "lineHeights"
+        "$value": "1.2",
+        "$type": "lineHeights"
       },
       "normal": {
-        "value": "1.4",
-        "type": "lineHeights"
+        "$value": "1.4",
+        "$type": "lineHeights"
       },
       "relaxed": {
-        "value": "1.6",
-        "type": "lineHeights"
+        "$value": "1.6",
+        "$type": "lineHeights"
       }
     }
   },
   "opacity": {
     "40": {
-      "value": "0.4",
-      "type": "opacity"
+      "$value": "0.4",
+      "$type": "opacity"
     },
     "60": {
-      "value": "0.6",
-      "type": "opacity"
+      "$value": "0.6",
+      "$type": "opacity"
     },
     "80": {
-      "value": "0.8",
-      "type": "opacity"
+      "$value": "0.8",
+      "$type": "opacity"
     },
     "100": {
-      "value": "1",
-      "type": "opacity"
+      "$value": "1",
+      "$type": "opacity"
     }
   },
   "border": {
     "width": {
       "0": {
-        "value": "0px",
-        "type": "dimension"
+        "$value": "0px",
+        "$type": "dimension"
       },
       "1": {
-        "value": "1px",
-        "type": "dimension"
+        "$value": "1px",
+        "$type": "dimension"
       },
       "2": {
-        "value": "2px",
-        "type": "dimension"
+        "$value": "2px",
+        "$type": "dimension"
       },
       "4": {
-        "value": "4px",
-        "type": "dimension"
+        "$value": "4px",
+        "$type": "dimension"
       }
-    }
-  },
-  "duration": {
-    "instant": {
-      "value": "0ms",
-      "type": "other"
-    },
-    "fast": {
-      "value": "100ms",
-      "type": "other"
-    },
-    "normal": {
-      "value": "200ms",
-      "type": "other"
-    },
-    "slow": {
-      "value": "300ms",
-      "type": "other"
-    },
-    "slower": {
-      "value": "500ms",
-      "type": "other"
-    }
-  },
-  "easing": {
-    "standard": {
-      "value": "cubic-bezier(0.2, 0, 0, 1)",
-      "type": "other"
-    },
-    "decelerate": {
-      "value": "cubic-bezier(0, 0, 0, 1)",
-      "type": "other"
-    },
-    "accelerate": {
-      "value": "cubic-bezier(0.3, 0, 1, 1)",
-      "type": "other"
-    },
-    "emphasized-decelerate": {
-      "value": "cubic-bezier(0.05, 0.7, 0.1, 1)",
-      "type": "other"
-    },
-    "emphasized-accelerate": {
-      "value": "cubic-bezier(0.3, 0, 0.8, 0.15)",
-      "type": "other"
-    },
-    "linear": {
-      "value": "linear",
-      "type": "other"
-    },
-    "spring": {
-      "value": "linear(0, 0.006, 0.025, 0.058, 0.104, 0.162, 0.231, 0.31, 0.396, 0.489, 0.585, 0.683, 0.779, 0.87, 0.953, 1.026, 1.085, 1.131, 1.162, 1.178, 1.181, 1.172, 1.152, 1.122, 1.086, 1.045, 1.002, 0.96, 0.92, 0.886, 0.858, 0.838, 0.826, 0.821, 0.824, 0.832, 0.845, 0.861, 0.879, 0.898, 0.917, 0.935, 0.951, 0.964, 0.975, 0.983, 0.989, 0.993, 0.996, 0.998, 0.999, 1)",
-      "type": "other"
-    }
-  },
-  "stagger": {
-    "item": {
-      "value": "30",
-      "type": "other"
-    },
-    "max-items": {
-      "value": "8",
-      "type": "other"
     }
   }
 }

@@ -4,6 +4,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { register } from '@tokens-studio/sd-transforms'
+import { formatCss, oklch, parse } from 'culori'
 import StyleDictionary from 'style-dictionary'
 
 import config from './style-dictionary.config.mjs'
@@ -31,18 +32,42 @@ StyleDictionary.registerTransform({
   },
 })
 
+StyleDictionary.registerTransform({
+  name: 'value/to-oklch',
+  type: 'value',
+  transitive: true,
+  filter: (token) => {
+    const type = token.$type ?? token.type
+    return type === 'color'
+  },
+  transform: (token) => {
+    const value = token.$value ?? token.value
+    if (typeof value !== 'string') return value
+    // Skip values that are already in oklch() format or are CSS variable references
+    if (/^oklch\(/i.test(value.trim()) || value.includes('var(--')) return value
+    // Attempt hex (or any parseable color) → OKLCH conversion
+    const parsed = parse(value)
+    if (!parsed) return value
+    const ok = oklch(parsed)
+    if (!ok) return value
+    if (ok.h === undefined || Number.isNaN(ok.h)) ok.h = 0
+    return formatCss(ok)
+  },
+})
+
 const tokensStudioTransforms = StyleDictionary.hooks?.transformGroups?.['tokens-studio'] ?? []
 
 StyleDictionary.registerTransformGroup({
   name: 'tokens-studio-kebab',
-  transforms: [...tokensStudioTransforms, 'name/kebab-no-base'],
+  transforms: [...tokensStudioTransforms, 'value/to-oklch', 'name/kebab-no-base'],
 })
 
 StyleDictionary.registerFormat({
   name: 'css/variables-dark',
-  format: ({ dictionary }) => {
+  format: ({ dictionary, options }) => {
     const sourceTokens = dictionary.allTokens.filter((t) => t.isSource)
-    const lines = sourceTokens.map((token) => `  --${token.name}: ${token.value};`)
+    const getValue = (token) => (options.usesDtcg ? token.$value : token.value)
+    const lines = sourceTokens.map((token) => `  --${token.name}: ${getValue(token)};`)
     return `/**\n * Do not edit directly, this file was auto-generated.\n */\n\n.mi-theme[data-theme="dark"] {\n${lines.join('\n')}\n}\n`
   },
 })
@@ -100,7 +125,7 @@ const sd = new StyleDictionary(config)
 await sd.buildAllPlatforms()
 
 const darkConfig = {
-  include: [join(__dirname, 'tokens/alias.json')],
+  include: [join(__dirname, 'tokens/alias.json'), join(__dirname, 'tokens/motion.json')],
   source: [join(__dirname, 'tokens/semantic-dark.json')],
   platforms: {
     css: {

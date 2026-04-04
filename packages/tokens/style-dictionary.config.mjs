@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const config = {
-  include: [join(__dirname, 'tokens/alias.json')],
+  include: [join(__dirname, 'tokens/alias.json'), join(__dirname, 'tokens/motion.json')],
   source: [join(__dirname, 'tokens/semantic.json')],
   platforms: {
     css: {
