@@ -16,6 +16,9 @@ export const componentRounded = {
   Alert: ['none', 'sm', 'md', 'lg', 'xl'],
   Avatar: ['none', 'sm', 'md', 'lg', 'xl', 'full'],
   Box: ['none', 'sm', 'md', 'lg', 'xl', 'full'],
+  Progress: ['none', 'sm', 'md', 'lg', 'xl', 'full'],
+  Pagination: ['none', 'sm', 'md', 'lg', 'xl', 'full'],
+  Sheet: ['none', 'sm', 'md', 'lg', 'xl'],
 } as const
 
 export type ButtonRounded = (typeof componentRounded.Button)[number]
@@ -35,3 +38,6 @@ export type CheckboxRounded = (typeof componentRounded.Checkbox)[number]
 export type AlertRounded = (typeof componentRounded.Alert)[number]
 export type AvatarRounded = (typeof componentRounded.Avatar)[number]
 export type BoxRounded = (typeof componentRounded.Box)[number]
+export type ProgressRounded = (typeof componentRounded.Progress)[number]
+export type PaginationRounded = (typeof componentRounded.Pagination)[number]
+export type SheetRounded = (typeof componentRounded.Sheet)[number]

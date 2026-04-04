@@ -7,6 +7,7 @@ export { default as CheckboxGroup } from './components/atoms/CheckboxGroup.vue'
 export { default as RadioGroup } from './components/atoms/RadioGroup.vue'
 export { default as Radio } from './components/atoms/Radio.vue'
 export { default as Switch } from './components/atoms/Switch.vue'
+export { default as Slider } from './components/atoms/Slider.vue'
 
 // ─── Atoms: Display ───
 export { default as Text } from './components/atoms/Text.vue'
@@ -24,6 +25,7 @@ export { default as Grid } from './components/atoms/Grid.vue'
 export { default as Alert } from './components/atoms/Alert.vue'
 export { default as AlertTitle } from './components/atoms/AlertTitle.vue'
 export { default as AlertDescription } from './components/atoms/AlertDescription.vue'
+export { default as Progress } from './components/atoms/Progress.vue'
 
 // ─── Atoms: Container ───
 export { default as Panel } from './components/atoms/Panel.vue'
@@ -55,6 +57,7 @@ export { default as DropdownSubContent } from './components/molecules/DropdownSu
 // ─── Molecules: Overlay ───
 export { default as Dialog } from './components/molecules/Dialog.vue'
 export { default as AlertDialog } from './components/molecules/AlertDialog.vue'
+export { default as Sheet } from './components/molecules/Sheet.vue'
 export { default as Select } from './components/molecules/Select.vue'
 export { default as Popover } from './components/molecules/Popover.vue'
 export { default as Tooltip } from './components/molecules/Tooltip.vue'
@@ -63,14 +66,21 @@ export { default as Tooltip } from './components/molecules/Tooltip.vue'
 export { default as Nav } from './components/molecules/Nav.vue'
 export { default as NavItem } from './components/molecules/NavItem.vue'
 export { default as Breadcrumb } from './components/molecules/Breadcrumb.vue'
+export { default as Pagination } from './components/molecules/Pagination.vue'
 
 // ─── Molecules: Data ───
+export { default as Accordion } from './components/molecules/Accordion.vue'
+export { default as AccordionItem } from './components/molecules/AccordionItem.vue'
 export { default as Tabs } from './components/molecules/Tabs.vue'
 export { default as Table } from './components/molecules/Table.vue'
 
 // ─── Molecules: Form ───
 export { default as FormField } from './components/molecules/FormField.vue'
 export { default as FormFieldCheckbox } from './components/molecules/FormFieldCheckbox.vue'
+
+// ─── Molecules: Feedback ───
+export { default as Toast } from './components/molecules/Toast.vue'
+export { default as Toaster } from './components/molecules/Toaster.vue'
 
 // ─── Molecules: Composite ───
 export { default as SectionHeader } from './components/molecules/SectionHeader.vue'
@@ -90,7 +100,11 @@ export { default as SettingsSection } from './components/organisms/SettingsSecti
 // ─── Icons (internal, available for customization) ───
 export {
   IconCheck,
+  IconChevronDown,
+  IconChevronLeft,
   IconChevronRight,
+  IconChevronsLeft,
+  IconChevronsRight,
   IconCircle,
   IconClose,
   IconMinus,
@@ -106,6 +120,9 @@ export {
   componentShadow,
   componentResize,
 } from './base/lib/props'
+
+export { useToast } from './composables/useToast'
+export type { ToastItem } from './composables/useToast'
 
 export type { SpaceToken } from './base/lib/props/space'
 export { spaceTokenMap, resolveSpace } from './base/lib/props/space'

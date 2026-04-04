@@ -168,6 +168,19 @@ body {
   }
 }
 
+/* Sheet: slide in/out from side */
+@keyframes mi-sheet-in {
+  from {
+    translate: var(--mi-sheet-translate);
+  }
+}
+
+@keyframes mi-sheet-out {
+  to {
+    translate: var(--mi-sheet-translate);
+  }
+}
+
 /* Input error: shake feedback */
 @keyframes mi-shake {
   0%,
@@ -191,6 +204,31 @@ body {
   }
   to {
     transform: scale(1);
+  }
+}
+
+/* Progress: indeterminate bar sweep */
+@keyframes mi-progress-indeterminate {
+  0% {
+    translate: -100% 0;
+  }
+  100% {
+    translate: 200% 0;
+  }
+}
+
+/* Toast: slide in/out */
+@keyframes mi-toast-in {
+  from {
+    translate: var(--mi-toast-translate, 100% 0);
+    opacity: 0;
+  }
+}
+
+@keyframes mi-toast-out {
+  to {
+    translate: var(--mi-toast-translate, 100% 0);
+    opacity: 0;
   }
 }
 

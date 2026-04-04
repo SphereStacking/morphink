@@ -16,6 +16,9 @@ export const componentVariants = {
   Tabs: ['pill', 'underline'],
   Alert: ['solid', 'soft', 'outline'],
   Radio: ['outline', 'solid', 'ghost', 'soft'],
+  Accordion: ['outline', 'ghost', 'soft'],
+  Pagination: ['outline', 'ghost', 'soft'],
+  Toast: ['solid', 'soft', 'outline'],
 } as const
 
 export type ButtonVariant = (typeof componentVariants.Button)[number]
@@ -32,3 +35,6 @@ export type NavVariant = (typeof componentVariants.Nav)[number]
 export type TabsVariant = (typeof componentVariants.Tabs)[number]
 export type AlertVariant = (typeof componentVariants.Alert)[number]
 export type RadioVariant = (typeof componentVariants.Radio)[number]
+export type AccordionVariant = (typeof componentVariants.Accordion)[number]
+export type PaginationVariant = (typeof componentVariants.Pagination)[number]
+export type ToastVariant = (typeof componentVariants.Toast)[number]

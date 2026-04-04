@@ -19,6 +19,11 @@ export const componentSizes = {
   Avatar: ['xs', 'sm', 'md', 'lg', 'xl'],
   Radio: ['xs', 'sm', 'md', 'lg', 'xl'],
   SearchInput: ['xs', 'sm', 'md', 'lg', 'xl'],
+  Progress: ['xs', 'sm', 'md', 'lg', 'xl'],
+  Slider: ['xs', 'sm', 'md', 'lg', 'xl'],
+  Accordion: ['xs', 'sm', 'md', 'lg', 'xl'],
+  Pagination: ['xs', 'sm', 'md', 'lg', 'xl'],
+  Sheet: ['xs', 'sm', 'md', 'lg', 'xl'],
 } as const
 
 export type BadgeSize = (typeof componentSizes.Badge)[number]
@@ -38,3 +43,8 @@ export type SectionHeaderSize = (typeof componentSizes.SectionHeader)[number]
 export type AvatarSize = (typeof componentSizes.Avatar)[number]
 export type RadioSize = (typeof componentSizes.Radio)[number]
 export type SearchInputSize = (typeof componentSizes.SearchInput)[number]
+export type ProgressSize = (typeof componentSizes.Progress)[number]
+export type SliderSize = (typeof componentSizes.Slider)[number]
+export type AccordionSize = (typeof componentSizes.Accordion)[number]
+export type PaginationSize = (typeof componentSizes.Pagination)[number]
+export type SheetSize = (typeof componentSizes.Sheet)[number]
