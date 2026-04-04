@@ -102,12 +102,17 @@ const badgeVariants = cva(cn('inline-flex items-center font-semibold'), {
     {
       tone: 'neutral',
       variant: 'outline',
-      class: 'border-(color:--badge-accent)',
+      class: 'border-(color:--badge-accent) [--badge-accent:var(--morphink-color-foreground)]',
+    },
+    {
+      tone: 'neutral',
+      variant: 'ghost',
+      class: '[--badge-accent:var(--morphink-color-foreground)]',
     },
     {
       tone: 'neutral',
       variant: 'soft',
-      class: 'bg-(--morphink-color-muted)',
+      class: 'bg-(--morphink-color-muted) [--badge-accent:var(--morphink-color-foreground)]',
     },
   ],
   defaultVariants: {

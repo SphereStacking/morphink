@@ -128,7 +128,12 @@ const buttonVariants = cva(
       {
         tone: 'neutral',
         variant: 'outline',
-        class: 'border-(color:--btn-accent)',
+        class: 'border-(color:--btn-accent) [--btn-accent:var(--morphink-color-foreground)]',
+      },
+      {
+        tone: 'neutral',
+        variant: 'ghost',
+        class: '[--btn-accent:var(--morphink-color-foreground)]',
       },
       {
         tone: 'base',
@@ -143,7 +148,7 @@ const buttonVariants = cva(
         tone: 'neutral',
         variant: 'soft',
         class: cn(
-          'bg-(--morphink-color-muted)',
+          'bg-(--morphink-color-muted) [--btn-accent:var(--morphink-color-foreground)]',
           'hover:bg-[color-mix(in_srgb,var(--btn-hover)_16%,var(--morphink-color-muted))]',
           'active:bg-[color-mix(in_srgb,var(--btn-active)_24%,var(--morphink-color-muted))]'
         ),

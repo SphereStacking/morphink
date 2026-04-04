@@ -65,7 +65,12 @@ const alertVariants = cva(
       {
         tone: 'neutral',
         variant: 'soft',
-        class: 'bg-(--morphink-color-muted)',
+        class: 'bg-(--morphink-color-muted) [--alert-accent:var(--morphink-color-foreground)]',
+      },
+      {
+        tone: 'neutral',
+        variant: 'outline',
+        class: '[--alert-accent:var(--morphink-color-foreground)]',
       },
     ],
     defaultVariants: {
