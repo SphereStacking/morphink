@@ -62,6 +62,8 @@ devDependencies:
 npm install -D style-dictionary @tokens-studio/sd-transforms @tailwindcss/cli tailwindcss
 ```
 
+> 注: `@tokens-studio/sd-transforms` は Style Dictionary の transform group として使用しており、Tokens Studio との連携ではありません。
+
 dependencies:
 
 ```bash

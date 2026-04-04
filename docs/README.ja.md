@@ -39,7 +39,7 @@ Storybook: `http://localhost:6006/`
 | 技術 | 役割 |
 |-----|------|
 | [Reka UI](https://reka-ui.com/) | ヘッドレス a11y プリミティブ（Dialog, Select, Dropdown, Tabs 等） |
-| [Tokens Studio](https://tokens.studio/) + [Style Dictionary](https://amzn.github.io/style-dictionary/) | デザインツールからコードへのトークンパイプライン |
+| Figma Variables + [Style Dictionary](https://amzn.github.io/style-dictionary/) | トークンパイプライン — Figma ネイティブ変数をカスタムプラグインで DTCG 形式出力 |
 | [Tailwind CSS v4](https://tailwindcss.com/) | ユーティリティファースト CSS、`ui.css` にコンパイル（内部実装） |
 | [CVA](https://cva.style/) | スタイルバリアント定義（class-variance-authority） |
 | [Storybook](https://storybook.js.org/) | コンポーネントカタログ、トークン可視化、デザインガイドライン |

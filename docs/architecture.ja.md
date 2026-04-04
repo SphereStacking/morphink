@@ -28,8 +28,9 @@ Public 層がいま薄いラッパーなのは意図的。プロダクトレベ�
 ## トークンパイプライン
 
 ```
-Tokens Studio
-  → packages/tokens/tokens/*.json (primitives / semantic / semantic-dark)
+Figma Variables
+  → カスタム Figma プラグイン（DTCG JSON エクスポート）
+  → packages/tokens/tokens/*.json (primitives / semantic / semantic-dark / motion)
   → Style Dictionary (ビルド)
   → packages/tokens/dist (css / json / ts)
   → packages/ui/src/styles/tokens.css（CSS 変数として import）
@@ -76,9 +77,9 @@ packages/
 |------|---|------|
 | `variant` | `solid`, `outline`, `ghost`, `soft`, `subtle`, `elevated` | コンポーネントごとにサブセット |
 | `size` | `xs`, `sm`, `md`, `lg`, `xl` | コンポーネントごとにサブセット |
-| `tone` | `primary`, `secondary`, `tertiary`, `base`, `accent`, `neutral`, `success`, `warning`, `info`, `destructive` | Alert はサブセット |
+| `tone` | `primary`, `secondary`, `tertiary`, `base`, `accent`, `neutral`, `success`, `warning`, `info`, `destructive` | Alert と Toast はサブセット |
 | `rounded` | `none`, `sm`, `md`, `lg`, `xl`, `full` | Button/Badge/Avatar は `full` を含む |
-| `shadow` | `none`, `sm`, `md`, `lg` | Card, Panel, Dialog 等に適用 |
+| `shadow` | `none`, `sm`, `md`, `lg` | Card, Panel, Dialog, Sheet 等に適用 |
 
 ### コンポーネント固有のバリアント
 
@@ -88,6 +89,9 @@ packages/
 - **Tabs**: `pill`, `underline`
 - **Nav**: `subtle`, `solid`
 - **Toolbar**: `solid`, `subtle`
+- **Accordion**: `outline`, `ghost`, `soft`
+- **Pagination**: `outline`, `ghost`, `soft`
+- **Toast**: `solid`, `soft`, `outline`
 
 ## レイアウトコンポーネント
 
@@ -138,10 +142,11 @@ Props: `direction`, `gap`, `align`, `justify`, `wrap`, `grow`, `padding`, `paddi
 
 ### Compound Component
 
-Card と Dropdown はサブコンポーネントを持つ compound component パターンを使用:
+Card、Dropdown、Accordion はサブコンポーネントを持つ compound component パターンを使用:
 
 - **Card**: `CardHeader` / `CardBody` / `CardFooter` / `CardTitle` / `CardDescription` / `CardMedia`
 - **Dropdown**: 12 サブコンポーネント（`DropdownTrigger`, `DropdownContent`, `DropdownItem`, `DropdownSeparator` 等）+ `provide`/`inject` によるサイズコンテキスト伝播
+- **Accordion**: `AccordionItem` サブコンポーネント + `provide`/`inject` によるサイズ・バリアントコンテキスト伝播（`accordionContext.ts`）
 
 ```vue
 <Card variant="elevated" rounded="lg">
@@ -191,6 +196,22 @@ const forwarded = useForwardPropsEmits(props, emit)
 
 **このパターンが必要:** Root/Sub（`open`）、RadioGroup/CheckboxGroup（`modelValue`）
 **不要:** Trigger, Content, Item, Separator（状態管理 props なし）
+
+#### Public 層の `open: undefined` デフォルト
+
+Vue 3 は Boolean 型の optional prop にデフォルト値を指定しない場合 `false` に型強制する。これにより Public 層から Base 層へ `open: false` が渡り、Reka UI が controlled モードに入って uncontrolled 動作が壊れる。
+
+Public 層で `open?: boolean` を持つコンポーネントは `withDefaults` で `open: undefined` を明示する:
+
+```vue
+withDefaults(
+  defineProps<{ open?: boolean; defaultOpen?: boolean }>(),
+  { open: undefined, defaultOpen: undefined }
+)
+```
+
+`open` + `defaultOpen` 両方: Collapsible, Dialog, Sheet, AlertDialog, Dropdown, DropdownSub
+`open` のみ: Popover, Tooltip
 
 ## CSS 変数命名規則
 

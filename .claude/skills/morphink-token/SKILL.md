@@ -3,7 +3,7 @@ name: morphink-token
 description: >
   morphink デザイントークンシステムの操作ガイド。
   新規トークン追加、トークンビルド、CSS 変数の参照方法、ダークテーマ対応時に使用。
-  Style Dictionary + Tokens Studio パイプライン、mi:* ユーティリティ生成をカバー。
+  Style Dictionary + Figma Variables パイプライン、mi:* ユーティリティ生成をカバー。
   「トークン追加」「CSS 変数」「ダークテーマ」「tokens build」「mi:ユーティリティ」等でトリガー。
 ---
 
@@ -12,7 +12,7 @@ description: >
 ## パイプライン概要
 
 ```
-Tokens Studio JSON → Style Dictionary → CSS/JSON/TS → Tailwind テーマ → UI コンポーネント
+Figma Variables → カスタムプラグイン（DTCG JSON）→ Style Dictionary → CSS/JSON/TS → Tailwind テーマ → UI コンポーネント
 ```
 
 ### ソースファイル
@@ -51,8 +51,8 @@ pnpm --filter @morphink/tokens build
 {
   "color": {
     "new-category": {
-      "base": { "value": "{color.primary-500}", "type": "color" },
-      "foreground": { "value": "{color.primary-50}", "type": "color" }
+      "base": { "$value": "{color.primary-500}", "$type": "color" },
+      "foreground": { "$value": "{color.primary-50}", "$type": "color" }
     }
   }
 }
@@ -66,7 +66,7 @@ pnpm --filter @morphink/tokens build
 {
   "color": {
     "new-category": {
-      "base": { "value": "{color.primary-400}", "type": "color" }
+      "base": { "$value": "{color.primary-400}", "$type": "color" }
     }
   }
 }
@@ -79,10 +79,10 @@ pnpm --filter @morphink/tokens build
 ```json
 {
   "color": {
-    "new-scale-500": { "value": "oklch(55% 0.15 250)", "type": "color" }
+    "new-scale-500": { "$value": "oklch(55% 0.15 250)", "$type": "color" }
   },
   "duration": {
-    "new-speed": { "value": "150", "type": "duration" }
+    "new-speed": { "$value": "150", "$type": "duration" }
   }
 }
 ```

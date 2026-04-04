@@ -52,6 +52,8 @@ Add the required packages to your root `package.json`:
 npm install -D style-dictionary @tokens-studio/sd-transforms @tailwindcss/cli tailwindcss
 ```
 
+> Note: `@tokens-studio/sd-transforms` is used as a Style Dictionary transform group, not as a Tokens Studio integration.
+
 **dependencies:**
 
 ```bash

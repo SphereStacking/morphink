@@ -28,8 +28,9 @@ The Public layer is currently a thin wrapper — this is intentional. It is desi
 ## Token Pipeline
 
 ```
-Tokens Studio
-  → packages/tokens/tokens/*.json (primitives / semantic / semantic-dark)
+Figma Variables
+  → Custom Figma Plugin (DTCG JSON export)
+  → packages/tokens/tokens/*.json (primitives / semantic / semantic-dark / motion)
   → Style Dictionary (build)
   → packages/tokens/dist (css / json / ts)
   → packages/ui/src/styles/tokens.css (import as CSS variables)
@@ -76,9 +77,9 @@ Components share a consistent props vocabulary defined in `packages/ui/src/base/
 |------|--------|-------|
 | `variant` | `solid`, `outline`, `ghost`, `soft`, `subtle`, `elevated` | Each component uses a subset |
 | `size` | `xs`, `sm`, `md`, `lg`, `xl` | Each component uses a subset |
-| `tone` | `primary`, `secondary`, `tertiary`, `base`, `accent`, `neutral`, `success`, `warning`, `info`, `destructive` | Alert uses a subset |
+| `tone` | `primary`, `secondary`, `tertiary`, `base`, `accent`, `neutral`, `success`, `warning`, `info`, `destructive` | Alert and Toast use a subset |
 | `rounded` | `none`, `sm`, `md`, `lg`, `xl`, `full` | Button/Badge/Avatar include `full` |
-| `shadow` | `none`, `sm`, `md`, `lg` | Applied to Card, Panel, Dialog, etc. |
+| `shadow` | `none`, `sm`, `md`, `lg` | Applied to Card, Panel, Dialog, Sheet, etc. |
 
 ### Component-Specific Variants
 
@@ -88,6 +89,9 @@ Some components define their own variant sets:
 - **Tabs**: `pill`, `underline`
 - **Nav**: `subtle`, `solid`
 - **Toolbar**: `solid`, `subtle`
+- **Accordion**: `outline`, `ghost`, `soft`
+- **Pagination**: `outline`, `ghost`, `soft`
+- **Toast**: `solid`, `soft`, `outline`
 
 ## Layout Components
 
@@ -138,10 +142,11 @@ Props: `direction`, `gap`, `align`, `justify`, `wrap`, `grow`, `padding`, `paddi
 
 ### Compound Components
 
-Card and Dropdown use the compound component pattern with sub-components:
+Card, Dropdown, and Accordion use the compound component pattern with sub-components:
 
 - **Card**: `CardHeader` / `CardBody` / `CardFooter` / `CardTitle` / `CardDescription` / `CardMedia`
 - **Dropdown**: 12 sub-components (`DropdownTrigger`, `DropdownContent`, `DropdownItem`, `DropdownSeparator`, etc.) with `provide`/`inject` for size context propagation
+- **Accordion**: `AccordionItem` sub-component with `provide`/`inject` for size and variant context propagation via `accordionContext.ts`
 
 ```vue
 <Card variant="elevated" rounded="lg">
@@ -191,6 +196,22 @@ const forwarded = useForwardPropsEmits(props, emit)
 
 **Requires this pattern:** Root/Sub (`open`), RadioGroup/CheckboxGroup (`modelValue`)
 **Does not require:** Trigger, Content, Item, Separator (no state management props)
+
+#### Public Layer: `open: undefined` Default
+
+Vue 3 coerces optional Boolean props to `false` when no default is specified. This causes the Public layer to pass `open: false` to the Base layer, putting Reka UI into controlled mode and breaking uncontrolled behavior.
+
+Public layer components with `open?: boolean` must set `open: undefined` in `withDefaults`:
+
+```vue
+withDefaults(
+  defineProps<{ open?: boolean; defaultOpen?: boolean }>(),
+  { open: undefined, defaultOpen: undefined }
+)
+```
+
+`open` + `defaultOpen`: Collapsible, Dialog, Sheet, AlertDialog, Dropdown, DropdownSub
+`open` only: Popover, Tooltip
 
 ## CSS Variable Naming
 

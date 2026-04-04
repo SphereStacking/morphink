@@ -39,7 +39,7 @@ Storybook: `http://localhost:6006/`
 | Technology | Role |
 |-----------|------|
 | [Reka UI](https://reka-ui.com/) | Headless a11y primitives (Dialog, Select, Dropdown, Tabs, etc.) |
-| [Tokens Studio](https://tokens.studio/) + [Style Dictionary](https://amzn.github.io/style-dictionary/) | Token pipeline from design tools to code |
+| Figma Variables + [Style Dictionary](https://amzn.github.io/style-dictionary/) | Token pipeline — Figma native variables exported via custom plugin (DTCG format) |
 | [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first CSS, compiled to `ui.css` (internal detail) |
 | [CVA](https://cva.style/) | Style variant definitions (class-variance-authority) |
 | [Storybook](https://storybook.js.org/) | Component catalog, token visualization, design guidelines |

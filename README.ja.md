@@ -17,7 +17,7 @@
 
 Vue 3 でデザインシステムを作ろうとすると、コンポーネント自体はそこまで難しくありません。本当に大変なのは、その土台を整えること。
 
-- Tokens Studio のデザイントークンを Style Dictionary でコードに繋ぐ
+- Figma Variables のデザイントークンを Style Dictionary でコードに繋ぐ
 - ビルド順序を正しく管理できるモノレポ構成
 - ヘッドレスプリミティブと公開 API のレイヤー分離
 - トークンで駆動するテーマ切り替え・ダークモード
@@ -62,7 +62,7 @@ Public (components/)  →  Base (base/ui/*/)  →  Reka UI
 
 | Atoms | Molecules | Organisms |
 |-------|-----------|-----------|
-| Button, Input, Textarea, Checkbox, CheckboxGroup, Radio, RadioGroup, Switch, Badge, Avatar, Alert, Divider, Panel, Heading, Text | Card (compound), Dialog, AlertDialog, Dropdown (compound), Select, Tabs, Popover, Tooltip, Table, Toolbar, FormField, SearchInput, Breadcrumb, Nav, SectionHeader, Stat, EmptyState | AppShell, AppHeader, AppSidebar, DataTable, LoginForm, SettingsSection |
+| Button, Input, Textarea, Checkbox, CheckboxGroup, Radio, RadioGroup, Switch, Slider, Collapsible, Badge, Avatar, Alert, Progress, Divider, Panel, Heading, Text | Card (compound), Dialog, AlertDialog, Dropdown (compound), Accordion (compound), Select, Tabs, Popover, Tooltip, Pagination, Sheet, Toast/Toaster, Table, Toolbar, FormField, SearchInput, Breadcrumb, Nav, SectionHeader, Stat, EmptyState | AppShell, AppHeader, AppSidebar, DataTable, LoginForm, SettingsSection |
 
 レイアウトプリミティブ: Box, Grid, Stack
 
@@ -99,7 +99,8 @@ morphink の内部では Tailwind を使っていますが、利用者側に Tai
 
 | パッケージ | 役割 |
 |-----------|------|
-| `packages/tokens` | デザイントークンのソース（Tokens Studio JSON）と Style Dictionary ビルド |
+| `packages/tokens` | デザイントークンのソース（DTCG 形式 JSON）と Style Dictionary ビルド |
+| `packages/figma-plugin` | カスタム Figma プラグイン — Figma Variables を DTCG JSON でエクスポート |
 | `packages/ui` | Vue 3 コンポーネント — Reka UI ヘッドレス + CVA スタイリング + 共通の Props 型定義 |
 | `packages/docs` | Storybook — コンポーネントカタログ、トークンの可視化、デザインガイドライン |
 

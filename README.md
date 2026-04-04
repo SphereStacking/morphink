@@ -17,7 +17,7 @@ morphink is a boilerplate that gives you a working token pipeline, layered compo
 
 When a team decides to build a design system with Vue 3, the components are the easy part. The hard part is everything around them:
 
-- Connecting design tools (Tokens Studio) to code via Style Dictionary
+- Connecting design tools (Figma Variables) to code via Style Dictionary
 - Structuring a monorepo with proper build orchestration
 - Isolating headless primitives from your public API
 - Setting up theme switching and dark mode driven by tokens
@@ -62,7 +62,7 @@ The benefit: when Reka UI is replaced, or Tailwind ships breaking changes, only 
 
 | Atoms | Molecules | Organisms |
 |-------|-----------|-----------|
-| Button, Input, Textarea, Checkbox, CheckboxGroup, Radio, RadioGroup, Switch, Badge, Avatar, Alert, Divider, Panel, Heading, Text | Card (compound), Dialog, AlertDialog, Dropdown (compound), Select, Tabs, Popover, Tooltip, Table, Toolbar, FormField, SearchInput, Breadcrumb, Nav, SectionHeader, Stat, EmptyState | AppShell, AppHeader, AppSidebar, DataTable, LoginForm, SettingsSection |
+| Button, Input, Textarea, Checkbox, CheckboxGroup, Radio, RadioGroup, Switch, Slider, Collapsible, Badge, Avatar, Alert, Progress, Divider, Panel, Heading, Text | Card (compound), Dialog, AlertDialog, Dropdown (compound), Accordion (compound), Select, Tabs, Popover, Tooltip, Pagination, Sheet, Toast/Toaster, Table, Toolbar, FormField, SearchInput, Breadcrumb, Nav, SectionHeader, Stat, EmptyState | AppShell, AppHeader, AppSidebar, DataTable, LoginForm, SettingsSection |
 
 Layout primitives: Box, Grid, Stack
 
@@ -99,7 +99,8 @@ Both reference the same tokens. Only the entry point differs.
 
 | Package | Role |
 |---------|------|
-| `packages/tokens` | Design tokens source (Tokens Studio JSON) + Style Dictionary build |
+| `packages/tokens` | Design tokens source (DTCG JSON) + Style Dictionary build |
+| `packages/figma-plugin` | Custom Figma plugin — exports Figma Variables as DTCG JSON |
 | `packages/ui` | Vue 3 components — Reka UI headless + CVA styling + shared prop types |
 | `packages/docs` | Storybook — component catalog, token visualization, design guidelines |
 

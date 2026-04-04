@@ -4,7 +4,16 @@
 
 ## トークン更新
 
-1. `packages/tokens/tokens/` のトークンファイルを編集
+### Figma → トークン JSON
+
+1. Figma でバリアブルを編集
+2. morphink token exporter プラグインを実行 → DTCG JSON をエクスポート
+3. エクスポートした JSON を `packages/tokens/tokens/` に保存
+4. （任意）`pnpm --filter @morphink/tokens diff-check` で変更を検証
+
+### ビルド
+
+1. `packages/tokens/tokens/` のトークンファイルを編集（または上記のエクスポート JSON を使用）
 2. トークン再ビルド:
 
 ```bash

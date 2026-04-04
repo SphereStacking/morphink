@@ -4,10 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## プロジェクト概要
 
-pnpm workspaces によるデザインシステム monorepo。Vue 3 + Tailwind CSS v4 + Tokens Studio。
+pnpm workspaces によるデザインシステム monorepo。Vue 3 + Tailwind CSS v4 + Figma Variables。
 アーキテクチャ思想は CONCEPT.md を参照。
 
-- `packages/tokens` — デザイントークンのソース（primitives.json / semantic.json / semantic-dark.json）と Style Dictionary ビルド
+- `packages/tokens` — デザイントークンのソース（DTCG 形式 JSON）と Style Dictionary ビルド
+- `packages/figma-plugin` — Figma Variables → DTCG JSON エクスポーター（カスタムプラグイン）
 - `packages/ui` — Vue 3 UI コンポーネントライブラリ（Reka UI + CVA + tailwind-merge）
 - `packages/docs` — Storybook 10（コンポーネントカタログ・ガイドライン）
 
@@ -34,7 +35,7 @@ pnpm --filter @morphink/docs build          # Storybook 静的ビルド
 ### トークンパイプライン
 
 ```
-Tokens Studio → packages/tokens/tokens/*.json
+Figma Variables → カスタムプラグイン（DTCG JSON 出力）→ packages/tokens/tokens/*.json
   → Style Dictionary → packages/tokens/dist/{css,json,ts}
   → packages/ui/src/styles/tokens.css（CSS 変数として import）
   → Tailwind コンパイル → packages/ui/dist/ui.css
@@ -55,12 +56,14 @@ Tokens Studio → packages/tokens/tokens/*.json
 
 ### Compound Component パターン
 
-Card と Dropdown は Compound Component パターンを使用。
+Card、Dropdown、Accordion は Compound Component パターンを使用。
 
 - **Card**: CardHeader / CardBody / CardFooter / CardTitle / CardDescription / CardMedia
 - **Dropdown**: DropdownTrigger / DropdownContent / DropdownItem / DropdownSeparator 等 12 サブコンポーネント
+- **Accordion**: AccordionItem サブコンポーネント
 
 Dropdown は provide/inject でサイズコンテキストを伝播（`dropdownContext.ts`）。
+Accordion は provide/inject でサイズ・バリアントコンテキストを伝播（`accordionContext.ts`）。
 
 ### Reka UI ラッパーの必須パターン
 
@@ -90,6 +93,22 @@ const forwarded = useForwardPropsEmits(props, emit)
 | Base 層 + Group context 連携 | `rekaProps` computed + `useForwardPropsEmits` | CheckboxBase, RadioGroupBase, SwitchBase |
 | Base 層 + 複合コンポーネント | 手動バインド（例外） | SelectBase, TabsBase（style props を Root に渡さないため） |
 | Public 層 | 明示的な prop バインド + emit 転送。`reka-ui` を直接 import しない | Dialog, Select, Tooltip 等すべて |
+
+#### Public 層の `open: undefined` デフォルト
+
+Vue 3 は Boolean 型の optional prop にデフォルト値を指定しない場合 `false` に型強制する。これにより Public 層から Base 層へ `open: false` が渡り、Reka UI が controlled モードに入って uncontrolled 動作が壊れる。
+
+Public 層で `open?: boolean` を持つコンポーネントは `withDefaults` で `open: undefined` を明示する:
+
+```vue
+withDefaults(
+  defineProps<{ open?: boolean; defaultOpen?: boolean }>(),
+  { open: undefined, defaultOpen: undefined }
+)
+```
+
+`open` + `defaultOpen` 両方: Collapsible, Dialog, Sheet, AlertDialog, Dropdown, DropdownSub
+`open` のみ: Popover, Tooltip
 
 ### レイアウトコンポーネント
 
@@ -172,6 +191,10 @@ tone variant 内で `[--btn-color:var(--morphink-color-primary)]` の形式で s
 | `--badge-*` | BadgeBase | color, fg, accent |
 | `--ctl-*` | CheckboxBase, SwitchBase, RadioBase | color, fg |
 | `--alert-*` | AlertBase | color, fg, accent |
+| `--prog-*` | ProgressBase | color |
+| `--sld-*` | SliderBase | color |
+| `--pgn-*` | PaginationBase | color |
+| `--tst-*` | ToastBase | color, fg, accent |
 | `--ring-color` | 複数コンポーネント共通 | focus ring 色 |
 
 新規コンポーネントでは 2〜4 文字の略称をプレフィックスとし、semantic token を参照する。
@@ -240,6 +263,7 @@ Figma Variables の命名と morphink CSS 変数を対応付けて実装する�
 
 - **reka-ui** — ヘッドレス a11y コンポーネント（Dialog, Select, Dropdown, Tabs 等の基盤）
 - **class-variance-authority** — スタイルバリアント定義
-- **style-dictionary** + **@tokens-studio/sd-transforms** — トークンビルド
+- **style-dictionary** + **@tokens-studio/sd-transforms** — トークンビルド（sd-transforms は baseline transform group として利用）
+- **packages/figma-plugin** — Figma Variables → DTCG JSON エクスポーター
 - **Storybook 10.2** — ドキュメント・ビジュアルテスト
 - **oxlint** / **oxfmt** — lint・フォーマット

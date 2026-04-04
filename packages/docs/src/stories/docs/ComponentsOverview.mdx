@@ -10,6 +10,7 @@ import * as TextStories from '../components/atoms/Text.stories.vue'
 import * as PanelStories from '../components/atoms/Panel.stories.vue'
 import * as DividerStories from '../components/atoms/Divider.stories.vue'
 import * as SectionHeaderStories from '../components/molecules/SectionHeader.stories.vue'
+import * as AccordionStories from '../components/molecules/Accordion.stories.vue'
 
 <Meta title="Docs/Components Overview" />
 
@@ -62,8 +63,12 @@ A11y prioritizes resolving critical issues; minor warnings are addressed as need
 
 <Canvas of={SectionHeaderStories.Default} />
 
+## Compound Components (Accordion)
+
+<Canvas of={AccordionStories.Default} />
+
 ## A11y (Policy)
 
 - Prioritize resolving critical warnings.
-- Verify keyboard navigation (Tab / Esc / Arrow) for Dialog and Tabs.
-- Verify focus management for Tooltip, Popover, and Dropdown.
+- Verify keyboard navigation (Tab / Esc / Arrow) for Dialog, Tabs, Accordion, and Collapsible.
+- Verify focus management for Tooltip, Popover, Dropdown, and Sheet.

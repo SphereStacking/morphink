@@ -4,7 +4,16 @@
 
 ## Token Updates
 
-1. Edit token files in `packages/tokens/tokens/`
+### Figma → Token JSON
+
+1. Edit variables in Figma
+2. Run the morphink token exporter plugin in Figma → export DTCG JSON
+3. Save exported JSON to `packages/tokens/tokens/`
+4. (Optional) Run `pnpm --filter @morphink/tokens diff-check` to validate changes
+
+### Build
+
+1. Edit token files in `packages/tokens/tokens/` (or use exported JSON from above)
 2. Rebuild tokens:
 
 ```bash
