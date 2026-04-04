@@ -28,7 +28,8 @@
     "dev": "echo \"UI dev not configured yet\"",
     "lint": "echo \"Lint runs at root level\"",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "figma:publish": "figma connect publish"
   },
   "dependencies": {
     "@morphink/tokens": "workspace:*",
@@ -38,6 +39,7 @@
     "tailwind-merge": "^3.0.0"
   },
   "devDependencies": {
+    "@figma/code-connect": "^1.4.3",
     "@tailwindcss/cli": "^4.0.0",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vue/test-utils": "^2.4.6",

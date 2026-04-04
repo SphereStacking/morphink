@@ -25,13 +25,16 @@ function rgbToHex(r: number, g: number, b: number, a?: number): string {
   return hex
 }
 
+// NOTE: 'height' is intentionally omitted to avoid matching 'lineHeight' before isLineHeight() runs.
+// Use specific keywords like 'min-height'/'max-height' if standalone height support is needed.
 const DIMENSION_KEYWORDS = [
   'space',
   'radius',
   'size',
   'border',
   'width',
-  'height',
+  'min-height',
+  'max-height',
   'gap',
   'offset',
   'font-size',
@@ -40,6 +43,13 @@ const DIMENSION_KEYWORDS = [
 function isDimension(variableName: string): boolean {
   const lower = variableName.toLowerCase()
   return DIMENSION_KEYWORDS.some((kw) => lower.includes(kw))
+}
+
+const LINE_HEIGHT_KEYWORDS = ['lineheight', 'line-height']
+
+function isLineHeight(variableName: string): boolean {
+  const lower = variableName.toLowerCase()
+  return LINE_HEIGHT_KEYWORDS.some((kw) => lower.includes(kw))
 }
 
 function figmaPathToDtcgRef(figmaPath: string): string {
@@ -95,9 +105,17 @@ async function buildDtcgGroup(
       }
     } else if (variable.resolvedType === 'FLOAT') {
       const num = rawValue as number
-      const $type: DtcgType = isDimension(variable.name) ? 'dimension' : 'number'
-      const $value = $type === 'dimension' ? `${num}px` : String(num)
-      token = { $value, $type }
+      if (isLineHeight(variable.name)) {
+        // num > 10 is treated as a percentage value (e.g. 150 → 1.5); otherwise already unitless
+        const unitless = num > 10 ? parseFloat((num / 100).toFixed(4)) : num
+        token = { $value: String(unitless), $type: 'number' }
+      } else if (isDimension(variable.name)) {
+        const $value = `${parseFloat(num.toFixed(1))}px`
+        token = { $value, $type: 'dimension' }
+      } else {
+        const rounded = parseFloat(num.toFixed(4))
+        token = { $value: String(rounded), $type: 'number' }
+      }
     } else if (variable.resolvedType === 'STRING') {
       token = { $value: String(rawValue), $type: 'string' }
     } else if (variable.resolvedType === 'BOOLEAN') {
@@ -117,6 +135,7 @@ function resolveType(resolvedType: VariableResolvedDataType, variableName: strin
     case 'COLOR':
       return 'color'
     case 'FLOAT':
+      if (isLineHeight(variableName)) return 'number'
       return isDimension(variableName) ? 'dimension' : 'number'
     case 'STRING':
       return 'string'
