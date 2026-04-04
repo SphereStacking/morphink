@@ -1,445 +1,466 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Morphink Token Exporter</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Morphink Token Exporter</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    body {
-      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 12px;
-      color: var(--figma-color-text, #1a1a1a);
-      background: var(--figma-color-bg, #ffffff);
-      padding: 16px;
-      line-height: 1.5;
-    }
+      body {
+        font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+        font-size: 12px;
+        color: var(--figma-color-text, #1a1a1a);
+        background: var(--figma-color-bg, #ffffff);
+        padding: 16px;
+        line-height: 1.5;
+      }
 
-    h1 {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
+      h1 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
 
-    .subtitle {
-      font-size: 11px;
-      color: var(--figma-color-text-secondary, #666);
-      margin-bottom: 16px;
-    }
+      .subtitle {
+        font-size: 11px;
+        color: var(--figma-color-text-secondary, #666);
+        margin-bottom: 16px;
+      }
 
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--figma-color-text-secondary, #666);
-      margin-bottom: 8px;
-    }
+      .section-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--figma-color-text-secondary, #666);
+        margin-bottom: 8px;
+      }
 
-    .collection-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
+      .collection-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
 
-    .collection-card {
-      border: 1px solid var(--figma-color-border, #e0e0e0);
-      border-radius: 6px;
-      overflow: hidden;
-    }
+      .collection-card {
+        border: 1px solid var(--figma-color-border, #e0e0e0);
+        border-radius: 6px;
+        overflow: hidden;
+      }
 
-    .collection-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      background: var(--figma-color-bg-secondary, #f5f5f5);
-      font-weight: 600;
-    }
+      .collection-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        background: var(--figma-color-bg-secondary, #f5f5f5);
+        font-weight: 600;
+      }
 
-    .collection-header input[type="checkbox"] {
-      cursor: pointer;
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
+      .collection-header input[type='checkbox'] {
+        cursor: pointer;
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+      }
 
-    .collection-name {
-      flex: 1;
-    }
+      .collection-name {
+        flex: 1;
+      }
 
-    .mode-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+      .mode-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
 
-    .mode-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px 6px 34px;
-      border-top: 1px solid var(--figma-color-border, #e0e0e0);
-    }
+      .mode-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px 6px 34px;
+        border-top: 1px solid var(--figma-color-border, #e0e0e0);
+      }
 
-    .mode-row input[type="checkbox"] {
-      cursor: pointer;
-      width: 13px;
-      height: 13px;
-      flex-shrink: 0;
-    }
+      .mode-row input[type='checkbox'] {
+        cursor: pointer;
+        width: 13px;
+        height: 13px;
+        flex-shrink: 0;
+      }
 
-    .mode-name {
-      min-width: 60px;
-      color: var(--figma-color-text-secondary, #666);
-    }
+      .mode-name {
+        min-width: 60px;
+        color: var(--figma-color-text-secondary, #666);
+      }
 
-    .mode-arrow {
-      color: var(--figma-color-text-tertiary, #999);
-      font-size: 10px;
-    }
+      .mode-arrow {
+        color: var(--figma-color-text-tertiary, #999);
+        font-size: 10px;
+      }
 
-    .file-name-input {
-      flex: 1;
-      border: 1px solid var(--figma-color-border, #e0e0e0);
-      border-radius: 4px;
-      padding: 3px 6px;
-      font-size: 11px;
-      font-family: 'SF Mono', 'Fira Code', monospace;
-      background: var(--figma-color-bg, #fff);
-      color: var(--figma-color-text, #1a1a1a);
-    }
+      .file-name-input {
+        flex: 1;
+        border: 1px solid var(--figma-color-border, #e0e0e0);
+        border-radius: 4px;
+        padding: 3px 6px;
+        font-size: 11px;
+        font-family: 'SF Mono', 'Fira Code', monospace;
+        background: var(--figma-color-bg, #fff);
+        color: var(--figma-color-text, #1a1a1a);
+      }
 
-    .file-name-input:focus {
-      outline: none;
-      border-color: var(--figma-color-border-selected, #007aff);
-    }
+      .file-name-input:focus {
+        outline: none;
+        border-color: var(--figma-color-border-selected, #007aff);
+      }
 
-    .stats-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 12px;
-      background: var(--figma-color-bg-secondary, #f5f5f5);
-      border-radius: 6px;
-      margin-bottom: 16px;
-      font-size: 11px;
-      color: var(--figma-color-text-secondary, #666);
-    }
+      .stats-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 12px;
+        background: var(--figma-color-bg-secondary, #f5f5f5);
+        border-radius: 6px;
+        margin-bottom: 16px;
+        font-size: 11px;
+        color: var(--figma-color-text-secondary, #666);
+      }
 
-    .stats-count {
-      font-weight: 600;
-      color: var(--figma-color-text, #1a1a1a);
-    }
+      .stats-count {
+        font-weight: 600;
+        color: var(--figma-color-text, #1a1a1a);
+      }
 
-    .actions {
-      display: flex;
-      gap: 8px;
-    }
+      .actions {
+        display: flex;
+        gap: 8px;
+      }
 
-    .btn {
-      flex: 1;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.1s;
-    }
+      .btn {
+        flex: 1;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.1s;
+      }
 
-    .btn:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
+      .btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
 
-    .btn-primary {
-      background: var(--figma-color-bg-brand, #007aff);
-      color: #fff;
-    }
+      .btn-primary {
+        background: var(--figma-color-bg-brand, #007aff);
+        color: #fff;
+      }
 
-    .btn-primary:not(:disabled):hover {
-      opacity: 0.85;
-    }
+      .btn-primary:not(:disabled):hover {
+        opacity: 0.85;
+      }
 
-    .btn-secondary {
-      background: var(--figma-color-bg-secondary, #f0f0f0);
-      color: var(--figma-color-text, #1a1a1a);
-    }
+      .btn-secondary {
+        background: var(--figma-color-bg-secondary, #f0f0f0);
+        color: var(--figma-color-text, #1a1a1a);
+      }
 
-    .btn-secondary:not(:disabled):hover {
-      background: var(--figma-color-bg-tertiary, #e4e4e4);
-    }
+      .btn-secondary:not(:disabled):hover {
+        background: var(--figma-color-bg-tertiary, #e4e4e4);
+      }
 
-    .message {
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 11px;
-      margin-bottom: 12px;
-      display: none;
-    }
+      .message {
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 11px;
+        margin-bottom: 12px;
+        display: none;
+      }
 
-    .message.visible { display: block; }
+      .message.visible {
+        display: block;
+      }
 
-    .message-error {
-      background: #fff0f0;
-      color: #cc0000;
-      border: 1px solid #ffcccc;
-    }
+      .message-error {
+        background: #fff0f0;
+        color: #cc0000;
+        border: 1px solid #ffcccc;
+      }
 
-    .message-success {
-      background: #f0fff4;
-      color: #007700;
-      border: 1px solid #ccffdd;
-    }
+      .message-success {
+        background: #f0fff4;
+        color: #007700;
+        border: 1px solid #ccffdd;
+      }
 
-    .loading {
-      text-align: center;
-      color: var(--figma-color-text-secondary, #666);
-      padding: 24px 0;
-    }
+      .loading {
+        text-align: center;
+        color: var(--figma-color-text-secondary, #666);
+        padding: 24px 0;
+      }
 
-    .spinner {
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      border: 2px solid var(--figma-color-border, #e0e0e0);
-      border-top-color: var(--figma-color-bg-brand, #007aff);
-      border-radius: 50%;
-      animation: spin 0.6s linear infinite;
-      vertical-align: middle;
-      margin-right: 6px;
-    }
+      .spinner {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid var(--figma-color-border, #e0e0e0);
+        border-top-color: var(--figma-color-bg-brand, #007aff);
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+        vertical-align: middle;
+        margin-right: 6px;
+      }
 
-    @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-    .hidden { display: none !important; }
-  </style>
-</head>
-<body>
-  <h1>Morphink Token Exporter</h1>
-  <p class="subtitle">Export Figma Variables as DTCG JSON</p>
+      .hidden {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Morphink Token Exporter</h1>
+    <p class="subtitle">Export Figma Variables as DTCG JSON</p>
 
-  <div id="loading" class="loading">
-    <span class="spinner"></span>Loading collections…
-  </div>
+    <div id="loading" class="loading"><span class="spinner"></span>Loading collections…</div>
 
-  <div id="main" class="hidden">
-    <div id="message-error" class="message message-error"></div>
-    <div id="message-success" class="message message-success"></div>
+    <div id="main" class="hidden">
+      <div id="message-error" class="message message-error"></div>
+      <div id="message-success" class="message message-success"></div>
 
-    <div id="stats-bar" class="stats-bar">
-      <span>Total variables</span>
-      <span class="stats-count" id="total-count">—</span>
+      <div id="stats-bar" class="stats-bar">
+        <span>Total variables</span>
+        <span class="stats-count" id="total-count">—</span>
+      </div>
+
+      <p class="section-label">Collections &amp; Output Files</p>
+      <div class="collection-list" id="collection-list"></div>
+
+      <div class="actions">
+        <button class="btn btn-secondary" id="btn-reload">Reload</button>
+        <button class="btn btn-primary" id="btn-export">Export JSON</button>
+      </div>
     </div>
 
-    <p class="section-label">Collections &amp; Output Files</p>
-    <div class="collection-list" id="collection-list"></div>
+    <script>
+      // -----------------------------------------------------------------------
+      // State
+      // -----------------------------------------------------------------------
+      var state = {
+        mappings: [],
+        totalTokenCount: 0,
+      }
 
-    <div class="actions">
-      <button class="btn btn-secondary" id="btn-reload">Reload</button>
-      <button class="btn btn-primary" id="btn-export">Export JSON</button>
-    </div>
-  </div>
+      // -----------------------------------------------------------------------
+      // DOM refs
+      // -----------------------------------------------------------------------
+      var elLoading = document.getElementById('loading')
+      var elMain = document.getElementById('main')
+      var elCollectionList = document.getElementById('collection-list')
+      var elTotalCount = document.getElementById('total-count')
+      var elBtnExport = document.getElementById('btn-export')
+      var elBtnReload = document.getElementById('btn-reload')
+      var elMsgError = document.getElementById('message-error')
+      var elMsgSuccess = document.getElementById('message-success')
 
-  <script>
-    // -----------------------------------------------------------------------
-    // State
-    // -----------------------------------------------------------------------
-    var state = {
-      mappings: [],
-      totalTokenCount: 0,
-    }
+      // -----------------------------------------------------------------------
+      // Helpers
+      // -----------------------------------------------------------------------
+      function showError(msg) {
+        elMsgError.textContent = msg
+        elMsgError.classList.add('visible')
+        elMsgSuccess.classList.remove('visible')
+      }
 
-    // -----------------------------------------------------------------------
-    // DOM refs
-    // -----------------------------------------------------------------------
-    var elLoading = document.getElementById('loading')
-    var elMain = document.getElementById('main')
-    var elCollectionList = document.getElementById('collection-list')
-    var elTotalCount = document.getElementById('total-count')
-    var elBtnExport = document.getElementById('btn-export')
-    var elBtnReload = document.getElementById('btn-reload')
-    var elMsgError = document.getElementById('message-error')
-    var elMsgSuccess = document.getElementById('message-success')
+      function showSuccess(msg) {
+        elMsgSuccess.textContent = msg
+        elMsgSuccess.classList.add('visible')
+        elMsgError.classList.remove('visible')
+      }
 
-    // -----------------------------------------------------------------------
-    // Helpers
-    // -----------------------------------------------------------------------
-    function showError(msg) {
-      elMsgError.textContent = msg
-      elMsgError.classList.add('visible')
-      elMsgSuccess.classList.remove('visible')
-    }
+      function clearMessages() {
+        elMsgError.classList.remove('visible')
+        elMsgSuccess.classList.remove('visible')
+      }
 
-    function showSuccess(msg) {
-      elMsgSuccess.textContent = msg
-      elMsgSuccess.classList.add('visible')
-      elMsgError.classList.remove('visible')
-    }
+      // -----------------------------------------------------------------------
+      // Render
+      // -----------------------------------------------------------------------
+      function render() {
+        elCollectionList.innerHTML = ''
 
-    function clearMessages() {
-      elMsgError.classList.remove('visible')
-      elMsgSuccess.classList.remove('visible')
-    }
+        state.mappings.forEach(function (mapping, colIdx) {
+          var card = document.createElement('div')
+          card.className = 'collection-card'
 
-    // -----------------------------------------------------------------------
-    // Render
-    // -----------------------------------------------------------------------
-    function render() {
-      elCollectionList.innerHTML = ''
+          // Header
+          var header = document.createElement('div')
+          header.className = 'collection-header'
 
-      state.mappings.forEach(function(mapping, colIdx) {
-        var card = document.createElement('div')
-        card.className = 'collection-card'
-
-        // Header
-        var header = document.createElement('div')
-        header.className = 'collection-header'
-
-        var colCheckbox = document.createElement('input')
-        colCheckbox.type = 'checkbox'
-        colCheckbox.checked = mapping.modes.some(function(m) { return m.enabled })
-        colCheckbox.addEventListener('change', function() {
-          state.mappings[colIdx].modes.forEach(function(_, mIdx) {
-            state.mappings[colIdx].modes[mIdx].enabled = colCheckbox.checked
+          var colCheckbox = document.createElement('input')
+          colCheckbox.type = 'checkbox'
+          colCheckbox.checked = mapping.modes.some(function (m) {
+            return m.enabled
           })
-          render()
+          colCheckbox.addEventListener('change', function () {
+            state.mappings[colIdx].modes.forEach(function (_, mIdx) {
+              state.mappings[colIdx].modes[mIdx].enabled = colCheckbox.checked
+            })
+            render()
+          })
+
+          var colName = document.createElement('span')
+          colName.className = 'collection-name'
+          colName.textContent = mapping.collectionName
+
+          header.appendChild(colCheckbox)
+          header.appendChild(colName)
+          card.appendChild(header)
+
+          // Modes
+          var modeList = document.createElement('div')
+          modeList.className = 'mode-list'
+
+          mapping.modes.forEach(function (mode, mIdx) {
+            var row = document.createElement('div')
+            row.className = 'mode-row'
+
+            var modeCheckbox = document.createElement('input')
+            modeCheckbox.type = 'checkbox'
+            modeCheckbox.checked = mode.enabled
+            modeCheckbox.addEventListener('change', function () {
+              state.mappings[colIdx].modes[mIdx].enabled = modeCheckbox.checked
+              // Update collection checkbox state
+              var anyEnabled = state.mappings[colIdx].modes.some(function (m) {
+                return m.enabled
+              })
+              colCheckbox.checked = anyEnabled
+            })
+
+            var modeName = document.createElement('span')
+            modeName.className = 'mode-name'
+            modeName.textContent = mode.modeName
+
+            var arrow = document.createElement('span')
+            arrow.className = 'mode-arrow'
+            arrow.textContent = '→'
+
+            var fileInput = document.createElement('input')
+            fileInput.type = 'text'
+            fileInput.className = 'file-name-input'
+            fileInput.value = mode.fileName
+            fileInput.addEventListener('input', function () {
+              state.mappings[colIdx].modes[mIdx].fileName = fileInput.value
+            })
+
+            row.appendChild(modeCheckbox)
+            row.appendChild(modeName)
+            row.appendChild(arrow)
+            row.appendChild(fileInput)
+            modeList.appendChild(row)
+          })
+
+          card.appendChild(modeList)
+          elCollectionList.appendChild(card)
         })
 
-        var colName = document.createElement('span')
-        colName.className = 'collection-name'
-        colName.textContent = mapping.collectionName
+        elTotalCount.textContent = String(state.totalTokenCount)
+      }
 
-        header.appendChild(colCheckbox)
-        header.appendChild(colName)
-        card.appendChild(header)
+      // -----------------------------------------------------------------------
+      // Download helper
+      // -----------------------------------------------------------------------
+      function downloadJson(fileName, content) {
+        var json = JSON.stringify(content, null, 2)
+        var blob = new Blob([json], { type: 'application/json' })
+        var url = URL.createObjectURL(blob)
+        var a = document.createElement('a')
+        a.href = url
+        a.download = fileName
+        document.body.appendChild(a)
+        a.click()
+        document.body.removeChild(a)
+        URL.revokeObjectURL(url)
+      }
 
-        // Modes
-        var modeList = document.createElement('div')
-        modeList.className = 'mode-list'
-
-        mapping.modes.forEach(function(mode, mIdx) {
-          var row = document.createElement('div')
-          row.className = 'mode-row'
-
-          var modeCheckbox = document.createElement('input')
-          modeCheckbox.type = 'checkbox'
-          modeCheckbox.checked = mode.enabled
-          modeCheckbox.addEventListener('change', function() {
-            state.mappings[colIdx].modes[mIdx].enabled = modeCheckbox.checked
-            // Update collection checkbox state
-            var anyEnabled = state.mappings[colIdx].modes.some(function(m) { return m.enabled })
-            colCheckbox.checked = anyEnabled
-          })
-
-          var modeName = document.createElement('span')
-          modeName.className = 'mode-name'
-          modeName.textContent = mode.modeName
-
-          var arrow = document.createElement('span')
-          arrow.className = 'mode-arrow'
-          arrow.textContent = '→'
-
-          var fileInput = document.createElement('input')
-          fileInput.type = 'text'
-          fileInput.className = 'file-name-input'
-          fileInput.value = mode.fileName
-          fileInput.addEventListener('input', function() {
-            state.mappings[colIdx].modes[mIdx].fileName = fileInput.value
-          })
-
-          row.appendChild(modeCheckbox)
-          row.appendChild(modeName)
-          row.appendChild(arrow)
-          row.appendChild(fileInput)
-          modeList.appendChild(row)
-        })
-
-        card.appendChild(modeList)
-        elCollectionList.appendChild(card)
+      // -----------------------------------------------------------------------
+      // Button handlers
+      // -----------------------------------------------------------------------
+      elBtnReload.addEventListener('click', function () {
+        clearMessages()
+        elMain.classList.add('hidden')
+        elLoading.classList.remove('hidden')
+        parent.postMessage({ pluginMessage: { type: 'load-collections' } }, '*')
       })
 
-      elTotalCount.textContent = String(state.totalTokenCount)
-    }
+      elBtnExport.addEventListener('click', function () {
+        clearMessages()
+        elBtnExport.disabled = true
+        elBtnExport.textContent = 'Exporting…'
+        parent.postMessage({ pluginMessage: { type: 'export', mappings: state.mappings } }, '*')
+      })
 
-    // -----------------------------------------------------------------------
-    // Download helper
-    // -----------------------------------------------------------------------
-    function downloadJson(fileName, content) {
-      var json = JSON.stringify(content, null, 2)
-      var blob = new Blob([json], { type: 'application/json' })
-      var url = URL.createObjectURL(blob)
-      var a = document.createElement('a')
-      a.href = url
-      a.download = fileName
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      URL.revokeObjectURL(url)
-    }
+      // -----------------------------------------------------------------------
+      // Message handler (from code.ts)
+      // -----------------------------------------------------------------------
+      window.onmessage = function (event) {
+        var msg = event.data.pluginMessage
+        if (!msg) return
 
-    // -----------------------------------------------------------------------
-    // Button handlers
-    // -----------------------------------------------------------------------
-    elBtnReload.addEventListener('click', function() {
-      clearMessages()
-      elMain.classList.add('hidden')
-      elLoading.classList.remove('hidden')
-      parent.postMessage({ pluginMessage: { type: 'load-collections' } }, '*')
-    })
+        if (msg.type === 'collections-loaded') {
+          state.mappings = msg.mappings
+          state.totalTokenCount = msg.totalTokenCount
+          elLoading.classList.add('hidden')
+          elMain.classList.remove('hidden')
+          render()
+        } else if (msg.type === 'export-ready') {
+          elBtnExport.disabled = false
+          elBtnExport.textContent = 'Export JSON'
 
-    elBtnExport.addEventListener('click', function() {
-      clearMessages()
-      elBtnExport.disabled = true
-      elBtnExport.textContent = 'Exporting…'
-      parent.postMessage({ pluginMessage: { type: 'export', mappings: state.mappings } }, '*')
-    })
+          var files = msg.files
+          if (files.length === 0) {
+            showError('No files to export. Enable at least one mode.')
+            return
+          }
 
-    // -----------------------------------------------------------------------
-    // Message handler (from code.ts)
-    // -----------------------------------------------------------------------
-    window.onmessage = function(event) {
-      var msg = event.data.pluginMessage
-      if (!msg) return
+          files.forEach(function (file) {
+            downloadJson(file.fileName, file.content)
+          })
 
-      if (msg.type === 'collections-loaded') {
-        state.mappings = msg.mappings
-        state.totalTokenCount = msg.totalTokenCount
-        elLoading.classList.add('hidden')
-        elMain.classList.remove('hidden')
-        render()
-      } else if (msg.type === 'export-ready') {
-        elBtnExport.disabled = false
-        elBtnExport.textContent = 'Export JSON'
-
-        var files = msg.files
-        if (files.length === 0) {
-          showError('No files to export. Enable at least one mode.')
-          return
+          var totalTokens = files.reduce(function (acc, f) {
+            return acc + f.tokenCount
+          }, 0)
+          showSuccess('Exported ' + files.length + ' file(s) — ' + totalTokens + ' tokens total.')
+        } else if (msg.type === 'error') {
+          elBtnExport.disabled = false
+          elBtnExport.textContent = 'Export JSON'
+          showError(msg.message || 'An unexpected error occurred.')
         }
-
-        files.forEach(function(file) {
-          downloadJson(file.fileName, file.content)
-        })
-
-        var totalTokens = files.reduce(function(acc, f) { return acc + f.tokenCount }, 0)
-        showSuccess(
-          'Exported ' + files.length + ' file(s) — ' + totalTokens + ' tokens total.'
-        )
-      } else if (msg.type === 'error') {
-        elBtnExport.disabled = false
-        elBtnExport.textContent = 'Export JSON'
-        showError(msg.message || 'An unexpected error occurred.')
       }
-    }
 
-    // -----------------------------------------------------------------------
-    // Init
-    // -----------------------------------------------------------------------
-    parent.postMessage({ pluginMessage: { type: 'load-collections' } }, '*')
-  </script>
-</body>
+      // -----------------------------------------------------------------------
+      // Init
+      // -----------------------------------------------------------------------
+      parent.postMessage({ pluginMessage: { type: 'load-collections' } }, '*')
+    </script>
+  </body>
 </html>

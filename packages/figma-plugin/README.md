@@ -147,11 +147,11 @@ gh pr create
 
 ### コレクション
 
-| コレクション名 | 役割 | 出力ファイル |
-|--------------|------|------------|
-| `Primitives` | 色の原値（パレット）、スペーシング、半径など | `primitives.json` |
-| `Semantic` | ライトモードのセマンティックトークン | `semantic.json` |
-| `Semantic` (Dark モード) | ダークモードのセマンティックトークン | `semantic-dark.json` |
+| コレクション名           | 役割                                         | 出力ファイル         |
+| ------------------------ | -------------------------------------------- | -------------------- |
+| `Primitives`             | 色の原値（パレット）、スペーシング、半径など | `primitives.json`    |
+| `Semantic`               | ライトモードのセマンティックトークン         | `semantic.json`      |
+| `Semantic` (Dark モード) | ダークモードのセマンティックトークン         | `semantic-dark.json` |
 
 ### 命名規則
 
@@ -222,11 +222,11 @@ pnpm --filter @morphink/tokens build
 
 ## デフォルトのファイルマッピング
 
-| Figma Collection | Mode | 出力ファイル |
-|-----------------|------|-------------|
-| Primitives | （全モード） | `primitives.json` |
-| Semantic | Light | `semantic.json` |
-| Semantic | Dark | `semantic-dark.json` |
+| Figma Collection | Mode         | 出力ファイル         |
+| ---------------- | ------------ | -------------------- |
+| Primitives       | （全モード） | `primitives.json`    |
+| Semantic         | Light        | `semantic.json`      |
+| Semantic         | Dark         | `semantic-dark.json` |
 
 ---
 
@@ -262,6 +262,7 @@ pnpm --filter @morphink/tokens build
 **原因:** ビルドが完了していない、または manifest.json の選択を間違えている。
 
 **対処:**
+
 1. `pnpm --filter figma-plugin build` を実行して `dist/` が生成されていることを確認
 2. Figma でインポートする際に `manifest.json`（`dist/` 内ではなく `packages/figma-plugin/manifest.json`）を選択しているか確認
 
@@ -272,6 +273,7 @@ pnpm --filter @morphink/tokens build
 **原因:** JSON が不正な形式で出力されている（まれに Figma の変数名に特殊文字が含まれる場合など）。
 
 **対処:**
+
 1. エクスポートした JSON を `jq .` コマンドで検証する
 2. Figma Variables に特殊文字（`"`, `\` など）が含まれていないか確認する
 3. プラグインを再ビルドして再度エクスポートを試みる
@@ -283,6 +285,7 @@ pnpm --filter @morphink/tokens build
 **原因:** 意図せず色値が変化している（Figma での編集ミスやプラグインのバグなど）。
 
 **対処:**
+
 1. diff-check の出力で変更されたトークンのキーを確認する
 2. Figma でそのトークンの値を確認し、意図した変更かどうかを判断する
 3. 意図しない変更であれば Figma 側で修正して再エクスポートする
@@ -295,6 +298,7 @@ pnpm --filter @morphink/tokens build
 **原因:** JSON の参照関係が壊れている（Primitives のトークンを Semantic が参照しているが、Primitives 側が削除された場合など）。
 
 **対処:**
+
 1. エラーメッセージ内のトークンパスを確認する
 2. `primitives.json` に参照先のトークンが存在するか確認する
 3. Figma で参照が正しく設定されているかを確認し、再エクスポートする
@@ -306,6 +310,7 @@ pnpm --filter @morphink/tokens build
 **原因:** `build.mjs` は実行されたが、Storybook のキャッシュが古い。
 
 **対処:**
+
 ```bash
 # Storybook のキャッシュをクリアして再起動
 pnpm --filter @morphink/docs dev --no-cache

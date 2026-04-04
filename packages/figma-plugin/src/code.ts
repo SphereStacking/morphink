@@ -78,7 +78,7 @@ function setNestedValue(group: DtcgGroup, pathParts: string[], token: DtcgToken)
 async function buildDtcgGroup(
   variables: Variable[],
   modeId: string,
-  allVariablesById: Map<string, Variable>,
+  allVariablesById: Map<string, Variable>
 ): Promise<DtcgGroup> {
   const group: DtcgGroup = {}
 
@@ -164,9 +164,7 @@ const DEFAULT_FILE_NAMES: Record<string, Record<string, string>> = {
   Semantic: { Light: 'semantic.json', Dark: 'semantic-dark.json' },
 }
 
-function buildDefaultMappings(
-  collections: VariableCollection[],
-): CollectionMapping[] {
+function buildDefaultMappings(collections: VariableCollection[]): CollectionMapping[] {
   return collections.map((col) => {
     const colDefaults = DEFAULT_FILE_NAMES[col.name] ?? {}
 
@@ -205,9 +203,7 @@ async function runExport(mappings: CollectionMapping[]): Promise<ExportFile[]> {
   ])
 
   const allVariablesById = new Map<string, Variable>(variables.map((v) => [v.id, v]))
-  const collectionById = new Map<string, VariableCollection>(
-    collections.map((c) => [c.id, c]),
-  )
+  const collectionById = new Map<string, VariableCollection>(collections.map((c) => [c.id, c]))
 
   type PendingFile = {
     fileName: string
@@ -220,9 +216,7 @@ async function runExport(mappings: CollectionMapping[]): Promise<ExportFile[]> {
     const collection = collectionById.get(mapping.collectionId)
     if (!collection) continue
 
-    const collectionVars = variables.filter(
-      (v) => v.variableCollectionId === mapping.collectionId,
-    )
+    const collectionVars = variables.filter((v) => v.variableCollectionId === mapping.collectionId)
 
     for (const modeMapping of mapping.modes) {
       if (!modeMapping.enabled) continue
