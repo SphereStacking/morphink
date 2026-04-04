@@ -89,7 +89,11 @@ const { Story } = defineMeta({
           :tone="args.tone"
           :rounded="args.rounded"
           :shadow="args.shadow"
-          @update:model-value="(next) => { value = next }"
+          @update:model-value="
+            (next) => {
+              value = next
+            }
+          "
         />
       </Stack>
     </template>
@@ -98,7 +102,12 @@ const { Story } = defineMeta({
   <Story name="Variants" asChild>
     <Stack direction="row" gap="md" align="center" wrap>
       <Select v-model="valueSolid" :options="selectOptions" placeholder="Solid" variant="solid" />
-      <Select v-model="valueOutline" :options="selectOptions" placeholder="Outline" variant="outline" />
+      <Select
+        v-model="valueOutline"
+        :options="selectOptions"
+        placeholder="Outline"
+        variant="outline"
+      />
       <Select v-model="valueGhost" :options="selectOptions" placeholder="Ghost" variant="ghost" />
       <Select v-model="valueSoft" :options="selectOptions" placeholder="Soft" variant="soft" />
     </Stack>
@@ -107,10 +116,30 @@ const { Story } = defineMeta({
   <Story name="Tones" asChild>
     <Stack direction="row" gap="md" align="center" wrap>
       <Select v-model="valueBase" :options="selectOptions" placeholder="Base" tone="base" />
-      <Select v-model="valuePrimary" :options="selectOptions" placeholder="Primary" tone="primary" />
-      <Select v-model="valueSuccess" :options="selectOptions" placeholder="Success" tone="success" />
-      <Select v-model="valueWarning" :options="selectOptions" placeholder="Warning" tone="warning" />
-      <Select v-model="valueDestructive" :options="selectOptions" placeholder="Destructive" tone="destructive" />
+      <Select
+        v-model="valuePrimary"
+        :options="selectOptions"
+        placeholder="Primary"
+        tone="primary"
+      />
+      <Select
+        v-model="valueSuccess"
+        :options="selectOptions"
+        placeholder="Success"
+        tone="success"
+      />
+      <Select
+        v-model="valueWarning"
+        :options="selectOptions"
+        placeholder="Warning"
+        tone="warning"
+      />
+      <Select
+        v-model="valueDestructive"
+        :options="selectOptions"
+        placeholder="Destructive"
+        tone="destructive"
+      />
     </Stack>
   </Story>
 
@@ -124,17 +153,47 @@ const { Story } = defineMeta({
 
   <Story name="Rounded" asChild>
     <Stack direction="row" gap="md" align="center" wrap>
-      <Select v-model="valueRoundedSm" :options="selectOptions" placeholder="Rounded sm" rounded="sm" />
-      <Select v-model="valueRoundedMd" :options="selectOptions" placeholder="Rounded md" rounded="md" />
-      <Select v-model="valueRoundedLg" :options="selectOptions" placeholder="Rounded lg" rounded="lg" />
+      <Select
+        v-model="valueRoundedSm"
+        :options="selectOptions"
+        placeholder="Rounded sm"
+        rounded="sm"
+      />
+      <Select
+        v-model="valueRoundedMd"
+        :options="selectOptions"
+        placeholder="Rounded md"
+        rounded="md"
+      />
+      <Select
+        v-model="valueRoundedLg"
+        :options="selectOptions"
+        placeholder="Rounded lg"
+        rounded="lg"
+      />
     </Stack>
   </Story>
 
   <Story name="Shadow" asChild>
     <Stack direction="row" gap="md" align="center" wrap>
-      <Select v-model="valueShadowNone" :options="selectOptions" placeholder="Shadow none" shadow="none" />
-      <Select v-model="valueShadowSm" :options="selectOptions" placeholder="Shadow sm" shadow="sm" />
-      <Select v-model="valueShadowMd" :options="selectOptions" placeholder="Shadow md" shadow="md" />
+      <Select
+        v-model="valueShadowNone"
+        :options="selectOptions"
+        placeholder="Shadow none"
+        shadow="none"
+      />
+      <Select
+        v-model="valueShadowSm"
+        :options="selectOptions"
+        placeholder="Shadow sm"
+        shadow="sm"
+      />
+      <Select
+        v-model="valueShadowMd"
+        :options="selectOptions"
+        placeholder="Shadow md"
+        shadow="md"
+      />
     </Stack>
   </Story>
 </template>

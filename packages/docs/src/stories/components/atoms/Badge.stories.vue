@@ -27,7 +27,9 @@ const { Story } = defineMeta({
 <template>
   <Story name="Default">
     <template #template="{ args }">
-      <Badge :tone="args.tone" :variant="args.variant" :rounded="args.rounded" :size="args.size">{{ args.label }}</Badge>
+      <Badge :tone="args.tone" :variant="args.variant" :rounded="args.rounded" :size="args.size">{{
+        args.label
+      }}</Badge>
     </template>
   </Story>
 

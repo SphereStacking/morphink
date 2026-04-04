@@ -40,7 +40,10 @@ const { Story } = defineMeta({
     </template>
   </Story>
 
-  <Story name="WithError" :args="{ label: 'Email', error: 'Please enter a valid email address', required: true }">
+  <Story
+    name="WithError"
+    :args="{ label: 'Email', error: 'Please enter a valid email address', required: true }"
+  >
     <template #template="{ args }">
       <FormField v-bind="args">
         <template #default="fieldProps">

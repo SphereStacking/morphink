@@ -9,8 +9,14 @@ const { Story } = defineMeta({
   argTypes: {
     columns: { control: 'text' },
     minWidth: { control: 'text' },
-    gap: { control: { type: 'select' }, options: ['0', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'] },
-    align: { control: { type: 'select' }, options: ['start', 'center', 'end', 'stretch', 'baseline'] },
+    gap: {
+      control: { type: 'select' },
+      options: ['0', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'],
+    },
+    align: {
+      control: { type: 'select' },
+      options: ['start', 'center', 'end', 'stretch', 'baseline'],
+    },
     justify: { control: { type: 'select' }, options: ['start', 'center', 'end', 'stretch'] },
   },
   args: {
@@ -75,7 +81,7 @@ const { Story } = defineMeta({
 
   <Story name="Alignment" asChild>
     <Stack gap="md">
-      <Grid :columns="3" :rows="2" gap="lg" style="height: 200px;">
+      <Grid :columns="3" :rows="2" gap="lg" style="height: 200px">
         <Panel><Text>1</Text></Panel>
         <Panel><Text>2</Text></Panel>
         <Panel><Text>3</Text></Panel>
@@ -83,10 +89,10 @@ const { Story } = defineMeta({
         <Panel><Text>5</Text></Panel>
         <Panel><Text>6</Text></Panel>
       </Grid>
-      <Grid :columns="3" gap="lg" align="center" style="height: 120px;">
-        <Panel style="height: 40px;"><Text>center</Text></Panel>
-        <Panel style="height: 60px;"><Text>center</Text></Panel>
-        <Panel style="height: 80px;"><Text>center</Text></Panel>
+      <Grid :columns="3" gap="lg" align="center" style="height: 120px">
+        <Panel style="height: 40px"><Text>center</Text></Panel>
+        <Panel style="height: 60px"><Text>center</Text></Panel>
+        <Panel style="height: 80px"><Text>center</Text></Panel>
       </Grid>
     </Stack>
   </Story>

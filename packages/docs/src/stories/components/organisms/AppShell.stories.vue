@@ -62,11 +62,14 @@ const { Story } = defineMeta({
         <template #header>
           <AppHeader title="Dashboard">
             <template #nav>
-              <Nav :items="[
-                { label: 'Overview', href: '#', active: true },
-                { label: 'Reports', href: '#' },
-                { label: 'Settings', href: '#' },
-              ]" size="sm" />
+              <Nav
+                :items="[
+                  { label: 'Overview', href: '#', active: true },
+                  { label: 'Reports', href: '#' },
+                  { label: 'Settings', href: '#' },
+                ]"
+                size="sm"
+              />
             </template>
             <template #actions>
               <Avatar fallback="AJ" size="sm" />
@@ -155,21 +158,35 @@ const { Story } = defineMeta({
       <template #header>
         <AppHeader title="Simple App">
           <template #nav>
-            <Nav :items="[
-              { label: 'Home', href: '#', active: true },
-              { label: 'About', href: '#' },
-              { label: 'Contact', href: '#' },
-            ]" size="sm" />
+            <Nav
+              :items="[
+                { label: 'Home', href: '#', active: true },
+                { label: 'About', href: '#' },
+                { label: 'Contact', href: '#' },
+              ]"
+              size="sm"
+            />
           </template>
         </AppHeader>
       </template>
       <Stack gap="lg" style="padding: var(--morphink-space-xl)">
-        <Breadcrumb :items="[{ label: 'Home', href: '#' }, { label: 'Projects', href: '#' }, { label: 'Design System' }]" />
-        <SectionHeader title="Design System" subtitle="Overview of the morphink component library" />
+        <Breadcrumb
+          :items="[
+            { label: 'Home', href: '#' },
+            { label: 'Projects', href: '#' },
+            { label: 'Design System' },
+          ]"
+        />
+        <SectionHeader
+          title="Design System"
+          subtitle="Overview of the morphink component library"
+        />
         <Grid :columns="2" gap="md">
           <Card>
             <CardHeader><CardTitle>Components</CardTitle></CardHeader>
-            <CardBody><Text muted>42 components across atoms, molecules, and organisms.</Text></CardBody>
+            <CardBody
+              ><Text muted>42 components across atoms, molecules, and organisms.</Text></CardBody
+            >
           </Card>
           <Card>
             <CardHeader><CardTitle>Tokens</CardTitle></CardHeader>

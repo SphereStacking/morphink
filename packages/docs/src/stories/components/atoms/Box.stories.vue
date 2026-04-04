@@ -61,14 +61,7 @@ const { Story } = defineMeta({
   <Story name="Positioning">
     <template #template>
       <Box position="relative" height="200px" border rounded="md">
-        <Box
-          position="absolute"
-          top="0"
-          left="0"
-          padding="sm"
-          background="muted"
-          rounded="md"
-        >
+        <Box position="absolute" top="0" left="0" padding="sm" background="muted" rounded="md">
           <Text variant="caption">top-left</Text>
         </Box>
         <Box
@@ -83,14 +76,7 @@ const { Story } = defineMeta({
         >
           <Text variant="caption">center</Text>
         </Box>
-        <Box
-          position="absolute"
-          bottom="0"
-          right="0"
-          padding="sm"
-          background="muted"
-          rounded="md"
-        >
+        <Box position="absolute" bottom="0" right="0" padding="sm" background="muted" rounded="md">
           <Text variant="caption">bottom-right</Text>
         </Box>
       </Box>

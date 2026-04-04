@@ -30,12 +30,15 @@ const { Story } = defineMeta({
     <template #template="{ args }">
       <AppHeader v-bind="args">
         <template #nav>
-          <Nav :items="[
-            { label: 'Dashboard', href: '#', active: true },
-            { label: 'Projects', href: '#' },
-            { label: 'Team', href: '#' },
-            { label: 'Settings', href: '#' },
-          ]" size="sm" />
+          <Nav
+            :items="[
+              { label: 'Dashboard', href: '#', active: true },
+              { label: 'Projects', href: '#' },
+              { label: 'Team', href: '#' },
+              { label: 'Settings', href: '#' },
+            ]"
+            size="sm"
+          />
         </template>
         <template #actions>
           <SearchInput placeholder="Search..." size="sm" />

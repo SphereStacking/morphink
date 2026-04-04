@@ -35,7 +35,12 @@ const { Story } = defineMeta({
 <template>
   <Story name="Playground">
     <template #template="{ args }">
-      <Card :variant="args.variant" :rounded="args.rounded" :shadow="args.shadow" style="max-width: 400px;">
+      <Card
+        :variant="args.variant"
+        :rounded="args.rounded"
+        :shadow="args.shadow"
+        style="max-width: 400px"
+      >
         <CardHeader>
           <CardTitle>Featured Collection</CardTitle>
           <CardDescription>Curated for easy discovery</CardDescription>
@@ -56,12 +61,12 @@ const { Story } = defineMeta({
 
   <Story name="Minimal" asChild>
     <Stack gap="lg" direction="row" wrap>
-      <Card style="width: 280px;">
+      <Card style="width: 280px">
         <CardBody>
           <Text>The simplest Card usage — just Card + CardBody for quick content grouping.</Text>
         </CardBody>
       </Card>
-      <Card variant="outline" style="width: 280px;">
+      <Card variant="outline" style="width: 280px">
         <CardBody>
           <Text>Outline variant with body only. No header or footer needed.</Text>
         </CardBody>
@@ -73,23 +78,23 @@ const { Story } = defineMeta({
     <Stack gap="lg">
       <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">variant</div>
       <Stack gap="lg" direction="row" wrap>
-        <Card variant="elevated" style="width: 200px;">
+        <Card variant="elevated" style="width: 200px">
           <CardHeader><CardTitle>Elevated</CardTitle></CardHeader>
           <CardBody><Text>Default card with shadow</Text></CardBody>
         </Card>
-        <Card variant="outline" style="width: 200px;">
+        <Card variant="outline" style="width: 200px">
           <CardHeader><CardTitle>Outline</CardTitle></CardHeader>
           <CardBody><Text>Border only, no shadow</Text></CardBody>
         </Card>
-        <Card variant="ghost" style="width: 200px;">
+        <Card variant="ghost" style="width: 200px">
           <CardHeader><CardTitle>Ghost</CardTitle></CardHeader>
           <CardBody><Text>Transparent, hover to reveal</Text></CardBody>
         </Card>
-        <Card variant="soft" style="width: 200px;">
+        <Card variant="soft" style="width: 200px">
           <CardHeader><CardTitle>Soft</CardTitle></CardHeader>
           <CardBody><Text>Muted background</Text></CardBody>
         </Card>
-        <Card variant="interactive" style="width: 200px;">
+        <Card variant="interactive" style="width: 200px">
           <CardHeader><CardTitle>Interactive</CardTitle></CardHeader>
           <CardBody><Text>Hover for shadow lift</Text></CardBody>
         </Card>
@@ -99,11 +104,22 @@ const { Story } = defineMeta({
 
   <Story name="WithMedia" asChild>
     <Stack gap="lg">
-      <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">with media</div>
+      <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">
+        with media
+      </div>
       <Stack gap="lg" direction="row" wrap>
-        <Card style="width: 300px;">
+        <Card style="width: 300px">
           <CardMedia>
-            <div style="height: 160px; background: linear-gradient(135deg, var(--morphink-color-primary), var(--morphink-color-accent));" />
+            <div
+              style="
+                height: 160px;
+                background: linear-gradient(
+                  135deg,
+                  var(--morphink-color-primary),
+                  var(--morphink-color-accent)
+                );
+              "
+            />
           </CardMedia>
           <CardHeader>
             <CardTitle>Gradient Card</CardTitle>
@@ -116,7 +132,7 @@ const { Story } = defineMeta({
             <Button size="sm" variant="solid">Action</Button>
           </CardFooter>
         </Card>
-        <Card style="width: 300px;">
+        <Card style="width: 300px">
           <CardHeader>
             <CardTitle>Bottom Media</CardTitle>
             <CardDescription>Media placed after content</CardDescription>
@@ -125,7 +141,16 @@ const { Story } = defineMeta({
             <Text>Content above the media area.</Text>
           </CardBody>
           <CardMedia>
-            <div style="height: 120px; background: linear-gradient(135deg, var(--morphink-color-accent), var(--morphink-color-secondary));" />
+            <div
+              style="
+                height: 120px;
+                background: linear-gradient(
+                  135deg,
+                  var(--morphink-color-accent),
+                  var(--morphink-color-secondary)
+                );
+              "
+            />
           </CardMedia>
         </Card>
       </Stack>
@@ -135,22 +160,44 @@ const { Story } = defineMeta({
   <Story name="RoundedAndShadow" asChild>
     <Stack gap="2xl">
       <Stack direction="column" gap="md">
-        <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">rounded</div>
+        <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">
+          rounded
+        </div>
         <Stack gap="md" direction="row" wrap>
-          <Card rounded="none" style="width: 160px;"><CardBody><Text>none</Text></CardBody></Card>
-          <Card rounded="sm" style="width: 160px;"><CardBody><Text>sm</Text></CardBody></Card>
-          <Card rounded="md" style="width: 160px;"><CardBody><Text>md</Text></CardBody></Card>
-          <Card rounded="lg" style="width: 160px;"><CardBody><Text>lg</Text></CardBody></Card>
-          <Card rounded="xl" style="width: 160px;"><CardBody><Text>xl</Text></CardBody></Card>
+          <Card rounded="none" style="width: 160px"
+            ><CardBody><Text>none</Text></CardBody></Card
+          >
+          <Card rounded="sm" style="width: 160px"
+            ><CardBody><Text>sm</Text></CardBody></Card
+          >
+          <Card rounded="md" style="width: 160px"
+            ><CardBody><Text>md</Text></CardBody></Card
+          >
+          <Card rounded="lg" style="width: 160px"
+            ><CardBody><Text>lg</Text></CardBody></Card
+          >
+          <Card rounded="xl" style="width: 160px"
+            ><CardBody><Text>xl</Text></CardBody></Card
+          >
         </Stack>
       </Stack>
       <Stack direction="column" gap="md">
-        <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">shadow</div>
+        <div class="text-xs font-semibold text-[var(--morphink-color-muted-foreground)]">
+          shadow
+        </div>
         <Stack gap="md" direction="row" wrap>
-          <Card shadow="none" style="width: 160px;"><CardBody><Text>none</Text></CardBody></Card>
-          <Card shadow="sm" style="width: 160px;"><CardBody><Text>sm</Text></CardBody></Card>
-          <Card shadow="md" style="width: 160px;"><CardBody><Text>md</Text></CardBody></Card>
-          <Card shadow="lg" style="width: 160px;"><CardBody><Text>lg</Text></CardBody></Card>
+          <Card shadow="none" style="width: 160px"
+            ><CardBody><Text>none</Text></CardBody></Card
+          >
+          <Card shadow="sm" style="width: 160px"
+            ><CardBody><Text>sm</Text></CardBody></Card
+          >
+          <Card shadow="md" style="width: 160px"
+            ><CardBody><Text>md</Text></CardBody></Card
+          >
+          <Card shadow="lg" style="width: 160px"
+            ><CardBody><Text>lg</Text></CardBody></Card
+          >
         </Stack>
       </Stack>
     </Stack>

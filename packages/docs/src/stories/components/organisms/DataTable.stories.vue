@@ -45,7 +45,10 @@ const { Story } = defineMeta({
     </template>
   </Story>
 
-  <Story name="WithSearch" :args="{ columns: sampleColumns, rows: sampleRows, searchable: true, pageSize: 5 }">
+  <Story
+    name="WithSearch"
+    :args="{ columns: sampleColumns, rows: sampleRows, searchable: true, pageSize: 5 }"
+  >
     <template #template="{ args }">
       <DataTable v-bind="args" />
     </template>
@@ -61,7 +64,16 @@ const { Story } = defineMeta({
     />
   </Story>
 
-  <Story name="Empty" :args="{ columns: sampleColumns, rows: [], searchable: true, emptyTitle: 'No users found', emptyDescription: 'Try adjusting your search or add a new user.' }">
+  <Story
+    name="Empty"
+    :args="{
+      columns: sampleColumns,
+      rows: [],
+      searchable: true,
+      emptyTitle: 'No users found',
+      emptyDescription: 'Try adjusting your search or add a new user.',
+    }"
+  >
     <template #template="{ args }">
       <DataTable v-bind="args" />
     </template>

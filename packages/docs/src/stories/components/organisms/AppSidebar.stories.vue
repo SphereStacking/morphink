@@ -11,7 +11,13 @@ const { Story } = defineMeta({
 
 <template>
   <Story name="Default" asChild>
-    <div style="height: 400px; width: 240px; border: var(--morphink-border-width-default) solid var(--morphink-color-border)">
+    <div
+      style="
+        height: 400px;
+        width: 240px;
+        border: var(--morphink-border-width-default) solid var(--morphink-color-border);
+      "
+    >
       <AppSidebar>
         <template #header>
           <Text variant="label">Navigation</Text>
@@ -28,7 +34,13 @@ const { Story } = defineMeta({
   </Story>
 
   <Story name="WithSections" asChild>
-    <div style="height: 500px; width: 260px; border: var(--morphink-border-width-default) solid var(--morphink-color-border)">
+    <div
+      style="
+        height: 500px;
+        width: 260px;
+        border: var(--morphink-border-width-default) solid var(--morphink-color-border);
+      "
+    >
       <AppSidebar>
         <template #header>
           <Heading :level="5">My App</Heading>

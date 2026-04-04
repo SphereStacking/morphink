@@ -15,7 +15,10 @@ const { Story } = defineMeta({
     placeholder: { control: 'text' },
     disabled: { control: 'boolean' },
     readonly: { control: 'boolean' },
-    type: { control: { type: 'select' }, options: ['text', 'password', 'email', 'number', 'search', 'tel', 'url'] },
+    type: {
+      control: { type: 'select' },
+      options: ['text', 'password', 'email', 'number', 'search', 'tel', 'url'],
+    },
   },
   args: {
     variant: 'outline',

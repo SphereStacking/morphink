@@ -67,10 +67,7 @@ const config: StorybookConfig = {
       ...(config.resolve.alias || {}),
       '@tokens': join(baseDir, '../tokens/tokens'),
     }
-    config.plugins = [
-      vue({ include: /\.stories\.vue$/ }),
-      ...(config.plugins || []),
-    ]
+    config.plugins = [vue({ include: /\.stories\.vue$/ }), ...(config.plugins || [])]
     return config
   },
 }

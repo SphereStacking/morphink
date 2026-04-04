@@ -14,7 +14,10 @@ const { Story } = defineMeta({
 </script>
 
 <template>
-  <Story name="Default" :args="{ title: 'Profile', description: 'Manage your public profile information.' }">
+  <Story
+    name="Default"
+    :args="{ title: 'Profile', description: 'Manage your public profile information.' }"
+  >
     <template #template="{ args }">
       <SettingsSection v-bind="args">
         <Stack gap="lg">
@@ -29,7 +32,10 @@ const { Story } = defineMeta({
     </template>
   </Story>
 
-  <Story name="WithAction" :args="{ title: 'Notifications', description: 'Configure how you receive notifications.' }">
+  <Story
+    name="WithAction"
+    :args="{ title: 'Notifications', description: 'Configure how you receive notifications.' }"
+  >
     <template #template="{ args }">
       <SettingsSection v-bind="args">
         <template #action>
@@ -37,8 +43,14 @@ const { Story } = defineMeta({
         </template>
         <Stack gap="md">
           <FormFieldCheckbox label="Email notifications" helper="Receive updates via email" />
-          <FormFieldCheckbox label="Push notifications" helper="Receive push notifications on your device" />
-          <FormFieldCheckbox label="Marketing emails" helper="Receive marketing and promotional content" />
+          <FormFieldCheckbox
+            label="Push notifications"
+            helper="Receive push notifications on your device"
+          />
+          <FormFieldCheckbox
+            label="Marketing emails"
+            helper="Receive marketing and promotional content"
+          />
         </Stack>
       </SettingsSection>
     </template>

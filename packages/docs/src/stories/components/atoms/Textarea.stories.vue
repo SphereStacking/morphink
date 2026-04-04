@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { Stack, Textarea } from '@morphink/ui'
-import { componentResize, componentRounded, componentSizes, componentTones, componentVariants } from '@morphink/ui'
+import {
+  componentResize,
+  componentRounded,
+  componentSizes,
+  componentTones,
+  componentVariants,
+} from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const { Story } = defineMeta({

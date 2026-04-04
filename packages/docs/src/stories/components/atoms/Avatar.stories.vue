@@ -27,7 +27,13 @@ const { Story } = defineMeta({
 <template>
   <Story name="Default">
     <template #template="{ args }">
-      <Avatar :src="args.src" :alt="args.alt" :fallback="args.fallback" :size="args.size" :rounded="args.rounded" />
+      <Avatar
+        :src="args.src"
+        :alt="args.alt"
+        :fallback="args.fallback"
+        :size="args.size"
+        :rounded="args.rounded"
+      />
     </template>
   </Story>
 

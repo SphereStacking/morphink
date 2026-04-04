@@ -7,7 +7,10 @@ const { Story } = defineMeta({
   tags: ['autodocs'],
   argTypes: {
     columns: { control: 'text' },
-    gap: { control: { type: 'select' }, options: ['0', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'] },
+    gap: {
+      control: { type: 'select' },
+      options: ['0', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'],
+    },
     direction: { control: { type: 'select' }, options: ['row', 'column'] },
   },
   args: {

@@ -37,7 +37,8 @@ const { Story } = defineMeta({
         <LoginForm v-bind="args">
           <template #footer>
             <Text variant="caption" muted :style="{ textAlign: 'center' }">
-              Don't have an account? <a href="#" :style="{ color: 'var(--morphink-color-accent)' }">Sign up</a>
+              Don't have an account?
+              <a href="#" :style="{ color: 'var(--morphink-color-accent)' }">Sign up</a>
             </Text>
           </template>
         </LoginForm>

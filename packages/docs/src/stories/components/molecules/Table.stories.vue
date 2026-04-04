@@ -60,14 +60,14 @@ const rows = [
   </Story>
 
   <Story name="Density" asChild>
-    <div style="display: grid; gap: 12px;">
+    <div style="display: grid; gap: 12px">
       <Table :columns="columns" :rows="rows" density="comfortable" />
       <Table :columns="columns" :rows="rows" density="compact" />
     </div>
   </Story>
 
   <Story name="StripedAndHover" asChild>
-    <div style="display: grid; gap: 12px;">
+    <div style="display: grid; gap: 12px">
       <Table :columns="columns" :rows="rows" :striped="false" />
       <Table :columns="columns" :rows="rows" striped />
       <Table :columns="columns" :rows="rows" :hover="false" />
@@ -76,7 +76,7 @@ const rows = [
   </Story>
 
   <Story name="Rounded" asChild>
-    <div style="display: grid; gap: 12px;">
+    <div style="display: grid; gap: 12px">
       <Table :columns="columns" :rows="rows" rounded="sm" />
       <Table :columns="columns" :rows="rows" rounded="md" />
       <Table :columns="columns" :rows="rows" rounded="lg" />

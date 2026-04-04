@@ -20,7 +20,11 @@ const { Story } = defineMeta({
 <template>
   <Story name="Default">
     <template #template="{ args }">
-      <Stack :direction="args.vertical ? 'row' : 'column'" :align="args.vertical ? 'center' : undefined" gap="md">
+      <Stack
+        :direction="args.vertical ? 'row' : 'column'"
+        :align="args.vertical ? 'center' : undefined"
+        gap="md"
+      >
         <Text>Section A</Text>
         <Divider v-bind="args" />
         <Text>Section B</Text>

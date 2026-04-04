@@ -31,9 +31,16 @@ const { Story } = defineMeta({
 <template>
   <Story name="Default">
     <template #template="{ args }">
-      <Alert :tone="args.tone" :variant="args.variant" :rounded="args.rounded" :dismissible="args.dismissible">
+      <Alert
+        :tone="args.tone"
+        :variant="args.variant"
+        :rounded="args.rounded"
+        :dismissible="args.dismissible"
+      >
         <AlertTitle>Heads up!</AlertTitle>
-        <AlertDescription>You can customize the alert with tone, variant, and rounded props.</AlertDescription>
+        <AlertDescription
+          >You can customize the alert with tone, variant, and rounded props.</AlertDescription
+        >
       </Alert>
     </template>
   </Story>
@@ -86,7 +93,17 @@ const { Story } = defineMeta({
         <AlertTitle>Dismissible Alert</AlertTitle>
         <AlertDescription>Click the close button to dismiss this alert.</AlertDescription>
       </Alert>
-      <button v-if="!show" @click="reset" style="cursor: pointer; padding: 8px 16px; border: 1px solid #ccc; border-radius: 6px; background: transparent;">
+      <button
+        v-if="!show"
+        @click="reset"
+        style="
+          cursor: pointer;
+          padding: 8px 16px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          background: transparent;
+        "
+      >
         Reset Alert
       </button>
     </Stack>

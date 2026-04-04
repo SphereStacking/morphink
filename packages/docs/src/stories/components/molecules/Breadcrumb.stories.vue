@@ -13,13 +13,33 @@ const { Story } = defineMeta({
 </script>
 
 <template>
-  <Story name="Default" :args="{ items: [{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }, { label: 'Categories', href: '/products/categories' }, { label: 'Electronics' }] }">
+  <Story
+    name="Default"
+    :args="{
+      items: [
+        { label: 'Home', href: '/' },
+        { label: 'Products', href: '/products' },
+        { label: 'Categories', href: '/products/categories' },
+        { label: 'Electronics' },
+      ],
+    }"
+  >
     <template #template="{ args }">
       <Breadcrumb v-bind="args" />
     </template>
   </Story>
 
-  <Story name="CustomSeparator" :args="{ items: [{ label: 'Home', href: '/' }, { label: 'Dashboard', href: '/dashboard' }, { label: 'Settings' }], separator: '›' }">
+  <Story
+    name="CustomSeparator"
+    :args="{
+      items: [
+        { label: 'Home', href: '/' },
+        { label: 'Dashboard', href: '/dashboard' },
+        { label: 'Settings' },
+      ],
+      separator: '›',
+    }"
+  >
     <template #template="{ args }">
       <Breadcrumb v-bind="args" />
     </template>

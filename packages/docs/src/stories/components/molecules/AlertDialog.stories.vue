@@ -66,7 +66,11 @@ const { Story } = defineMeta({
         v-if="openSize"
         :open="true"
         :size="openSize"
-        @update:open="(v) => { if (!v) openSize = null }"
+        @update:open="
+          (v) => {
+            if (!v) openSize = null
+          }
+        "
         title="Size"
         description="Size variants"
       >
@@ -84,7 +88,11 @@ const { Story } = defineMeta({
         v-if="openRounded"
         :open="true"
         :rounded="openRounded"
-        @update:open="(v) => { if (!v) openRounded = null }"
+        @update:open="
+          (v) => {
+            if (!v) openRounded = null
+          }
+        "
         title="Rounded"
         description="Rounded variants"
       >
@@ -102,7 +110,11 @@ const { Story } = defineMeta({
         v-if="openShadow"
         :open="true"
         :shadow="openShadow"
-        @update:open="(v) => { if (!v) openShadow = null }"
+        @update:open="
+          (v) => {
+            if (!v) openShadow = null
+          }
+        "
         title="Shadow"
         description="Shadow variants"
       >

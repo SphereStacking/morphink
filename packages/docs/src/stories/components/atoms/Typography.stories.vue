@@ -27,7 +27,9 @@ const { Story } = defineMeta({
     <template #template="{ args }">
       <Stack gap="md">
         <Heading :level="args.headingLevel">Heading Preview</Heading>
-        <Text :variant="args.variant" :weight="args.weight" :muted="args.muted">{{ args.text }}</Text>
+        <Text :variant="args.variant" :weight="args.weight" :muted="args.muted">{{
+          args.text
+        }}</Text>
       </Stack>
     </template>
   </Story>

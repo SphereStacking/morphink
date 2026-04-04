@@ -44,14 +44,18 @@ const { Story } = defineMeta({
           <label for="cherry" class="text-sm text-[var(--morphink-color-foreground)]">Cherry</label>
         </div>
       </RadioGroup>
-      <p class="mt-4 text-sm text-[var(--morphink-color-muted-foreground)]">Selected: {{ selected }}</p>
+      <p class="mt-4 text-sm text-[var(--morphink-color-muted-foreground)]">
+        Selected: {{ selected }}
+      </p>
     </template>
   </Story>
 
   <Story name="Variants" asChild>
     <Stack direction="row" gap="xl">
       <div v-for="v in ['outline', 'solid', 'ghost', 'soft']" :key="v">
-        <p class="mb-2 text-xs font-medium text-[var(--morphink-color-muted-foreground)]">{{ v }}</p>
+        <p class="mb-2 text-xs font-medium text-[var(--morphink-color-muted-foreground)]">
+          {{ v }}
+        </p>
         <RadioGroup :variant="v" default-value="a">
           <div class="flex items-center gap-2">
             <Radio value="a" />
@@ -68,8 +72,13 @@ const { Story } = defineMeta({
 
   <Story name="Tones" asChild>
     <Stack direction="row" gap="xl" wrap>
-      <div v-for="t in ['primary', 'secondary', 'accent', 'success', 'warning', 'info', 'destructive']" :key="t">
-        <p class="mb-2 text-xs font-medium text-[var(--morphink-color-muted-foreground)]">{{ t }}</p>
+      <div
+        v-for="t in ['primary', 'secondary', 'accent', 'success', 'warning', 'info', 'destructive']"
+        :key="t"
+      >
+        <p class="mb-2 text-xs font-medium text-[var(--morphink-color-muted-foreground)]">
+          {{ t }}
+        </p>
         <RadioGroup :tone="t" default-value="a" orientation="horizontal">
           <div class="flex items-center gap-2">
             <Radio value="a" />
@@ -87,7 +96,9 @@ const { Story } = defineMeta({
   <Story name="Sizes" asChild>
     <Stack direction="row" gap="xl" align="start">
       <div v-for="s in ['xs', 'sm', 'md', 'lg', 'xl']" :key="s">
-        <p class="mb-2 text-xs font-medium text-[var(--morphink-color-muted-foreground)]">{{ s }}</p>
+        <p class="mb-2 text-xs font-medium text-[var(--morphink-color-muted-foreground)]">
+          {{ s }}
+        </p>
         <RadioGroup :size="s" default-value="a" orientation="horizontal">
           <div class="flex items-center gap-2">
             <Radio value="a" />
@@ -106,11 +117,15 @@ const { Story } = defineMeta({
     <RadioGroup disabled default-value="a">
       <div class="flex items-center gap-2">
         <Radio value="a" id="d-a" />
-        <label for="d-a" class="text-sm text-[var(--morphink-color-foreground)]">Selected (disabled)</label>
+        <label for="d-a" class="text-sm text-[var(--morphink-color-foreground)]"
+          >Selected (disabled)</label
+        >
       </div>
       <div class="flex items-center gap-2">
         <Radio value="b" id="d-b" />
-        <label for="d-b" class="text-sm text-[var(--morphink-color-foreground)]">Unselected (disabled)</label>
+        <label for="d-b" class="text-sm text-[var(--morphink-color-foreground)]"
+          >Unselected (disabled)</label
+        >
       </div>
     </RadioGroup>
   </Story>

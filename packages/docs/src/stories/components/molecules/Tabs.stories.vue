@@ -43,7 +43,11 @@ const { Story } = defineMeta({
           :model-value="active"
           :variant="args.variant"
           :size="args.size"
-          @update:model-value="(v) => { active = v }"
+          @update:model-value="
+            (v) => {
+              active = v
+            }
+          "
         />
         <Text muted>Selected: {{ active }}</Text>
       </Stack>

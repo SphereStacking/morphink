@@ -184,7 +184,9 @@ const { Story } = defineMeta({
         <span class="text-sm text-[var(--morphink-color-foreground)]">Cherry</span>
       </div>
     </CheckboxGroup>
-    <p class="mt-4 text-sm text-[var(--morphink-color-muted-foreground)]">Selected: {{ selected.join(', ') }}</p>
+    <p class="mt-4 text-sm text-[var(--morphink-color-muted-foreground)]">
+      Selected: {{ selected.join(', ') }}
+    </p>
   </Story>
 
   <Story name="GroupHorizontal" asChild>

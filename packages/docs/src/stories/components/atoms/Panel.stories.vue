@@ -28,9 +28,14 @@ const { Story } = defineMeta({
   <Story name="Default">
     <template #template="{ args }">
       <Stack gap="md">
-        <Panel :variant="args.variant" :interactive="args.interactive" :rounded="args.rounded" :shadow="args.shadow">
+        <Panel
+          :variant="args.variant"
+          :interactive="args.interactive"
+          :rounded="args.rounded"
+          :shadow="args.shadow"
+        >
           <Text>{{ args.body }}</Text>
-          <Button size="sm" variant="ghost" style="margin-top: 8px;">Action</Button>
+          <Button size="sm" variant="ghost" style="margin-top: 8px">Action</Button>
         </Panel>
       </Stack>
     </template>
@@ -47,7 +52,10 @@ const { Story } = defineMeta({
   <Story name="Interactive" asChild>
     <Stack gap="md">
       <Panel><Text muted>Not interactive</Text></Panel>
-      <Panel interactive><Text>Interactive</Text><Button size="sm" variant="ghost" style="margin-top: 8px;">Action</Button></Panel>
+      <Panel interactive
+        ><Text>Interactive</Text
+        ><Button size="sm" variant="ghost" style="margin-top: 8px">Action</Button></Panel
+      >
     </Stack>
   </Story>
 

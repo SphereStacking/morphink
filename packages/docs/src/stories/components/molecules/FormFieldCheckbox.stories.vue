@@ -21,13 +21,26 @@ const { Story } = defineMeta({
     </template>
   </Story>
 
-  <Story name="WithHelper" :args="{ label: 'Subscribe to newsletter', helper: 'We will send you updates about new features and releases.' }">
+  <Story
+    name="WithHelper"
+    :args="{
+      label: 'Subscribe to newsletter',
+      helper: 'We will send you updates about new features and releases.',
+    }"
+  >
     <template #template="{ args }">
       <FormFieldCheckbox v-bind="args" />
     </template>
   </Story>
 
-  <Story name="Disabled" :args="{ label: 'This option is not available', helper: 'Contact support for more information.', disabled: true }">
+  <Story
+    name="Disabled"
+    :args="{
+      label: 'This option is not available',
+      helper: 'Contact support for more information.',
+      disabled: true,
+    }"
+  >
     <template #template="{ args }">
       <FormFieldCheckbox v-bind="args" />
     </template>
