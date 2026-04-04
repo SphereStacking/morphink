@@ -8,6 +8,7 @@ export { default as RadioGroup } from './components/atoms/RadioGroup.vue'
 export { default as Radio } from './components/atoms/Radio.vue'
 export { default as Switch } from './components/atoms/Switch.vue'
 export { default as Slider } from './components/atoms/Slider.vue'
+export { default as Collapsible } from './components/atoms/Collapsible.vue'
 
 // ─── Atoms: Display ───
 export { default as Text } from './components/atoms/Text.vue'
