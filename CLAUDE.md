@@ -209,6 +209,33 @@ mi:* で hover/focus が必要だと感じたら、
 - `packages/ui/dist/ui.css`
 - `packages/ui/dist/utilities.css`
 
+## Figma MCP 連携
+
+プロジェクトレベルで Figma MCP サーバー（`.mcp.json`）を設定済み。
+
+### ルール
+
+- Figma MCP の出力（React + Tailwind）はデザイン意図の表現であり、最終コードではない
+- Tailwind ユーティリティクラスは morphink のトークン参照（`--morphink-*`）に置き換える
+- 色・スペーシング・角丸・影は必ず semantic token を使い、ハードコードしない
+- 既存コンポーネント（`packages/ui/src/components/`）を再利用し、重複実装しない
+- Figma MCP が localhost ソースで画像/SVG を返した場合、そのソースを直接使用する
+- アイコンパッケージを新規追加しない — アセットは Figma ペイロードに含まれる
+- localhost ソースがある場合、プレースホルダーを作成しない
+
+### 推奨フロー
+
+1. `get_design_context` でフレームの構造化表現を取得
+2. `get_screenshot` でビジュアルリファレンスを取得
+3. `get_variable_defs` でトークン情報を取得
+4. 取得した情報を morphink の Vue 3 + Tailwind v4 + トークン体系に変換して実装
+5. Figma デザインとの 1:1 ビジュアルパリティを検証
+
+### トークンマッピング（Figma → morphink）
+
+Figma Variables の命名と morphink CSS 変数を対応付けて実装する。
+具体的なマッピングは Figma ファイルの Variable Collection 構成に依存する。
+
 ## 主要依存
 
 - **reka-ui** — ヘッドレス a11y コンポーネント（Dialog, Select, Dropdown, Tabs 等の基盤）
