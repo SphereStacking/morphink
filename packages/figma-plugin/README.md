@@ -76,7 +76,7 @@ Figma でトークンを変更してから PR を出すまでの標準フロー�
 
 ```bash
 # ダウンロードしたファイルをトークンディレクトリに配置
-cp ~/Downloads/alias.json        packages/tokens/tokens/alias.json
+cp ~/Downloads/primitives.json   packages/tokens/tokens/primitives.json
 cp ~/Downloads/semantic.json     packages/tokens/tokens/semantic.json
 cp ~/Downloads/semantic-dark.json packages/tokens/tokens/semantic-dark.json
 ```
@@ -149,7 +149,7 @@ gh pr create
 
 | コレクション名 | 役割 | 出力ファイル |
 |--------------|------|------------|
-| `Primitives` | 色の原値（パレット）、スペーシング、半径など | `alias.json` |
+| `Primitives` | 色の原値（パレット）、スペーシング、半径など | `primitives.json` |
 | `Semantic` | ライトモードのセマンティックトークン | `semantic.json` |
 | `Semantic` (Dark モード) | ダークモードのセマンティックトークン | `semantic-dark.json` |
 
@@ -216,7 +216,7 @@ pnpm --filter @morphink/tokens build
 
 4. `packages/ui/src/styles/base.css` の Motion Shorthand 変数も必要に応じて更新する（こちらも手書き管理）
 
-> motion.json は diff-check の対象外（`alias.json`, `semantic.json`, `semantic-dark.json` のみ対象）。
+> motion.json は diff-check の対象外（`primitives.json`, `semantic.json`, `semantic-dark.json` のみ対象）。
 
 ---
 
@@ -224,7 +224,7 @@ pnpm --filter @morphink/tokens build
 
 | Figma Collection | Mode | 出力ファイル |
 |-----------------|------|-------------|
-| Primitives | （全モード） | `alias.json` |
+| Primitives | （全モード） | `primitives.json` |
 | Semantic | Light | `semantic.json` |
 | Semantic | Dark | `semantic-dark.json` |
 
@@ -296,7 +296,7 @@ pnpm --filter @morphink/tokens build
 
 **対処:**
 1. エラーメッセージ内のトークンパスを確認する
-2. `alias.json` に参照先のトークンが存在するか確認する
+2. `primitives.json` に参照先のトークンが存在するか確認する
 3. Figma で参照が正しく設定されているかを確認し、再エクスポートする
 
 ---

@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 pnpm workspaces によるデザインシステム monorepo。Vue 3 + Tailwind CSS v4 + Tokens Studio。
 アーキテクチャ思想は CONCEPT.md を参照。
 
-- `packages/tokens` — デザイントークンのソース（alias.json / semantic.json / semantic-dark.json）と Style Dictionary ビルド
+- `packages/tokens` — デザイントークンのソース（primitives.json / semantic.json / semantic-dark.json）と Style Dictionary ビルド
 - `packages/ui` — Vue 3 UI コンポーネントライブラリ（Reka UI + CVA + tailwind-merge）
 - `packages/docs` — Storybook 10（コンポーネントカタログ・ガイドライン）
 
@@ -119,7 +119,7 @@ type SpaceToken = '0' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
 
 MD3 / Carbon / WCAG 2.2 を参照基盤とする Motion Token System。
 
-#### Alias トークン（`packages/tokens/tokens/alias.json`）
+#### Primitive トークン（`packages/tokens/tokens/primitives.json`）
 
 | カテゴリ | トークン | 値 |
 |---|---|---|
@@ -201,7 +201,7 @@ mi:* で hover/focus が必要だと感じたら、
 - テーマクラス: `.mi-theme` / ユーティリティクラスプレフィックス: `mi:`
 - Tailwind v4 でのトークン参照: `bg-(--morphink-color-primary)`, `text-(--morphink-color-foreground)`
 - ホバー透過: `bg-[color-mix(in_srgb,var(--morphink-color-destructive)_8%,transparent)]`
-- semantic tokens を優先し、alias tokens や色の直書きは避ける
+- semantic tokens を優先し、primitive tokens や色の直書きは避ける
 
 ## 編集してはいけないファイル（生成物）
 

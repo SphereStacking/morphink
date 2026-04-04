@@ -29,7 +29,7 @@ Public 層がいま薄いラッパーなのは意図的。プロダクトレベ�
 
 ```
 Tokens Studio
-  → packages/tokens/tokens/*.json (alias / semantic / semantic-dark)
+  → packages/tokens/tokens/*.json (primitives / semantic / semantic-dark)
   → Style Dictionary (ビルド)
   → packages/tokens/dist (css / json / ts)
   → packages/ui/src/styles/tokens.css（CSS 変数として import）
@@ -40,23 +40,23 @@ Tokens Studio
 ### 2 階層トークン構造
 
 ```
-alias.json                  semantic.json               CSS 変数                       コンポーネント
+primitives.json             semantic.json               CSS 変数                       コンポーネント
 ──────────────────────────  ──────────────────────────  ────────────────────────────  ──────────────
 color.primary-500:          color.primary.base:         --morphink-color-primary:     bg-(--morphink-color-primary)
   oklch(65.96% 0.21 18)      refs {color.primary-500}    resolved to oklch(...)
 ```
 
-- **Alias トークン** — 生のパレット、スペーシングスケール、角丸。実装の詳細。
+- **Primitive トークン** — 生のパレット、スペーシングスケール、角丸。実装の詳細。
 - **Semantic トークン** — 設計意図（`primary`、`destructive`、`muted`）。デザインシステムの共通言語。
 
-コンポーネントは semantic トークンのみを参照する。`alias.json` を差し替えるだけでビジュアルを一新できる。
+コンポーネントは semantic トークンのみを参照する。`primitives.json` を差し替えるだけでビジュアルを一新できる。
 
 ## パッケージ構成
 
 ```
 packages/
   tokens/
-    tokens/           # alias.json, semantic.json, semantic-dark.json
+    tokens/           # primitives.json, semantic.json, semantic-dark.json
     dist/             # ビルド成果物 (css, json, ts)
   ui/
     src/base/ui/      # Base コンポーネント (*Base.vue)

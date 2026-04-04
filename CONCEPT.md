@@ -47,7 +47,7 @@ The primary benefit is **dependency isolation**.
 
 If Reka UI is discontinued, or a better headless library emerges — only the Base layer changes. The Public API (`<Button tone="primary">`) remains stable. If Tailwind ships breaking changes — only the Base layer absorbs them. Consumers of your design system don't need to know or care.
 
-This same principle applies to your token pipeline. Token values flow through alias → semantic → CSS variables → components. When your design team updates a color, the change propagates automatically without touching component code.
+This same principle applies to your token pipeline. Token values flow through primitives → semantic → CSS variables → components. When your design team updates a color, the change propagates automatically without touching component code.
 
 ### Why Reka UI?
 
@@ -66,17 +66,17 @@ Until then, the layer stays thin, and the architecture stays ready.
 morphink's token system follows a two-tier structure, where raw values are assigned design intent before reaching components:
 
 ```
-alias.json                  semantic.json               CSS Variable                  Component
+primitives.json             semantic.json               CSS Variable                  Component
 ──────────────────────────  ──────────────────────────  ────────────────────────────  ──────────────────────────
 color.primary-500:          color.primary.base:         --morphink-color-primary:     bg-(--morphink-color-primary)
   oklch(65.96% 0.21 18)      refs {color.primary-500}    resolved to oklch(...)
 ```
 
-**Alias tokens** define the raw palette — color scales, spacing values, radii. These are implementation details that designers and developers rarely reference directly.
+**Primitive tokens** define the raw palette — color scales, spacing values, radii. These are implementation details that designers and developers rarely reference directly.
 
-**Semantic tokens** assign meaning — "primary", "destructive", "muted". These are the vocabulary your design system speaks. Components only reference semantic tokens, never alias values.
+**Semantic tokens** assign meaning — "primary", "destructive", "muted". These are the vocabulary your design system speaks. Components only reference semantic tokens, never primitive values.
 
-This separation means you can completely change your visual identity by swapping alias.json, without touching a single component file.
+This separation means you can completely change your visual identity by swapping primitives.json, without touching a single component file.
 
 ## Library Lifespan vs Application Lifespan
 

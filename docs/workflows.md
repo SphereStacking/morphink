@@ -27,8 +27,8 @@ pnpm run build
 
 | File | Purpose | What to edit |
 |------|---------|-------------|
-| `alias.json` | Raw palette, spacing, radii | Color scales, base values |
-| `semantic.json` | Semantic mappings (light theme) | Which alias token maps to `primary`, `destructive`, etc. |
+| `primitives.json` | Raw palette, spacing, radii | Color scales, base values |
+| `semantic.json` | Semantic mappings (light theme) | Which primitive token maps to `primary`, `destructive`, etc. |
 | `semantic-dark.json` | Dark theme overrides | Dark mode color mappings |
 
 After editing tokens:

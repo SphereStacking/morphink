@@ -125,7 +125,7 @@ const sd = new StyleDictionary(config)
 await sd.buildAllPlatforms()
 
 const darkConfig = {
-  include: [join(__dirname, 'tokens/alias.json'), join(__dirname, 'tokens/motion.json')],
+  include: [join(__dirname, 'tokens/primitives.json'), join(__dirname, 'tokens/motion.json')],
   source: [join(__dirname, 'tokens/semantic-dark.json')],
   platforms: {
     css: {

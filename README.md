@@ -42,10 +42,10 @@ Storybook opens at `http://localhost:6006/`
 ### Token Pipeline
 
 ```
-alias.json → semantic.json → Style Dictionary → CSS / JSON / TS → Components
+primitives.json → semantic.json → Style Dictionary → CSS / JSON / TS → Components
 ```
 
-**Alias tokens** define your raw palette (color scales, spacing, radii). **Semantic tokens** assign meaning (`primary`, `destructive`, `muted`). Components only reference semantic tokens — swap `alias.json` and your entire visual identity changes without touching a single component file.
+**Primitive tokens** define your raw palette (color scales, spacing, radii). **Semantic tokens** assign meaning (`primary`, `destructive`, `muted`). Components only reference semantic tokens — swap `primitives.json` and your entire visual identity changes without touching a single component file.
 
 ### Three-Layer Component Architecture
 

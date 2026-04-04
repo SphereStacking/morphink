@@ -59,7 +59,7 @@ ${bold('Arguments:')}
   new-dir  新しいトークン JSON を含むディレクトリ
            省略時は git HEAD との差分を比較
 
-${bold('対象ファイル:')} alias.json, semantic.json, semantic-dark.json
+${bold('対象ファイル:')} primitives.json, semantic.json, semantic-dark.json
   `)
   process.exit(0)
 }
@@ -68,7 +68,7 @@ const THRESHOLD = parseFloat(flags.threshold)
 const NEW_DIR = positionals[0] ? resolve(positionals[0]) : null
 
 // ── 対象ファイル ───────────────────────────────────────────────────────────
-const TARGET_FILES = ['alias.json', 'semantic.json', 'semantic-dark.json']
+const TARGET_FILES = ['primitives.json', 'semantic.json', 'semantic-dark.json']
 const TOKENS_DIR = new URL('../tokens/', import.meta.url).pathname
 
 // ── ユーティリティ ─────────────────────────────────────────────────────────

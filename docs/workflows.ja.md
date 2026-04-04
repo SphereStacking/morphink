@@ -27,8 +27,8 @@ pnpm run build
 
 | ファイル | 用途 | 編集内容 |
 |---------|------|---------|
-| `alias.json` | 生のパレット、スペーシング、角丸 | 色スケール、基本値 |
-| `semantic.json` | セマンティックマッピング（ライトテーマ） | どの alias トークンが `primary`、`destructive` 等にマップされるか |
+| `primitives.json` | 生のパレット、スペーシング、角丸 | 色スケール、基本値 |
+| `semantic.json` | セマンティックマッピング（ライトテーマ） | どの primitive トークンが `primary`、`destructive` 等にマップされるか |
 | `semantic-dark.json` | ダークテーマオーバーライド | ダークモードの色マッピング |
 
 トークン編集後:

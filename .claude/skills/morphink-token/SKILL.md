@@ -19,8 +19,9 @@ Tokens Studio JSON → Style Dictionary → CSS/JSON/TS → Tailwind テーマ �
 
 | ファイル | 役割 |
 |---------|------|
-| `packages/tokens/tokens/alias.json` | 基盤トークン（色スケール、duration、easing、stagger） |
-| `packages/tokens/tokens/semantic.json` | ライトテーマ semantic トークン（alias を参照） |
+| `packages/tokens/tokens/primitives.json` | 基盤トークン（色スケール） |
+| `packages/tokens/tokens/motion.json` | モーショントークン（duration、easing、stagger） |
+| `packages/tokens/tokens/semantic.json` | ライトテーマ semantic トークン（primitives を参照） |
 | `packages/tokens/tokens/semantic-dark.json` | ダークテーマ上書き |
 
 ### 生成物（編集禁止）
@@ -44,7 +45,7 @@ pnpm --filter @morphink/tokens build
 
 ### 1. semantic トークンの追加
 
-`packages/tokens/tokens/semantic.json` に追加。alias トークンを `{category.name}` 構文で参照:
+`packages/tokens/tokens/semantic.json` に追加。primitive トークンを `{category.name}` 構文で参照:
 
 ```json
 {
@@ -71,9 +72,9 @@ pnpm --filter @morphink/tokens build
 }
 ```
 
-### 3. alias トークンの追加
+### 3. primitive トークンの追加
 
-基盤色やモーショントークンは `packages/tokens/tokens/alias.json` に追加:
+基盤色は `packages/tokens/tokens/primitives.json` に追加:
 
 ```json
 {
@@ -194,7 +195,7 @@ none, xs, sm, md, lg, xl, full
 
 none, sm, md, lg
 
-### Motion（alias トークン）
+### Motion（motion.json）
 
 | カテゴリ | トークン名 |
 |---------|-----------|

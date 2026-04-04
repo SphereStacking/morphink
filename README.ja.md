@@ -42,10 +42,10 @@ pnpm run dev:docs
 ### トークンパイプライン
 
 ```
-alias.json → semantic.json → Style Dictionary → CSS / JSON / TS → コンポーネント
+primitives.json → semantic.json → Style Dictionary → CSS / JSON / TS → コンポーネント
 ```
 
-**Alias トークン**が生のパレット（カラースケール、スペーシング、角丸）を定義し、**Semantic トークン**がそれに意味を与えます（`primary`、`destructive`、`muted`）。コンポーネントが参照するのは Semantic トークンだけ。`alias.json` を差し替えれば、コンポーネントのコードに一切触れずにビジュアルを一新できます。
+**Primitive トークン**が生のパレット（カラースケール、スペーシング、角丸）を定義し、**Semantic トークン**がそれに意味を与えます（`primary`、`destructive`、`muted`）。コンポーネントが参照するのは Semantic トークンだけ。`primitives.json` を差し替えれば、コンポーネントのコードに一切触れずにビジュアルを一新できます。
 
 ### 3 層コンポーネント設計
 

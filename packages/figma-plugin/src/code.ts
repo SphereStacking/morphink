@@ -141,7 +141,7 @@ function isVariableAlias(value: VariableValue): value is VariableAlias {
 // ---------------------------------------------------------------------------
 
 const DEFAULT_FILE_NAMES: Record<string, Record<string, string>> = {
-  Primitives: { default: 'alias.json' },
+  Primitives: { default: 'primitives.json' },
   Semantic: { Light: 'semantic.json', Dark: 'semantic-dark.json' },
 }
 

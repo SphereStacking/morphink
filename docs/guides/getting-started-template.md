@@ -35,7 +35,7 @@ Replace the `@morphink` scope with your own organization scope across the projec
 
 Edit the token files in `packages/tokens/tokens/` with your brand colors and scales:
 
-- `alias.json` — primitive color palette and base scales
+- `primitives.json` — primitive color palette and base scales
 - `semantic.json` — semantic mappings (light theme)
 - `semantic-dark.json` — dark theme overrides
 
@@ -61,7 +61,7 @@ Open [http://localhost:6006/](http://localhost:6006/) to see your components wit
 ```
 my-design-system/
   packages/
-    tokens/     # Design tokens (alias.json, semantic.json, semantic-dark.json)
+    tokens/     # Design tokens (primitives.json, semantic.json, semantic-dark.json)
     ui/         # Vue 3 components
     docs/       # Storybook
   pnpm-workspace.yaml

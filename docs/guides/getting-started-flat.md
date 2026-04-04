@@ -17,7 +17,7 @@ my-project/
     app/                        # Your existing app
     design-system/
       tokens/
-        tokens/                 # alias.json, semantic.json, semantic-dark.json
+        tokens/                 # primitives.json, semantic.json, semantic-dark.json
         build.mjs
         style-dictionary.config.mjs
         dist/                   # Build output

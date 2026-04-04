@@ -35,7 +35,7 @@ cd your-design-system
 
 `packages/tokens/tokens/` 内のトークンファイルを編集します。
 
-- `alias.json` — プリミティブカラーパレットと基本スケール
+- `primitives.json` — プリミティブカラーパレットと基本スケール
 - `semantic.json` — セマンティックマッピング（ライトテーマ）
 - `semantic-dark.json` — ダークテーマの上書き値
 
@@ -61,7 +61,7 @@ pnpm run dev:docs
 ```
 my-design-system/
   packages/
-    tokens/     # デザイントークン（alias.json, semantic.json, semantic-dark.json）
+    tokens/     # デザイントークン（primitives.json, semantic.json, semantic-dark.json）
     ui/         # Vue 3 コンポーネント
     docs/       # Storybook
   pnpm-workspace.yaml

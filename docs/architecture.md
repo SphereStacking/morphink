@@ -29,7 +29,7 @@ The Public layer is currently a thin wrapper — this is intentional. It is desi
 
 ```
 Tokens Studio
-  → packages/tokens/tokens/*.json (alias / semantic / semantic-dark)
+  → packages/tokens/tokens/*.json (primitives / semantic / semantic-dark)
   → Style Dictionary (build)
   → packages/tokens/dist (css / json / ts)
   → packages/ui/src/styles/tokens.css (import as CSS variables)
@@ -40,23 +40,23 @@ Tokens Studio
 ### Two-Tier Token Structure
 
 ```
-alias.json                  semantic.json               CSS Variable                  Component
+primitives.json             semantic.json               CSS Variable                  Component
 ──────────────────────────  ──────────────────────────  ────────────────────────────  ──────────────
 color.primary-500:          color.primary.base:         --morphink-color-primary:     bg-(--morphink-color-primary)
   oklch(65.96% 0.21 18)      refs {color.primary-500}    resolved to oklch(...)
 ```
 
-- **Alias tokens** — Raw palette, spacing scales, radii. Implementation details.
+- **Primitive tokens** — Raw palette, spacing scales, radii. Implementation details.
 - **Semantic tokens** — Design intent (`primary`, `destructive`, `muted`). The vocabulary your design system speaks.
 
-Components only reference semantic tokens. Swap `alias.json` to change your entire visual identity.
+Components only reference semantic tokens. Swap `primitives.json` to change your entire visual identity.
 
 ## Package Structure
 
 ```
 packages/
   tokens/
-    tokens/           # alias.json, semantic.json, semantic-dark.json
+    tokens/           # primitives.json, semantic.json, semantic-dark.json
     dist/             # build outputs (css, json, ts)
   ui/
     src/base/ui/      # Base components (*Base.vue)
