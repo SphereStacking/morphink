@@ -2,6 +2,7 @@
   "name": "Morphink Token Exporter",
   "id": "morphink-token-exporter",
   "api": "1.0.0",
+  "iconUrl": "icon.png",
   "main": "dist/code.js",
   "ui": "dist/ui.html",
   "editorType": ["figma", "dev"],
