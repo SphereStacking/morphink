@@ -29,7 +29,11 @@ const { Story } = defineMeta({
     variant: 'pill',
     size: 'md',
     modelValue: 'overview',
-    items: tabItems,
+    items: [
+      { label: 'Overview', value: 'overview' },
+      { label: 'Layout', value: 'layout' },
+      { label: 'Tokens', value: 'tokens' },
+    ],
   },
 })
 </script>

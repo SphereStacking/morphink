@@ -64,7 +64,11 @@ const { Story } = defineMeta({
   },
   args: {
     modelValue: null,
-    options: selectOptions,
+    options: [
+      { label: 'None', value: 'none' },
+      { label: 'Default', value: 'default' },
+      { label: 'Strong', value: 'strong' },
+    ],
     placeholder: 'Select an option',
     size: 'md',
     variant: 'outline',
