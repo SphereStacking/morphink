@@ -1,15 +1,15 @@
 import figma from '@figma/code-connect'
 import { AlertDialog } from '@morphink/ui'
 
-figma.connect(
-  AlertDialog,
-  'https://figma.com/design/X8gSyqGQC7yghrfuc4GIdQ?node-id=121:42',
-  {
-    props: {
-      size: figma.enum('size', { xs: 'xs', sm: 'sm', md: 'md', lg: 'lg', xl: 'xl' }),
-    },
-    example: (props) =>
-      `<AlertDialog size="${props.size}">
+import { toEnumMap } from '../../base/lib/figma-utils'
+import { componentSizes } from '../../base/lib/props/size'
+
+figma.connect(AlertDialog, 'https://figma.com/design/X8gSyqGQC7yghrfuc4GIdQ?node-id=121:42', {
+  props: {
+    size: figma.enum('size', toEnumMap(componentSizes.AlertDialog)),
+  },
+  example: (props) =>
+    `<AlertDialog size="${props.size}">
   <template #trigger>
     <Button tone="destructive">Delete</Button>
   </template>
@@ -22,5 +22,4 @@ figma.connect(
     <Button tone="destructive">Delete</Button>
   </template>
 </AlertDialog>`,
-  }
-)
+})

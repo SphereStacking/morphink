@@ -1,38 +1,17 @@
 import figma from '@figma/code-connect'
 import { Button } from '@morphink/ui'
 
-figma.connect(
-  Button,
-  'https://figma.com/design/X8gSyqGQC7yghrfuc4GIdQ?node-id=48:98',
-  {
-    props: {
-      variant: figma.enum('variant', {
-        solid: 'solid',
-        outline: 'outline',
-        ghost: 'ghost',
-        soft: 'soft',
-      }),
-      tone: figma.enum('tone', {
-        primary: 'primary',
-        secondary: 'secondary',
-        tertiary: 'tertiary',
-        base: 'base',
-        accent: 'accent',
-        neutral: 'neutral',
-        success: 'success',
-        warning: 'warning',
-        info: 'info',
-        destructive: 'destructive',
-      }),
-      size: figma.enum('size', {
-        xs: 'xs',
-        sm: 'sm',
-        md: 'md',
-        lg: 'lg',
-        xl: 'xl',
-      }),
-    },
-    example: (props) =>
-      `<Button variant="${props.variant}" tone="${props.tone}" size="${props.size}">Button</Button>`,
-  }
-)
+import { toEnumMap } from '../../base/lib/figma-utils'
+import { componentSizes } from '../../base/lib/props/size'
+import { componentTones } from '../../base/lib/props/tone'
+import { componentVariants } from '../../base/lib/props/variant'
+
+figma.connect(Button, 'https://figma.com/design/X8gSyqGQC7yghrfuc4GIdQ?node-id=48:98', {
+  props: {
+    variant: figma.enum('variant', toEnumMap(componentVariants.Button)),
+    tone: figma.enum('tone', toEnumMap(componentTones.Button)),
+    size: figma.enum('size', toEnumMap(componentSizes.Button)),
+  },
+  example: (props) =>
+    `<Button variant="${props.variant}" tone="${props.tone}" size="${props.size}">Button</Button>`,
+})
