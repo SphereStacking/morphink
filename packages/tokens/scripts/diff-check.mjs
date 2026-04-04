@@ -14,6 +14,7 @@ import { execSync } from 'node:child_process'
 import { existsSync, readFileSync } from 'node:fs'
 import { join, relative, resolve } from 'node:path'
 import { parseArgs } from 'node:util'
+
 import { differenceCiede2000, parse } from 'culori'
 
 // ── ANSI カラー ────────────────────────────────────────────────────────────
@@ -295,7 +296,9 @@ for (const filename of TARGET_FILES) {
         if (delta !== null) {
           const ok = delta < THRESHOLD
           const deltaStr = delta.toFixed(3)
-          const status = ok ? green(`OK (ΔE=${deltaStr})`) : red(`OVER (ΔE=${deltaStr} >= ${THRESHOLD})`)
+          const status = ok
+            ? green(`OK (ΔE=${deltaStr})`)
+            : red(`OVER (ΔE=${deltaStr} >= ${THRESHOLD})`)
           if (!ok) hasThresholdViolation = true
           console.log(
             yellow(`      ~ ${key}`) +
@@ -304,7 +307,7 @@ for (const filename of TARGET_FILES) {
               '\n' +
               dim(`          新: ${newVal}`) +
               '\n' +
-              `          ${status}`,
+              `          ${status}`
           )
         } else {
           // deltaE 計算不可（参照値など）
@@ -315,12 +318,16 @@ for (const filename of TARGET_FILES) {
               '\n' +
               dim(`          新: ${newVal}`) +
               '\n' +
-              dim(`          (色として評価不可)`),
+              dim(`          (色として評価不可)`)
           )
         }
       } else {
         console.log(
-          yellow(`      ~ ${key}`) + '\n' + dim(`          旧: ${oldVal}`) + '\n' + dim(`          新: ${newVal}`),
+          yellow(`      ~ ${key}`) +
+            '\n' +
+            dim(`          旧: ${oldVal}`) +
+            '\n' +
+            dim(`          新: ${newVal}`)
         )
       }
     }

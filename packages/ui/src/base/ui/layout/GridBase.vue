@@ -57,7 +57,11 @@ const attrs = useAttrs()
 </script>
 
 <template>
-  <div v-bind="{ ...attrs, class: undefined, style: undefined }" :style="[gridStyle, attrs.style]" :class="cn('grid', attrs.class)">
+  <div
+    v-bind="{ ...attrs, class: undefined, style: undefined }"
+    :style="[gridStyle, attrs.style]"
+    :class="cn('grid', attrs.class)"
+  >
     <slot />
   </div>
 </template>

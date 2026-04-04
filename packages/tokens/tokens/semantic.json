@@ -424,21 +424,11 @@
         "$type": "fontFamilies"
       },
       "base-ios": {
-        "$value": [
-          "system-ui",
-          "-apple-system",
-          "SF Pro Text",
-          "sans-serif"
-        ],
+        "$value": ["system-ui", "-apple-system", "SF Pro Text", "sans-serif"],
         "$type": "fontFamilies"
       },
       "base-android": {
-        "$value": [
-          "system-ui",
-          "Roboto",
-          "Noto Sans",
-          "sans-serif"
-        ],
+        "$value": ["system-ui", "Roboto", "Noto Sans", "sans-serif"],
         "$type": "fontFamilies"
       }
     },
