@@ -13,21 +13,48 @@ import type { BorderWeight } from '../../base/lib/props/border-weight'
 withDefaults(
   defineProps<{
     as?: string
+    // Spacing
     padding?: SpaceToken
     paddingX?: SpaceToken
     paddingY?: SpaceToken
+    // Overflow
     overflow?: 'auto' | 'hidden' | 'scroll'
     overflowX?: 'auto' | 'hidden' | 'scroll'
     overflowY?: 'auto' | 'hidden' | 'scroll'
+    // Sizing
     height?: string
     minHeight?: string
     width?: string
     minWidth?: string
+    // Positioning
     position?: 'relative' | 'absolute' | 'fixed' | 'sticky'
+    top?: string
+    right?: string
+    bottom?: string
+    left?: string
+    inset?: string
+    zIndex?: string | number
+    // Flex
     grow?: boolean
     shrink?: boolean
+    // Display & Layout
+    display?: 'flex' | 'grid' | 'block' | 'inline-flex' | 'inline' | 'none'
+    alignItems?: 'start' | 'center' | 'end' | 'stretch' | 'baseline'
+    justifyContent?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'
+    gap?: SpaceToken | string
+    // Visual
     rounded?: BoxRounded
     border?: boolean | BorderWeight
+    borderTop?: boolean | BorderWeight
+    borderRight?: boolean | BorderWeight
+    borderBottom?: boolean | BorderWeight
+    borderLeft?: boolean | BorderWeight
+    color?: string
+    background?: string
+    // Interaction
+    pointerEvents?: 'none' | 'auto'
+    // Transform
+    transform?: string
   }>(),
   {
     as: 'div',
@@ -52,10 +79,28 @@ withDefaults(
     :width="width"
     :min-width="minWidth"
     :position="position"
+    :top="top"
+    :right="right"
+    :bottom="bottom"
+    :left="left"
+    :inset="inset"
+    :z-index="zIndex"
     :grow="grow"
     :shrink="shrink"
+    :display="display"
+    :align-items="alignItems"
+    :justify-content="justifyContent"
+    :gap="gap"
     :rounded="rounded"
     :border="border"
+    :border-top="borderTop"
+    :border-right="borderRight"
+    :border-bottom="borderBottom"
+    :border-left="borderLeft"
+    :color="color"
+    :background="background"
+    :pointer-events="pointerEvents"
+    :transform="transform"
   >
     <slot />
   </BoxBase>

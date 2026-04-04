@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AppSidebar, NavItem, Stack, Text, Heading, Divider, Button } from '@morphink/ui'
+import { AppSidebar, NavItem, Stack, Text, Heading, Button, Avatar, Divider } from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const { Story } = defineMeta({
@@ -17,10 +17,11 @@ const { Story } = defineMeta({
           <Text variant="label">Navigation</Text>
         </template>
         <Stack gap="xs">
-          <NavItem label="Dashboard" href="/dashboard" active />
-          <NavItem label="Projects" href="/projects" badge="3" />
-          <NavItem label="Team" href="/team" />
-          <NavItem label="Settings" href="/settings" />
+          <NavItem label="Dashboard" href="#" active />
+          <NavItem label="Projects" href="#" badge="3" />
+          <NavItem label="Team" href="#" />
+          <NavItem label="Reports" href="#" />
+          <NavItem label="Settings" href="#" />
         </Stack>
       </AppSidebar>
     </div>
@@ -35,18 +36,24 @@ const { Story } = defineMeta({
         <Stack gap="lg">
           <Stack gap="xs">
             <Text variant="caption" muted>MAIN</Text>
-            <NavItem label="Dashboard" href="/dashboard" active />
-            <NavItem label="Analytics" href="/analytics" />
+            <NavItem label="Dashboard" href="#" active />
+            <NavItem label="Analytics" href="#" />
           </Stack>
           <Stack gap="xs">
             <Text variant="caption" muted>CONTENT</Text>
-            <NavItem label="Posts" href="/posts" badge="12" />
-            <NavItem label="Media" href="/media" />
-            <NavItem label="Pages" href="/pages" />
+            <NavItem label="Posts" href="#" badge="12" />
+            <NavItem label="Media" href="#" />
+            <NavItem label="Pages" href="#" />
           </Stack>
         </Stack>
         <template #footer>
-          <Button variant="ghost" size="sm" :style="{ width: '100%' }">Sign Out</Button>
+          <Stack direction="row" gap="sm" align="center">
+            <Avatar fallback="AJ" size="sm" />
+            <Stack gap="0">
+              <Text variant="caption">Alice Johnson</Text>
+              <Text variant="caption" muted>Admin</Text>
+            </Stack>
+          </Stack>
         </template>
       </AppSidebar>
     </div>

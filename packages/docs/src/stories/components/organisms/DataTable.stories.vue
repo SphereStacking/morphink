@@ -33,6 +33,7 @@ const { Story } = defineMeta({
     pageSize: { control: 'number' },
     density: { control: 'select', options: ['comfortable', 'compact'] },
     striped: { control: 'boolean' },
+    rounded: { control: 'select', options: ['none', 'sm', 'md', 'lg'] },
   },
 })
 </script>
@@ -48,6 +49,16 @@ const { Story } = defineMeta({
     <template #template="{ args }">
       <DataTable v-bind="args" />
     </template>
+  </Story>
+
+  <Story name="Compact" asChild>
+    <DataTable
+      :columns="sampleColumns"
+      :rows="sampleRows"
+      density="compact"
+      :striped="true"
+      :pageSize="8"
+    />
   </Story>
 
   <Story name="Empty" :args="{ columns: sampleColumns, rows: [], searchable: true, emptyTitle: 'No users found', emptyDescription: 'Try adjusting your search or add a new user.' }">

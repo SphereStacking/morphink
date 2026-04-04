@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { AppHeader, Nav, Button } from '@morphink/ui'
+import { AppHeader, Nav, Button, Avatar, SearchInput } from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const { Story } = defineMeta({
   title: 'Components/Organisms/AppHeader',
   component: AppHeader,
   tags: ['autodocs'],
+  argTypes: {
+    title: { control: 'text' },
+  },
   parameters: {
     layout: 'fullscreen',
   },
@@ -15,7 +18,11 @@ const { Story } = defineMeta({
 <template>
   <Story name="Default" :args="{ title: 'My Application' }">
     <template #template="{ args }">
-      <AppHeader v-bind="args" />
+      <AppHeader v-bind="args">
+        <template #actions>
+          <Avatar fallback="U" size="sm" />
+        </template>
+      </AppHeader>
     </template>
   </Story>
 
@@ -23,10 +30,17 @@ const { Story } = defineMeta({
     <template #template="{ args }">
       <AppHeader v-bind="args">
         <template #nav>
-          <Nav :items="[{ label: 'Home', href: '/', active: true }, { label: 'Docs', href: '/docs' }, { label: 'Blog', href: '/blog' }]" size="sm" />
+          <Nav :items="[
+            { label: 'Dashboard', href: '#', active: true },
+            { label: 'Projects', href: '#' },
+            { label: 'Team', href: '#' },
+            { label: 'Settings', href: '#' },
+          ]" size="sm" />
         </template>
         <template #actions>
-          <Button size="sm" variant="outline">Sign In</Button>
+          <SearchInput placeholder="Search..." size="sm" />
+          <Button size="sm" variant="ghost">Sign In</Button>
+          <Avatar fallback="AJ" size="sm" />
         </template>
       </AppHeader>
     </template>

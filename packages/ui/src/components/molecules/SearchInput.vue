@@ -48,18 +48,16 @@ const iconOffset = computed(() => {
 </script>
 
 <template>
-  <Box position="relative">
+  <Box position="relative" width="100%">
     <Box
       position="absolute"
-      :style="{
-        left: iconOffset,
-        top: '50%',
-        transform: 'translateY(-50%)',
-        pointerEvents: 'none',
-        color: 'var(--morphink-color-muted-foreground)',
-        display: 'flex',
-        alignItems: 'center',
-      }"
+      :left="iconOffset"
+      top="50%"
+      transform="translateY(-50%)"
+      pointerEvents="none"
+      color="muted-foreground"
+      display="flex"
+      alignItems="center"
     >
       <IconSearch :width="iconSize" :height="iconSize" />
     </Box>
@@ -74,18 +72,13 @@ const iconOffset = computed(() => {
       v-if="hasValue"
       position="absolute"
       as="button"
-      :style="{
-        right: iconOffset,
-        top: '50%',
-        transform: 'translateY(-50%)',
-        background: 'none',
-        border: 'none',
-        cursor: 'pointer',
-        color: 'var(--morphink-color-muted-foreground)',
-        display: 'flex',
-        alignItems: 'center',
-        padding: 0,
-      }"
+      :right="iconOffset"
+      top="50%"
+      transform="translateY(-50%)"
+      :style="{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }"
+      color="muted-foreground"
+      display="flex"
+      alignItems="center"
       @click="emit('update:modelValue', '')"
     >
       <IconClose :width="iconSize" :height="iconSize" />

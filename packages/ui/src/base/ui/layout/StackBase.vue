@@ -47,7 +47,7 @@ const attrs = useAttrs()
 </script>
 
 <template>
-  <div :style="stackStyle" :class="cn('flex', attrs.class)">
+  <div v-bind="{ ...attrs, class: undefined, style: undefined }" :style="[stackStyle, attrs.style]" :class="cn('flex', attrs.class)">
     <slot />
   </div>
 </template>

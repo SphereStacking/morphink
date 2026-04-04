@@ -59,4 +59,9 @@ export function resolveRows(rows: number | string): string {
   return rows
 }
 
+export function resolveColor(value: string): string {
+  if (value.includes('(')) return value
+  return `var(--morphink-color-${value})`
+}
+
 export { resolveSpace }
