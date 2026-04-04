@@ -22,6 +22,8 @@ withDefaults(
     shadow?: DialogShadow
   }>(),
   {
+    open: undefined,
+    defaultOpen: undefined,
     size: 'md',
     closeLabel: 'Close',
     rounded: 'lg',

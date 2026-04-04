@@ -13,7 +13,7 @@ withDefaults(
     defaultOpen?: boolean
     disabled?: boolean
   }>(),
-  { disabled: false }
+  { open: undefined, defaultOpen: undefined, disabled: false }
 )
 
 defineEmits<{

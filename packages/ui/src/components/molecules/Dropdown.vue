@@ -8,11 +8,14 @@
  */
 import DropdownBase from '../../base/ui/dropdown/DropdownBase.vue'
 
-defineProps<{
-  open?: boolean
-  defaultOpen?: boolean
-  modal?: boolean
-}>()
+withDefaults(
+  defineProps<{
+    open?: boolean
+    defaultOpen?: boolean
+    modal?: boolean
+  }>(),
+  { open: undefined, defaultOpen: undefined }
+)
 
 defineEmits<{
   (e: 'update:open', value: boolean): void

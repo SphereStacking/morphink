@@ -23,6 +23,8 @@ withDefaults(
     shadow?: SheetShadow
   }>(),
   {
+    open: undefined,
+    defaultOpen: undefined,
     modal: true,
     side: 'right',
     closeLabel: 'Close',

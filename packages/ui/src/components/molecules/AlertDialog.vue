@@ -22,6 +22,8 @@ withDefaults(
     shadow?: AlertDialogShadow
   }>(),
   {
+    open: undefined,
+    defaultOpen: undefined,
     size: 'md',
     confirmLabel: '確定',
     cancelLabel: 'キャンセル',
