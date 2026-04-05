@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Accordion, AccordionItem, Stack, Text } from '@morphink/ui'
-import { componentSizes, componentVariants } from '@morphink/ui'
+import { componentDurations, componentEasings, componentSizes, componentVariants } from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const { Story } = defineMeta({
@@ -13,6 +13,8 @@ const { Story } = defineMeta({
     disabled: { control: 'boolean' },
     size: { control: { type: 'select' }, options: componentSizes.Accordion },
     variant: { control: { type: 'select' }, options: componentVariants.Accordion },
+    duration: { control: { type: 'select' }, options: componentDurations.Accordion },
+    easing: { control: { type: 'select' }, options: componentEasings.Accordion },
   },
   args: {
     type: 'single',
@@ -20,6 +22,8 @@ const { Story } = defineMeta({
     disabled: false,
     size: 'md',
     variant: 'outline',
+    duration: 'normal',
+    easing: 'standard',
   },
 })
 </script>
@@ -35,15 +39,15 @@ const { Story } = defineMeta({
           :size="args.size"
           :variant="args.variant"
         >
-          <AccordionItem value="item-1">
+          <AccordionItem value="item-1" :duration="args.duration" :easing="args.easing">
             <template #trigger>What is morphink?</template>
             A design system built with Vue 3, Tailwind CSS v4, and Reka UI.
           </AccordionItem>
-          <AccordionItem value="item-2">
+          <AccordionItem value="item-2" :duration="args.duration" :easing="args.easing">
             <template #trigger>How do I install it?</template>
             Run <code>pnpm add @morphink/ui</code> in your project.
           </AccordionItem>
-          <AccordionItem value="item-3">
+          <AccordionItem value="item-3" :duration="args.duration" :easing="args.easing">
             <template #trigger>Can I customize the theme?</template>
             Yes, override the CSS variables defined by the design tokens.
           </AccordionItem>

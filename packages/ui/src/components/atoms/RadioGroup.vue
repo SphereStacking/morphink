@@ -6,7 +6,7 @@
  * Style variants: base/ui/radio/RadioGroupBase.vue
  */
 import RadioGroupBase from '../../base/ui/radio/RadioGroupBase.vue'
-import type { RadioSize, RadioTone, RadioVariant } from '../../base/lib/props'
+import type { RadioSize, RadioTone, RadioVariant, RadioDuration, RadioEasing } from '../../base/lib/props'
 
 withDefaults(
   defineProps<{
@@ -18,6 +18,8 @@ withDefaults(
     size?: RadioSize
     variant?: RadioVariant
     tone?: RadioTone
+    duration?: RadioDuration
+    easing?: RadioEasing
   }>(),
   {
     orientation: 'vertical',
@@ -25,6 +27,8 @@ withDefaults(
     size: 'md',
     variant: 'outline',
     tone: 'primary',
+    duration: 'fast',
+    easing: 'standard',
   }
 )
 
@@ -43,6 +47,8 @@ defineEmits<{
     :size="size"
     :variant="variant"
     :tone="tone"
+    :duration="duration"
+    :easing="easing"
     @update:model-value="$emit('update:modelValue', $event)"
   >
     <slot />

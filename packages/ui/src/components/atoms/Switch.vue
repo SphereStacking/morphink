@@ -6,7 +6,7 @@
  * Style variants: base/ui/switch/SwitchBase.vue
  */
 import SwitchBase from '../../base/ui/switch/SwitchBase.vue'
-import type { SwitchSize, SwitchTone, SwitchVariant } from '../../base/lib/props'
+import type { SwitchSize, SwitchTone, SwitchVariant, SwitchDuration, SwitchEasing } from '../../base/lib/props'
 
 withDefaults(
   defineProps<{
@@ -15,6 +15,8 @@ withDefaults(
     variant?: SwitchVariant
     tone?: SwitchTone
     size?: SwitchSize
+    duration?: SwitchDuration
+    easing?: SwitchEasing
     disabled?: boolean
     name?: string
     value?: string
@@ -24,6 +26,8 @@ withDefaults(
     variant: 'solid',
     tone: 'primary',
     size: 'md',
+    duration: 'normal',
+    easing: 'standard',
     disabled: false,
   }
 )
@@ -40,6 +44,8 @@ defineEmits<{
     :variant="variant"
     :tone="tone"
     :size="size"
+    :duration="duration"
+    :easing="easing"
     :disabled="disabled"
     :name="name"
     :value="value"

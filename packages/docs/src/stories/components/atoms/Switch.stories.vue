@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Switch, Stack } from '@morphink/ui'
-import { componentSizes, componentTones, componentVariants } from '@morphink/ui'
+import { componentDurations, componentEasings, componentSizes, componentTones, componentVariants } from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const checked = ref(false)
@@ -14,12 +14,16 @@ const { Story } = defineMeta({
     variant: { control: { type: 'select' }, options: componentVariants.Switch },
     size: { control: { type: 'select' }, options: componentSizes.Switch },
     tone: { control: { type: 'select' }, options: componentTones.Switch },
+    duration: { control: { type: 'select' }, options: componentDurations.Switch },
+    easing: { control: { type: 'select' }, options: componentEasings.Switch },
     disabled: { control: 'boolean' },
   },
   args: {
     variant: 'solid',
     size: 'md',
     tone: 'primary',
+    duration: 'normal',
+    easing: 'standard',
     disabled: false,
   },
 })

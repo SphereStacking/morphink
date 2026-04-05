@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Collapsible, Button, Text, Stack } from '@morphink/ui'
+import { componentDurations, componentEasings } from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const { Story } = defineMeta({
@@ -9,10 +10,14 @@ const { Story } = defineMeta({
   argTypes: {
     disabled: { control: 'boolean' },
     defaultOpen: { control: 'boolean' },
+    duration: { control: { type: 'select' }, options: componentDurations.Collapsible },
+    easing: { control: { type: 'select' }, options: componentEasings.Collapsible },
   },
   args: {
     disabled: false,
     defaultOpen: false,
+    duration: 'normal',
+    easing: 'standard',
   },
 })
 </script>
@@ -20,7 +25,7 @@ const { Story } = defineMeta({
 <template>
   <Story name="Default">
     <template #template="{ args }">
-      <Collapsible :disabled="args.disabled" :default-open="args.defaultOpen">
+      <Collapsible :disabled="args.disabled" :default-open="args.defaultOpen" :duration="args.duration" :easing="args.easing">
         <template #trigger>
           <Button variant="outline" size="sm">Toggle Content</Button>
         </template>

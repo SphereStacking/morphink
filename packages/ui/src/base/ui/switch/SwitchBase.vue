@@ -4,14 +4,12 @@ import { computed, useAttrs } from 'vue'
 import { SwitchRoot, SwitchThumb, useForwardPropsEmits } from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
-import type { SwitchSize, SwitchTone, SwitchVariant } from '../../lib/props'
+import type { SwitchSize, SwitchTone, SwitchVariant, SwitchDuration, SwitchEasing } from '../../lib/props'
 
 const switchVariants = cva(
   cn(
     'relative inline-flex shrink-0 cursor-pointer items-center rounded-full border-2',
     '[transition-property:background-color,border-color]',
-    '[transition-duration:var(--morphink-duration-normal)]',
-    '[transition-timing-function:var(--morphink-easing-standard)]',
     'before:absolute before:inset-[-8px] before:content-[""]',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
@@ -31,13 +29,13 @@ const switchVariants = cva(
           'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]'
         ),
         ghost: cn(
-          'border-transparent data-[state=unchecked]:bg-transparent',
+          'border-(--morphink-color-border) data-[state=unchecked]:bg-transparent',
           'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'
         ),
         soft: cn(
           'border-transparent',
-          'data-[state=unchecked]:bg-[color-mix(in_srgb,var(--ctl-color)_12%,transparent)]',
-          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,transparent)]',
+          'data-[state=unchecked]:bg-[color-mix(in_srgb,var(--ctl-color)_18%,transparent)]',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_24%,transparent)]',
           'data-[state=checked]:bg-[color-mix(in_srgb,var(--ctl-color)_65%,transparent)]'
         ),
       },
@@ -121,8 +119,6 @@ const thumbVariants = cva(
   cn(
     'pointer-events-none block rounded-full bg-(--morphink-color-card) shadow-(--morphink-shadow-sm)',
     '[transition-property:translate]',
-    '[transition-duration:var(--morphink-duration-normal)]',
-    '[transition-timing-function:var(--morphink-easing-spring)]',
     'data-[state=unchecked]:translate-x-0',
     'data-[state=checked]:animate-[mi-switch-bounce_var(--morphink-duration-fast)_var(--morphink-easing-standard)_both]'
   ),
@@ -149,6 +145,8 @@ const props = withDefaults(
     variant?: SwitchVariant
     tone?: SwitchTone
     size?: SwitchSize
+    duration?: SwitchDuration
+    easing?: SwitchEasing
     disabled?: boolean
     name?: string
     value?: string
@@ -158,9 +156,29 @@ const props = withDefaults(
     variant: 'solid',
     tone: 'primary',
     size: 'md',
+    duration: 'normal',
+    easing: 'standard',
     disabled: false,
   }
 )
+
+const durationMap: Record<SwitchDuration, string> = {
+  instant: 'var(--morphink-duration-instant)',
+  fast: 'var(--morphink-duration-fast)',
+  normal: 'var(--morphink-duration-normal)',
+  slow: 'var(--morphink-duration-slow)',
+  slower: 'var(--morphink-duration-slower)',
+}
+
+const easingMap: Record<SwitchEasing, string> = {
+  standard: 'var(--morphink-easing-standard)',
+  decelerate: 'var(--morphink-easing-decelerate)',
+  accelerate: 'var(--morphink-easing-accelerate)',
+  'emphasized-decelerate': 'var(--morphink-easing-emphasized-decelerate)',
+  'emphasized-accelerate': 'var(--morphink-easing-emphasized-accelerate)',
+  linear: 'var(--morphink-easing-linear)',
+  spring: 'var(--morphink-easing-spring)',
+}
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: boolean): void
@@ -198,7 +216,7 @@ const thumbClasses = computed(() =>
 </script>
 
 <template>
-  <SwitchRoot data-morphink v-bind="forwarded" :class="rootClasses">
-    <SwitchThumb :class="thumbClasses" />
+  <SwitchRoot data-morphink v-bind="forwarded" :class="rootClasses" :style="{ transitionDuration: durationMap[duration], transitionTimingFunction: easingMap[easing] }">
+    <SwitchThumb :class="thumbClasses" :style="{ transitionDuration: durationMap[duration], transitionTimingFunction: easingMap[easing] }" />
   </SwitchRoot>
 </template>

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed, provide, toRef, useAttrs } from 'vue'
 import { RadioGroupRoot, useForwardPropsEmits } from 'reka-ui'
-import type { RadioSize, RadioTone, RadioVariant } from '../../lib/props'
+import type { RadioSize, RadioTone, RadioVariant, RadioDuration, RadioEasing } from '../../lib/props'
 import { cn } from '../../lib/utils'
 
 defineOptions({ inheritAttrs: false })
-import { radioSizeKey, radioVariantKey, radioToneKey } from './radioContext'
+import { radioSizeKey, radioVariantKey, radioToneKey, radioDurationKey, radioEasingKey } from './radioContext'
 
 const props = withDefaults(
   defineProps<{
@@ -17,6 +17,8 @@ const props = withDefaults(
     size?: RadioSize
     variant?: RadioVariant
     tone?: RadioTone
+    duration?: RadioDuration
+    easing?: RadioEasing
   }>(),
   {
     orientation: 'vertical',
@@ -24,6 +26,8 @@ const props = withDefaults(
     size: 'md',
     variant: 'outline',
     tone: 'primary',
+    duration: 'fast',
+    easing: 'standard',
   }
 )
 
@@ -43,6 +47,8 @@ const forwarded = useForwardPropsEmits(rekaProps, emit)
 provide(radioSizeKey, toRef(props, 'size'))
 provide(radioVariantKey, toRef(props, 'variant'))
 provide(radioToneKey, toRef(props, 'tone'))
+provide(radioDurationKey, toRef(props, 'duration'))
+provide(radioEasingKey, toRef(props, 'easing'))
 
 const attrs = useAttrs()
 </script>

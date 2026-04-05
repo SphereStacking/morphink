@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Tabs, Text, Stack } from '@morphink/ui'
-import { componentSizes, componentVariants } from '@morphink/ui'
+import { componentSizes, componentVariants, componentDurations, componentEasings } from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const tabItems = [
@@ -21,6 +21,8 @@ const { Story } = defineMeta({
   argTypes: {
     variant: { control: { type: 'select' }, options: componentVariants.Tabs },
     size: { control: { type: 'select' }, options: componentSizes.Tabs },
+    duration: { control: { type: 'select' }, options: componentDurations.Tabs },
+    easing: { control: { type: 'select' }, options: componentEasings.Tabs },
     modelValue: { control: 'text' },
     items: { control: 'object' },
     'update:modelValue': { action: 'update:modelValue' },
@@ -28,6 +30,8 @@ const { Story } = defineMeta({
   args: {
     variant: 'pill',
     size: 'md',
+    duration: 'normal',
+    easing: 'standard',
     modelValue: 'overview',
     items: [
       { label: 'Overview', value: 'overview' },
@@ -47,6 +51,8 @@ const { Story } = defineMeta({
           :model-value="active"
           :variant="args.variant"
           :size="args.size"
+          :motion="args.duration"
+          :easing="args.easing"
           @update:model-value="
             (v) => {
               active = v

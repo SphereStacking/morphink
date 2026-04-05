@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, ref, watch, onMounted, nextTick } from 'vue'
+import { computed } from 'vue'
 import { cva } from 'class-variance-authority'
 import { TabsRoot, TabsList, TabsTrigger, TabsContent } from 'reka-ui'
 import { cn } from '../../lib/utils'
-import type { TabsSize, TabsVariant } from '../../lib/props'
+import type { TabsSize, TabsVariant, TabsDuration, TabsEasing } from '../../lib/props'
 
 type TabItem = {
   label: string
@@ -17,12 +17,34 @@ const props = withDefaults(
     modelValue: string
     size?: TabsSize
     variant?: TabsVariant
+    duration?: TabsDuration
+    easing?: TabsEasing
   }>(),
   {
     size: 'md',
     variant: 'pill',
+    duration: 'normal',
+    easing: 'standard',
   }
 )
+
+const durationMap: Record<TabsDuration, string> = {
+  instant: 'var(--morphink-duration-instant)',
+  fast: 'var(--morphink-duration-fast)',
+  normal: 'var(--morphink-duration-normal)',
+  slow: 'var(--morphink-duration-slow)',
+  slower: 'var(--morphink-duration-slower)',
+}
+
+const easingMap: Record<TabsEasing, string> = {
+  standard: 'var(--morphink-easing-standard)',
+  decelerate: 'var(--morphink-easing-decelerate)',
+  accelerate: 'var(--morphink-easing-accelerate)',
+  'emphasized-decelerate': 'var(--morphink-easing-emphasized-decelerate)',
+  'emphasized-accelerate': 'var(--morphink-easing-emphasized-accelerate)',
+  linear: 'var(--morphink-easing-linear)',
+  spring: 'var(--morphink-easing-spring)',
+}
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
@@ -65,8 +87,8 @@ const listVariants = cva('inline-flex', {
 
 const tabVariants = cva(
   cn(
-    'font-semibold',
-    '[transition-property:color,background-color,box-shadow]',
+    'relative z-[1] font-semibold',
+    '[transition-property:color]',
     '[transition-duration:var(--morphink-duration-fast)]',
     '[transition-timing-function:var(--morphink-easing-standard)]'
   ),
@@ -96,14 +118,13 @@ const tabVariants = cva(
       {
         variant: 'pill',
         active: true,
-        class:
-          'bg-(--morphink-color-card) text-(--morphink-color-foreground) shadow-[0_6px_12px_rgba(0,0,0,0.08)]',
+        class: 'text-(--morphink-color-foreground)',
       },
       {
         variant: 'pill',
         active: false,
         class:
-          'text-(--morphink-color-muted-foreground) hover:text-(--morphink-color-accent) hover:bg-(--morphink-color-muted)',
+          'text-(--morphink-color-muted-foreground) hover:text-(--morphink-color-accent)',
       },
       {
         variant: 'underline',
@@ -155,48 +176,41 @@ const tabClass = (active: boolean, disabled?: boolean) =>
     active,
     disabled: Boolean(disabled),
   })
-
-// Underline indicator slide
-const tabsListRef = ref<HTMLElement | null>(null)
-const indicatorStyle = ref<Record<string, string>>({})
-
-function updateIndicator() {
-  if (!tabsListRef.value || props.variant !== 'underline') return
-  const activeEl = tabsListRef.value.querySelector('[data-state="active"]') as HTMLElement
-  if (!activeEl) return
-  const listRect = tabsListRef.value.getBoundingClientRect()
-  const activeRect = activeEl.getBoundingClientRect()
-  indicatorStyle.value = {
-    transform: `translateX(${activeRect.left - listRect.left}px)`,
-    width: `${activeRect.width}px`,
-  }
-}
-
-watch(
-  () => props.modelValue,
-  () => nextTick(updateIndicator)
-)
-onMounted(() => nextTick(updateIndicator))
 </script>
 
 <template>
   <TabsRoot data-morphink :model-value="modelValue" @update:model-value="emit('update:modelValue', $event)">
     <div :class="wrapperClass">
-      <TabsList ref="tabsListRef" :class="listClass" class="relative">
-        <TabsTrigger
-          v-for="item in items"
-          :key="item.value"
-          :value="item.value"
-          :disabled="item.disabled"
-          :class="tabClass(item.value === modelValue, item.disabled)"
-        >
-          {{ item.label }}
-        </TabsTrigger>
-        <div
-          v-if="variant === 'underline'"
-          class="absolute bottom-0 left-0 h-[2px] bg-(--morphink-color-accent) [transition-property:transform,width] [transition-duration:var(--morphink-duration-normal)] [transition-timing-function:var(--morphink-easing-standard)]"
-          :style="indicatorStyle"
-        />
+      <TabsList asChild>
+        <div :class="listClass" class="relative">
+          <TabsTrigger
+            v-for="item in items"
+            :key="item.value"
+            :value="item.value"
+            :disabled="item.disabled"
+            :class="cn('relative z-[1]', tabClass(item.value === modelValue, item.disabled))"
+            :style="item.value === modelValue ? { anchorName: '--active-tab' } : undefined"
+          >
+            {{ item.label }}
+          </TabsTrigger>
+          <!-- CSS Anchor Positioning indicator -->
+          <div
+            :class="cn(
+              'absolute pointer-events-none',
+              variant === 'pill'
+                ? 'rounded-full bg-(--morphink-color-card) shadow-[0_6px_12px_rgba(0,0,0,0.08)]'
+                : 'bg-(--morphink-color-accent)',
+            )"
+            :style="{
+              transitionProperty: 'left, width, top, height',
+              transitionDuration: durationMap[duration],
+              transitionTimingFunction: easingMap[easing],
+              ...(variant === 'pill'
+                ? { left: 'anchor(--active-tab left)', top: 'anchor(--active-tab top)', width: 'anchor-size(--active-tab width)', height: 'anchor-size(--active-tab height)' }
+                : { left: 'anchor(--active-tab left)', bottom: '0', width: 'anchor-size(--active-tab width)', height: '2px' }),
+            }"
+          />
+        </div>
       </TabsList>
       <TabsContent
         :value="modelValue"

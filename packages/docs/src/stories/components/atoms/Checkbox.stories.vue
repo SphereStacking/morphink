@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Checkbox, CheckboxGroup, Stack } from '@morphink/ui'
-import { componentRounded, componentSizes, componentTones, componentVariants } from '@morphink/ui'
+import { componentDurations, componentEasings, componentRounded, componentSizes, componentTones, componentVariants } from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const checked = ref(false)
@@ -16,6 +16,8 @@ const { Story } = defineMeta({
     tone: { control: { type: 'select' }, options: componentTones.Checkbox },
     size: { control: { type: 'select' }, options: componentSizes.Checkbox },
     rounded: { control: { type: 'select' }, options: componentRounded.Checkbox },
+    duration: { control: { type: 'select' }, options: componentDurations.Checkbox },
+    easing: { control: { type: 'select' }, options: componentEasings.Checkbox },
     disabled: { control: 'boolean' },
   },
   args: {
@@ -23,6 +25,8 @@ const { Story } = defineMeta({
     tone: 'primary',
     size: 'md',
     rounded: 'sm',
+    duration: 'fast',
+    easing: 'standard',
     disabled: false,
   },
 })

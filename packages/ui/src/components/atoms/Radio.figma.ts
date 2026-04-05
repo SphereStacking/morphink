@@ -11,7 +11,12 @@ figma.connect(Radio, 'https://figma.com/design/X8gSyqGQC7yghrfuc4GIdQ?node-id=50
     variant: figma.enum('variant', toEnumMap(componentVariants.Radio)),
     tone: figma.enum('tone', toEnumMap(componentTones.Radio)),
     size: figma.enum('size', toEnumMap(componentSizes.Radio)),
+    duration: figma.string('duration'),
+    easing: figma.string('easing'),
   },
   example: (props) =>
-    `<Radio variant="${props.variant}" tone="${props.tone}" size="${props.size}" value="option" />`,
+    `<RadioGroup variant="${props.variant}" tone="${props.tone}" size="${props.size}" duration="${props.duration}" easing="${props.easing}">
+  <Radio value="option1" />
+  <Radio value="option2" />
+</RadioGroup>`,
 })

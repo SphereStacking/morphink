@@ -9,6 +9,8 @@ figma.connect(Progress, 'https://figma.com/design/X8gSyqGQC7yghrfuc4GIdQ?node-id
   props: {
     size: figma.enum('size', toEnumMap(componentSizes.Progress)),
     tone: figma.enum('tone', toEnumMap(componentTones.Progress)),
+    duration: figma.string('duration'),
+    easing: figma.string('easing'),
   },
-  example: (props) => `<Progress :value="60" size="${props.size}" tone="${props.tone}" />`,
+  example: (props) => `<Progress :value="60" size="${props.size}" tone="${props.tone}" duration="${props.duration}" easing="${props.easing}" />`,
 })

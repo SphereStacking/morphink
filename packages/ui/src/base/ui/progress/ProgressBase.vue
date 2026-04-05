@@ -4,7 +4,7 @@ import { computed, useAttrs } from 'vue'
 import { ProgressRoot, ProgressIndicator } from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
-import type { ProgressSize, ProgressTone, ProgressRounded } from '../../lib/props'
+import type { ProgressSize, ProgressTone, ProgressRounded, ProgressDuration, ProgressEasing } from '../../lib/props'
 
 const roundedVariants = {
   none: 'rounded-none',
@@ -52,14 +52,36 @@ const props = withDefaults(
     size?: ProgressSize
     tone?: ProgressTone
     rounded?: ProgressRounded
+    duration?: ProgressDuration
+    easing?: ProgressEasing
   }>(),
   {
     max: 100,
     size: 'md',
     tone: 'primary',
     rounded: 'full',
+    duration: 'normal',
+    easing: 'standard',
   }
 )
+
+const durationMap: Record<ProgressDuration, string> = {
+  instant: 'var(--morphink-duration-instant)',
+  fast: 'var(--morphink-duration-fast)',
+  normal: 'var(--morphink-duration-normal)',
+  slow: 'var(--morphink-duration-slow)',
+  slower: 'var(--morphink-duration-slower)',
+}
+
+const easingMap: Record<ProgressEasing, string> = {
+  standard: 'var(--morphink-easing-standard)',
+  decelerate: 'var(--morphink-easing-decelerate)',
+  accelerate: 'var(--morphink-easing-accelerate)',
+  'emphasized-decelerate': 'var(--morphink-easing-emphasized-decelerate)',
+  'emphasized-accelerate': 'var(--morphink-easing-emphasized-accelerate)',
+  linear: 'var(--morphink-easing-linear)',
+  spring: 'var(--morphink-easing-spring)',
+}
 
 const attrs = useAttrs()
 
@@ -85,8 +107,6 @@ const indicatorClasses = computed(() =>
   cn(
     'h-full bg-(--prog-color)',
     '[transition-property:width]',
-    '[transition-duration:var(--morphink-duration-normal)]',
-    '[transition-timing-function:var(--morphink-easing-standard)]',
     roundedVariants[props.rounded ?? 'full'],
     isIndeterminate.value &&
       'w-1/3 animate-[mi-progress-indeterminate_1.5s_var(--morphink-easing-standard)_infinite]'
@@ -94,8 +114,12 @@ const indicatorClasses = computed(() =>
 )
 
 const indicatorStyle = computed(() => {
-  if (isIndeterminate.value) return undefined
-  return { width: `${percentage.value}%` }
+  const base = {
+    transitionDuration: durationMap[props.duration],
+    transitionTimingFunction: easingMap[props.easing],
+  }
+  if (isIndeterminate.value) return base
+  return { ...base, width: `${percentage.value}%` }
 })
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Radio, RadioGroup, Stack } from '@morphink/ui'
-import { componentSizes, componentTones, componentVariants } from '@morphink/ui'
+import { componentDurations, componentEasings, componentSizes, componentTones, componentVariants } from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const selected = ref('apple')
@@ -15,6 +15,8 @@ const { Story } = defineMeta({
     tone: { control: { type: 'select' }, options: componentTones.Radio },
     size: { control: { type: 'select' }, options: componentSizes.Radio },
     orientation: { control: { type: 'select' }, options: ['vertical', 'horizontal'] },
+    duration: { control: { type: 'select' }, options: componentDurations.Radio },
+    easing: { control: { type: 'select' }, options: componentEasings.Radio },
     disabled: { control: 'boolean' },
   },
   args: {
@@ -22,6 +24,8 @@ const { Story } = defineMeta({
     tone: 'primary',
     size: 'md',
     orientation: 'vertical',
+    duration: 'fast',
+    easing: 'standard',
     disabled: false,
   },
 })

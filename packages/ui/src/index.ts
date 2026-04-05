@@ -120,6 +120,8 @@ export {
   componentTones,
   componentShadow,
   componentResize,
+  componentDurations,
+  componentEasings,
 } from './base/lib/props'
 
 export { useToast } from './composables/useToast'

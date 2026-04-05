@@ -11,7 +11,9 @@ figma.connect(Switch, 'https://figma.com/design/X8gSyqGQC7yghrfuc4GIdQ?node-id=9
     variant: figma.enum('variant', toEnumMap(componentVariants.Switch)),
     tone: figma.enum('tone', toEnumMap(componentTones.Switch)),
     size: figma.enum('size', toEnumMap(componentSizes.Switch)),
+    duration: figma.string('duration'),
+    easing: figma.string('easing'),
   },
   example: (props) =>
-    `<Switch variant="${props.variant}" tone="${props.tone}" size="${props.size}" />`,
+    `<Switch variant="${props.variant}" tone="${props.tone}" size="${props.size}" duration="${props.duration}" easing="${props.easing}" />`,
 })

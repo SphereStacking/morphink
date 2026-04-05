@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Progress, Stack, Text } from '@morphink/ui'
-import { componentSizes, componentTones, componentRounded } from '@morphink/ui'
+import { componentDurations, componentEasings, componentSizes, componentTones, componentRounded } from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const { Story } = defineMeta({
@@ -13,6 +13,8 @@ const { Story } = defineMeta({
     size: { control: { type: 'select' }, options: componentSizes.Progress },
     tone: { control: { type: 'select' }, options: componentTones.Progress },
     rounded: { control: { type: 'select' }, options: componentRounded.Progress },
+    duration: { control: { type: 'select' }, options: componentDurations.Progress },
+    easing: { control: { type: 'select' }, options: componentEasings.Progress },
   },
   args: {
     value: 60,
@@ -20,6 +22,8 @@ const { Story } = defineMeta({
     size: 'md',
     tone: 'primary',
     rounded: 'full',
+    duration: 'normal',
+    easing: 'standard',
   },
 })
 </script>
@@ -34,6 +38,8 @@ const { Story } = defineMeta({
           :size="args.size"
           :tone="args.tone"
           :rounded="args.rounded"
+          :duration="args.duration"
+          :easing="args.easing"
         />
       </div>
     </template>

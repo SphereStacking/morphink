@@ -11,6 +11,8 @@ import type {
   CheckboxSize,
   CheckboxTone,
   CheckboxVariant,
+  CheckboxDuration,
+  CheckboxEasing,
 } from '../../base/lib/props'
 
 withDefaults(
@@ -21,6 +23,8 @@ withDefaults(
     tone?: CheckboxTone
     size?: CheckboxSize
     rounded?: CheckboxRounded
+    duration?: CheckboxDuration
+    easing?: CheckboxEasing
     disabled?: boolean
     name?: string
     value?: string
@@ -31,6 +35,8 @@ withDefaults(
     tone: 'primary',
     size: 'md',
     rounded: 'sm',
+    duration: 'fast',
+    easing: 'standard',
     disabled: false,
   }
 )
@@ -48,6 +54,8 @@ defineEmits<{
     :tone="tone"
     :size="size"
     :rounded="rounded"
+    :duration="duration"
+    :easing="easing"
     :disabled="disabled"
     :name="name"
     :value="value"

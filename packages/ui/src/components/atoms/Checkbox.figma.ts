@@ -11,7 +11,9 @@ figma.connect(Checkbox, 'https://figma.com/design/X8gSyqGQC7yghrfuc4GIdQ?node-id
     variant: figma.enum('variant', toEnumMap(componentVariants.Checkbox)),
     tone: figma.enum('tone', toEnumMap(componentTones.Checkbox)),
     size: figma.enum('size', toEnumMap(componentSizes.Checkbox)),
+    duration: figma.string('duration'),
+    easing: figma.string('easing'),
   },
   example: (props) =>
-    `<Checkbox variant="${props.variant}" tone="${props.tone}" size="${props.size}" />`,
+    `<Checkbox variant="${props.variant}" tone="${props.tone}" size="${props.size}" duration="${props.duration}" easing="${props.easing}" />`,
 })

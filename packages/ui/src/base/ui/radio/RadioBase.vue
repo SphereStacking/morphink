@@ -4,15 +4,13 @@ import { computed, inject, ref, useAttrs } from 'vue'
 import { RadioGroupItem, RadioGroupIndicator } from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
-import type { RadioSize, RadioTone, RadioVariant } from '../../lib/props'
-import { radioSizeKey, radioVariantKey, radioToneKey } from './radioContext'
+import type { RadioSize, RadioTone, RadioVariant, RadioDuration, RadioEasing } from '../../lib/props'
+import { radioSizeKey, radioVariantKey, radioToneKey, radioDurationKey, radioEasingKey } from './radioContext'
 
 const radioVariants = cva(
   cn(
     'relative inline-flex shrink-0 items-center justify-center rounded-full border',
     '[transition-property:border-color,box-shadow]',
-    '[transition-duration:var(--morphink-duration-fast)]',
-    '[transition-timing-function:var(--morphink-easing-standard)]',
     'before:absolute before:inset-[-10px] before:content-[""]',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
@@ -30,11 +28,11 @@ const radioVariants = cva(
           'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]',
           'data-[state=checked]:bg-(--ctl-color)'
         ),
-        ghost: cn('border-transparent', 'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'),
+        ghost: cn('border-(--morphink-color-border)', 'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'),
         soft: cn(
           'border-transparent',
-          'bg-[color-mix(in_srgb,var(--ctl-color)_12%,transparent)]',
-          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_18%,transparent)]',
+          'bg-[color-mix(in_srgb,var(--ctl-color)_18%,transparent)]',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_24%,transparent)]',
           'data-[state=checked]:bg-[color-mix(in_srgb,var(--ctl-color)_65%,transparent)]'
         ),
       },
@@ -121,10 +119,32 @@ const props = defineProps<{
 const injectedSize = inject(radioSizeKey, ref('md' as RadioSize))
 const injectedVariant = inject(radioVariantKey, ref('outline' as RadioVariant))
 const injectedTone = inject(radioToneKey, ref('primary' as RadioTone))
+const injectedDuration = inject(radioDurationKey, ref('fast' as RadioDuration))
+const injectedEasing = inject(radioEasingKey, ref('standard' as RadioEasing))
 
 const resolvedSize = computed(() => injectedSize.value)
 const resolvedVariant = computed(() => injectedVariant.value)
 const resolvedTone = computed(() => injectedTone.value)
+const resolvedDuration = computed(() => injectedDuration.value)
+const resolvedEasing = computed(() => injectedEasing.value)
+
+const durationMap: Record<RadioDuration, string> = {
+  instant: 'var(--morphink-duration-instant)',
+  fast: 'var(--morphink-duration-fast)',
+  normal: 'var(--morphink-duration-normal)',
+  slow: 'var(--morphink-duration-slow)',
+  slower: 'var(--morphink-duration-slower)',
+}
+
+const easingMap: Record<RadioEasing, string> = {
+  standard: 'var(--morphink-easing-standard)',
+  decelerate: 'var(--morphink-easing-decelerate)',
+  accelerate: 'var(--morphink-easing-accelerate)',
+  'emphasized-decelerate': 'var(--morphink-easing-emphasized-decelerate)',
+  'emphasized-accelerate': 'var(--morphink-easing-emphasized-accelerate)',
+  linear: 'var(--morphink-easing-linear)',
+  spring: 'var(--morphink-easing-spring)',
+}
 
 const attrs = useAttrs()
 const classes = computed(() =>
@@ -140,7 +160,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <RadioGroupItem data-morphink :value="value" :disabled="disabled" :id="id" :class="classes" v-bind="attrs">
+  <RadioGroupItem data-morphink :value="value" :disabled="disabled" :id="id" :class="classes" :style="{ transitionDuration: durationMap[resolvedDuration], transitionTimingFunction: easingMap[resolvedEasing] }" v-bind="attrs">
     <RadioGroupIndicator class="flex items-center justify-center">
       <span
         :class="
