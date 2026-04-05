@@ -1,27 +1,30 @@
 /* --- Scoped reset for morphink components --- */
 /* Ensures components render correctly in any consumer environment.
    Only applies inside elements with data-morphink attribute. */
+/* @layer base ensures resets yield to @layer utilities (Tailwind). */
 
-[data-morphink],
-[data-morphink] *,
-[data-morphink] *::before,
-[data-morphink] *::after {
-  box-sizing: border-box;
-}
+@layer base {
+  [data-morphink],
+  [data-morphink] *,
+  [data-morphink] *::before,
+  [data-morphink] *::after {
+    box-sizing: border-box;
+  }
 
-[data-morphink] button,
-[data-morphink] input,
-[data-morphink] select,
-[data-morphink] textarea {
-  font: inherit;
-  background: transparent;
-  border: 0 solid;
-  border-radius: 0;
-}
+  [data-morphink] button,
+  [data-morphink] input,
+  [data-morphink] select,
+  [data-morphink] textarea {
+    font: inherit;
+    background: transparent;
+    border: 0 solid;
+    border-radius: 0;
+  }
 
-[data-morphink] img,
-[data-morphink] svg {
-  display: block;
+  [data-morphink] img,
+  [data-morphink] svg {
+    display: block;
+  }
 }
 
 [data-morphink] h1,
