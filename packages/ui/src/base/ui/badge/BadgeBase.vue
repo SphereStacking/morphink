@@ -156,7 +156,6 @@ const classes = computed(() =>
   <span
     data-morphink
     :class="classes"
-    class="animate-[mi-badge-enter_var(--morphink-motion-emphasis)]"
     v-bind="attrs"
   >
     <slot />
