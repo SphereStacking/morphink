@@ -109,7 +109,7 @@ const indicatorClasses = computed(() =>
     '[transition-property:width]',
     roundedVariants[props.rounded ?? 'full'],
     isIndeterminate.value &&
-      'w-1/3 animate-[mi-progress-indeterminate_1.5s_var(--morphink-easing-standard)_infinite]'
+      'w-1/3 mi-progress-anim'
   )
 )
 
@@ -134,3 +134,18 @@ const indicatorStyle = computed(() => {
     <ProgressIndicator :class="indicatorClasses" :style="indicatorStyle" />
   </ProgressRoot>
 </template>
+
+<style scoped>
+.mi-progress-anim {
+  animation: mi-progress-indeterminate 1.5s var(--morphink-easing-standard) infinite;
+}
+
+@keyframes mi-progress-indeterminate {
+  0% {
+    translate: -100% 0;
+  }
+  100% {
+    translate: 200% 0;
+  }
+}
+</style>

@@ -93,10 +93,35 @@ const popoverStyle = computed(() => ({
         :align="align"
         :class="contentClass"
         :style="popoverStyle"
-        class="data-[state=open]:animate-[mi-popover-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-popover-out_var(--morphink-motion-leave)_forwards]"
+        class="mi-popover-anim"
       >
         <slot name="content" />
       </PopoverContent>
     </PopoverPortal>
   </PopoverRoot>
 </template>
+
+<style scoped>
+@keyframes mi-popover-in {
+  from {
+    opacity: 0;
+    scale: 0.96;
+    translate: var(--mi-popover-translate, 0 -4px);
+  }
+}
+
+@keyframes mi-popover-out {
+  to {
+    opacity: 0;
+    scale: 0.96;
+    translate: var(--mi-popover-translate, 0 -4px);
+  }
+}
+
+.mi-popover-anim[data-state="open"] {
+  animation: mi-popover-in var(--morphink-motion-enter) both;
+}
+.mi-popover-anim[data-state="closed"] {
+  animation: mi-popover-out var(--morphink-motion-leave) forwards;
+}
+</style>

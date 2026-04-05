@@ -161,3 +161,20 @@ const classes = computed(() =>
     <slot />
   </span>
 </template>
+
+<style scoped>
+.mi-badge-anim {
+  animation: mi-badge-enter var(--morphink-motion-emphasis) both;
+}
+
+@keyframes mi-badge-enter {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+</style>

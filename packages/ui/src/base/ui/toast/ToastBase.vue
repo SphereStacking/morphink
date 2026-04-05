@@ -10,11 +10,8 @@ const toastVariants = cva(
   cn(
     'group pointer-events-auto relative flex w-full items-center justify-between gap-(--morphink-space-md)',
     'overflow-hidden rounded-(--morphink-radius-lg) p-(--morphink-space-md)',
-    'data-[state=open]:animate-[mi-toast-in_var(--morphink-motion-enter)_both]',
-    'data-[state=closed]:animate-[mi-toast-out_var(--morphink-motion-leave)_forwards]',
     'data-[swipe=move]:translate-x-[var(--reka-toast-swipe-move-x)]',
-    'data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:[transition-property:translate] data-[swipe=cancel]:[transition-duration:var(--morphink-duration-fast)] data-[swipe=cancel]:[transition-timing-function:var(--morphink-easing-spring)]',
-    'data-[swipe=end]:animate-[mi-toast-out_var(--morphink-motion-leave)_forwards]'
+    'data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:[transition-property:translate] data-[swipe=cancel]:[transition-duration:var(--morphink-duration-fast)] data-[swipe=cancel]:[transition-timing-function:var(--morphink-easing-spring)]'
   ),
   {
     variants: {
@@ -119,6 +116,7 @@ const rootClass = computed(() =>
 <template>
   <ToastRoot
     data-morphink
+    class="mi-toast-anim"
     :class="rootClass"
     :duration="duration"
     :open="open"
@@ -170,3 +168,27 @@ const rootClass = computed(() =>
     </div>
   </ToastRoot>
 </template>
+
+<style scoped>
+.mi-toast-anim[data-state="open"] {
+  animation: mi-toast-in var(--morphink-motion-enter) both;
+}
+.mi-toast-anim[data-state="closed"],
+.mi-toast-anim[data-swipe="end"] {
+  animation: mi-toast-out var(--morphink-motion-leave) forwards;
+}
+
+@keyframes mi-toast-in {
+  from {
+    translate: var(--mi-toast-translate, 100% 0);
+    opacity: 0;
+  }
+}
+
+@keyframes mi-toast-out {
+  to {
+    translate: var(--mi-toast-translate, 100% 0);
+    opacity: 0;
+  }
+}
+</style>

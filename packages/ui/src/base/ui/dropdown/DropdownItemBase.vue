@@ -53,7 +53,7 @@ const classes = computed(() =>
     :text-value="textValue"
     :class="classes"
     :style="{ animationDelay: staggerDelay }"
-    class="animate-[mi-stagger-in_var(--morphink-motion-enter)_both]"
+    class="mi-stagger-anim"
     @select="emit('select', $event)"
   >
     <span v-if="$slots.icon" class="shrink-0">
@@ -62,3 +62,20 @@ const classes = computed(() =>
     <slot />
   </DropdownMenuItem>
 </template>
+
+<style scoped>
+.mi-stagger-anim {
+  animation: mi-stagger-in var(--morphink-motion-enter) both;
+}
+
+@keyframes mi-stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>

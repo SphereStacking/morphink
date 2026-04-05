@@ -98,7 +98,7 @@ const tooltipStyle = computed(() => ({
           :align="align"
           :class="contentClass"
           :style="tooltipStyle"
-          class="data-[state=delayed-open]:animate-[mi-popover-in_var(--morphink-duration-normal)_var(--morphink-easing-emphasized-decelerate)_both] data-[state=closed]:animate-[mi-popover-out_var(--morphink-duration-fast)_var(--morphink-easing-emphasized-accelerate)_forwards]"
+          class="mi-tooltip-anim"
         >
           <slot name="content">{{ content }}</slot>
         </TooltipContent>
@@ -106,3 +106,28 @@ const tooltipStyle = computed(() => ({
     </TooltipRoot>
   </TooltipProvider>
 </template>
+
+<style scoped>
+@keyframes mi-popover-in {
+  from {
+    opacity: 0;
+    scale: 0.96;
+    translate: var(--mi-popover-translate, 0 -4px);
+  }
+}
+
+@keyframes mi-popover-out {
+  to {
+    opacity: 0;
+    scale: 0.96;
+    translate: var(--mi-popover-translate, 0 -4px);
+  }
+}
+
+.mi-tooltip-anim[data-state="delayed-open"] {
+  animation: mi-popover-in var(--morphink-duration-normal) var(--morphink-easing-emphasized-decelerate) both;
+}
+.mi-tooltip-anim[data-state="closed"] {
+  animation: mi-popover-out var(--morphink-duration-fast) var(--morphink-easing-emphasized-accelerate) forwards;
+}
+</style>

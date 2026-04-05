@@ -115,7 +115,7 @@ const classes = computed(() =>
       tone: props.tone,
       rounded: props.rounded,
     }),
-    dismissed.value && 'animate-[mi-alert-dismiss_var(--morphink-motion-leave)_forwards]',
+    dismissed.value && 'mi-alert-dismiss-anim',
     attrs.class
   )
 )
@@ -144,3 +144,16 @@ const classes = computed(() =>
     </button>
   </div>
 </template>
+
+<style scoped>
+.mi-alert-dismiss-anim {
+  animation: mi-alert-dismiss var(--morphink-motion-leave) forwards;
+}
+
+@keyframes mi-alert-dismiss {
+  to {
+    opacity: 0;
+    scale: 0.98;
+  }
+}
+</style>

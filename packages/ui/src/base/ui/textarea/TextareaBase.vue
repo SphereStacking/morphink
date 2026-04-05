@@ -142,7 +142,7 @@ const classes = computed(() =>
       resize: props.resize,
       disabled: props.disabled,
     }),
-    props.ariaInvalid && 'animate-[mi-shake_var(--morphink-motion-emphasis)_both]',
+    props.ariaInvalid && 'mi-shake-anim',
     attrs.class
   )
 )
@@ -168,3 +168,24 @@ function onInput(event: Event) {
     @input="onInput"
   />
 </template>
+
+<style scoped>
+.mi-shake-anim {
+  animation: mi-shake var(--morphink-motion-emphasis) both;
+}
+
+@keyframes mi-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-4px);
+  }
+  40%,
+  80% {
+    transform: translateX(4px);
+  }
+}
+</style>

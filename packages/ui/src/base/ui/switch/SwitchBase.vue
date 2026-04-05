@@ -129,7 +129,7 @@ const thumbVariants = cva(
     'pointer-events-none block rounded-full bg-(--morphink-color-card) shadow-(--morphink-shadow-sm)',
     '[transition-property:translate,background-color]',
     'data-[state=unchecked]:translate-x-0',
-    'data-[state=checked]:animate-[mi-switch-bounce_var(--morphink-duration-fast)_var(--morphink-easing-standard)_both]'
+    ''
   ),
   {
     variants: {
@@ -244,6 +244,7 @@ const thumbClasses = computed(() =>
     }"
   >
     <SwitchThumb
+      class="mi-switch-thumb"
       :class="thumbClasses"
       :style="{
         transitionDuration: durationMap[duration],
@@ -252,3 +253,21 @@ const thumbClasses = computed(() =>
     />
   </SwitchRoot>
 </template>
+
+<style scoped>
+.mi-switch-thumb[data-state="checked"] {
+  animation: mi-switch-bounce var(--morphink-duration-fast) var(--morphink-easing-standard) both;
+}
+
+@keyframes mi-switch-bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>

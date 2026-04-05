@@ -58,15 +58,42 @@ const innerClasses = computed(() => cn(innerVariants({ size: size.value })))
 <template>
   <AccordionContent
     data-morphink
-    class="grid data-[state=open]:grid-rows-[1fr] data-[state=closed]:grid-rows-[0fr] [transition-property:grid-template-rows]"
-    :style="{ transitionDuration: durationMap[props.duration], transitionTimingFunction: easingMap[props.easing] }"
+    class="overflow-hidden mi-accordion-anim"
+    :style="{ '--mi-acc-dur': durationMap[props.duration], '--mi-acc-ease': easingMap[props.easing] } as any"
   >
-    <div
-      :class="innerClasses"
-      class="[[data-state=closed]_&]:opacity-0 [[data-state=open]_&]:opacity-100 [transition-property:opacity]"
-      :style="{ transitionDuration: durationMap[props.duration], transitionTimingFunction: easingMap[props.easing] }"
-    >
+    <div :class="innerClasses">
       <slot />
     </div>
   </AccordionContent>
 </template>
+
+<style scoped>
+.mi-accordion-anim[data-state="open"] {
+  animation: mi-accordion-expand var(--mi-acc-dur) var(--mi-acc-ease) both;
+}
+.mi-accordion-anim[data-state="closed"] {
+  animation: mi-accordion-collapse var(--mi-acc-dur) var(--mi-acc-ease) both;
+}
+
+@keyframes mi-accordion-expand {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--reka-collapsible-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes mi-accordion-collapse {
+  from {
+    height: var(--reka-collapsible-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+</style>

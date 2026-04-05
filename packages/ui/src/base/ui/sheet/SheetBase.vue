@@ -119,12 +119,12 @@ const contentClass = computed(() =>
     <DialogPortal>
       <DialogOverlay
         data-morphink
-        class="fixed inset-0 bg-(--morphink-color-scrim) data-[state=open]:animate-[mi-overlay-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-overlay-out_var(--morphink-motion-leave)_50ms_forwards]"
+        class="mi-overlay-anim fixed inset-0 bg-(--morphink-color-scrim)"
       />
       <DialogContent
         data-morphink
         :class="contentClass"
-        class="data-[state=open]:animate-[mi-sheet-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-sheet-out_var(--morphink-motion-leave)_forwards]"
+        class="mi-sheet-anim"
       >
         <div
           v-if="title || description"
@@ -167,3 +167,45 @@ const contentClass = computed(() =>
     </DialogPortal>
   </DialogRoot>
 </template>
+
+<style scoped>
+@keyframes mi-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mi-overlay-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes mi-sheet-in {
+  from {
+    translate: var(--mi-sheet-translate);
+  }
+}
+
+@keyframes mi-sheet-out {
+  to {
+    translate: var(--mi-sheet-translate);
+  }
+}
+
+.mi-overlay-anim[data-state="open"] {
+  animation: mi-overlay-in var(--morphink-motion-enter) both;
+}
+.mi-overlay-anim[data-state="closed"] {
+  animation: mi-overlay-out var(--morphink-motion-leave) 50ms forwards;
+}
+.mi-sheet-anim[data-state="open"] {
+  animation: mi-sheet-in var(--morphink-motion-enter) both;
+}
+.mi-sheet-anim[data-state="closed"] {
+  animation: mi-sheet-out var(--morphink-motion-leave) forwards;
+}
+</style>

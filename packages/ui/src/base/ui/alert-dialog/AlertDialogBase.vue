@@ -137,12 +137,12 @@ const actionClass = computed(() =>
     <AlertDialogPortal>
       <AlertDialogOverlay
         data-morphink
-        class="fixed inset-0 bg-(--morphink-color-scrim) data-[state=open]:animate-[mi-overlay-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-overlay-out_var(--morphink-motion-leave)_50ms_forwards]"
+        class="mi-overlay-anim fixed inset-0 bg-(--morphink-color-scrim)"
       />
       <AlertDialogContent
         data-morphink
         :class="contentClass"
-        class="data-[state=open]:animate-[mi-dialog-in_var(--morphink-motion-enter)_50ms_both] data-[state=closed]:animate-[mi-dialog-out_var(--morphink-motion-leave)_forwards]"
+        class="mi-dialog-anim"
       >
         <div class="flex items-center justify-between gap-(--morphink-space-md)">
           <AlertDialogTitle v-if="title" :class="titleClass">{{ title }}</AlertDialogTitle>
@@ -184,3 +184,31 @@ const actionClass = computed(() =>
     </AlertDialogPortal>
   </AlertDialogRoot>
 </template>
+
+<style scoped>
+@keyframes mi-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes mi-overlay-out {
+  to { opacity: 0; }
+}
+@keyframes mi-dialog-in {
+  from { opacity: 0; scale: 0.95; transform: translateY(8px); }
+}
+@keyframes mi-dialog-out {
+  to { opacity: 0; scale: 0.95; transform: translateY(8px); }
+}
+.mi-overlay-anim[data-state="open"] {
+  animation: mi-overlay-in var(--morphink-motion-enter) both;
+}
+.mi-overlay-anim[data-state="closed"] {
+  animation: mi-overlay-out var(--morphink-motion-leave) 50ms forwards;
+}
+.mi-dialog-anim[data-state="open"] {
+  animation: mi-dialog-in var(--morphink-motion-enter) 50ms both;
+}
+.mi-dialog-anim[data-state="closed"] {
+  animation: mi-dialog-out var(--morphink-motion-leave) forwards;
+}
+</style>

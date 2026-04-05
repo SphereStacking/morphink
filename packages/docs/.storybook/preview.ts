@@ -5,6 +5,7 @@ import { EVENT_RESET_ALL, EVENT_SET_TOKEN } from '../src/addons/token-editor/con
 import '@morphink/ui/styles/tokens.css'
 import '@morphink/ui/styles/base.css'
 import '@morphink/ui/styles/ui.css'
+import '@morphink/ui/styles/components.css'
 
 const tokenOverrides = new Map<string, string>()
 let channelInitialized = false

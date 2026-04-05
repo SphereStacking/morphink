@@ -18,7 +18,8 @@
     "./source": "./src/index.ts",
     "./styles/tokens.css": "./src/styles/tokens.css",
     "./styles/base.css": "./src/styles/base.css",
-    "./styles/ui.css": "./dist/ui.css"
+    "./styles/ui.css": "./dist/ui.css",
+    "./styles/components.css": "./dist/components.css"
   },
   "scripts": {
     "build": "pnpm run build:css && pnpm run build:js && pnpm run build:types",

@@ -273,9 +273,25 @@ const classes = computed(() =>
         v-if="state !== 'indeterminate'"
         :class="iconSizes[resolvedSize]"
         stroke-width="3"
-        class="[&_polyline]:[stroke-dasharray:24] [&_polyline]:animate-[mi-checkmark-draw_var(--morphink-duration-normal)_var(--morphink-easing-standard)_both]"
+        class="mi-checkmark-anim"
       />
       <IconMinus v-else :class="iconSizes[resolvedSize]" stroke-width="3" />
     </CheckboxIndicator>
   </CheckboxRoot>
 </template>
+
+<style scoped>
+.mi-checkmark-anim :deep(polyline) {
+  stroke-dasharray: 24;
+  animation: mi-checkmark-draw var(--morphink-duration-normal) var(--morphink-easing-standard) both;
+}
+
+@keyframes mi-checkmark-draw {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+</style>

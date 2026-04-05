@@ -215,7 +215,7 @@ const tabClass = (active: boolean, disabled?: boolean) =>
       <TabsContent
         :value="modelValue"
         :class="panelClass"
-        class="animate-[mi-tab-fade-in_var(--morphink-duration-fast)_var(--morphink-easing-standard)_both]"
+        class="mi-tab-anim"
         :key="modelValue"
       >
         <slot />
@@ -223,3 +223,15 @@ const tabClass = (active: boolean, disabled?: boolean) =>
     </div>
   </TabsRoot>
 </template>
+
+<style scoped>
+.mi-tab-anim {
+  animation: mi-tab-fade-in var(--morphink-duration-fast) var(--morphink-easing-standard) both;
+}
+
+@keyframes mi-tab-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+</style>

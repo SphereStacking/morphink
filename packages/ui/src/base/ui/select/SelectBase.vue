@@ -211,7 +211,7 @@ const itemClass = computed(() =>
         :class="contentClass"
         :side="side"
         :align="align"
-        class="data-[state=open]:animate-[mi-dropdown-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-dropdown-out_var(--morphink-motion-leave)_forwards]"
+        class="mi-dropdown-anim"
       >
         <SelectViewport>
           <SelectItem
@@ -228,3 +228,26 @@ const itemClass = computed(() =>
     </SelectPortal>
   </SelectRoot>
 </template>
+
+<style scoped>
+@keyframes mi-dropdown-in {
+  from {
+    opacity: 0;
+    translate: 0 -4px;
+  }
+}
+
+@keyframes mi-dropdown-out {
+  to {
+    opacity: 0;
+    translate: 0 4px;
+  }
+}
+
+.mi-dropdown-anim[data-state="open"] {
+  animation: mi-dropdown-in var(--morphink-motion-enter) both;
+}
+.mi-dropdown-anim[data-state="closed"] {
+  animation: mi-dropdown-out var(--morphink-motion-leave) forwards;
+}
+</style>

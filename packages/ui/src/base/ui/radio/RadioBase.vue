@@ -168,10 +168,25 @@ const classes = computed(() =>
             'block rounded-full',
             dotSizes[resolvedSize],
             resolvedVariant === 'solid' ? 'bg-(--ctl-fg)' : 'bg-(--ctl-color)',
-            'animate-[mi-radio-dot-in_var(--morphink-duration-fast)_var(--morphink-easing-spring)_both]'
+            'mi-radio-dot-anim'
           )
         "
       />
     </RadioGroupIndicator>
   </RadioGroupItem>
 </template>
+
+<style scoped>
+.mi-radio-dot-anim {
+  animation: mi-radio-dot-in var(--morphink-duration-fast) var(--morphink-easing-spring) both;
+}
+
+@keyframes mi-radio-dot-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+</style>
