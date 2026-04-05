@@ -14,12 +14,14 @@ import {
   CardHeader,
   CardBody,
   CardTitle,
+  CardDescription,
   Stack,
   Grid,
   Button,
   Text,
   Heading,
   Avatar,
+  Badge,
   Divider,
 } from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
@@ -130,7 +132,7 @@ const { Story } = defineMeta({
       <template #header>
         <AppHeader title="My App">
           <template #actions>
-            <Button size="sm" variant="outline" @click="sidebarCollapsed = !sidebarCollapsed">
+            <Button size="sm" variant="ghost" tone="neutral" @click="sidebarCollapsed = !sidebarCollapsed">
               {{ sidebarCollapsed ? 'Show Sidebar' : 'Hide Sidebar' }}
             </Button>
           </template>
@@ -183,14 +185,22 @@ const { Story } = defineMeta({
         />
         <Grid :columns="2" gap="md">
           <Card>
-            <CardHeader><CardTitle>Components</CardTitle></CardHeader>
-            <CardBody
-              ><Text muted>42 components across atoms, molecules, and organisms.</Text></CardBody
-            >
+            <CardHeader>
+              <CardTitle>Components</CardTitle>
+              <CardDescription>UI primitives and patterns</CardDescription>
+            </CardHeader>
+            <CardBody>
+              <Text muted>42 components across atoms, molecules, and organisms.</Text>
+            </CardBody>
           </Card>
           <Card>
-            <CardHeader><CardTitle>Tokens</CardTitle></CardHeader>
-            <CardBody><Text muted>Spacing, color, radius, and typography tokens.</Text></CardBody>
+            <CardHeader>
+              <CardTitle>Tokens</CardTitle>
+              <CardDescription>Design foundation</CardDescription>
+            </CardHeader>
+            <CardBody>
+              <Text muted>Spacing, color, radius, and typography tokens.</Text>
+            </CardBody>
           </Card>
         </Grid>
       </Stack>

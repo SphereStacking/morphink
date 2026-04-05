@@ -6,7 +6,7 @@
  * Fork and customize for your product's layout needs.
  *
  * Slots:
- *   - header: top navigation bar
+ *   - header: top navigation bar (rendered above sidebar+content)
  *   - sidebar: side navigation panel
  *   - default: main content area
  */
@@ -27,7 +27,6 @@ withDefaults(
 
 <template>
   <Stack
-    direction="row"
     gap="0"
     :style="{
       minHeight: '100vh',
@@ -35,27 +34,29 @@ withDefaults(
       color: 'var(--morphink-color-foreground)',
     }"
   >
-    <Box
-      v-if="$slots.sidebar"
-      as="aside"
-      :shrink="false"
-      overflowY="auto"
-      overflowX="hidden"
-      borderRight
-      :style="{
-        transition: 'width 200ms',
-        width: sidebarCollapsed ? '0' : sidebarWidth,
-      }"
-    >
-      <div v-show="!sidebarCollapsed" :style="{ height: '100%', width: sidebarWidth }">
-        <slot name="sidebar" />
-      </div>
+    <Box v-if="$slots.header" as="header" :shrink="false">
+      <slot name="header" />
     </Box>
-    <Stack gap="0" grow :style="{ minWidth: 0 }">
-      <Box v-if="$slots.header" as="header" :shrink="false" borderBottom>
-        <slot name="header" />
+    <Stack direction="row" gap="0" grow :style="{ minHeight: 0 }">
+      <Box
+        v-if="$slots.sidebar"
+        as="aside"
+        :shrink="false"
+        overflowY="auto"
+        overflowX="hidden"
+        borderRight
+        :style="{
+          transitionProperty: 'width',
+          transitionDuration: 'var(--morphink-duration-normal)',
+          transitionTimingFunction: 'var(--morphink-easing-standard)',
+          width: sidebarCollapsed ? '0' : sidebarWidth,
+        }"
+      >
+        <div v-show="!sidebarCollapsed" :style="{ height: '100%', width: sidebarWidth }">
+          <slot name="sidebar" />
+        </div>
       </Box>
-      <Box as="main" grow>
+      <Box as="main" grow overflowY="auto" :style="{ minWidth: 0 }">
         <slot />
       </Box>
     </Stack>
