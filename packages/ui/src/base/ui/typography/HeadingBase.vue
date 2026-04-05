@@ -44,7 +44,7 @@ const classes = computed(() => cn(headingVariants({ level: props.level }), attrs
 </script>
 
 <template>
-  <component :is="tag" :class="classes">
+  <component :is="tag" data-morphink :class="classes">
     <slot />
   </component>
 </template>

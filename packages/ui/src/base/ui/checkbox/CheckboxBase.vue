@@ -245,7 +245,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <CheckboxRoot v-bind="forwarded" :class="classes" v-slot="{ state }">
+  <CheckboxRoot data-morphink v-bind="forwarded" :class="classes" v-slot="{ state }">
     <CheckboxIndicator class="flex items-center justify-center">
       <IconCheck
         v-if="state !== 'indeterminate'"

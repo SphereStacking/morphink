@@ -6,6 +6,7 @@ defineOptions({ inheritAttrs: false })
 
 <template>
   <h3
+    data-morphink
     :class="
       cn(
         'text-(length:--morphink-font-size-h3) font-semibold leading-(--morphink-font-line-height-heading) text-(color:--morphink-color-foreground)',

@@ -81,7 +81,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <span :class="classes" v-bind="attrs">
+  <span data-morphink :class="classes" v-bind="attrs">
     <img
       v-if="src && imageStatus !== 'error'"
       :src="src"

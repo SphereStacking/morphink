@@ -6,6 +6,7 @@ defineOptions({ inheritAttrs: false })
 
 <template>
   <h5
+    data-morphink
     :class="
       cn(
         'font-semibold leading-(--morphink-font-line-height-heading) tracking-tight',

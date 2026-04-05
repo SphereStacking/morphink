@@ -28,7 +28,7 @@ const forwarded = useForwardPropsEmits(rekaProps, emit)
 </script>
 
 <template>
-  <CollapsibleRoot v-bind="forwarded">
+  <CollapsibleRoot data-morphink v-bind="forwarded">
     <CollapsibleTrigger asChild>
       <slot name="trigger" />
     </CollapsibleTrigger>

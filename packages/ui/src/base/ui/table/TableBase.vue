@@ -78,7 +78,7 @@ const alignStyle = (align: Column['align']) => ({
 </script>
 
 <template>
-  <div :class="classes">
+  <div data-morphink :class="classes">
     <table class="w-full border-collapse text-[13px]">
       <thead>
         <tr>

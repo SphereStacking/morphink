@@ -58,6 +58,7 @@ const attrs = useAttrs()
 
 <template>
   <div
+    data-morphink
     v-bind="{ ...attrs, class: undefined, style: undefined }"
     :style="[gridStyle, attrs.style]"
     :class="cn('grid', attrs.class)"

@@ -140,6 +140,7 @@ function onInput(event: Event) {
 
 <template>
   <input
+    data-morphink
     :class="classes"
     :value="modelValue"
     :type="type"

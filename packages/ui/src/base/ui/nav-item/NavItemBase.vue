@@ -51,7 +51,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <a :class="classes" v-bind="attrs">
+  <a data-morphink :class="classes" v-bind="attrs">
     <slot />
   </a>
 </template>

@@ -61,7 +61,7 @@ const itemClass = (active?: boolean) =>
 </script>
 
 <template>
-  <nav :class="classes">
+  <nav data-morphink :class="classes">
     <a v-for="item in items" :key="item.label" :href="item.href" :class="itemClass(item.active)">
       {{ item.label }}
     </a>

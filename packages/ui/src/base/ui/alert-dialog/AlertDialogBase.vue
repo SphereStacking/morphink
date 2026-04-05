@@ -136,9 +136,11 @@ const actionClass = computed(() =>
     </AlertDialogTrigger>
     <AlertDialogPortal>
       <AlertDialogOverlay
+        data-morphink
         class="fixed inset-0 bg-(--morphink-color-scrim) data-[state=open]:animate-[mi-overlay-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-overlay-out_var(--morphink-motion-leave)_50ms_forwards]"
       />
       <AlertDialogContent
+        data-morphink
         :class="contentClass"
         class="data-[state=open]:animate-[mi-dialog-in_var(--morphink-motion-enter)_50ms_both] data-[state=closed]:animate-[mi-dialog-out_var(--morphink-motion-leave)_forwards]"
       >

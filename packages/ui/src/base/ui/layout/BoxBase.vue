@@ -141,6 +141,7 @@ const attrs = useAttrs()
 <template>
   <component
     :is="as"
+    data-morphink
     v-bind="{ ...attrs, class: undefined, style: undefined }"
     :style="[boxStyle, attrs.style]"
     :class="cn(attrs.class)"

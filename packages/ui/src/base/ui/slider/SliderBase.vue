@@ -148,7 +148,7 @@ const thumbClasses = computed(() =>
 </script>
 
 <template>
-  <SliderRoot v-bind="forwarded" :class="rootClasses">
+  <SliderRoot data-morphink v-bind="forwarded" :class="rootClasses">
     <SliderTrack :class="trackClasses">
       <SliderRange :class="rangeClasses" />
     </SliderTrack>

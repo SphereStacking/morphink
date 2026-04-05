@@ -70,7 +70,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <component :is="as" v-bind="{ ...attrs, class: undefined }" :class="classes">
+  <component :is="as" data-morphink v-bind="{ ...attrs, class: undefined }" :class="classes">
     <slot />
   </component>
 </template>

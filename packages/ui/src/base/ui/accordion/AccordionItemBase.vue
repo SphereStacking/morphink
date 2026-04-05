@@ -30,7 +30,7 @@ const itemClasses = computed(() => cn(itemVariants({ variant: variant.value })))
 </script>
 
 <template>
-  <AccordionItem :value="value" :disabled="disabled" :class="itemClasses">
+  <AccordionItem data-morphink :value="value" :disabled="disabled" :class="itemClasses">
     <slot />
   </AccordionItem>
 </template>

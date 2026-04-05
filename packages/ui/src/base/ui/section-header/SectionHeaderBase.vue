@@ -52,7 +52,7 @@ const titleClass = computed(() => titleVariants({ size: props.size }))
 </script>
 
 <template>
-  <div :class="classes">
+  <div data-morphink :class="classes">
     <div>
       <div :class="titleClass">
         <slot name="title" />

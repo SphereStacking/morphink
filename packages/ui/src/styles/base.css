@@ -1,8 +1,36 @@
-* {
+/* --- Scoped reset for morphink components --- */
+/* Ensures components render correctly in any consumer environment.
+   Only applies inside elements with data-morphink attribute. */
+
+[data-morphink],
+[data-morphink] *,
+[data-morphink] *::before,
+[data-morphink] *::after {
   box-sizing: border-box;
 }
 
-body {
+[data-morphink] button,
+[data-morphink] input,
+[data-morphink] select,
+[data-morphink] textarea {
+  font: inherit;
+  background: transparent;
+  border: 0 solid;
+  border-radius: 0;
+}
+
+[data-morphink] img,
+[data-morphink] svg {
+  display: block;
+}
+
+[data-morphink] h1,
+[data-morphink] h2,
+[data-morphink] h3,
+[data-morphink] h4,
+[data-morphink] h5,
+[data-morphink] h6,
+[data-morphink] p {
   margin: 0;
 }
 

@@ -186,7 +186,7 @@ const ellipsisClasses = computed(() =>
 </script>
 
 <template>
-  <PaginationRoot v-bind="{ ...forwarded, class: attrs.class }">
+  <PaginationRoot data-morphink v-bind="{ ...forwarded, class: attrs.class }">
     <PaginationList v-slot="{ items }" class="flex items-center gap-1">
       <PaginationFirst :class="navClasses" :as-child="false">
         <IconChevronsLeft class="size-4" />

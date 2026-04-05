@@ -5,7 +5,7 @@ defineOptions({ inheritAttrs: false })
 </script>
 
 <template>
-  <div :class="cn('text-sm [&_p]:leading-relaxed', $attrs.class as string)">
+  <div data-morphink :class="cn('text-sm [&_p]:leading-relaxed', $attrs.class as string)">
     <slot />
   </div>
 </template>

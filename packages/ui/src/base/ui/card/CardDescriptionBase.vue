@@ -6,6 +6,7 @@ defineOptions({ inheritAttrs: false })
 
 <template>
   <p
+    data-morphink
     :class="
       cn(
         'text-(length:--morphink-font-size-body) leading-(--morphink-font-line-height-body) text-(color:--morphink-color-muted-foreground)',

@@ -40,7 +40,7 @@ const triggerClasses = computed(() => cn(triggerVariants({ size: size.value })))
 
 <template>
   <AccordionHeader asChild>
-    <AccordionTrigger :class="triggerClasses">
+    <AccordionTrigger data-morphink :class="triggerClasses">
       <slot />
       <IconChevronDown
         class="size-4 shrink-0 [transition-property:transform] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] [[data-state=open]_&]:rotate-180"

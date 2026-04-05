@@ -197,7 +197,7 @@ const thumbClasses = computed(() =>
 </script>
 
 <template>
-  <SwitchRoot v-bind="forwarded" :class="rootClasses">
+  <SwitchRoot data-morphink v-bind="forwarded" :class="rootClasses">
     <SwitchThumb :class="thumbClasses" />
   </SwitchRoot>
 </template>

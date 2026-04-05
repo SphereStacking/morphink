@@ -122,7 +122,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <div v-if="!dismissed" role="alert" :class="classes" v-bind="attrs">
+  <div v-if="!dismissed" data-morphink role="alert" :class="classes" v-bind="attrs">
     <div class="flex-1 min-w-0">
       <slot />
     </div>

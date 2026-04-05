@@ -28,6 +28,7 @@ const innerClasses = computed(() => cn(innerVariants({ size: size.value })))
 
 <template>
   <AccordionContent
+    data-morphink
     class="grid data-[state=open]:grid-rows-[1fr] data-[state=closed]:grid-rows-[0fr] [transition-property:grid-template-rows] [transition-duration:var(--morphink-duration-normal)] [transition-timing-function:var(--morphink-easing-standard)]"
   >
     <div :class="innerClasses">

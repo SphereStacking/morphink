@@ -77,6 +77,7 @@ const contentClass = computed(() =>
 <template>
   <DropdownMenuPortal>
     <DropdownMenuContent
+      data-morphink
       :side="side"
       :align="align"
       :side-offset="sideOffset"

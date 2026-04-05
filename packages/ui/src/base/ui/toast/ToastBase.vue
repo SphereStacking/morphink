@@ -118,6 +118,7 @@ const rootClass = computed(() =>
 
 <template>
   <ToastRoot
+    data-morphink
     :class="rootClass"
     :duration="duration"
     :open="open"

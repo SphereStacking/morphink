@@ -203,6 +203,7 @@ const itemClass = computed(() =>
     </SelectTrigger>
     <SelectPortal>
       <SelectContent
+        data-morphink
         :class="contentClass"
         :side="side"
         :align="align"

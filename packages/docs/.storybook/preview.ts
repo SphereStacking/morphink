@@ -76,7 +76,7 @@ const preview: Preview = {
             })
           }
         },
-        template: `<div class="mi-theme" ${theme === 'dark' ? 'data-theme="dark"' : ''} style="padding: 24px; min-width: 320px; background: var(--morphink-color-background); color: var(--morphink-color-foreground);"><story /></div>`,
+        template: `<div class="mi-theme" data-morphink ${theme === 'dark' ? 'data-theme="dark"' : ''} style="padding: 24px; min-width: 320px; background: var(--morphink-color-background); color: var(--morphink-color-foreground);"><story /></div>`,
       }
     },
   ],

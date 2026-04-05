@@ -48,6 +48,7 @@ const attrs = useAttrs()
 
 <template>
   <div
+    data-morphink
     v-bind="{ ...attrs, class: undefined, style: undefined }"
     :style="[stackStyle, attrs.style]"
     :class="cn('flex', attrs.class)"

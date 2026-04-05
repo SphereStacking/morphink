@@ -180,7 +180,7 @@ onMounted(() => nextTick(updateIndicator))
 </script>
 
 <template>
-  <TabsRoot :model-value="modelValue" @update:model-value="emit('update:modelValue', $event)">
+  <TabsRoot data-morphink :model-value="modelValue" @update:model-value="emit('update:modelValue', $event)">
     <div :class="wrapperClass">
       <TabsList ref="tabsListRef" :class="listClass" class="relative">
         <TabsTrigger

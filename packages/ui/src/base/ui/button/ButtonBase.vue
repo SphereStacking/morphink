@@ -201,7 +201,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <button :class="classes" :disabled="disabled" type="button" v-bind="attrs">
+  <button data-morphink :class="classes" :disabled="disabled" type="button" v-bind="attrs">
     <slot />
   </button>
 </template>

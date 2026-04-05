@@ -93,6 +93,7 @@ const tooltipStyle = computed(() => ({
       </TooltipTrigger>
       <TooltipPortal>
         <TooltipContent
+          data-morphink
           :side="side"
           :align="align"
           :class="contentClass"

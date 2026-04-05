@@ -73,7 +73,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <div :class="classes">
+  <div data-morphink :class="classes">
     <slot />
   </div>
 </template>

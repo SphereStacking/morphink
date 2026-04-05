@@ -49,6 +49,7 @@ const attrs = useAttrs()
 
 <template>
   <RadioGroupRoot
+    data-morphink
     v-bind="forwarded"
     :class="
       cn(

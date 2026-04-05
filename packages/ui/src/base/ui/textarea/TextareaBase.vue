@@ -155,6 +155,7 @@ function onInput(event: Event) {
 
 <template>
   <textarea
+    data-morphink
     :class="classes"
     :value="modelValue"
     :placeholder="placeholder"

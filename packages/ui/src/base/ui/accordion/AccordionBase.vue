@@ -59,7 +59,7 @@ const rootClasses = computed(() => cn(accordionVariants({ variant: props.variant
 </script>
 
 <template>
-  <AccordionRoot v-bind="forwarded" :class="rootClasses">
+  <AccordionRoot data-morphink v-bind="forwarded" :class="rootClasses">
     <slot />
   </AccordionRoot>
 </template>

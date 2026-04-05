@@ -140,7 +140,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <RadioGroupItem :value="value" :disabled="disabled" :id="id" :class="classes" v-bind="attrs">
+  <RadioGroupItem data-morphink :value="value" :disabled="disabled" :id="id" :class="classes" v-bind="attrs">
     <RadioGroupIndicator class="flex items-center justify-center">
       <span
         :class="

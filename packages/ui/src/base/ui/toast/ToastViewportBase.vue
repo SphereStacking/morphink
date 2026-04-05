@@ -29,6 +29,7 @@ const positionClasses: Record<string, string> = {
 
 <template>
   <ToastViewport
+    data-morphink
     :class="
       cn(
         'fixed z-50 flex max-h-screen w-[min(420px,100vw)] flex-col-reverse gap-(--morphink-space-sm) p-(--morphink-space-lg)',

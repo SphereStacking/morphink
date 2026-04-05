@@ -68,6 +68,7 @@ const contentClass = computed(() =>
 <template>
   <DropdownMenuPortal>
     <DropdownMenuSubContent
+      data-morphink
       :side-offset="sideOffset"
       :class="contentClass"
       class="data-[state=open]:animate-[mi-dropdown-in_var(--morphink-motion-enter)_both] data-[state=closed]:animate-[mi-dropdown-out_var(--morphink-motion-leave)_forwards]"

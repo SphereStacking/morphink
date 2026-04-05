@@ -101,6 +101,7 @@ const indicatorStyle = computed(() => {
 
 <template>
   <ProgressRoot
+    data-morphink
     v-bind="{ ...attrs, class: undefined }"
     :model-value="value"
     :max="max"

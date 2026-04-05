@@ -86,6 +86,12 @@ const config: StorybookConfig = {
         const importRegex = /import\s+(?:\{[\s\S]*?\}|[^;'"]*)\s+from\s+['"][^'"]+['"]\s*;?/g
         const imports = (scriptMatch[1].match(importRegex) || [])
           .filter((stmt: string) => !stmt.includes('sb-addon-vue-csf'))
+          .filter((stmt: string) => {
+            // Skip if the code already contains an import from the same module
+            // (Vue SFC compiler may inline <script setup> imports)
+            const modMatch = /from\s+['"]([^'"]+)['"]/.exec(stmt)
+            return !modMatch || !code.includes(modMatch[1])
+          })
           .join('\n')
 
         if (!imports) return null

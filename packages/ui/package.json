@@ -22,7 +22,7 @@
   },
   "scripts": {
     "build": "pnpm run build:css && pnpm run build:js && pnpm run build:types",
-    "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/ui.css",
+    "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/ui.css && node scripts/scope-css.mjs",
     "build:js": "vite build",
     "build:types": "vue-tsc -p tsconfig.build.json --noCheck",
     "dev": "echo \"UI dev not configured yet\"",
@@ -44,6 +44,7 @@
     "@vitejs/plugin-vue": "^5.2.4",
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^20.8.3",
+    "postcss": "^8.5.0",
     "tailwindcss": "^4.0.0",
     "vite": "^7.3.1",
     "vitest": "^4.0.18",
