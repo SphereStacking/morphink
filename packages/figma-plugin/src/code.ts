@@ -52,6 +52,13 @@ function isLineHeight(variableName: string): boolean {
   return LINE_HEIGHT_KEYWORDS.some((kw) => lower.includes(kw))
 }
 
+const FONT_FAMILY_KEYWORDS = ['font-family', 'fontfamily', 'font/family']
+
+function isFontFamily(variableName: string): boolean {
+  const lower = variableName.toLowerCase()
+  return FONT_FAMILY_KEYWORDS.some((kw) => lower.includes(kw))
+}
+
 function figmaPathToDtcgRef(figmaPath: string): string {
   // figma uses "/" as path separator; DTCG uses "."
   return figmaPath.replace(/\//g, '.')
@@ -117,7 +124,8 @@ async function buildDtcgGroup(
         token = { $value: String(rounded), $type: 'number' }
       }
     } else if (variable.resolvedType === 'STRING') {
-      token = { $value: String(rawValue), $type: 'string' }
+      const $type = isFontFamily(variable.name) ? 'fontFamilies' : 'string'
+      token = { $value: String(rawValue), $type } as DtcgToken
     } else if (variable.resolvedType === 'BOOLEAN') {
       token = { $value: String(rawValue), $type: 'boolean' }
     } else {
@@ -138,7 +146,7 @@ function resolveType(resolvedType: VariableResolvedDataType, variableName: strin
       if (isLineHeight(variableName)) return 'number'
       return isDimension(variableName) ? 'dimension' : 'number'
     case 'STRING':
-      return 'string'
+      return isFontFamily(variableName) ? 'fontFamilies' : 'string'
     case 'BOOLEAN':
       return 'boolean'
     default:

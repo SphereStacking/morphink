@@ -1,4 +1,4 @@
-export type DtcgType = 'color' | 'dimension' | 'number' | 'string' | 'boolean'
+export type DtcgType = 'color' | 'dimension' | 'fontFamilies' | 'number' | 'string' | 'boolean'
 
 export interface DtcgToken {
   $value: string
