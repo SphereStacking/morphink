@@ -159,22 +159,14 @@ function isVariableAlias(value: VariableValue): value is VariableAlias {
 // Default mappings
 // ---------------------------------------------------------------------------
 
-const DEFAULT_FILE_NAMES: Record<string, Record<string, string>> = {
-  Primitives: { default: 'primitives.json' },
-  Semantic: { Light: 'semantic.json', Dark: 'semantic-dark.json' },
-}
-
 function buildDefaultMappings(collections: VariableCollection[]): CollectionMapping[] {
   return collections.map((col) => {
-    const colDefaults = DEFAULT_FILE_NAMES[col.name] ?? {}
-
     const modes: ModeMapping[] = col.modes.map((mode) => {
-      let fileName =
-        colDefaults[mode.name] ?? colDefaults['default'] ?? `${col.name}-${mode.name}.json`
-      // If only one mode and no explicit per-mode mapping, use collection name
-      if (col.modes.length === 1 && !colDefaults[mode.name] && colDefaults['default']) {
-        fileName = colDefaults['default']
-      }
+      // Generic default — user picks the real filename in the UI
+      const fileName =
+        col.modes.length === 1
+          ? `${col.name.toLowerCase()}.json`
+          : `${col.name.toLowerCase()}-${mode.name.toLowerCase()}.json`
 
       return {
         modeId: mode.modeId,
