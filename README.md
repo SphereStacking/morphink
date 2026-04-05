@@ -120,6 +120,10 @@ All consumers must also import `base.css` for motion variables, keyframes, and c
 - [docs/workflows.md](./docs/workflows.md) — Development workflows
 - [docs/guides/](./docs/guides/) — Getting started guides for each adoption pattern
 
+## Figma
+
+- [Figma Community Template](https://www.figma.com/community/file/1622631778767773475) — morphink design tokens and component library for Figma
+
 ## License
 
 [MIT](./LICENSE)

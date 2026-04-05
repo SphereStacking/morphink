@@ -118,6 +118,10 @@ morphink の内部では Tailwind を使っていますが、利用者側に Tai
 - [docs/workflows.ja.md](./docs/workflows.ja.md) — 開発ワークフロー
 - [docs/guides/](./docs/guides/) — 導入パターン別のはじめ方ガイド
 
+## Figma
+
+- [Figma Community テンプレート](https://www.figma.com/community/file/1622631778767773475) — morphink のデザイントークンとコンポーネントライブラリの Figma ファイル
+
 ## ライセンス
 
 [MIT](./LICENSE)
