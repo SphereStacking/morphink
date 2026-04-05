@@ -23,6 +23,8 @@ withDefaults(
     id?: string
   }>(),
   {
+    modelValue: undefined,
+    defaultValue: undefined,
     variant: 'solid',
     tone: 'primary',
     size: 'md',

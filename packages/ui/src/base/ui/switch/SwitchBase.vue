@@ -4,7 +4,13 @@ import { computed, useAttrs } from 'vue'
 import { SwitchRoot, SwitchThumb, useForwardPropsEmits } from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
-import type { SwitchSize, SwitchTone, SwitchVariant, SwitchDuration, SwitchEasing } from '../../lib/props'
+import type {
+  SwitchSize,
+  SwitchTone,
+  SwitchVariant,
+  SwitchDuration,
+  SwitchEasing,
+} from '../../lib/props'
 
 const switchVariants = cva(
   cn(
@@ -13,23 +19,26 @@ const switchVariants = cva(
     'before:absolute before:inset-[-8px] before:content-[""]',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
     'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
-    'data-[state=unchecked]:bg-(--morphink-color-muted)',
-    'data-[state=checked]:border-transparent',
-    'data-[state=checked]:bg-(--ctl-color)'
+    'data-[state=unchecked]:bg-(--morphink-color-muted)'
   ),
   {
     variants: {
       variant: {
         outline: cn(
-          'border-(color:--ctl-color)',
-          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]'
+          'border-(color:--morphink-color-border)',
+          'data-[state=unchecked]:bg-transparent',
+          'data-[state=checked]:border-(color:--ctl-color)',
+          'data-[state=checked]:bg-transparent',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--morphink-color-border)_10%,transparent)]'
         ),
         solid: cn(
           'border-transparent',
+          'data-[state=checked]:bg-(--ctl-color)',
           'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]'
         ),
         ghost: cn(
           'border-(--morphink-color-border) data-[state=unchecked]:bg-transparent',
+          'data-[state=checked]:border-transparent data-[state=checked]:bg-(--ctl-color)',
           'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'
         ),
         soft: cn(
@@ -118,12 +127,18 @@ const switchVariants = cva(
 const thumbVariants = cva(
   cn(
     'pointer-events-none block rounded-full bg-(--morphink-color-card) shadow-(--morphink-shadow-sm)',
-    '[transition-property:translate]',
+    '[transition-property:translate,background-color]',
     'data-[state=unchecked]:translate-x-0',
     'data-[state=checked]:animate-[mi-switch-bounce_var(--morphink-duration-fast)_var(--morphink-easing-standard)_both]'
   ),
   {
     variants: {
+      variant: {
+        outline: 'scale-75 data-[state=unchecked]:bg-(--morphink-color-border) data-[state=checked]:bg-(--ctl-color)',
+        solid: '',
+        ghost: '',
+        soft: '',
+      },
       size: {
         xs: 'size-3 data-[state=checked]:translate-x-3',
         sm: 'size-4 data-[state=checked]:translate-x-4',
@@ -153,6 +168,8 @@ const props = withDefaults(
     id?: string
   }>(),
   {
+    modelValue: undefined,
+    defaultValue: undefined,
     variant: 'solid',
     tone: 'primary',
     size: 'md',
@@ -210,13 +227,28 @@ const rootClasses = computed(() =>
 
 const thumbClasses = computed(() =>
   thumbVariants({
+    variant: props.variant,
     size: props.size,
   })
 )
 </script>
 
 <template>
-  <SwitchRoot data-morphink v-bind="forwarded" :class="rootClasses" :style="{ transitionDuration: durationMap[duration], transitionTimingFunction: easingMap[easing] }">
-    <SwitchThumb :class="thumbClasses" :style="{ transitionDuration: durationMap[duration], transitionTimingFunction: easingMap[easing] }" />
+  <SwitchRoot
+    data-morphink
+    v-bind="forwarded"
+    :class="rootClasses"
+    :style="{
+      transitionDuration: durationMap[duration],
+      transitionTimingFunction: easingMap[easing],
+    }"
+  >
+    <SwitchThumb
+      :class="thumbClasses"
+      :style="{
+        transitionDuration: durationMap[duration],
+        transitionTimingFunction: easingMap[easing],
+      }"
+    />
   </SwitchRoot>
 </template>

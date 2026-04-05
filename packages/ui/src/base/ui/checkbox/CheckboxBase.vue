@@ -30,8 +30,10 @@ const checkboxVariants = cva(
     variants: {
       variant: {
         outline: cn(
-          'border-(color:--ctl-color)',
-          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_8%,transparent)]'
+          'border-(color:--morphink-color-border)',
+          'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--morphink-color-border)_10%,transparent)]',
+          'data-[state=checked]:border-(color:--ctl-color) data-[state=checked]:bg-transparent data-[state=checked]:text-(--ctl-color)',
+          'data-[state=indeterminate]:border-(color:--ctl-color) data-[state=indeterminate]:bg-transparent data-[state=indeterminate]:text-(--ctl-color)'
         ),
         solid: cn(
           'border-transparent bg-(--morphink-color-muted)',
