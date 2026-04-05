@@ -67,7 +67,33 @@ const config: StorybookConfig = {
       ...(config.resolve.alias || {}),
       '@tokens': join(baseDir, '../tokens/tokens'),
     }
-    config.plugins = [vue({ include: /\.stories\.vue$/ }), ...(config.plugins || [])]
+    // sb-addon-vue-csf appends raw defineMeta() source text to the main module,
+    // but identifier references (Badge, componentTones, etc.) only exist in the
+    // Vue script sub-module scope. This plugin re-imports them into the main module
+    // so Rollup can properly track and rename the bindings.
+    const fixMetaImports = {
+      name: 'fix-vue-csf-meta-imports',
+      enforce: 'post' as const,
+      transform(code: string, id: string) {
+        if (!id.endsWith('.stories.vue') || id.includes('?')) return null
+        if (!code.includes('const meta =')) return null
+
+        const src = readFileSync(id, 'utf-8')
+        const scriptMatch = /<script[^>]*>([\s\S]*?)<\/script>/.exec(src)
+        if (!scriptMatch) return null
+
+        // Extract complete import statements (handles multi-line imports)
+        const importRegex = /import\s+(?:\{[\s\S]*?\}|[^;'"]*)\s+from\s+['"][^'"]+['"]\s*;?/g
+        const imports = (scriptMatch[1].match(importRegex) || [])
+          .filter((stmt: string) => !stmt.includes('sb-addon-vue-csf'))
+          .join('\n')
+
+        if (!imports) return null
+        return { code: imports + '\n' + code, map: null }
+      },
+    }
+    config.plugins = [vue({ include: /\.stories\.vue$/ }), ...(config.plugins || []), fixMetaImports]
+
     return config
   },
 }
