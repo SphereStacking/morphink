@@ -374,7 +374,7 @@
       "$type": "dimension"
     },
     "full": {
-      "$value": "9999px",
+      "$value": "{radius.9999}",
       "$type": "dimension"
     }
   },
@@ -411,24 +411,15 @@
   "font": {
     "family": {
       "base": {
-        "$value": [
-          "system-ui",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Arial",
-          "sans-serif"
-        ],
+        "$value": "Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
         "$type": "fontFamilies"
       },
       "base-ios": {
-        "$value": ["system-ui", "-apple-system", "SF Pro Text", "sans-serif"],
+        "$value": "Inter, system-ui, -apple-system, SF Pro Text, sans-serif",
         "$type": "fontFamilies"
       },
       "base-android": {
-        "$value": ["system-ui", "Roboto", "Noto Sans", "sans-serif"],
+        "$value": "Inter, system-ui, Roboto, Noto Sans, sans-serif",
         "$type": "fontFamilies"
       }
     },
