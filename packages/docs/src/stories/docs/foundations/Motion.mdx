@@ -300,23 +300,53 @@ How an animation accelerates and decelerates. All previews use the same 600ms du
 
 ---
 
-## Motion Shorthands
+## Motion Guide
 
-Pre-composed `duration + easing` pairs for common scenarios. Use these instead of combining primitives manually.
+Choose the right duration + easing combination for each scenario.
+
+export const GuideRow = ({ scenario, duration, easing, example }) => (
+  <div
+    style={{
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr 1fr 1.5fr',
+      gap: '8px',
+      padding: '10px 0',
+      borderBottom: '1px solid var(--morphink-color-border)',
+      fontSize: '13px',
+      alignItems: 'baseline',
+    }}
+  >
+    <span style={{ fontWeight: 600 }}>{scenario}</span>
+    <code>{duration}</code>
+    <code>{easing}</code>
+    <span style={{ color: 'var(--morphink-color-muted-foreground)' }}>{example}</span>
+  </div>
+)
+
+<div style={{ borderTop: '1px solid var(--morphink-color-border)' }}>
+  <GuideRow scenario="Hover / Focus / Press" duration="fast (100ms)" easing="standard" example="Button hover, Input focus ring" />
+  <GuideRow scenario="Toggle / Open-Close" duration="normal (200ms)" easing="standard" example="Accordion, Switch, Chevron rotate" />
+  <GuideRow scenario="Resize / Reorder" duration="slow (300ms)" easing="standard" example="Layout shift, panel resize" />
+  <GuideRow scenario="Overlay Enter" duration="slow (300ms)" easing="emphasized-decelerate" example="Dialog, Popover, Dropdown appear" />
+  <GuideRow scenario="Overlay Exit" duration="normal (200ms)" easing="emphasized-accelerate" example="Dialog, Popover, Dropdown close" />
+  <GuideRow scenario="Attention / Bounce" duration="normal (200ms)" easing="spring" example="Badge enter, Input shake, Switch bounce" />
+</div>
+
+For **transitions**, use primitive tokens directly:
+
+```html
+[transition-duration:var(--morphink-duration-fast)]
+[transition-timing-function:var(--morphink-easing-standard)]
+```
+
+---
+
+## Animation Shorthands
+
+Pre-composed `duration + easing` variables for **keyframe animations** (`animate-[]`).
+These combine non-obvious easing curves so you don't have to remember them.
 
 <TokenGrid>
-  <TokenCard
-    token="motion-interaction"
-    value="fast + standard (100ms)"
-    usage="Hover, focus, press"
-    preview={<ShorthandDot token="--morphink-motion-interaction" />}
-  />
-  <TokenCard
-    token="motion-state"
-    value="normal + standard (200ms)"
-    usage="Open/close, toggle"
-    preview={<ShorthandDot token="--morphink-motion-state" />}
-  />
   <TokenCard
     token="motion-enter"
     value="slow + emphasized-decelerate (300ms)"
@@ -335,29 +365,34 @@ Pre-composed `duration + easing` pairs for common scenarios. Use these instead o
     usage="Badge, notification, attention"
     preview={<ShorthandDot token="--morphink-motion-emphasis" />}
   />
-  <TokenCard
-    token="motion-layout"
-    value="slow + standard (300ms)"
-    usage="Resize, reorder, layout shift"
-    preview={<ShorthandDot token="--morphink-motion-layout" />}
-  />
 </TokenGrid>
+
+For component-specific animations with standard easing, combine primitives directly:
+
+```html
+animate-[mi-radio-dot-in_var(--morphink-duration-fast)_var(--morphink-easing-spring)_both]
+```
 
 ---
 
 ## Keyframes
 
-Built-in keyframe animations for components. See each component's Story for live demos.
+Built-in keyframe animations for components. Each keyframe defines **what moves** (scale, opacity, translate, stroke...) while tokens control **how fast**.
 
 <KeyframeRow name="mi-overlay-in / out" description="Overlay backdrop fade in/out" />
 <KeyframeRow name="mi-dialog-in / out" description="Dialog scale + slide up with opacity" />
 <KeyframeRow name="mi-popover-in / out" description="Popover scale + directional slide" />
 <KeyframeRow name="mi-dropdown-in / out" description="Dropdown slide down + fade" />
+<KeyframeRow name="mi-sheet-in / out" description="Sheet slide from side (direction via CSS variable)" />
+<KeyframeRow name="mi-toast-in / out" description="Toast slide + fade (direction via CSS variable)" />
 <KeyframeRow name="mi-checkmark-draw" description="Checkbox checkmark stroke draw animation" />
 <KeyframeRow name="mi-switch-bounce" description="Switch thumb bounce on toggle" />
+<KeyframeRow name="mi-radio-dot-in" description="Radio dot scale-in entrance" />
 <KeyframeRow name="mi-badge-enter" description="Badge scale-in entrance" />
 <KeyframeRow name="mi-stagger-in" description="Sequential item appear (list/menu)" />
+<KeyframeRow name="mi-alert-dismiss" description="Alert fade-out + scale on dismiss" />
 <KeyframeRow name="mi-shake" description="Input error shake feedback" />
+<KeyframeRow name="mi-progress-indeterminate" description="Progress bar sweep loop" />
 
 ---
 
@@ -380,9 +415,9 @@ All duration tokens become `0ms`, which instantly collapses every transition and
 
 ---
 
-## Usage Guidelines
+## Design Principles
 
-- Always use **motion shorthands** (`motion-enter`, `motion-leave`, etc.) rather than combining duration + easing manually.
-- **Enter > Leave**: Entrances should be slower and more deliberate; exits should be faster and less attention-grabbing.
+- **Enter > Leave**: Entrances should be slower (300ms) and more deliberate; exits should be faster (200ms) and less attention-grabbing.
+- **Keyframes are free, timing is shared**: Each component defines its own visual motion (scale, translate, stroke...) but uses shared duration/easing tokens to keep the system feeling cohesive.
 - **Spatial vs Effects**: Position/size changes (spatial) can use overshoot (spring). Color/opacity changes (effects) should not overshoot.
 - Avoid pure decorative animation. Every motion should communicate a state change or guide the user's attention.

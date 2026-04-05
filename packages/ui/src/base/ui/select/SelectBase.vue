@@ -58,6 +58,10 @@ const emit = defineEmits<{
 const triggerVariants = cva(
   cn(
     'inline-flex w-full items-center justify-between text-(--morphink-color-foreground)',
+    '[transition-property:background-color,border-color,box-shadow]',
+    '[transition-duration:var(--morphink-duration-fast)]',
+    '[transition-timing-function:var(--morphink-easing-standard)]',
+    'hover:bg-(--morphink-color-muted)',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color)'
   ),
   {

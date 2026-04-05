@@ -101,6 +101,7 @@ npm install @myorg/tokens @myorg/ui
 ```css
 @import "@myorg/tokens/tokens.css";
 @import "@myorg/tokens/tokens-dark.css";
+@import "@myorg/ui/styles/base.css";
 ```
 
 **コンポーネントの利用:**

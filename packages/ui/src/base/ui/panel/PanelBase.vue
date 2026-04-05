@@ -61,7 +61,9 @@ const classes = computed(() =>
       rounded: props.rounded,
       shadow: props.shadow,
     }),
-    props.interactive ? 'cursor-pointer transition hover:bg-(--morphink-color-muted)' : null,
+    props.interactive
+      ? 'cursor-pointer [transition-property:background-color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted)'
+      : null,
     attrs.class
   )
 )

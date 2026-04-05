@@ -18,7 +18,7 @@ import {
 const checkboxVariants = cva(
   cn(
     'relative inline-flex shrink-0 items-center justify-center border',
-    '[transition-property:border-color,box-shadow]',
+    '[transition-property:border-color,box-shadow,background-color]',
     '[transition-duration:var(--morphink-duration-fast)]',
     '[transition-timing-function:var(--morphink-easing-standard)]',
     'before:absolute before:inset-[-10px] before:content-[""]',

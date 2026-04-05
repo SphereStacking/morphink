@@ -72,6 +72,7 @@ In your application's CSS entry point:
 ```css
 @import "@myorg/tokens/tokens.css";
 @import "@myorg/tokens/tokens-dark.css";
+@import "@myorg/ui/styles/base.css";
 ```
 
 ### 7. Use components

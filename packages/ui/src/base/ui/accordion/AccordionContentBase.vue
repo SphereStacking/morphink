@@ -31,7 +31,10 @@ const innerClasses = computed(() => cn(innerVariants({ size: size.value })))
     data-morphink
     class="grid data-[state=open]:grid-rows-[1fr] data-[state=closed]:grid-rows-[0fr] [transition-property:grid-template-rows] [transition-duration:var(--morphink-duration-normal)] [transition-timing-function:var(--morphink-easing-standard)]"
   >
-    <div :class="innerClasses">
+    <div
+      :class="innerClasses"
+      class="[[data-state=closed]_&]:opacity-0 [[data-state=open]_&]:opacity-100 [transition-property:opacity] [transition-duration:var(--morphink-duration-normal)] [transition-timing-function:var(--morphink-easing-standard)]"
+    >
       <slot />
     </div>
   </AccordionContent>

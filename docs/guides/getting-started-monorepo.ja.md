@@ -57,6 +57,7 @@ pnpm --filter @myorg/ui build:css
 ```css
 @import "@myorg/tokens/tokens.css";
 @import "@myorg/tokens/tokens-dark.css";
+@import "@myorg/ui/styles/base.css";
 ```
 
 ### 7. コンポーネントを利用する

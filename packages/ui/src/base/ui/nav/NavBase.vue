@@ -54,7 +54,7 @@ const classes = computed(() =>
 
 const itemClass = (active?: boolean) =>
   cn(
-    'font-semibold transition',
+    'font-semibold [transition-property:color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)]',
     active ? 'text-(--morphink-color-accent)' : 'text-(--morphink-color-muted-foreground)',
     !active ? 'hover:text-(--morphink-color-accent)' : null
   )

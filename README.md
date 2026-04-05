@@ -83,6 +83,8 @@ morphink uses Tailwind internally but does not force it on consumers. Your optio
 
 Both reference the same tokens. Only the entry point differs.
 
+All consumers must also import `base.css` for motion variables, keyframes, and component-scoped resets.
+
 ## Customization
 
 1. Replace token values in `packages/tokens/tokens/` with your brand

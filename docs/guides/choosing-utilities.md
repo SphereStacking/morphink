@@ -23,6 +23,8 @@ Best for projects that do not use Tailwind CSS or want a lightweight, standalone
 @import "@myorg/tokens/tokens.css";
 @import "@myorg/tokens/tokens-dark.css";
 @import "@myorg/tokens/utilities.css";
+@import "@myorg/ui/styles/base.css";
+@import "@myorg/ui/styles/ui.css";
 ```
 
 ### Usage
@@ -62,6 +64,7 @@ Best for projects already using Tailwind CSS, providing seamless integration wit
 @import "@myorg/tokens/tokens.css";
 @import "@myorg/tokens/tokens-dark.css";
 @import "@myorg/tokens/tailwind-theme.css";
+@import "@myorg/ui/styles/base.css";
 ```
 
 ### Usage
@@ -87,7 +90,7 @@ Standard Tailwind classes -- no prefix needed:
 Both options support dark mode. Include `tokens-dark.css` and toggle the theme by setting `data-theme="dark"` on the `.mi-theme` element:
 
 ```html
-<div class="mi-theme" data-theme="dark">
+<div class="mi-theme" data-morphink data-theme="dark">
   <!-- Dark theme applied -->
 </div>
 ```

@@ -60,9 +60,10 @@ const rangeVariants = cva('absolute h-full bg-(--sld-color)')
 const thumbVariants = cva(
   cn(
     'block rounded-full border-2 border-(color:--sld-color) bg-(--morphink-color-card) shadow-(--morphink-shadow-sm)',
-    '[transition-property:box-shadow]',
+    '[transition-property:box-shadow,transform]',
     '[transition-duration:var(--morphink-duration-fast)]',
     '[transition-timing-function:var(--morphink-easing-standard)]',
+    'active:scale-110 active:shadow-(--morphink-shadow-lg)',
     'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
     'disabled:pointer-events-none'
   ),

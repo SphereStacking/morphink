@@ -49,18 +49,12 @@
   font-family: var(--morphink-font-family);
 }
 
-/* --- Motion shorthand variables --- */
-/* Each combines a duration token with an easing token.
-   Style Dictionary outputs 1:1 token → variable, so shorthands
-   that combine two tokens are hand-authored here. */
+/* --- Animation shorthand variables --- */
+/* Pre-composed duration + easing for keyframe animations (animate-[]).
+   Only shorthands with non-obvious easing are kept as variables.
+   For transitions, use primitive tokens directly (see Motion Guide). */
 
 :root {
-  /* hover, focus, press — 100ms standard */
-  --morphink-motion-interaction: var(--morphink-duration-fast) var(--morphink-easing-standard);
-
-  /* open/close, toggle — 200ms standard */
-  --morphink-motion-state: var(--morphink-duration-normal) var(--morphink-easing-standard);
-
   /* overlay, dialog, popover appear — 300ms emphasized-decelerate */
   --morphink-motion-enter: var(--morphink-duration-slow)
     var(--morphink-easing-emphasized-decelerate);
@@ -71,9 +65,14 @@
 
   /* attention, badge, notification — 200ms spring */
   --morphink-motion-emphasis: var(--morphink-duration-normal) var(--morphink-easing-spring);
+}
 
-  /* resize, reorder — 300ms standard */
-  --morphink-motion-layout: var(--morphink-duration-slow) var(--morphink-easing-standard);
+/* --- Tab content fade --- */
+
+@keyframes mi-tab-fade-in {
+  from {
+    opacity: 0;
+  }
 }
 
 /* --- Overlay / Dialog / Popover animations --- */
@@ -136,6 +135,7 @@
 @keyframes mi-dropdown-out {
   to {
     opacity: 0;
+    translate: 0 4px;
   }
 }
 

@@ -153,7 +153,12 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <span data-morphink :class="classes" v-bind="attrs">
+  <span
+    data-morphink
+    :class="classes"
+    class="animate-[mi-badge-enter_var(--morphink-motion-emphasis)]"
+    v-bind="attrs"
+  >
     <slot />
   </span>
 </template>

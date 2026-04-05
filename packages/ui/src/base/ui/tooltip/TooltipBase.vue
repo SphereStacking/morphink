@@ -98,7 +98,7 @@ const tooltipStyle = computed(() => ({
           :align="align"
           :class="contentClass"
           :style="tooltipStyle"
-          class="data-[state=delayed-open]:animate-[mi-popover-in_var(--morphink-duration-normal)_var(--morphink-easing-decelerate)_both] data-[state=closed]:animate-[mi-popover-out_var(--morphink-duration-fast)_var(--morphink-easing-accelerate)_forwards]"
+          class="data-[state=delayed-open]:animate-[mi-popover-in_var(--morphink-duration-normal)_var(--morphink-easing-emphasized-decelerate)_both] data-[state=closed]:animate-[mi-popover-out_var(--morphink-duration-fast)_var(--morphink-easing-emphasized-accelerate)_forwards]"
         >
           <slot name="content">{{ content }}</slot>
         </TooltipContent>

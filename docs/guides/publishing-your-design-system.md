@@ -89,6 +89,7 @@ npm install @myorg/tokens @myorg/ui
 ```css
 @import "@myorg/tokens/tokens.css";
 @import "@myorg/tokens/tokens-dark.css";
+@import "@myorg/ui/styles/base.css";
 ```
 
 See [Choosing Utilities](./choosing-utilities.md) for whether to add `utilities.css` or `tailwind-theme.css`.

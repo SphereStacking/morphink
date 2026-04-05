@@ -123,7 +123,8 @@ const thumbVariants = cva(
     '[transition-property:translate]',
     '[transition-duration:var(--morphink-duration-normal)]',
     '[transition-timing-function:var(--morphink-easing-spring)]',
-    'data-[state=unchecked]:translate-x-0'
+    'data-[state=unchecked]:translate-x-0',
+    'data-[state=checked]:animate-[mi-switch-bounce_var(--morphink-duration-fast)_var(--morphink-easing-standard)_both]'
   ),
   {
     variants: {

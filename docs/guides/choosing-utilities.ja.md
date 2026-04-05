@@ -20,6 +20,8 @@ Tailwind CSS のインストールやビルド設定なしで、トークンベ�
 @import "@myorg/tokens/tokens.css";
 @import "@myorg/tokens/tokens-dark.css";
 @import "@myorg/tokens/utilities.css";
+@import "@myorg/ui/styles/base.css";
+@import "@myorg/ui/styles/ui.css";
 ```
 
 **クラスの使い方:**
@@ -58,6 +60,7 @@ Tailwind CSS のインストールやビルド設定なしで、トークンベ�
 @import "@myorg/tokens/tokens.css";
 @import "@myorg/tokens/tokens-dark.css";
 @import "@myorg/tokens/tailwind-theme.css";
+@import "@myorg/ui/styles/base.css";
 ```
 
 **クラスの使い方:**
@@ -96,7 +99,7 @@ Tailwind CSS のインストールやビルド設定なしで、トークンベ�
 <div class="mi-theme">...</div>
 
 <!-- ダークテーマ -->
-<div class="mi-theme" data-theme="dark">...</div>
+<div class="mi-theme" data-morphink data-theme="dark">...</div>
 ```
 
 ## 比較表

@@ -198,7 +198,12 @@ onMounted(() => nextTick(updateIndicator))
           :style="indicatorStyle"
         />
       </TabsList>
-      <TabsContent :value="modelValue" :class="panelClass">
+      <TabsContent
+        :value="modelValue"
+        :class="panelClass"
+        class="animate-[mi-tab-fade-in_var(--morphink-duration-fast)_var(--morphink-easing-standard)_both]"
+        :key="modelValue"
+      >
         <slot />
       </TabsContent>
     </div>

@@ -9,13 +9,15 @@ description: >
 
 # morphink トークンシステム
 
-## パイプライン概要
+> パイプライン図は `.claude/reference/token-pipeline.md` を参照。
+> Motion トークン一覧は `.claude/reference/motion-tokens.md` を参照。
+> CSS 変数命名は各 Base コンポーネントの CVA 定義を直接読む。
 
-```
-Figma Variables → カスタムプラグイン（DTCG JSON）→ Style Dictionary → CSS/JSON/TS → Tailwind テーマ → UI コンポーネント
-```
+このスキルは **操作手順** に集中する。
 
-### ソースファイル
+---
+
+## ソースファイル
 
 | ファイル | 役割 |
 |---------|------|
@@ -24,7 +26,7 @@ Figma Variables → カスタムプラグイン（DTCG JSON）→ Style Dictiona
 | `packages/tokens/tokens/semantic.json` | ライトテーマ semantic トークン（primitives を参照） |
 | `packages/tokens/tokens/semantic-dark.json` | ダークテーマ上書き |
 
-### 生成物（編集禁止）
+## 生成物（編集禁止）
 
 | 出力先 | 形式 |
 |--------|------|
@@ -35,11 +37,13 @@ Figma Variables → カスタムプラグイン（DTCG JSON）→ Style Dictiona
 | `packages/tokens/dist/json/tokens.json` | JSON 形式 |
 | `packages/tokens/dist/ts/tokens.ts` | TypeScript ES6 export |
 
-### ビルドコマンド
+## ビルド
 
 ```bash
 pnpm --filter @morphink/tokens build
 ```
+
+---
 
 ## トークン追加手順
 
@@ -94,7 +98,9 @@ pnpm --filter @morphink/tokens build
 # 生成された dist/css/tokens.css で --morphink-color-new-category を確認
 ```
 
-## CSS 変数命名
+---
+
+## CSS 変数命名の自動変換ルール
 
 Style Dictionary が自動変換:
 - パス `color.primary.base` → `--morphink-color-primary`（末尾 `base` は除去）
@@ -103,7 +109,9 @@ Style Dictionary が自動変換:
 
 プレフィックス: `morphink`（`build.mjs` の `VAR_PREFIX` で定義）
 
-## コンポーネントでの使用
+---
+
+## コンポーネントでの使用テンプレート
 
 ### Tailwind クラス
 
@@ -139,26 +147,9 @@ const variants = cva('base-classes', {
 })
 ```
 
-## mi:* ユーティリティ
+---
 
-### 概要
-
-- 位置づけ: Tailwind を内部実装に留めるための公開スタイリング API
-- プレフィックス: `mi:`（Tailwind v4 prefix）
-- スコープ: トークン由来のプロパティのみ（color / spacing / radius / shadow）
-- スコープ外: hover / focus / display / flex / width 等
-
-### 使用例
-
-```html
-<div class="mi:bg-primary mi:text-primary-foreground mi:p-md mi:rounded-md mi:shadow-md">
-```
-
-### レスポンシブバリアント
-
-```html
-<div class="mi:p-sm md:mi:p-lg">
-```
+## mi:* ユーティリティ管理
 
 ### 生成プロセス
 
@@ -171,36 +162,16 @@ const variants = cva('base-classes', {
 
 新しいユーティリティクラスを追加する場合、`packages/tokens/src/safelist.html` に該当クラスを記載してビルドに含める。
 
+---
+
 ## トークンカテゴリ一覧
 
 具体値はビルド出力（`packages/tokens/dist/css/tokens.css`）を参照。コード内では必ず CSS 変数名またはトークン名で参照し、数値をハードコードしない。
 
-### Color
-
-background, foreground, card, popover, muted, border, input, ring,
-primary, secondary, tertiary, base, accent, neutral, success, warning, info, destructive
-（各 tone に base / foreground / hover / active サブトークンあり）
-
-### Spacing (SpaceToken)
-
-`0`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`
-
-参照: `var(--morphink-space-md)` / Tailwind: `p-(--morphink-space-md)` / mi: `mi:p-md`
-
-### Radius
-
-none, xs, sm, md, lg, xl, full
-
-### Shadow
-
-none, sm, md, lg
-
-### Motion（motion.json）
-
-| カテゴリ | トークン名 |
-|---------|-----------|
-| duration | instant, fast, normal, slow, slower |
-| easing | standard, decelerate, accelerate, emphasized-decelerate, emphasized-accelerate, linear, spring |
-| stagger | item, max-items |
-
-参照: `var(--morphink-duration-fast)`, `var(--morphink-easing-standard)`
+| カテゴリ | トークン |
+|---------|---------|
+| **Color** | background, foreground, card, popover, muted, border, input, ring, primary〜destructive（各 base/foreground/hover/active） |
+| **Spacing** | 0, xs, sm, md, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl |
+| **Radius** | none, xs, sm, md, lg, xl, full |
+| **Shadow** | none, sm, md, lg |
+| **Motion** | → `.claude/reference/motion-tokens.md` を参照 |
