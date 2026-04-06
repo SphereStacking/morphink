@@ -16,16 +16,16 @@ pnpm workspaces によるデザインシステム monorepo。Vue 3 + Tailwind CS
 
 ```bash
 pnpm install                              # 依存インストール
-pnpm run build                            # 全パッケージビルド（tokens → css → docs）
-pnpm run dev:docs                         # Storybook 起動 (localhost:6006)
+pnpm run build                            # 全パッケージビルド（tokens → ui → docs）
+pnpm run dev:docs                         # 上流ビルド + Storybook 起動 (localhost:6006)
 pnpm run lint                             # oxlint
 pnpm run format                           # oxfmt --write
+pnpm test                                 # Vitest
 
 # パッケージ単体
 pnpm --filter @morphink/tokens build        # トークン生成 → dist/css,json,ts
-pnpm --filter @morphink/ui build:css        # Tailwind コンパイル → dist/ui.css
-pnpm --filter @morphink/docs dev            # Storybook dev（tokens+css ビルド込み）
-pnpm --filter @morphink/docs build          # Storybook 静的ビルド
+pnpm --filter @morphink/ui build            # UI ビルド → dist/morphink.css, index.mjs, types
+pnpm --filter @morphink/ui build:css        # Tailwind コンパイルのみ → dist/ui.css
 ```
 
 UI 確認は Storybook で行う。テストは `pnpm test`（Vitest）。

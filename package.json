@@ -6,10 +6,7 @@
   "packageManager": "pnpm@9.15.0",
   "scripts": {
     "build": "pnpm -r build",
-    "build:css": "pnpm --filter @morphink/tokens build && pnpm --filter @morphink/ui build:css",
-    "build:docs": "pnpm --filter @morphink/docs build",
-    "dev": "pnpm -r dev",
-    "dev:docs": "pnpm --filter @morphink/docs dev",
+    "dev:docs": "pnpm --filter @morphink/tokens build && pnpm --filter @morphink/ui build && pnpm --filter @morphink/docs dev",
     "lint": "oxlint packages/",
     "format": "oxfmt --write packages/",
     "format:check": "oxfmt --check packages/",

@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm --filter @morphink/tokens build && pnpm --filter @morphink/ui build:css && storybook dev -p 6006",
-    "build": "pnpm --filter @morphink/tokens build && pnpm --filter @morphink/ui build && storybook build"
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build"
   },
   "dependencies": {
     "@morphink/tokens": "workspace:*",

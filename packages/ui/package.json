@@ -23,11 +23,8 @@
     "./styles/components.css": "./dist/components.css"
   },
   "scripts": {
-    "build": "pnpm run build:css && pnpm run build:js && pnpm run build:morphink && pnpm run build:types",
-    "build:morphink": "node scripts/build-morphink.mjs",
-    "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/ui.css && node scripts/scope-css.mjs",
-    "build:js": "vite build",
-    "build:types": "vue-tsc -p tsconfig.build.json --noCheck",
+    "build": "node scripts/build.mjs",
+    "build:css": "node scripts/build.mjs css",
     "dev": "echo \"UI dev not configured yet\"",
     "lint": "echo \"Lint runs at root level\"",
     "test": "vitest run",
