@@ -7,7 +7,7 @@
  */
 
 import { readFileSync, writeFileSync } from 'node:fs'
-import postcss from 'postcss'
+import { parse } from 'postcss'
 
 const CSS_PATH = new URL('../dist/ui.css', import.meta.url).pathname
 
@@ -15,7 +15,7 @@ const SCOPE_ATTR = '[data-morphink]'
 
 function scopeUtilities() {
   const css = readFileSync(CSS_PATH, 'utf8')
-  const root = postcss.parse(css)
+  const root = parse(css)
 
   root.walkAtRules('layer', (atRule) => {
     // Step 1: Remove Preflight
