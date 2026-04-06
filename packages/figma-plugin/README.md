@@ -92,14 +92,14 @@ DTCG JSON ファイルを Figma Variables として取り込む。新規作成�
 
 ### インポートの動作
 
-| 状況 | 動作 |
-|------|------|
-| コレクションが存在しない | 新規作成 |
+| 状況                                        | 動作                               |
+| ------------------------------------------- | ---------------------------------- |
+| コレクションが存在しない                    | 新規作成                           |
 | コレクションが存在する + モードが存在しない | モードを追加（プランの制限に注意） |
-| 変数が存在しない | 新規作成 |
-| 変数が存在する + 型が一致 | 値を更新 |
-| 変数が存在する + 型が不一致 | スキップ + 警告 |
-| alias 参照先が見つからない | スキップ + 警告 |
+| 変数が存在しない                            | 新規作成                           |
+| 変数が存在する + 型が一致                   | 値を更新                           |
+| 変数が存在する + 型が不一致                 | スキップ + 警告                    |
+| alias 参照先が見つからない                  | スキップ + 警告                    |
 
 ### 2 パスインポート
 
@@ -287,25 +287,25 @@ pnpm --filter @morphink/tokens build
 
 ### Export: Figma → DTCG
 
-| Figma resolvedType | DTCG `$type` | 判定条件 |
-|---|---|---|
-| `COLOR` | `color` | — |
-| `FLOAT` | `dimension` | 変数名に `space`, `radius`, `size`, `border`, `width`, `gap`, `offset`, `font-size` 等を含む |
-| `FLOAT` | `number` | 上記以外の FLOAT（lineHeight 含む） |
-| `STRING` | `fontFamily` | 変数名に `font-family`, `fontfamily`, `font/family` を含む |
-| `STRING` | `string` | 上記以外の STRING |
-| `BOOLEAN` | `boolean` | — |
+| Figma resolvedType | DTCG `$type` | 判定条件                                                                                     |
+| ------------------ | ------------ | -------------------------------------------------------------------------------------------- |
+| `COLOR`            | `color`      | —                                                                                            |
+| `FLOAT`            | `dimension`  | 変数名に `space`, `radius`, `size`, `border`, `width`, `gap`, `offset`, `font-size` 等を含む |
+| `FLOAT`            | `number`     | 上記以外の FLOAT（lineHeight 含む）                                                          |
+| `STRING`           | `fontFamily` | 変数名に `font-family`, `fontfamily`, `font/family` を含む                                   |
+| `STRING`           | `string`     | 上記以外の STRING                                                                            |
+| `BOOLEAN`          | `boolean`    | —                                                                                            |
 
 ### Import: DTCG → Figma
 
-| DTCG `$type` | Figma resolvedType | 値の変換 |
-|---|---|---|
-| `color` | `COLOR` | `#RRGGBB(AA)` → RGBA (0-1) |
-| `dimension` | `FLOAT` | `px` サフィックスを除去 → 数値 |
-| `number` | `FLOAT` | 文字列 → 数値 |
-| `fontFamily` | `STRING` | そのまま |
-| `string` | `STRING` | そのまま |
-| `boolean` | `BOOLEAN` | `"true"` / `"false"` → boolean |
+| DTCG `$type` | Figma resolvedType | 値の変換                       |
+| ------------ | ------------------ | ------------------------------ |
+| `color`      | `COLOR`            | `#RRGGBB(AA)` → RGBA (0-1)     |
+| `dimension`  | `FLOAT`            | `px` サフィックスを除去 → 数値 |
+| `number`     | `FLOAT`            | 文字列 → 数値                  |
+| `fontFamily` | `STRING`           | そのまま                       |
+| `string`     | `STRING`           | そのまま                       |
+| `boolean`    | `BOOLEAN`          | `"true"` / `"false"` → boolean |
 
 ---
 

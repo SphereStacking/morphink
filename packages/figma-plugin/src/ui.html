@@ -57,7 +57,9 @@
         color: var(--figma-color-text-secondary, #666);
         cursor: pointer;
         border-bottom: 2px solid transparent;
-        transition: color 0.1s, border-color 0.1s;
+        transition:
+          color 0.1s,
+          border-color 0.1s;
       }
 
       .tab-btn:hover {
@@ -320,7 +322,9 @@
         color: var(--figma-color-text-secondary, #666);
         margin-bottom: 16px;
         cursor: pointer;
-        transition: border-color 0.15s, background 0.15s;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
       }
 
       .drop-zone:hover,
@@ -397,7 +401,9 @@
 
     <!-- Tab bar -->
     <div class="tab-bar" role="tablist">
-      <button class="tab-btn active" role="tab" data-tab="export" aria-selected="true">Export</button>
+      <button class="tab-btn active" role="tab" data-tab="export" aria-selected="true">
+        Export
+      </button>
       <button class="tab-btn" role="tab" data-tab="import" aria-selected="false">Import</button>
     </div>
 
@@ -405,7 +411,9 @@
     <!-- EXPORT TAB -->
     <!-- ================================================================= -->
     <div id="tab-export" class="tab-panel active" role="tabpanel">
-      <div id="export-loading" class="loading"><span class="spinner"></span>Loading collections\u2026</div>
+      <div id="export-loading" class="loading">
+        <span class="spinner"></span>Loading collections\u2026
+      </div>
 
       <div id="export-main" class="hidden">
         <div id="export-msg-error" class="message message-error"></div>
@@ -437,7 +445,7 @@
       <div id="import-drop-zone" class="drop-zone">
         <div class="drop-zone-text">Drop DTCG JSON files here</div>
         <div class="drop-zone-hint">or click to browse</div>
-        <input type="file" id="import-file-input" accept=".json" multiple style="display:none" />
+        <input type="file" id="import-file-input" accept=".json" multiple style="display: none" />
       </div>
 
       <div id="import-file-list"></div>
@@ -497,7 +505,10 @@
       }
 
       function showWarningsList(el, warnings) {
-        if (!warnings || warnings.length === 0) { hideMsg(el); return }
+        if (!warnings || warnings.length === 0) {
+          hideMsg(el)
+          return
+        }
         el.innerHTML = ''
         var title = document.createElement('strong')
         title.textContent = warnings.length + ' warning(s):'
@@ -526,18 +537,20 @@
         clearExportMessages()
         var mapping = exportState.mappings[colIdx]
         // Build a payload with only the target mode enabled
-        var payload = [{
-          collectionId: mapping.collectionId,
-          collectionName: mapping.collectionName,
-          modes: mapping.modes.map(function (m, i) {
-            return {
-              modeId: m.modeId,
-              modeName: m.modeName,
-              fileName: m.fileName,
-              enabled: i === mIdx,
-            }
-          }),
-        }]
+        var payload = [
+          {
+            collectionId: mapping.collectionId,
+            collectionName: mapping.collectionName,
+            modes: mapping.modes.map(function (m, i) {
+              return {
+                modeId: m.modeId,
+                modeName: m.modeName,
+                fileName: m.fileName,
+                enabled: i === mIdx,
+              }
+            }),
+          },
+        ]
         parent.postMessage({ pluginMessage: { type: 'export', mappings: payload } }, '*')
       }
 
@@ -633,7 +646,6 @@
         elExportLoading.classList.remove('hidden')
         parent.postMessage({ pluginMessage: { type: 'load-collections' } }, '*')
       })
-
 
       // =======================================================================
       // IMPORT — State & DOM
@@ -734,7 +746,9 @@
       }
 
       // Drop zone events
-      elDropZone.addEventListener('click', function () { elFileInput.click() })
+      elDropZone.addEventListener('click', function () {
+        elFileInput.click()
+      })
       elFileInput.addEventListener('change', function () {
         if (elFileInput.files.length) handleFiles(elFileInput.files)
         elFileInput.value = ''
@@ -890,7 +904,10 @@
 
           showWarningsList(elExportWarning, msg.warnings)
           downloadJson(files[0].fileName, files[0].content)
-          showMsg(elExportSuccess, 'Exported ' + files[0].fileName + ' \u2014 ' + files[0].tokenCount + ' tokens.')
+          showMsg(
+            elExportSuccess,
+            'Exported ' + files[0].fileName + ' \u2014 ' + files[0].tokenCount + ' tokens.'
+          )
         } else if (msg.type === 'import-complete') {
           elBtnImport.disabled = false
           elBtnImport.textContent = 'Import JSON'
