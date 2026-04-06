@@ -1,6 +1,6 @@
 {
-  "name": "Morphink Token Exporter",
-  "id": "morphink-token-exporter",
+  "name": "DTCG Token Manager",
+  "id": "dtcg-token-manager",
   "api": "1.0.0",
   "main": "dist/code.js",
   "ui": "dist/ui.html",

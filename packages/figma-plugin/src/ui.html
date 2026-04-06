@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Morphink Token Exporter</title>
+    <title>DTCG Token Manager</title>
     <style>
       *,
       *::before,
@@ -36,9 +36,48 @@
       .subtitle {
         font-size: 11px;
         color: var(--figma-color-text-secondary, #666);
-        margin-bottom: 16px;
+        margin-bottom: 12px;
       }
 
+      /* --- Tabs --- */
+      .tab-bar {
+        display: flex;
+        gap: 0;
+        margin-bottom: 16px;
+        border-bottom: 1px solid var(--figma-color-border, #e0e0e0);
+      }
+
+      .tab-btn {
+        flex: 1;
+        padding: 8px 0;
+        border: none;
+        background: none;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--figma-color-text-secondary, #666);
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: color 0.1s, border-color 0.1s;
+      }
+
+      .tab-btn:hover {
+        color: var(--figma-color-text, #1a1a1a);
+      }
+
+      .tab-btn.active {
+        color: var(--figma-color-text-brand, #007aff);
+        border-bottom-color: var(--figma-color-bg-brand, #007aff);
+      }
+
+      .tab-panel {
+        display: none;
+      }
+
+      .tab-panel.active {
+        display: block;
+      }
+
+      /* --- Shared --- */
       .section-label {
         font-size: 11px;
         font-weight: 600;
@@ -112,23 +151,6 @@
         font-size: 10px;
       }
 
-      .file-name-select {
-        flex: 1;
-        border: 1px solid var(--figma-color-border, #e0e0e0);
-        border-radius: 4px;
-        padding: 3px 6px;
-        font-size: 11px;
-        font-family: 'SF Mono', 'Fira Code', monospace;
-        background: var(--figma-color-bg, #fff);
-        color: var(--figma-color-text, #1a1a1a);
-        cursor: pointer;
-      }
-
-      .file-name-select:focus {
-        outline: none;
-        border-color: var(--figma-color-border-selected, #007aff);
-      }
-
       .file-name-input {
         flex: 1;
         border: 1px solid var(--figma-color-border, #e0e0e0);
@@ -141,8 +163,24 @@
       }
 
       .file-name-input:focus {
-        outline: none;
-        border-color: var(--figma-color-border-selected, #007aff);
+        outline: 2px solid var(--figma-color-border-selected, #007aff);
+        outline-offset: -1px;
+        border-color: transparent;
+      }
+
+      .text-input {
+        border: 1px solid var(--figma-color-border, #e0e0e0);
+        border-radius: 4px;
+        padding: 3px 6px;
+        font-size: 11px;
+        background: var(--figma-color-bg, #fff);
+        color: var(--figma-color-text, #1a1a1a);
+      }
+
+      .text-input:focus {
+        outline: 2px solid var(--figma-color-border-selected, #007aff);
+        outline-offset: -1px;
+        border-color: transparent;
       }
 
       .stats-bar {
@@ -225,6 +263,18 @@
         border: 1px solid #ccffdd;
       }
 
+      .message-warning {
+        background: #fffbf0;
+        color: #996600;
+        border: 1px solid #ffe0a0;
+      }
+
+      .warning-list {
+        margin: 4px 0 0;
+        padding-left: 16px;
+        list-style: disc;
+      }
+
       .loading {
         text-align: center;
         color: var(--figma-color-text-secondary, #666);
@@ -252,102 +302,247 @@
       .hidden {
         display: none !important;
       }
+
+      /* --- Import-specific --- */
+      .drop-zone {
+        border: 2px dashed var(--figma-color-border, #e0e0e0);
+        border-radius: 8px;
+        padding: 24px 16px;
+        text-align: center;
+        color: var(--figma-color-text-secondary, #666);
+        margin-bottom: 16px;
+        cursor: pointer;
+        transition: border-color 0.15s, background 0.15s;
+      }
+
+      .drop-zone:hover,
+      .drop-zone.dragover {
+        border-color: var(--figma-color-bg-brand, #007aff);
+        background: var(--figma-color-bg-secondary, #f5f5f5);
+      }
+
+      .drop-zone-text {
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      .drop-zone-hint {
+        font-size: 10px;
+        color: var(--figma-color-text-tertiary, #999);
+      }
+
+      .import-file-card {
+        border: 1px solid var(--figma-color-border, #e0e0e0);
+        border-radius: 6px;
+        padding: 10px 12px;
+        margin-bottom: 8px;
+      }
+
+      .import-file-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+
+      .import-file-name {
+        font-weight: 600;
+        font-size: 11px;
+        font-family: 'SF Mono', 'Fira Code', monospace;
+      }
+
+      .import-file-tokens {
+        font-size: 10px;
+        color: var(--figma-color-text-secondary, #666);
+      }
+
+      .import-file-remove {
+        background: none;
+        border: none;
+        color: var(--figma-color-text-tertiary, #999);
+        cursor: pointer;
+        font-size: 14px;
+        padding: 0 4px;
+        line-height: 1;
+      }
+
+      .import-file-remove:hover {
+        color: #cc0000;
+      }
+
+      .import-file-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+
+      .import-field-label {
+        font-size: 10px;
+        color: var(--figma-color-text-secondary, #666);
+        margin-bottom: 2px;
+      }
     </style>
   </head>
   <body>
-    <h1>Morphink Token Exporter</h1>
-    <p class="subtitle">Export Figma Variables as DTCG JSON</p>
+    <h1>DTCG Token Manager</h1>
+    <p class="subtitle">Import &amp; Export Figma Variables as DTCG JSON</p>
 
-    <div id="loading" class="loading"><span class="spinner"></span>Loading collections…</div>
+    <!-- Tab bar -->
+    <div class="tab-bar" role="tablist">
+      <button class="tab-btn active" role="tab" data-tab="export" aria-selected="true">Export</button>
+      <button class="tab-btn" role="tab" data-tab="import" aria-selected="false">Import</button>
+    </div>
 
-    <div id="main" class="hidden">
-      <div id="message-error" class="message message-error"></div>
-      <div id="message-success" class="message message-success"></div>
+    <!-- ================================================================= -->
+    <!-- EXPORT TAB -->
+    <!-- ================================================================= -->
+    <div id="tab-export" class="tab-panel active" role="tabpanel">
+      <div id="export-loading" class="loading"><span class="spinner"></span>Loading collections\u2026</div>
 
-      <div id="stats-bar" class="stats-bar">
-        <span>Total variables</span>
-        <span class="stats-count" id="total-count">—</span>
+      <div id="export-main" class="hidden">
+        <div id="export-msg-error" class="message message-error"></div>
+        <div id="export-msg-warning" class="message message-warning"></div>
+        <div id="export-msg-success" class="message message-success"></div>
+
+        <div class="stats-bar">
+          <span>Total variables</span>
+          <span class="stats-count" id="export-total-count">\u2014</span>
+        </div>
+
+        <p class="section-label">Collections &amp; Output Files</p>
+        <div class="collection-list" id="export-collection-list"></div>
+
+        <div class="actions">
+          <button class="btn btn-secondary" id="btn-reload">Reload</button>
+          <button class="btn btn-primary" id="btn-export">Export JSON</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- IMPORT TAB -->
+    <!-- ================================================================= -->
+    <div id="tab-import" class="tab-panel" role="tabpanel">
+      <div id="import-msg-error" class="message message-error"></div>
+      <div id="import-msg-warning" class="message message-warning"></div>
+      <div id="import-msg-success" class="message message-success"></div>
+
+      <div id="import-drop-zone" class="drop-zone">
+        <div class="drop-zone-text">Drop DTCG JSON files here</div>
+        <div class="drop-zone-hint">or click to browse</div>
+        <input type="file" id="import-file-input" accept=".json" multiple style="display:none" />
       </div>
 
-      <p class="section-label">Collections &amp; Output Files</p>
-      <div class="collection-list" id="collection-list"></div>
+      <div id="import-file-list"></div>
 
       <div class="actions">
-        <button class="btn btn-secondary" id="btn-reload">Reload</button>
-        <button class="btn btn-primary" id="btn-export">Export JSON</button>
+        <button class="btn btn-secondary" id="btn-import-clear" disabled>Clear</button>
+        <button class="btn btn-primary" id="btn-import" disabled>Import JSON</button>
       </div>
     </div>
 
     <script>
-      // -----------------------------------------------------------------------
-      // Pipeline-known output filenames
-      // -----------------------------------------------------------------------
-      var PIPELINE_FILES = ['primitives.json', 'semantic.json', 'semantic-dark.json', 'motion.json']
+      // =======================================================================
+      // Tab switching
+      // =======================================================================
+      var tabBtns = document.querySelectorAll('.tab-btn')
+      tabBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          tabBtns.forEach(function (b) {
+            b.classList.remove('active')
+            b.setAttribute('aria-selected', 'false')
+          })
+          btn.classList.add('active')
+          btn.setAttribute('aria-selected', 'true')
+          document.querySelectorAll('.tab-panel').forEach(function (p) {
+            p.classList.remove('active')
+          })
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active')
+        })
+      })
 
-      // -----------------------------------------------------------------------
-      // State
-      // -----------------------------------------------------------------------
-      var state = {
-        mappings: [],
-        totalTokenCount: 0,
-      }
+      // =======================================================================
+      // EXPORT — State & DOM
+      // =======================================================================
+      var exportState = { mappings: [], totalTokenCount: 0 }
 
-      // -----------------------------------------------------------------------
-      // DOM refs
-      // -----------------------------------------------------------------------
-      var elLoading = document.getElementById('loading')
-      var elMain = document.getElementById('main')
-      var elCollectionList = document.getElementById('collection-list')
-      var elTotalCount = document.getElementById('total-count')
+      var elExportLoading = document.getElementById('export-loading')
+      var elExportMain = document.getElementById('export-main')
+      var elExportList = document.getElementById('export-collection-list')
+      var elExportTotal = document.getElementById('export-total-count')
       var elBtnExport = document.getElementById('btn-export')
       var elBtnReload = document.getElementById('btn-reload')
-      var elMsgError = document.getElementById('message-error')
-      var elMsgSuccess = document.getElementById('message-success')
+      var elExportError = document.getElementById('export-msg-error')
+      var elExportWarning = document.getElementById('export-msg-warning')
+      var elExportSuccess = document.getElementById('export-msg-success')
 
-      // -----------------------------------------------------------------------
-      // Helpers
-      // -----------------------------------------------------------------------
-      function showError(msg) {
-        elMsgError.textContent = msg
-        elMsgError.classList.add('visible')
-        elMsgSuccess.classList.remove('visible')
+      // =======================================================================
+      // EXPORT — Helpers
+      // =======================================================================
+      function showMsg(el, msg) {
+        el.textContent = msg
+        el.classList.add('visible')
       }
 
-      function showSuccess(msg) {
-        elMsgSuccess.textContent = msg
-        elMsgSuccess.classList.add('visible')
-        elMsgError.classList.remove('visible')
+      function hideMsg(el) {
+        el.classList.remove('visible')
       }
 
-      function clearMessages() {
-        elMsgError.classList.remove('visible')
-        elMsgSuccess.classList.remove('visible')
+      function showWarningsList(el, warnings) {
+        if (!warnings || warnings.length === 0) { hideMsg(el); return }
+        el.innerHTML = ''
+        var title = document.createElement('strong')
+        title.textContent = warnings.length + ' warning(s):'
+        el.appendChild(title)
+        var ul = document.createElement('ul')
+        ul.className = 'warning-list'
+        warnings.forEach(function (w) {
+          var li = document.createElement('li')
+          li.textContent = w.message
+          ul.appendChild(li)
+        })
+        el.appendChild(ul)
+        el.classList.add('visible')
       }
 
-      // -----------------------------------------------------------------------
-      // Render
-      // -----------------------------------------------------------------------
-      function render() {
-        elCollectionList.innerHTML = ''
+      function clearExportMessages() {
+        hideMsg(elExportError)
+        hideMsg(elExportWarning)
+        hideMsg(elExportSuccess)
+      }
 
-        state.mappings.forEach(function (mapping, colIdx) {
+      function hasAnyEnabled() {
+        return exportState.mappings.some(function (m) {
+          return m.modes.some(function (mode) { return mode.enabled })
+        })
+      }
+
+      function updateExportButton() {
+        elBtnExport.disabled = !hasAnyEnabled()
+      }
+
+      // =======================================================================
+      // EXPORT — Render
+      // =======================================================================
+      function renderExport() {
+        elExportList.innerHTML = ''
+
+        exportState.mappings.forEach(function (mapping, colIdx) {
           var card = document.createElement('div')
           card.className = 'collection-card'
 
-          // Header
           var header = document.createElement('div')
           header.className = 'collection-header'
 
           var colCheckbox = document.createElement('input')
           colCheckbox.type = 'checkbox'
-          colCheckbox.checked = mapping.modes.some(function (m) {
-            return m.enabled
-          })
+          colCheckbox.setAttribute('aria-label', 'Enable collection: ' + mapping.collectionName)
+          colCheckbox.checked = mapping.modes.some(function (m) { return m.enabled })
           colCheckbox.addEventListener('change', function () {
-            state.mappings[colIdx].modes.forEach(function (_, mIdx) {
-              state.mappings[colIdx].modes[mIdx].enabled = colCheckbox.checked
+            exportState.mappings[colIdx].modes.forEach(function (_, mIdx) {
+              exportState.mappings[colIdx].modes[mIdx].enabled = colCheckbox.checked
             })
-            render()
+            renderExport()
           })
 
           var colName = document.createElement('span')
@@ -358,7 +553,6 @@
           header.appendChild(colName)
           card.appendChild(header)
 
-          // Modes
           var modeList = document.createElement('div')
           modeList.className = 'mode-list'
 
@@ -368,14 +562,12 @@
 
             var modeCheckbox = document.createElement('input')
             modeCheckbox.type = 'checkbox'
+            modeCheckbox.setAttribute('aria-label', 'Enable mode: ' + mode.modeName)
             modeCheckbox.checked = mode.enabled
             modeCheckbox.addEventListener('change', function () {
-              state.mappings[colIdx].modes[mIdx].enabled = modeCheckbox.checked
-              // Update collection checkbox state
-              var anyEnabled = state.mappings[colIdx].modes.some(function (m) {
-                return m.enabled
-              })
-              colCheckbox.checked = anyEnabled
+              exportState.mappings[colIdx].modes[mIdx].enabled = modeCheckbox.checked
+              colCheckbox.checked = exportState.mappings[colIdx].modes.some(function (m) { return m.enabled })
+              updateExportButton()
             })
 
             var modeName = document.createElement('span')
@@ -384,66 +576,36 @@
 
             var arrow = document.createElement('span')
             arrow.className = 'mode-arrow'
-            arrow.textContent = '→'
-
-            var isKnown = PIPELINE_FILES.indexOf(mode.fileName) !== -1
-            var isCustom = !isKnown && mode.fileName !== ''
-
-            var fileSelect = document.createElement('select')
-            fileSelect.className = 'file-name-select'
-            // Known pipeline files as options
-            PIPELINE_FILES.forEach(function (name) {
-              var opt = document.createElement('option')
-              opt.value = name
-              opt.textContent = name
-              fileSelect.appendChild(opt)
-            })
-            // Custom option
-            var customOpt = document.createElement('option')
-            customOpt.value = '__custom__'
-            customOpt.textContent = 'Custom…'
-            fileSelect.appendChild(customOpt)
+            arrow.textContent = '\u2192'
 
             var fileInput = document.createElement('input')
             fileInput.type = 'text'
             fileInput.className = 'file-name-input'
+            fileInput.setAttribute('aria-label', 'Output filename for mode: ' + mode.modeName)
             fileInput.placeholder = 'filename.json'
-            fileInput.value = isCustom ? mode.fileName : ''
-            fileInput.style.display = isCustom ? '' : 'none'
+            fileInput.value = mode.fileName
             fileInput.addEventListener('input', function () {
-              state.mappings[colIdx].modes[mIdx].fileName = fileInput.value
-            })
-
-            fileSelect.value = isKnown ? mode.fileName : '__custom__'
-            fileSelect.addEventListener('change', function () {
-              if (fileSelect.value === '__custom__') {
-                fileInput.style.display = ''
-                fileInput.focus()
-                state.mappings[colIdx].modes[mIdx].fileName = fileInput.value
-              } else {
-                fileInput.style.display = 'none'
-                state.mappings[colIdx].modes[mIdx].fileName = fileSelect.value
-              }
+              exportState.mappings[colIdx].modes[mIdx].fileName = fileInput.value
             })
 
             row.appendChild(modeCheckbox)
             row.appendChild(modeName)
             row.appendChild(arrow)
-            row.appendChild(fileSelect)
             row.appendChild(fileInput)
             modeList.appendChild(row)
           })
 
           card.appendChild(modeList)
-          elCollectionList.appendChild(card)
+          elExportList.appendChild(card)
         })
 
-        elTotalCount.textContent = String(state.totalTokenCount)
+        elExportTotal.textContent = String(exportState.totalTokenCount)
+        updateExportButton()
       }
 
-      // -----------------------------------------------------------------------
-      // Download helper
-      // -----------------------------------------------------------------------
+      // =======================================================================
+      // EXPORT — Download
+      // =======================================================================
       function downloadJson(fileName, content) {
         var json = JSON.stringify(content, null, 2)
         var blob = new Blob([json], { type: 'application/json' })
@@ -457,64 +619,316 @@
         URL.revokeObjectURL(url)
       }
 
-      // -----------------------------------------------------------------------
-      // Button handlers
-      // -----------------------------------------------------------------------
+      // =======================================================================
+      // EXPORT — Button handlers
+      // =======================================================================
       elBtnReload.addEventListener('click', function () {
-        clearMessages()
-        elMain.classList.add('hidden')
-        elLoading.classList.remove('hidden')
+        clearExportMessages()
+        elExportMain.classList.add('hidden')
+        elExportLoading.classList.remove('hidden')
         parent.postMessage({ pluginMessage: { type: 'load-collections' } }, '*')
       })
 
       elBtnExport.addEventListener('click', function () {
-        clearMessages()
+        clearExportMessages()
         elBtnExport.disabled = true
-        elBtnExport.textContent = 'Exporting…'
-        parent.postMessage({ pluginMessage: { type: 'export', mappings: state.mappings } }, '*')
+        elBtnExport.textContent = 'Exporting\u2026'
+        parent.postMessage({ pluginMessage: { type: 'export', mappings: exportState.mappings } }, '*')
       })
 
-      // -----------------------------------------------------------------------
+      // =======================================================================
+      // IMPORT — State & DOM
+      // =======================================================================
+      var importState = { files: [] }
+
+      var elImportError = document.getElementById('import-msg-error')
+      var elImportWarning = document.getElementById('import-msg-warning')
+      var elImportSuccess = document.getElementById('import-msg-success')
+      var elDropZone = document.getElementById('import-drop-zone')
+      var elFileInput = document.getElementById('import-file-input')
+      var elImportFileList = document.getElementById('import-file-list')
+      var elBtnImport = document.getElementById('btn-import')
+      var elBtnImportClear = document.getElementById('btn-import-clear')
+
+      // =======================================================================
+      // IMPORT — Helpers
+      // =======================================================================
+      function countTokensInGroup(obj) {
+        var count = 0
+        for (var key in obj) {
+          if (key.charAt(0) === '$') continue
+          var val = obj[key]
+          if (val && typeof val === 'object' && '$value' in val && '$type' in val) {
+            count++
+          } else if (val && typeof val === 'object') {
+            count += countTokensInGroup(val)
+          }
+        }
+        return count
+      }
+
+      function deriveCollectionName(fileName) {
+        // "semantic-dark.json" → "Semantic"   (strip mode suffix heuristic)
+        // "primitives.json"   → "Primitives"
+        var base = fileName.replace(/\.json$/i, '')
+        // Capitalize first letter
+        return base.charAt(0).toUpperCase() + base.slice(1)
+      }
+
+      function deriveModeName(fileName) {
+        // "semantic-dark.json" → "Dark"
+        // "primitives.json"   → "Value"
+        var base = fileName.replace(/\.json$/i, '')
+        var parts = base.split('-')
+        if (parts.length > 1) {
+          var mode = parts[parts.length - 1]
+          return mode.charAt(0).toUpperCase() + mode.slice(1)
+        }
+        return 'Value'
+      }
+
+      function clearImportMessages() {
+        hideMsg(elImportError)
+        hideMsg(elImportWarning)
+        hideMsg(elImportSuccess)
+      }
+
+      function updateImportButtons() {
+        var hasFiles = importState.files.length > 0
+        elBtnImport.disabled = !hasFiles
+        elBtnImportClear.disabled = !hasFiles
+      }
+
+      // =======================================================================
+      // IMPORT — File handling
+      // =======================================================================
+      function handleFiles(fileList) {
+        clearImportMessages()
+        Array.from(fileList).forEach(function (file) {
+          if (!file.name.endsWith('.json')) {
+            showMsg(elImportError, '"' + file.name + '" is not a JSON file.')
+            return
+          }
+          var reader = new FileReader()
+          reader.onload = function (e) {
+            try {
+              var content = JSON.parse(e.target.result)
+              var tokenCount = countTokensInGroup(content)
+              if (tokenCount === 0) {
+                showMsg(elImportError, '"' + file.name + '": no DTCG tokens found ($value/$type).')
+                return
+              }
+              importState.files.push({
+                fileName: file.name,
+                content: content,
+                collectionName: deriveCollectionName(file.name),
+                modeName: deriveModeName(file.name),
+                tokenCount: tokenCount,
+              })
+              renderImport()
+            } catch (err) {
+              showMsg(elImportError, '"' + file.name + '": invalid JSON \u2014 ' + err.message)
+            }
+          }
+          reader.readAsText(file)
+        })
+      }
+
+      // Drop zone events
+      elDropZone.addEventListener('click', function () { elFileInput.click() })
+      elFileInput.addEventListener('change', function () {
+        if (elFileInput.files.length) handleFiles(elFileInput.files)
+        elFileInput.value = ''
+      })
+      elDropZone.addEventListener('dragover', function (e) {
+        e.preventDefault()
+        elDropZone.classList.add('dragover')
+      })
+      elDropZone.addEventListener('dragleave', function () {
+        elDropZone.classList.remove('dragover')
+      })
+      elDropZone.addEventListener('drop', function (e) {
+        e.preventDefault()
+        elDropZone.classList.remove('dragover')
+        if (e.dataTransfer.files.length) handleFiles(e.dataTransfer.files)
+      })
+
+      // =======================================================================
+      // IMPORT — Render
+      // =======================================================================
+      function renderImport() {
+        elImportFileList.innerHTML = ''
+
+        importState.files.forEach(function (file, idx) {
+          var card = document.createElement('div')
+          card.className = 'import-file-card'
+
+          // Header row
+          var header = document.createElement('div')
+          header.className = 'import-file-header'
+
+          var nameWrap = document.createElement('div')
+          var nameEl = document.createElement('span')
+          nameEl.className = 'import-file-name'
+          nameEl.textContent = file.fileName
+          var tokensEl = document.createElement('span')
+          tokensEl.className = 'import-file-tokens'
+          tokensEl.textContent = ' \u2014 ' + file.tokenCount + ' tokens'
+          nameWrap.appendChild(nameEl)
+          nameWrap.appendChild(tokensEl)
+
+          var removeBtn = document.createElement('button')
+          removeBtn.className = 'import-file-remove'
+          removeBtn.setAttribute('aria-label', 'Remove ' + file.fileName)
+          removeBtn.textContent = '\u00d7'
+          removeBtn.addEventListener('click', function () {
+            importState.files.splice(idx, 1)
+            renderImport()
+          })
+
+          header.appendChild(nameWrap)
+          header.appendChild(removeBtn)
+          card.appendChild(header)
+
+          // Fields
+          var fields = document.createElement('div')
+          fields.className = 'import-file-fields'
+
+          // Collection name
+          var colGroup = document.createElement('div')
+          var colLabel = document.createElement('div')
+          colLabel.className = 'import-field-label'
+          colLabel.textContent = 'Collection'
+          var colInput = document.createElement('input')
+          colInput.type = 'text'
+          colInput.className = 'text-input'
+          colInput.setAttribute('aria-label', 'Collection name for ' + file.fileName)
+          colInput.value = file.collectionName
+          colInput.style.width = '100%'
+          colInput.addEventListener('input', function () {
+            importState.files[idx].collectionName = colInput.value
+          })
+          colGroup.appendChild(colLabel)
+          colGroup.appendChild(colInput)
+
+          // Mode name
+          var modeGroup = document.createElement('div')
+          var modeLabel = document.createElement('div')
+          modeLabel.className = 'import-field-label'
+          modeLabel.textContent = 'Mode'
+          var modeInput = document.createElement('input')
+          modeInput.type = 'text'
+          modeInput.className = 'text-input'
+          modeInput.setAttribute('aria-label', 'Mode name for ' + file.fileName)
+          modeInput.value = file.modeName
+          modeInput.style.width = '100%'
+          modeInput.addEventListener('input', function () {
+            importState.files[idx].modeName = modeInput.value
+          })
+          modeGroup.appendChild(modeLabel)
+          modeGroup.appendChild(modeInput)
+
+          fields.appendChild(colGroup)
+          fields.appendChild(modeGroup)
+          card.appendChild(fields)
+
+          elImportFileList.appendChild(card)
+        })
+
+        updateImportButtons()
+      }
+
+      // =======================================================================
+      // IMPORT — Button handlers
+      // =======================================================================
+      elBtnImportClear.addEventListener('click', function () {
+        importState.files = []
+        clearImportMessages()
+        renderImport()
+      })
+
+      elBtnImport.addEventListener('click', function () {
+        clearImportMessages()
+        elBtnImport.disabled = true
+        elBtnImport.textContent = 'Importing\u2026'
+
+        var payload = importState.files.map(function (f) {
+          return {
+            fileName: f.fileName,
+            content: f.content,
+            collectionName: f.collectionName,
+            modeName: f.modeName,
+          }
+        })
+        parent.postMessage({ pluginMessage: { type: 'import', files: payload } }, '*')
+      })
+
+      // =======================================================================
       // Message handler (from code.ts)
-      // -----------------------------------------------------------------------
+      // =======================================================================
       window.onmessage = function (event) {
         var msg = event.data.pluginMessage
         if (!msg) return
 
         if (msg.type === 'collections-loaded') {
-          state.mappings = msg.mappings
-          state.totalTokenCount = msg.totalTokenCount
-          elLoading.classList.add('hidden')
-          elMain.classList.remove('hidden')
-          render()
+          exportState.mappings = msg.mappings
+          exportState.totalTokenCount = msg.totalTokenCount
+          elExportLoading.classList.add('hidden')
+          elExportMain.classList.remove('hidden')
+          renderExport()
         } else if (msg.type === 'export-ready') {
           elBtnExport.disabled = false
           elBtnExport.textContent = 'Export JSON'
 
           var files = msg.files
           if (files.length === 0) {
-            showError('No files to export. Enable at least one mode.')
+            showMsg(elExportError, 'No files to export. Enable at least one mode.')
             return
           }
+
+          showWarningsList(elExportWarning, msg.warnings)
 
           files.forEach(function (file) {
             downloadJson(file.fileName, file.content)
           })
 
-          var totalTokens = files.reduce(function (acc, f) {
-            return acc + f.tokenCount
-          }, 0)
-          showSuccess('Exported ' + files.length + ' file(s) — ' + totalTokens + ' tokens total.')
+          var totalTokens = files.reduce(function (acc, f) { return acc + f.tokenCount }, 0)
+          showMsg(elExportSuccess, 'Exported ' + files.length + ' file(s) \u2014 ' + totalTokens + ' tokens total.')
+        } else if (msg.type === 'import-complete') {
+          elBtnImport.disabled = false
+          elBtnImport.textContent = 'Import JSON'
+
+          var r = msg.result
+          showWarningsList(elImportWarning, r.warnings)
+
+          var parts = []
+          if (r.created > 0) parts.push(r.created + ' created')
+          if (r.updated > 0) parts.push(r.updated + ' updated')
+          if (r.skipped > 0) parts.push(r.skipped + ' skipped')
+          showMsg(elImportSuccess, 'Import complete \u2014 ' + parts.join(', ') + '.')
+
+          // Clear files after successful import
+          importState.files = []
+          renderImport()
         } else if (msg.type === 'error') {
+          // Reset both export and import buttons
           elBtnExport.disabled = false
           elBtnExport.textContent = 'Export JSON'
-          showError(msg.message || 'An unexpected error occurred.')
+          elBtnImport.disabled = false
+          elBtnImport.textContent = 'Import JSON'
+          // Show error on whichever tab is active
+          var activeTab = document.querySelector('.tab-btn.active')
+          if (activeTab && activeTab.dataset.tab === 'import') {
+            showMsg(elImportError, msg.message || 'An unexpected error occurred.')
+          } else {
+            showMsg(elExportError, msg.message || 'An unexpected error occurred.')
+          }
         }
       }
 
-      // -----------------------------------------------------------------------
-      // Init
-      // -----------------------------------------------------------------------
+      // =======================================================================
+      // Init — load collections for export tab
+      // =======================================================================
       parent.postMessage({ pluginMessage: { type: 'load-collections' } }, '*')
     </script>
   </body>
