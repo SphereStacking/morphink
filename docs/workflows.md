@@ -6,31 +6,33 @@
 
 ### Figma → Token JSON
 
+The Figma plugin "DTCG Token Manager" supports both **Export** (Figma Variables → DTCG JSON) and **Import** (DTCG JSON → Figma Variables). Use the Export/Import tabs in the plugin UI.
+
 1. Edit variables in Figma
-2. Run the morphink token exporter plugin in Figma → export DTCG JSON
+2. Run the DTCG Token Manager plugin → Export tab → export DTCG JSON
 3. Save exported JSON to `packages/tokens/tokens/`
 4. (Optional) Run `pnpm --filter @morphink/tokens diff-check` to validate changes
 
+To sync code-side token changes back to Figma, use the Import tab to load updated DTCG JSON into Figma Variables.
+
 ### Build
 
-1. Edit token files in `packages/tokens/tokens/` (or use exported JSON from above)
-2. Rebuild tokens:
-
-```bash
-pnpm --filter @morphink/tokens build
-```
-
-3. Rebuild UI CSS:
-
-```bash
-pnpm --filter @morphink/ui build:css
-```
-
-Or rebuild everything at once:
+Build all packages at once (tokens → ui → docs):
 
 ```bash
 pnpm run build
 ```
+
+<details>
+<summary>Individual package commands (reference)</summary>
+
+```bash
+pnpm --filter @morphink/tokens build   # Token generation → dist/css, json, ts
+pnpm --filter @morphink/ui build       # UI build → dist/morphink.css, index.mjs, types
+pnpm --filter @morphink/ui build:css   # Tailwind compile only → dist/ui.css
+```
+
+</details>
 
 ### Token Customization Flow
 
@@ -42,34 +44,23 @@ pnpm run build
 
 After editing tokens:
 
-1. Run `pnpm --filter @morphink/tokens build` — generates CSS variables, JSON, and TypeScript outputs in `dist/`
-2. Run `pnpm --filter @morphink/ui build:css` — recompiles Tailwind with updated token values
-3. Start Storybook (`pnpm run dev:docs`) to verify your changes visually
+1. Run `pnpm run build` to rebuild all packages
+2. Start Storybook to verify your changes visually:
+
+```bash
+pnpm run dev:docs    # upstream builds + Storybook on localhost:6006
+```
 
 ## UI Development
 
 ### Adding a New Component
 
+See [Architecture](architecture.md) for the three-layer structure (Public / Base / Props) and design rationale.
+
 1. **Create Base component** in `packages/ui/src/base/ui/{component-name}/`
-   - `{Component}Base.vue` — CVA variants + Reka UI integration
-   - Use shared props from `packages/ui/src/base/lib/props/` (variant, size, tone, etc.)
-   - Style with CVA (`cva()`) and compose classes with `cn()`
-
 2. **Create Public wrapper** in `packages/ui/src/components/{atoms|molecules|organisms}/`
-   - `{Component}.vue` — thin wrapper that re-exports Base with your product API
-   - Use `defineProps` + `withDefaults` for the public interface
-
 3. **Add export** to `packages/ui/src/index.ts`
-
 4. **Add Storybook story** in `packages/docs/src/stories/components/`
-
-### Component Classification
-
-| Category | When to use | Examples |
-|----------|-------------|---------|
-| Atom | Single UI primitive, no composition | Button, Input, Badge, Switch |
-| Molecule | Combines atoms or has internal structure | Card (compound), Dialog, FormField |
-| Organism | Full feature block, customization expected | AppShell, DataTable, LoginForm |
 
 ### Reka UI Integration Checklist
 
@@ -147,10 +138,18 @@ defineProps<{
 </template>
 ```
 
+## Consumer Setup
+
+### CSS Import
+
+```ts
+import '@morphink/ui/styles/morphink.css'
+```
+
 ## Storybook
 
 ```bash
-pnpm run dev:docs
+pnpm run dev:docs    # upstream builds + Storybook on localhost:6006
 ```
 
 Stories are located in `packages/docs/src/stories/`.
@@ -172,6 +171,6 @@ pnpm run format     # oxfmt --write
 | `packages/tokens/dist/css/tailwind-theme.css` | Tailwind v4 theme preset |
 | `packages/tokens/dist/json/tokens.json` | Token values as JSON |
 | `packages/tokens/dist/ts/tokens.ts` | Token values as TypeScript |
-| `packages/ui/dist/ui.css` | Compiled Tailwind CSS |
+| `packages/ui/dist/morphink.css` | Compiled CSS bundle |
 
 > Files in `dist/` are generated — do not edit them directly.

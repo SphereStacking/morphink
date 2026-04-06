@@ -46,19 +46,24 @@ pnpm install
 ### 5. ビルドする
 
 ```bash
-pnpm --filter @myorg/tokens build
-pnpm --filter @myorg/ui build:css
+pnpm run build
 ```
 
-トークンのビルドを先に実行し、その出力を UI パッケージの CSS コンパイルで利用します。
+トークン → CSS 変数 → Tailwind コンパイルの完全なパイプラインが実行されます。
 
 ### 6. アプリの CSS エントリに import を追加する
 
 ```css
-@import "@myorg/tokens/tokens.css";
-@import "@myorg/tokens/tokens-dark.css";
-@import "@myorg/ui/styles/base.css";
+@import '@myorg/ui/styles/morphink.css';
 ```
+
+または JS/TS で:
+
+```ts
+import '@myorg/ui/styles/morphink.css'
+```
+
+レイアウトのスタイリング方法（mi:\* ユーティリティ、Tailwind 統合、CSS カスタムプロパティ）については [CSS アプローチの選び方](choosing-utilities.ja.md) を参照してください。
 
 ### 7. コンポーネントを利用する
 
@@ -74,9 +79,10 @@ import { Button } from '@myorg/ui'
 
 ## Storybook について
 
-`packages/docs`（Storybook）のコピーは任意です。コンポーネントの開発・確認に使う場合はコピーし、同様にパッケージ名を変更してください。
+`packages/docs`（Storybook）のコピーは任意です。コンポーネントの開発・確認に使う場合はコピーし、同様にパッケージ名を変更してください。`pnpm run dev:docs` で Storybook を起動できます。
 
 ## 次のステップ
 
 - トークン値をブランドカラーに差し替え — `packages/tokens/tokens/` 内の JSON ファイルを編集
 - npm パッケージとして公開 — [デザインシステムの公開](./publishing-your-design-system.ja.md) を参照
+- すべての導入パターンについては [ドキュメントハブ](../README.ja.md) を参照

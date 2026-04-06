@@ -61,19 +61,26 @@ pnpm install
 ### 5. Build
 
 ```bash
-pnpm --filter @myorg/tokens build
-pnpm --filter @myorg/ui build:css
+pnpm run build
 ```
 
-### 6. Import tokens in your app
+This runs the full pipeline: tokens → CSS variables → Tailwind compilation.
+
+### 6. Import styles in your app
 
 In your application's CSS entry point:
 
 ```css
-@import "@myorg/tokens/tokens.css";
-@import "@myorg/tokens/tokens-dark.css";
-@import "@myorg/ui/styles/base.css";
+@import '@myorg/ui/styles/morphink.css';
 ```
+
+Or in JS/TS:
+
+```ts
+import '@myorg/ui/styles/morphink.css'
+```
+
+For layout styling options (mi:\* utilities, Tailwind integration, or CSS custom properties), see [Choosing Your CSS Approach](choosing-utilities.md).
 
 ### 7. Use components
 
@@ -89,6 +96,5 @@ import { Button } from '@myorg/ui'
 
 ## Tips
 
-- Run the tokens build before the UI CSS build — tokens generate the CSS variables that Tailwind uses.
-- If you copied Storybook (`packages/docs`), rename its package too and update its dependency references.
-- See [Choosing Utilities](./choosing-utilities.md) for how your app consumers should import styles.
+- If you copied Storybook (`packages/docs`), rename its package too and update its dependency references. Run `pnpm run dev:docs` to launch Storybook.
+- See [Documentation Hub](../README.md) for all adoption patterns.

@@ -10,14 +10,17 @@ morphink デザインシステムボイラープレートのドキュメント�
 
 - [アーキテクチャ](./architecture.ja.md) — 3 層コンポーネント構造、トークンパイプライン、Props 体系、CSS 変数命名規則、モーションシステム
 - [ワークフロー](./workflows.ja.md) — トークン更新、新コンポーネント追加、Storybook、lint・フォーマット、ビルド成果物
+- [DTCG Token Manager](../packages/figma-plugin/README.md) — Figma Variables と DTCG JSON の双方向同期プラグイン（インポート & エクスポート）
 
 ## はじめ方
 
 プロジェクトに合った導入パターンを選択:
 
-- [テンプレートからフォーク](./guides/getting-started-template.ja.md) — メインルート: フォークしてカスタマイズ（推奨）
-- [モノレポに組み込み](./guides/getting-started-monorepo.ja.md) — 既存の pnpm workspace に追加
-- [フラットに組み込み](./guides/getting-started-flat.ja.md) — モノレポ化せずに追加
+| パターン | 向いているケース | ガイド |
+|---------|----------------|-------|
+| **テンプレートからフォーク**（推奨） | 新規プロジェクト、DS を一から始めるチーム | [getting-started-template.ja.md](./guides/getting-started-template.ja.md) |
+| **モノレポに組み込み** | 既存の pnpm workspace に追加 | [getting-started-monorepo.ja.md](./guides/getting-started-monorepo.ja.md) |
+| **フラットに組み込み** | モノレポ化せずに追加 | [getting-started-flat.ja.md](./guides/getting-started-flat.ja.md) |
 
 ## ガイド
 
@@ -39,8 +42,8 @@ Storybook: `http://localhost:6006/`
 | 技術 | 役割 |
 |-----|------|
 | [Reka UI](https://reka-ui.com/) | ヘッドレス a11y プリミティブ（Dialog, Select, Dropdown, Tabs 等） |
-| Figma Variables + [Style Dictionary](https://amzn.github.io/style-dictionary/) | トークンパイプライン — Figma ネイティブ変数をカスタムプラグインで DTCG 形式出力 |
-| [Tailwind CSS v4](https://tailwindcss.com/) | ユーティリティファースト CSS、`ui.css` にコンパイル（内部実装） |
+| Figma Variables + [Style Dictionary](https://amzn.github.io/style-dictionary/) | トークンパイプライン — DTCG Token Manager プラグインで Figma Variables を双方向同期（DTCG 形式、インポート & エクスポート） |
+| [Tailwind CSS v4](https://tailwindcss.com/) | ユーティリティファースト CSS、`morphink.css` にコンパイル（内部実装） |
 | [CVA](https://cva.style/) | スタイルバリアント定義（class-variance-authority） |
 | [Storybook](https://storybook.js.org/) | コンポーネントカタログ、トークン可視化、デザインガイドライン |
 | [oxlint](https://oxc.rs/) / [oxfmt](https://oxc.rs/) | 高速な lint・フォーマット |

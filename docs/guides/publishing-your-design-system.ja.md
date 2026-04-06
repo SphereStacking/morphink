@@ -47,7 +47,7 @@
       "types": "./src/index.ts",
       "import": "./src/index.ts"
     },
-    "./dist/ui.css": "./dist/ui.css"
+    "./styles/morphink.css": "./dist/morphink.css"
   }
 }
 ```
@@ -99,10 +99,10 @@ npm install @myorg/tokens @myorg/ui
 **CSS の読み込み:**
 
 ```css
-@import "@myorg/tokens/tokens.css";
-@import "@myorg/tokens/tokens-dark.css";
-@import "@myorg/ui/styles/base.css";
+@import "@myorg/ui/styles/morphink.css";
 ```
+
+この 1 行でデザイントークン、ダークモードオーバーライド、ベースリセット、コンポーネントスタイル、スコープ付きユーティリティがすべて読み込まれます。
 
 **コンポーネントの利用:**
 

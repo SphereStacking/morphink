@@ -65,11 +65,11 @@ npm install reka-ui class-variance-authority clsx tailwind-merge
 Since there are no workspace packages, change inter-package imports to relative paths. For example, in UI source files:
 
 ```diff
-- @import "@morphink/tokens/tokens.css";
-+ @import "../../tokens/dist/css/tokens.css";
+- @import '@morphink/ui/styles/morphink.css';
++ @import '../../tokens/dist/css/morphink.css';
 ```
 
-Update all `@morphink/tokens` references in the UI styles and config files to point to the local `tokens/dist/` directory.
+Update all `@morphink/*` references in the UI styles and config files to point to the local directories.
 
 ### 4. Add build scripts
 
@@ -96,10 +96,10 @@ npm run build:ds
 In your application's CSS entry point:
 
 ```css
-@import "./design-system/tokens/dist/css/tokens.css";
-@import "./design-system/tokens/dist/css/tokens-dark.css";
-@import "./design-system/ui/dist/ui.css";
+@import './design-system/ui/styles/morphink.css';
 ```
+
+For layout styling options (mi:\* utilities, Tailwind integration, or CSS custom properties), see [Choosing Your CSS Approach](choosing-utilities.md).
 
 ### 7. Use components
 
@@ -127,3 +127,4 @@ import { Button } from '@/design-system/ui'
 - Always run `build:tokens` before `build:css` -- the token build generates CSS variables consumed by Tailwind.
 - You may need to adjust the `style-dictionary.config.mjs` build destination if your directory layout differs.
 - If you later want to publish your design system, consider migrating to the monorepo structure. See [Publishing Your Design System](./publishing-your-design-system.md).
+- See [Documentation Hub](../README.md) for all adoption patterns.

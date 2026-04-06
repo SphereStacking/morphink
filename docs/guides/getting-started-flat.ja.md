@@ -48,10 +48,10 @@ morphink リポジトリから以下をコピーし、`src/design-system/` 配�
 
 ```css
 /* 変更前 */
-@import "@morphink/tokens/tokens.css";
+@import '@morphink/ui/styles/morphink.css';
 
 /* 変更後 */
-@import "../tokens/dist/tokens.css";
+@import '../design-system/ui/styles/morphink.css';
 ```
 
 ### 3. 依存パッケージをインストールする
@@ -88,7 +88,13 @@ npm install reka-ui class-variance-authority clsx tailwind-merge
 npm run build:ds
 ```
 
-トークンと CSS のビルドが成功したら、アプリから直接 import して利用できます。
+トークンと CSS のビルドが成功したら、アプリの CSS エントリポイントで import します:
+
+```css
+@import './design-system/ui/styles/morphink.css';
+```
+
+レイアウトのスタイリング方法（mi:\* ユーティリティ、Tailwind 統合、CSS カスタムプロパティ）については [CSS アプローチの選び方](choosing-utilities.ja.md) を参照してください。
 
 ### 6. コンポーネントを利用する
 
@@ -115,3 +121,4 @@ import { Button } from '@/design-system/ui'
 
 - トークン値をブランドカラーに差し替え — `src/design-system/tokens/tokens/` 内の JSON ファイルを編集
 - 将来的にモノレポ化したい場合は [既存モノレポへの組み込み](./getting-started-monorepo.ja.md) を参照
+- すべての導入パターンについては [ドキュメントハブ](../README.ja.md) を参照

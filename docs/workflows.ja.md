@@ -6,31 +6,33 @@
 
 ### Figma → トークン JSON
 
+Figma プラグイン「DTCG Token Manager」は **Export**（Figma Variables → DTCG JSON）と **Import**（DTCG JSON → Figma Variables）の両方に対応しています。プラグイン UI の Export/Import タブを使い分けてください。
+
 1. Figma でバリアブルを編集
-2. morphink token exporter プラグインを実行 → DTCG JSON をエクスポート
+2. DTCG Token Manager プラグインを実行 → Export タブ → DTCG JSON をエクスポート
 3. エクスポートした JSON を `packages/tokens/tokens/` に保存
 4. （任意）`pnpm --filter @morphink/tokens diff-check` で変更を検証
 
+コード側のトークン変更を Figma に反映するには、Import タブで更新済み DTCG JSON を Figma Variables に読み込みます。
+
 ### ビルド
 
-1. `packages/tokens/tokens/` のトークンファイルを編集（または上記のエクスポート JSON を使用）
-2. トークン再ビルド:
-
-```bash
-pnpm --filter @morphink/tokens build
-```
-
-3. UI CSS 再ビルド:
-
-```bash
-pnpm --filter @morphink/ui build:css
-```
-
-または一括ビルド:
+全パッケージを一括ビルド（tokens → ui → docs）:
 
 ```bash
 pnpm run build
 ```
+
+<details>
+<summary>個別パッケージコマンド（参考）</summary>
+
+```bash
+pnpm --filter @morphink/tokens build   # トークン生成 → dist/css, json, ts
+pnpm --filter @morphink/ui build       # UI ビルド → dist/morphink.css, index.mjs, types
+pnpm --filter @morphink/ui build:css   # Tailwind コンパイルのみ → dist/ui.css
+```
+
+</details>
 
 ### トークンカスタマイズの流れ
 
@@ -42,34 +44,23 @@ pnpm run build
 
 トークン編集後:
 
-1. `pnpm --filter @morphink/tokens build` を実行 — CSS 変数、JSON、TypeScript 出力を `dist/` に生成
-2. `pnpm --filter @morphink/ui build:css` を実行 — 更新されたトークン値で Tailwind を再コンパイル
-3. Storybook を起動（`pnpm run dev:docs`）して変更を視覚的に確認
+1. `pnpm run build` で全パッケージを再ビルド
+2. Storybook を起動して変更を視覚的に確認:
+
+```bash
+pnpm run dev:docs    # 上流ビルド + Storybook（localhost:6006）
+```
 
 ## UI 開発
 
 ### 新しいコンポーネントの追加
 
+3 層構造（Public / Base / Props）と設計思想は [Architecture](architecture.ja.md) を参照してください。
+
 1. **Base コンポーネントを作成** — `packages/ui/src/base/ui/{component-name}/`
-   - `{Component}Base.vue` — CVA スタイル定義 + Reka UI 統合
-   - `packages/ui/src/base/lib/props/` の共有 props を利用（variant, size, tone 等）
-   - CVA（`cva()`）でスタイル定義、`cn()` でクラス合成
-
 2. **Public ラッパーを作成** — `packages/ui/src/components/{atoms|molecules|organisms}/`
-   - `{Component}.vue` — Base をラップして公開 API として提供
-   - `defineProps` + `withDefaults` で公開インターフェースを定義
-
 3. **export を追加** — `packages/ui/src/index.ts`
-
 4. **Storybook ストーリーを追加** — `packages/docs/src/stories/components/`
-
-### コンポーネント分類
-
-| カテゴリ | 使い分け | 例 |
-|---------|---------|---|
-| Atom | 単体の UI プリミティブ、合成なし | Button, Input, Badge, Switch |
-| Molecule | Atoms の組み合わせ、内部構造あり | Card (compound), Dialog, FormField |
-| Organism | ひとまとまりの機能単位、カスタマイズ前提 | AppShell, DataTable, LoginForm |
 
 ### Reka UI 統合チェックリスト
 
@@ -147,10 +138,18 @@ defineProps<{
 </template>
 ```
 
+## コンシューマー設定
+
+### CSS インポート
+
+```ts
+import '@morphink/ui/styles/morphink.css'
+```
+
 ## Storybook
 
 ```bash
-pnpm run dev:docs
+pnpm run dev:docs    # 上流ビルド + Storybook（localhost:6006）
 ```
 
 ストーリーは `packages/docs/src/stories/` に配置。
@@ -172,6 +171,6 @@ pnpm run format     # oxfmt --write
 | `packages/tokens/dist/css/tailwind-theme.css` | Tailwind v4 テーマプリセット |
 | `packages/tokens/dist/json/tokens.json` | トークン値の JSON 形式 |
 | `packages/tokens/dist/ts/tokens.ts` | トークン値の TypeScript 形式 |
-| `packages/ui/dist/ui.css` | コンパイル済み Tailwind CSS |
+| `packages/ui/dist/morphink.css` | コンパイル済み CSS バンドル |
 
 > `dist/` 内のファイルは生成物です — 直接編集しないでください。

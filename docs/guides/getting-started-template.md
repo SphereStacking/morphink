@@ -71,4 +71,5 @@ my-design-system/
 
 - Customize existing components or add new ones following the 3-layer architecture (Public → Base → Reka UI)
 - Publish your design system as npm packages — see [Publishing Your Design System](./publishing-your-design-system.md)
-- Choose between utilities.css and tailwind-theme.css for consumers — see [Choosing Utilities](./choosing-utilities.md)
+- For layout styling options (mi:\* utilities, Tailwind integration, or CSS custom properties), see [Choosing Your CSS Approach](choosing-utilities.md)
+- See [Documentation Hub](../README.md) for all adoption patterns.

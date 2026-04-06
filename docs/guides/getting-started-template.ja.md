@@ -71,4 +71,5 @@ my-design-system/
 
 - 既存コンポーネントのカスタマイズや新規コンポーネントの追加（3 層アーキテクチャ: Public → Base → Reka UI に従う）
 - npm パッケージとして公開 — [デザインシステムの公開](./publishing-your-design-system.ja.md) を参照
-- コンシューマ向けユーティリティの選択 — [ユーティリティの選び方](./choosing-utilities.ja.md) を参照
+- レイアウトのスタイリング方法（mi:\* ユーティリティ、Tailwind 統合、CSS カスタムプロパティ）については [CSS アプローチの選び方](choosing-utilities.ja.md) を参照
+- すべての導入パターンについては [ドキュメントハブ](../README.ja.md) を参照

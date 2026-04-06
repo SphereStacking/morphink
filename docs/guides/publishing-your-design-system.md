@@ -40,7 +40,8 @@ Publish your forked morphink design system as npm packages so your team or commu
   "files": ["dist", "src"],
   "main": "./src/index.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./styles/morphink.css": "./dist/morphink.css"
   }
 }
 ```
@@ -87,12 +88,10 @@ npm install @myorg/tokens @myorg/ui
 ### 6. Consumer CSS setup
 
 ```css
-@import "@myorg/tokens/tokens.css";
-@import "@myorg/tokens/tokens-dark.css";
-@import "@myorg/ui/styles/base.css";
+@import "@myorg/ui/styles/morphink.css";
 ```
 
-See [Choosing Utilities](./choosing-utilities.md) for whether to add `utilities.css` or `tailwind-theme.css`.
+This single import bundles design tokens, dark-mode overrides, base resets, component styles, and scoped utilities. See [Choosing Utilities](./choosing-utilities.md) for additional layout styling options (`utilities.css` or `tailwind-theme.css`).
 
 ### 7. Consumer component usage
 
