@@ -285,16 +285,6 @@
       "$type": "dimension"
     }
   },
-  "ring": {
-    "width": {
-      "$value": "2",
-      "$type": "number"
-    },
-    "offset": {
-      "$value": "2",
-      "$type": "number"
-    }
-  },
   "opacity": {
     "muted": {
       "$value": "{opacity.60}",
@@ -327,40 +317,40 @@
   },
   "font": {
     "weight": {
-      "thin": {
-        "$value": "100",
-        "$type": "number"
-      },
-      "extralight": {
-        "$value": "200",
-        "$type": "number"
-      },
       "light": {
-        "$value": "300",
+        "$value": "{font.weight.300}",
         "$type": "number"
       },
       "normal": {
-        "$value": "400",
+        "$value": "{font.weight.400}",
         "$type": "number"
       },
       "medium": {
-        "$value": "500",
+        "$value": "{font.weight.500}",
         "$type": "number"
       },
       "semibold": {
-        "$value": "600",
+        "$value": "{font.weight.600}",
         "$type": "number"
       },
       "bold": {
-        "$value": "700",
+        "$value": "{font.weight.700}",
+        "$type": "number"
+      },
+      "thin": {
+        "$value": "{font.weight.100}",
+        "$type": "number"
+      },
+      "extralight": {
+        "$value": "{font.weight.200}",
         "$type": "number"
       },
       "extrabold": {
-        "$value": "800",
+        "$value": "{font.weight.800}",
         "$type": "number"
       },
       "black": {
-        "$value": "900",
+        "$value": "{font.weight.900}",
         "$type": "number"
       }
     },
@@ -437,28 +427,38 @@
   },
   "z-index": {
     "dropdown": {
-      "$value": "400",
+      "$value": "{z-index.400}",
       "$type": "number"
     },
     "overlay": {
-      "$value": "500",
+      "$value": "{z-index.500}",
       "$type": "number"
     },
     "modal": {
-      "$value": "600",
+      "$value": "{z-index.600}",
       "$type": "number"
     },
     "popover": {
-      "$value": "700",
+      "$value": "{z-index.700}",
       "$type": "number"
     },
     "tooltip": {
-      "$value": "800",
+      "$value": "{z-index.800}",
       "$type": "number"
     },
     "toast": {
-      "$value": "900",
+      "$value": "{z-index.900}",
       "$type": "number"
+    }
+  },
+  "ring": {
+    "width": {
+      "$value": "{space.2}",
+      "$type": "dimension"
+    },
+    "offset": {
+      "$value": "{space.2}",
+      "$type": "dimension"
     }
   }
 }
