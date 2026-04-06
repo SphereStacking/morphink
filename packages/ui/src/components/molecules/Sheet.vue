@@ -25,7 +25,7 @@ withDefaults(
   {
     open: undefined,
     defaultOpen: undefined,
-    modal: true,
+    modal: undefined,
     side: 'right',
     closeLabel: 'Close',
     size: 'md',

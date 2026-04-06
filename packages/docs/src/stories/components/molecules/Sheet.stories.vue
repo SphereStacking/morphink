@@ -14,6 +14,7 @@ const { Story } = defineMeta({
     size: { control: { type: 'select' }, options: componentSizes.Sheet },
     rounded: { control: { type: 'select' }, options: componentRounded.Sheet },
     shadow: { control: { type: 'select' }, options: componentShadow.Sheet },
+    modal: { control: 'boolean' },
   },
   args: {
     side: 'right',
@@ -22,6 +23,7 @@ const { Story } = defineMeta({
     size: 'md',
     rounded: 'none',
     shadow: 'lg',
+    modal: true,
   },
 })
 </script>
@@ -36,6 +38,7 @@ const { Story } = defineMeta({
         :size="args.size"
         :rounded="args.rounded"
         :shadow="args.shadow"
+        :modal="args.modal"
       >
         <template #trigger>
           <Button variant="outline">Open Sheet</Button>

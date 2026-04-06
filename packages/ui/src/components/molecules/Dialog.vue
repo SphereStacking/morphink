@@ -24,6 +24,7 @@ withDefaults(
   {
     open: undefined,
     defaultOpen: undefined,
+    modal: undefined,
     size: 'md',
     closeLabel: 'Close',
     rounded: 'lg',

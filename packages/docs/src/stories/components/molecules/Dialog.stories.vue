@@ -21,6 +21,7 @@ const { Story } = defineMeta({
     open: { control: 'boolean' },
     rounded: { control: { type: 'select' }, options: componentRounded.Dialog },
     shadow: { control: { type: 'select' }, options: componentShadow.Dialog },
+    modal: { control: 'boolean' },
   },
   args: {
     size: 'md',
@@ -30,6 +31,7 @@ const { Story } = defineMeta({
     open: false,
     rounded: 'lg',
     shadow: 'md',
+    modal: true,
   },
 })
 </script>
@@ -47,6 +49,7 @@ const { Story } = defineMeta({
           :close-label="args.closeLabel"
           :rounded="args.rounded"
           :shadow="args.shadow"
+          :modal="args.modal"
         >
           <Text>Example content area.</Text>
         </Dialog>

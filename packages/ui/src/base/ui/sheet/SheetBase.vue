@@ -57,7 +57,7 @@ const props = withDefaults(
     shadow?: SheetShadow
   }>(),
   {
-    modal: true,
+    modal: undefined,
     side: 'right',
     closeLabel: 'Close',
     size: 'md',
