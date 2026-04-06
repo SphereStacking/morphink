@@ -19,7 +19,7 @@ import type { AlertDialogRounded, AlertDialogShadow, AlertDialogSize } from '../
 
 const dialogVariants = cva(
   cn(
-    'fixed top-1/2 left-1/2 z-modal grid -translate-x-1/2 -translate-y-1/2 border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
+    'z-modal fixed top-1/2 left-1/2 grid -translate-x-1/2 -translate-y-1/2 border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
   ),
   {
     variants: {
@@ -117,13 +117,13 @@ const buttonSizeMap: Record<string, string> = {
 }
 const cancelClass = computed(() =>
   cn(
-    'inline-flex items-center justify-center rounded-(--morphink-radius-md) border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card) text-(--morphink-color-foreground) [transition-property:background-color,color,border-color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--morphink-color-ring) focus-visible:outline-hidden',
+    'inline-flex items-center justify-center rounded-(--morphink-radius-md) border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card) text-(--morphink-color-foreground) [transition-property:background-color,color,border-color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) focus-visible:ring-(--morphink-color-ring) focus-visible:ring-(--morphink-ring-width) focus-visible:outline-hidden',
     buttonSizeMap[props.size ?? 'md']
   )
 )
 const actionClass = computed(() =>
   cn(
-    'inline-flex items-center justify-center rounded-(--morphink-radius-md) bg-(--morphink-color-accent) text-(--morphink-color-accent-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-accent-hover) focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--morphink-color-accent) focus-visible:outline-hidden',
+    'inline-flex items-center justify-center rounded-(--morphink-radius-md) bg-(--morphink-color-accent) text-(--morphink-color-accent-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-accent-hover) focus-visible:ring-(--morphink-color-accent) focus-visible:ring-(--morphink-ring-width) focus-visible:outline-hidden',
     buttonSizeMap[props.size ?? 'md']
   )
 )
@@ -137,14 +137,14 @@ const actionClass = computed(() =>
     <AlertDialogPortal>
       <AlertDialogOverlay
         data-morphink
-        class="mi-overlay-anim fixed inset-0 z-overlay bg-(--morphink-color-scrim)"
+        class="mi-overlay-anim z-overlay fixed inset-0 bg-(--morphink-color-scrim)"
       />
       <AlertDialogContent data-morphink :class="contentClass" class="mi-dialog-anim">
         <div class="flex items-center justify-between gap-(--morphink-space-md)">
           <AlertDialogTitle v-if="title" :class="titleClass">{{ title }}</AlertDialogTitle>
           <AlertDialogCancel as-child>
             <button
-              class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--morphink-color-ring) focus-visible:outline-hidden"
+              class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:ring-(--morphink-color-ring) focus-visible:ring-(--morphink-ring-width) focus-visible:outline-hidden"
               type="button"
               :aria-label="cancelLabel"
             >

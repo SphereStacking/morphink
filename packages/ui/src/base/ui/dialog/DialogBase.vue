@@ -18,7 +18,7 @@ import type { DialogRounded, DialogShadow, DialogSize } from '../../lib/props'
 
 const dialogVariants = cva(
   cn(
-    'fixed top-1/2 left-1/2 z-modal grid -translate-x-1/2 -translate-y-1/2 border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
+    'z-modal fixed top-1/2 left-1/2 grid -translate-x-1/2 -translate-y-1/2 border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
   ),
   {
     variants: {
@@ -117,14 +117,14 @@ const titleClass = computed(() => titleVariants({ size: props.size }))
     <DialogPortal>
       <DialogOverlay
         data-morphink
-        class="mi-overlay-anim fixed inset-0 z-overlay bg-(--morphink-color-scrim)"
+        class="mi-overlay-anim z-overlay fixed inset-0 bg-(--morphink-color-scrim)"
       />
       <DialogContent data-morphink :class="contentClass" class="mi-dialog-anim">
         <div class="flex items-center justify-between gap-(--morphink-space-md)">
           <DialogTitle v-if="title" :class="titleClass">{{ title }}</DialogTitle>
           <DialogClose as-child>
             <button
-              class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--morphink-color-ring) focus-visible:outline-hidden"
+              class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:ring-(--morphink-color-ring) focus-visible:ring-(--morphink-ring-width) focus-visible:outline-hidden"
               type="button"
               :aria-label="closeLabel"
             >

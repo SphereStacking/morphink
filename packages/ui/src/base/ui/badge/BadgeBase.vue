@@ -20,7 +20,8 @@ const badgeVariants = cva(cn('inline-flex items-center font-semibold'), {
         'border border-(--morphink-border-width-default) bg-transparent',
         'border-(color:--badge-color) text-(--badge-accent)'
       ),
-      ghost: 'border-transparent bg-transparent text-(--badge-accent) hover:bg-[color-mix(in_srgb,var(--badge-color)_8%,transparent)]',
+      ghost:
+        'border-transparent bg-transparent text-(--badge-accent) hover:bg-[color-mix(in_srgb,var(--badge-color)_8%,transparent)]',
       soft: 'bg-[color-mix(in_srgb,var(--badge-color)_12%,transparent)] text-(--badge-accent)',
     },
     tone: {

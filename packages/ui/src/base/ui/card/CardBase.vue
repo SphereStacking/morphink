@@ -20,7 +20,7 @@ const cardVariants = cva(
           '[transition-timing-function:var(--morphink-easing-standard)]',
           'hover:-translate-y-0.5 hover:shadow-(--morphink-shadow-lg)',
           'active:translate-y-0 active:scale-[0.99] active:shadow-(--morphink-shadow-sm)',
-          'focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--morphink-color-ring) focus-visible:outline-hidden'
+          'focus-visible:ring-(--morphink-color-ring) focus-visible:ring-(--morphink-ring-width) focus-visible:outline-hidden'
         ),
       },
       rounded: {
