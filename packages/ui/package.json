@@ -16,13 +16,15 @@
       "default": "./src/index.ts"
     },
     "./source": "./src/index.ts",
+    "./styles/morphink.css": "./dist/morphink.css",
     "./styles/tokens.css": "./src/styles/tokens.css",
     "./styles/base.css": "./src/styles/base.css",
     "./styles/ui.css": "./dist/ui.css",
     "./styles/components.css": "./dist/components.css"
   },
   "scripts": {
-    "build": "pnpm run build:css && pnpm run build:js && pnpm run build:types",
+    "build": "pnpm run build:css && pnpm run build:js && pnpm run build:morphink && pnpm run build:types",
+    "build:morphink": "node scripts/build-morphink.mjs",
     "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/ui.css && node scripts/scope-css.mjs",
     "build:js": "vite build",
     "build:types": "vue-tsc -p tsconfig.build.json --noCheck",

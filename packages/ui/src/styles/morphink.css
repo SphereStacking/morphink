@@ -1,0 +1,16 @@
+/*
+ * morphink.css entry — defines what goes into dist/morphink.css.
+ *
+ * Build script (scripts/build-morphink.mjs) inlines these @import statements
+ * and appends build artifacts (components.css, ui.css) to produce the final bundle.
+ *
+ * Order:
+ *   1. tokens       — CSS custom properties (light theme)
+ *   2. tokens-dark   — dark-mode overrides
+ *   3. base          — scoped reset + keyframes + motion tokens
+ *   4. components    — component-scoped styles (appended by build script)
+ *   5. ui            — scoped Tailwind utilities (appended by build script)
+ */
+@import '@morphink/tokens/tokens.css';
+@import '@morphink/tokens/tokens-dark.css';
+@import './base.css';

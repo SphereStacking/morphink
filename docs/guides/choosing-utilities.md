@@ -1,35 +1,31 @@
 [English](./choosing-utilities.md) | [日本語](./choosing-utilities.ja.md)
 
-# Choosing Utilities: utilities.css vs tailwind-theme.css
+# Getting Started: CSS Setup
 
-When consuming a morphink-based design system, you have two options for applying token-based utility classes. Both reference the same underlying design tokens -- only the entry point differs.
+## Step 1: Import morphink (required)
 
-## Decision flow
+One import to make all components work. Includes design tokens, base resets, component styles, and scoped utilities.
 
-**Does your project use Tailwind CSS?**
+```css
+@import "@myorg/ui/styles/morphink.css";
+```
 
-- **Yes** → Use `tailwind-theme.css`
-- **No** → Use `utilities.css`
+> **Note:** `morphink.css` bundles `tokens.css`, `tokens-dark.css`, `base.css`, `components.css`, and `ui.css` into a single file. Individual exports remain available if needed.
 
 ---
 
-## Option A: utilities.css (no Tailwind required)
+## Step 2: Layout styling (choose your approach)
 
-Best for projects that do not use Tailwind CSS or want a lightweight, standalone utility layer.
+morphink components work with the single import above. For styling your own layouts with design tokens, choose one of these approaches:
 
-### Setup
+### Option A: `mi:` utility classes (no Tailwind required)
+
+For projects that **do not use Tailwind CSS, cannot introduce it, or prefer not to add it as a dependency**. A pre-built CSS file provides token-based utility classes — no build pipeline changes needed.
 
 ```css
-@import "@myorg/tokens/tokens.css";
-@import "@myorg/tokens/tokens-dark.css";
+@import "@myorg/ui/styles/morphink.css";
 @import "@myorg/tokens/utilities.css";
-@import "@myorg/ui/styles/base.css";
-@import "@myorg/ui/styles/ui.css";
 ```
-
-### Usage
-
-All classes use the `mi:` prefix:
 
 ```html
 <div class="mi:bg-primary mi:p-md mi:rounded-lg mi:text-foreground">
@@ -37,39 +33,19 @@ All classes use the `mi:` prefix:
 </div>
 ```
 
-### Responsive variants
+Responsive variants: `mi:sm:`, `mi:md:`, `mi:lg:`, etc.
 
-```html
-<div class="mi:p-sm mi:md:p-lg">
-  Responsive padding
-</div>
-```
+### Option B: Tailwind integration (for Tailwind v4 projects)
 
-### Characteristics
+For projects **already using Tailwind CSS v4**. Requires a Tailwind build pipeline on the consumer side — `tailwind-theme.css` uses `@theme` directives that are processed at build time.
 
-- No Tailwind knowledge or build setup needed
-- Self-contained CSS file with all utility classes
-- `mi:` prefix avoids collisions with existing styles
-
----
-
-## Option B: tailwind-theme.css (for Tailwind projects)
-
-Best for projects already using Tailwind CSS, providing seamless integration with the Tailwind ecosystem.
-
-### Setup
+Add the following to your Tailwind entry CSS:
 
 ```css
 @import "tailwindcss";
-@import "@myorg/tokens/tokens.css";
-@import "@myorg/tokens/tokens-dark.css";
+@import "@myorg/ui/styles/morphink.css";
 @import "@myorg/tokens/tailwind-theme.css";
-@import "@myorg/ui/styles/base.css";
 ```
-
-### Usage
-
-Standard Tailwind classes -- no prefix needed:
 
 ```html
 <div class="bg-primary p-md rounded-lg text-foreground">
@@ -77,17 +53,32 @@ Standard Tailwind classes -- no prefix needed:
 </div>
 ```
 
-### Characteristics
+Full Tailwind ecosystem: `hover:`, `focus:`, responsive breakpoints, plugins, IntelliSense, etc.
 
-- Full Tailwind ecosystem: `hover:`, `focus:`, responsive breakpoints, etc.
-- Default Tailwind colors and spacing are reset -- only token-based values are available
-- Works with Tailwind plugins and tooling (IntelliSense, etc.)
+### Option C: CSS custom properties directly
+
+No additional CSS needed. Use `--morphink-*` custom properties in your own stylesheets.
+
+```css
+@import "@myorg/ui/styles/morphink.css";
+```
+
+```css
+.my-layout {
+  padding: var(--morphink-space-lg);
+  display: flex;
+  gap: var(--morphink-space-md);
+  color: var(--morphink-color-foreground);
+}
+```
+
+Works with any CSS approach — plain CSS, SCSS, CSS Modules, etc.
 
 ---
 
 ## Dark mode
 
-Both options support dark mode. Include `tokens-dark.css` and toggle the theme by setting `data-theme="dark"` on the `.mi-theme` element:
+Dark-mode token overrides are included in `morphink.css`. Toggle the theme by setting `data-theme="dark"` on the `.mi-theme` element:
 
 ```html
 <div class="mi-theme" data-morphink data-theme="dark">
@@ -99,12 +90,10 @@ Both options support dark mode. Include `tokens-dark.css` and toggle the theme b
 
 ## Summary
 
-| | utilities.css | tailwind-theme.css |
-|---|---|---|
-| Requires Tailwind | No | Yes |
-| Class prefix | `mi:` | None |
-| Hover/focus variants | No (component responsibility) | Yes (standard Tailwind) |
-| Custom properties | Via `--morphink-*` | Via `--morphink-*` + `--color-*` etc. |
-| Best for | Non-Tailwind projects | Tailwind projects |
-
-Both options produce the same visual result -- choose based on your project's existing toolchain.
+| | Option A: utilities.css | Option B: tailwind-theme.css | Option C: CSS custom properties |
+|---|---|---|---|
+| Additional import | `@myorg/tokens/utilities.css` | `@myorg/tokens/tailwind-theme.css` | None |
+| Requires Tailwind | No | Yes (v4) | No |
+| Class prefix | `mi:` | None | N/A |
+| Hover/focus variants | No (component responsibility) | Yes (standard Tailwind) | Write your own |
+| Best for | Projects without Tailwind | Projects already using Tailwind v4 | Any project, full control |

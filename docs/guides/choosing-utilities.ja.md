@@ -1,32 +1,31 @@
 [English](./choosing-utilities.md) | [日本語](./choosing-utilities.ja.md)
 
-# ユーティリティの選び方
+# はじめに: CSS セットアップ
 
-デザインシステムのコンシューマ向けに、2 つのユーティリティ CSS 配布方式を提供しています。プロジェクトの Tailwind CSS 利用状況に応じて選択してください。
+## ステップ 1: morphink の読み込み（必須）
 
-## 判断フロー
-
-1. プロジェクトで **Tailwind CSS を使っている**？
-   - **はい** → [オプション B: tailwind-theme.css](#オプション-b-tailwind-themecsstailwind-プロジェクト向け) を使用
-   - **いいえ** → [オプション A: utilities.css](#オプション-a-utilitiescsstailwind-不要) を使用
-
-## オプション A: utilities.css（Tailwind 不要）
-
-Tailwind CSS のインストールやビルド設定なしで、トークンベースのユーティリティクラスを利用できます。
-
-**CSS の読み込み:**
+1 行の import ですべてのコンポーネントが動きます。デザイントークン、ベースリセット、コンポーネントスタイル、スコープ付きユーティリティを含みます。
 
 ```css
-@import "@myorg/tokens/tokens.css";
-@import "@myorg/tokens/tokens-dark.css";
-@import "@myorg/tokens/utilities.css";
-@import "@myorg/ui/styles/base.css";
-@import "@myorg/ui/styles/ui.css";
+@import "@myorg/ui/styles/morphink.css";
 ```
 
-**クラスの使い方:**
+> **Note:** `morphink.css` は `tokens.css`、`tokens-dark.css`、`base.css`、`components.css`、`ui.css` を 1 ファイルにバンドルしたものです。個別 import も引き続き可能です。
 
-`mi:` プレフィックス付きのクラスを使います。
+---
+
+## ステップ 2: レイアウトのスタイリング（アプローチを選択）
+
+上の 1 行だけで morphink コンポーネントは動きます。コンポーネントの**外側**（自分のページレイアウト等）でデザイントークンを使いたい場合、以下から選んでください:
+
+### オプション A: `mi:` ユーティリティクラス（Tailwind 不要）
+
+**Tailwind CSS を使っていない、導入できない、または依存に加えたくない**プロジェクト向け。ビルド済み CSS ファイルを読み込むだけで、トークンベースのユーティリティクラスが使えます。ビルドパイプラインの変更は不要です。
+
+```css
+@import "@myorg/ui/styles/morphink.css";
+@import "@myorg/tokens/utilities.css";
+```
 
 ```html
 <div class="mi:bg-primary mi:p-md mi:rounded-lg mi:text-on-primary">
@@ -34,38 +33,19 @@ Tailwind CSS のインストールやビルド設定なしで、トークンベ�
 </div>
 ```
 
-**レスポンシブバリアント:**
+レスポンシブバリアント: `mi:sm:`, `mi:md:`, `mi:lg:` 等
 
-```html
-<div class="mi:p-sm mi:md:p-lg mi:lg:p-xl">
-  画面幅に応じたパディング
-</div>
-```
+### オプション B: Tailwind 統合（Tailwind v4 プロジェクト向け）
 
-**特徴:**
+**Tailwind CSS v4 を既に使っている**プロジェクト向け。消費者側に Tailwind のビルドパイプラインが必要です — `tailwind-theme.css` は `@theme` ディレクティブを含み、ビルド時に処理されます。
 
-- Tailwind の知識やビルド設定は不要
-- `mi:` プレフィックスにより既存クラスとの衝突を回避
-- レスポンシブバリアント対応（`mi:sm:`, `mi:md:`, `mi:lg:` 等）
-- hover / focus 等の状態バリアントはなし（コンポーネント側の責務）
-
-## オプション B: tailwind-theme.css（Tailwind プロジェクト向け）
-
-既存の Tailwind CSS 環境にトークンを統合し、標準の Tailwind クラスでトークン値を利用できます。
-
-**CSS の読み込み:**
+消費者側の Tailwind エントリ CSS に以下を追加します:
 
 ```css
 @import "tailwindcss";
-@import "@myorg/tokens/tokens.css";
-@import "@myorg/tokens/tokens-dark.css";
+@import "@myorg/ui/styles/morphink.css";
 @import "@myorg/tokens/tailwind-theme.css";
-@import "@myorg/ui/styles/base.css";
 ```
-
-**クラスの使い方:**
-
-標準の Tailwind クラスをそのまま使います。
 
 ```html
 <div class="bg-primary p-md rounded-lg text-on-primary">
@@ -73,44 +53,47 @@ Tailwind CSS のインストールやビルド設定なしで、トークンベ�
 </div>
 ```
 
-**状態バリアント:**
+Tailwind エコシステム全体が利用可能: `hover:`, `focus:`, レスポンシブ、プラグイン、IntelliSense 等
 
-```html
-<button class="bg-primary hover:bg-primary-hover focus:ring-2 focus:ring-accent">
-  ホバー・フォーカス対応
-</button>
+### オプション C: CSS カスタムプロパティを直接使用
+
+追加の CSS 読み込みは不要。`--morphink-*` カスタムプロパティを自分のスタイルシートで使います。
+
+```css
+@import "@myorg/ui/styles/morphink.css";
 ```
 
-**特徴:**
+```css
+.my-layout {
+  padding: var(--morphink-space-lg);
+  display: flex;
+  gap: var(--morphink-space-md);
+  color: var(--morphink-color-foreground);
+}
+```
 
-- 標準 Tailwind クラス名をそのまま使用（プレフィックスなし）
-- Tailwind エコシステム全体（`hover:`, `focus:`, `group-*`, レスポンシブ等）が利用可能
-- デフォルトの Tailwind カラー・スペーシングはリセットされ、トークンベースの値のみが有効になる
+CSS の書き方を問いません — プレーン CSS、SCSS、CSS Modules 等なんでも使えます。
+
+---
 
 ## ダークモード
 
-どちらのオプションでも、ダークモードの仕組みは同じです。
-
-1. `tokens-dark.css` を読み込む
-2. `.mi-theme` 要素に `data-theme="dark"` 属性を付与して切り替え
+ダークモードのトークンオーバーライドは `morphink.css` に含まれています。`.mi-theme` 要素に `data-theme="dark"` 属性を付与して切り替えます:
 
 ```html
-<!-- ライトテーマ -->
-<div class="mi-theme">...</div>
-
-<!-- ダークテーマ -->
-<div class="mi-theme" data-morphink data-theme="dark">...</div>
+<div class="mi-theme" data-morphink data-theme="dark">
+  <!-- ダークテーマ適用 -->
+</div>
 ```
+
+---
 
 ## 比較表
 
-| | utilities.css | tailwind-theme.css |
-|---|---|---|
-| Tailwind 必要 | 不要 | 必要 |
-| クラスプレフィックス | `mi:` | なし |
-| hover / focus バリアント | なし（コンポーネントの責務） | あり（標準 Tailwind） |
-| レスポンシブバリアント | あり（`mi:md:` 等） | あり（`md:` 等） |
-| カスタムプロパティ | `--morphink-*` 経由 | `--morphink-*` + `--color-*` 等 |
-| 適した用途 | Tailwind を使わないプロジェクト | Tailwind プロジェクト |
-
-両オプションは同じデザイントークンを参照します。入口が違うだけで、出力されるスタイルは同一です。
+| | オプション A: utilities.css | オプション B: tailwind-theme.css | オプション C: CSS カスタムプロパティ |
+|---|---|---|---|
+| 追加 import | `@myorg/tokens/utilities.css` | `@myorg/tokens/tailwind-theme.css` | なし |
+| Tailwind 必要 | 不要 | 必要（v4） | 不要 |
+| クラスプレフィックス | `mi:` | なし | N/A |
+| hover / focus バリアント | なし（コンポーネントの責務） | あり（標準 Tailwind） | 自分で記述 |
+| 適した用途 | Tailwind なし（導入できない・したくない場合を含む） | Tailwind v4 を既に使っているプロジェクト | どんなプロジェクトでも、完全にコントロールしたい場合 |
