@@ -38,7 +38,7 @@ const rekaProps = computed(() => ({
 const forwarded = useForwardPropsEmits(rekaProps, emit)
 
 const contentVariants = cva(
-  'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover) p-(--morphink-space-md)',
+  'z-popover border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover) p-(--morphink-space-md)',
   {
     variants: {
       rounded: {

@@ -32,7 +32,7 @@ const positionClasses: Record<string, string> = {
     data-morphink
     :class="
       cn(
-        'fixed z-50 flex max-h-screen w-[min(420px,100vw)] flex-col-reverse gap-(--morphink-space-sm) p-(--morphink-space-lg)',
+        'fixed z-toast flex max-h-screen w-[min(420px,100vw)] flex-col-reverse gap-(--morphink-space-sm) p-(--morphink-space-lg)',
         positionClasses[position]
       )
     "

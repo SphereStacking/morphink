@@ -17,7 +17,7 @@ import IconClose from '../icons/IconClose.vue'
 import type { SheetRounded, SheetShadow, SheetSize } from '../../lib/props'
 
 const sheetVariants = cva(
-  cn('fixed z-50 flex flex-col overflow-hidden bg-(--morphink-color-card)', 'focus:outline-hidden'),
+  cn('fixed z-modal flex flex-col overflow-hidden bg-(--morphink-color-card)', 'focus:outline-hidden'),
   {
     variants: {
       side: {
@@ -119,7 +119,7 @@ const contentClass = computed(() =>
     <DialogPortal>
       <DialogOverlay
         data-morphink
-        class="mi-overlay-anim fixed inset-0 bg-(--morphink-color-scrim)"
+        class="mi-overlay-anim fixed inset-0 z-overlay bg-(--morphink-color-scrim)"
       />
       <DialogContent data-morphink :class="contentClass" class="mi-sheet-anim">
         <div

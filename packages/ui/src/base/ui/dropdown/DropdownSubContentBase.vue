@@ -22,7 +22,7 @@ const props = withDefaults(
 const size = inject(dropdownSizeKey, ref('md' as DropdownSize))
 
 const contentVariants = cva(
-  'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover)',
+  'z-dropdown border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-popover)',
   {
     variants: {
       rounded: {

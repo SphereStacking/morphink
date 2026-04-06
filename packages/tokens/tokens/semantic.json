@@ -317,11 +317,19 @@
   },
   "font": {
     "weight": {
+      "thin": {
+        "$value": "100",
+        "$type": "number"
+      },
+      "extralight": {
+        "$value": "200",
+        "$type": "number"
+      },
       "light": {
         "$value": "300",
         "$type": "number"
       },
-      "regular": {
+      "normal": {
         "$value": "400",
         "$type": "number"
       },
@@ -335,6 +343,14 @@
       },
       "bold": {
         "$value": "700",
+        "$type": "number"
+      },
+      "extrabold": {
+        "$value": "800",
+        "$type": "number"
+      },
+      "black": {
+        "$value": "900",
         "$type": "number"
       }
     },
@@ -407,6 +423,32 @@
         "$value": "Inter, system-ui, Roboto, Noto Sans, sans-serif",
         "$type": "fontFamily"
       }
+    }
+  },
+  "z-index": {
+    "dropdown": {
+      "$value": "400",
+      "$type": "number"
+    },
+    "overlay": {
+      "$value": "500",
+      "$type": "number"
+    },
+    "modal": {
+      "$value": "600",
+      "$type": "number"
+    },
+    "popover": {
+      "$value": "700",
+      "$type": "number"
+    },
+    "tooltip": {
+      "$value": "800",
+      "$type": "number"
+    },
+    "toast": {
+      "$value": "900",
+      "$type": "number"
     }
   }
 }

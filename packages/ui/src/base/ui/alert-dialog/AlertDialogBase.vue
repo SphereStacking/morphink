@@ -19,7 +19,7 @@ import type { AlertDialogRounded, AlertDialogShadow, AlertDialogSize } from '../
 
 const dialogVariants = cva(
   cn(
-    'fixed top-1/2 left-1/2 z-10 grid -translate-x-1/2 -translate-y-1/2 border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
+    'fixed top-1/2 left-1/2 z-modal grid -translate-x-1/2 -translate-y-1/2 border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
   ),
   {
     variants: {
@@ -137,7 +137,7 @@ const actionClass = computed(() =>
     <AlertDialogPortal>
       <AlertDialogOverlay
         data-morphink
-        class="mi-overlay-anim fixed inset-0 bg-(--morphink-color-scrim)"
+        class="mi-overlay-anim fixed inset-0 z-overlay bg-(--morphink-color-scrim)"
       />
       <AlertDialogContent data-morphink :class="contentClass" class="mi-dialog-anim">
         <div class="flex items-center justify-between gap-(--morphink-space-md)">

@@ -77,7 +77,14 @@ StyleDictionary.registerFormat({
   format: ({ dictionary }) => {
     const sourceTokens = dictionary.allTokens.filter((t) => t.isSource)
 
-    const groups = { color: [], spacing: [], radius: [], shadow: [] }
+    const groups = {
+      color: [],
+      spacing: [],
+      radius: [],
+      shadow: [],
+      'z-index': [],
+      'font-weight': [],
+    }
 
     for (const token of sourceTokens) {
       const key = token.name.replace(`${VAR_PREFIX}-`, '')
@@ -93,6 +100,10 @@ StyleDictionary.registerFormat({
         groups.radius.push({ tw: key, ref: token.name })
       } else if (key.startsWith('shadow-')) {
         groups.shadow.push({ tw: key, ref: token.name })
+      } else if (key.startsWith('z-index-')) {
+        groups['z-index'].push({ tw: key, ref: token.name })
+      } else if (key.startsWith('font-weight-')) {
+        groups['font-weight'].push({ tw: key, ref: token.name })
       }
     }
 
