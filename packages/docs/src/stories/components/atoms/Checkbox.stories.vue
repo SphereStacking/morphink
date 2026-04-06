@@ -63,10 +63,6 @@ const { Story } = defineMeta({
           <span class="text-sm text-[var(--morphink-color-foreground)]">Solid</span>
         </div>
         <div class="flex items-center gap-2">
-          <Checkbox variant="ghost" :default-value="true" />
-          <span class="text-sm text-[var(--morphink-color-foreground)]">Ghost</span>
-        </div>
-        <div class="flex items-center gap-2">
           <Checkbox variant="soft" :default-value="true" />
           <span class="text-sm text-[var(--morphink-color-foreground)]">Soft</span>
         </div>
@@ -79,10 +75,6 @@ const { Story } = defineMeta({
         <div class="flex items-center gap-2">
           <Checkbox variant="solid" />
           <span class="text-sm text-[var(--morphink-color-muted-foreground)]">Solid off</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <Checkbox variant="ghost" />
-          <span class="text-sm text-[var(--morphink-color-muted-foreground)]">Ghost off</span>
         </div>
         <div class="flex items-center gap-2">
           <Checkbox variant="soft" />

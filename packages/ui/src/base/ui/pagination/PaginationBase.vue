@@ -45,7 +45,6 @@ const buttonVariants = cva(
       },
       variant: {
         outline: 'border border-(--morphink-color-border) hover:bg-(--morphink-color-muted)',
-        ghost: 'hover:bg-(--morphink-color-muted)',
         soft: cn(
           'bg-(--morphink-color-muted)',
           'hover:bg-[color-mix(in_srgb,var(--pgn-color)_8%,var(--morphink-color-muted))]'
@@ -171,7 +170,7 @@ const pageClasses = computed(() =>
 const navClasses = computed(() =>
   buttonVariants({
     size: props.size,
-    variant: 'ghost',
+    variant: 'soft',
     tone: props.tone,
     rounded: props.rounded,
   })
@@ -180,7 +179,7 @@ const navClasses = computed(() =>
 const ellipsisClasses = computed(() =>
   cn(
     'inline-flex items-center justify-center',
-    buttonVariants({ size: props.size, variant: 'ghost', tone: props.tone, rounded: props.rounded })
+    buttonVariants({ size: props.size, variant: 'soft', tone: props.tone, rounded: props.rounded })
   )
 )
 </script>

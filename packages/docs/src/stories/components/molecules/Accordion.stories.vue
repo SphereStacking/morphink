@@ -77,19 +77,6 @@ const { Story } = defineMeta({
         </Accordion>
       </Stack>
       <Stack gap="xs">
-        <Text variant="caption" muted>ghost</Text>
-        <Accordion type="single" collapsible variant="ghost">
-          <AccordionItem value="a">
-            <template #trigger>Ghost Item 1</template>
-            Content for ghost variant.
-          </AccordionItem>
-          <AccordionItem value="b">
-            <template #trigger>Ghost Item 2</template>
-            More content here.
-          </AccordionItem>
-        </Accordion>
-      </Stack>
-      <Stack gap="xs">
         <Text variant="caption" muted>soft</Text>
         <Accordion type="single" collapsible variant="soft">
           <AccordionItem value="a">

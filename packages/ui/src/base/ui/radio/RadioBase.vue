@@ -40,10 +40,6 @@ const radioVariants = cva(
           'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]',
           'data-[state=checked]:bg-(--ctl-color)'
         ),
-        ghost: cn(
-          'border-(--morphink-color-border)',
-          'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'
-        ),
         soft: cn(
           'border-transparent',
           'bg-[color-mix(in_srgb,var(--ctl-color)_18%,transparent)]',

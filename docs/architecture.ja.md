@@ -19,23 +19,32 @@ Public (components/)  →  Base (base/ui/*/)  →  Reka UI
 
 すべてのコンポーネントは `packages/ui/src/index.ts` から export。
 
-### なぜ 3 層なのか
-
-主な利点は**依存の隔離**。Reka UI が置き換わったり Tailwind に破壊的変更があっても、Base 層だけが影響を吸収する。Public API（`<Button tone="primary">`）は安定したまま。
-
-Public 層がいま薄いラッパーなのは意図的。プロダクトレベルの設計判断（例: ラベル + エラー + ヘルパーテキストを統合した Input）を組み込む場所として設計されている。そうした判断は実際の利用から生まれるべきで、推測からではない。
+この階層化の意図については [CONCEPT.ja.md](../CONCEPT.ja.md) を参照。
 
 ## トークンパイプライン
 
 ```
 Figma Variables
-  → カスタム Figma プラグイン（DTCG JSON エクスポート）
+  → DTCG Token Manager（Figma プラグイン — DTCG JSON エクスポート）
   → packages/tokens/tokens/*.json (primitives / semantic / semantic-dark / motion)
   → Style Dictionary (ビルド)
   → packages/tokens/dist (css / json / ts)
-  → packages/ui/src/styles/tokens.css（CSS 変数として import）
-  → Tailwind コンパイル → packages/ui/dist/ui.css
+  → packages/ui/dist/morphink.css（統合 CSS バンドル）
   → Storybook
+```
+
+全パイプラインを一括ビルド:
+
+```bash
+pnpm run build    # 全パッケージビルド（tokens → ui → docs）
+```
+
+個別パッケージのビルドコマンド:
+
+```bash
+pnpm --filter @morphink/tokens build    # トークン生成 → dist/css,json,ts
+pnpm --filter @morphink/ui build        # UI ビルド → dist/morphink.css, index.mjs, types
+pnpm --filter @morphink/ui build:css    # Tailwind コンパイルのみ → dist/ui.css
 ```
 
 ### 2 階層トークン構造
@@ -64,7 +73,7 @@ packages/
     src/base/lib/     # ユーティリティ (cn, CVA バリアント, layout-utils, props)
     src/components/   # Public ラッパー (atoms, molecules, organisms)
     src/styles/       # tokens.css, base.css (モーション, キーフレーム)
-    dist/ui.css       # 生成 CSS
+    dist/morphink.css # 統合 CSS バンドル（tokens + base + components）
   docs/
     src/stories/      # Storybook ストーリー
 ```
@@ -85,12 +94,12 @@ packages/
 
 一部のコンポーネントは独自のバリアントセットを持つ:
 
-- **Card**: `elevated`, `outline`, `ghost`, `soft`, `interactive`
+- **Card**: `elevated`, `outline`, `soft`, `interactive`
 - **Tabs**: `pill`, `underline`
 - **Nav**: `subtle`, `solid`
 - **Toolbar**: `solid`, `subtle`
-- **Accordion**: `outline`, `ghost`, `soft`
-- **Pagination**: `outline`, `ghost`, `soft`
+- **Accordion**: `outline`, `soft`
+- **Pagination**: `outline`, `soft`
 - **Toast**: `solid`, `soft`, `outline`
 
 ## レイアウトコンポーネント
@@ -256,9 +265,4 @@ withDefaults(
 
 ## 設計原則
 
-- **内部実装を公開しない** — プロダクトは Public コンポーネントのみに依存
-- **依存の隔離** — Reka UI や Tailwind の差し替えは Base 層のみに影響
-- **セマンティックトークンを優先** — コンポーネントは `--morphink-color-primary` を参照し、生のパレット値は使わない
-- **Tailwind v4 参照構文** — `bg-(--morphink-color-primary)`、ハードコード値は使わない
-- **ホバー透過** — `bg-[color-mix(in_srgb,var(--morphink-color-destructive)_8%,transparent)]`
-- **クラス合成** — `cn()` = `clsx` + `tailwind-merge` でクラスの衝突なくマージ
+設計思想の詳細は [CONCEPT.ja.md](../CONCEPT.ja.md) を参照。

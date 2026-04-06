@@ -36,11 +36,6 @@ const switchVariants = cva(
           'data-[state=checked]:bg-(--ctl-color)',
           'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]'
         ),
-        ghost: cn(
-          'border-(--morphink-color-border) data-[state=unchecked]:bg-transparent',
-          'data-[state=checked]:border-transparent data-[state=checked]:bg-(--ctl-color)',
-          'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'
-        ),
         soft: cn(
           'border-transparent',
           'data-[state=unchecked]:bg-[color-mix(in_srgb,var(--ctl-color)_18%,transparent)]',
@@ -137,7 +132,6 @@ const thumbVariants = cva(
         outline:
           'scale-75 data-[state=checked]:bg-(--ctl-color) data-[state=unchecked]:bg-(--morphink-color-border)',
         solid: '',
-        ghost: '',
         soft: '',
       },
       size: {

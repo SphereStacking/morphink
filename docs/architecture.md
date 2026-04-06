@@ -19,23 +19,32 @@ Public (components/)  →  Base (base/ui/*/)  →  Reka UI
 
 All components are exported from `packages/ui/src/index.ts`.
 
-### Why Three Layers?
-
-The primary benefit is **dependency isolation**. When Reka UI is replaced or Tailwind ships breaking changes, only the Base layer absorbs them. The Public API (`<Button tone="primary">`) remains stable.
-
-The Public layer is currently a thin wrapper — this is intentional. It is designed to become the place where product-level design decisions are baked in (e.g., an Input that bundles label + error + helper text). Those decisions should emerge from real usage, not speculation.
+For the rationale behind this layering, see [CONCEPT.md](../CONCEPT.md).
 
 ## Token Pipeline
 
 ```
 Figma Variables
-  → Custom Figma Plugin (DTCG JSON export)
+  → DTCG Token Manager (Figma plugin — DTCG JSON export)
   → packages/tokens/tokens/*.json (primitives / semantic / semantic-dark / motion)
   → Style Dictionary (build)
   → packages/tokens/dist (css / json / ts)
-  → packages/ui/src/styles/tokens.css (import as CSS variables)
-  → Tailwind compile → packages/ui/dist/ui.css
+  → packages/ui/dist/morphink.css (unified CSS bundle)
   → Storybook
+```
+
+Build the entire pipeline with a single command:
+
+```bash
+pnpm run build    # builds all packages (tokens → ui → docs)
+```
+
+Individual package commands are available for targeted builds:
+
+```bash
+pnpm --filter @morphink/tokens build    # token generation → dist/css,json,ts
+pnpm --filter @morphink/ui build        # UI build → dist/morphink.css, index.mjs, types
+pnpm --filter @morphink/ui build:css    # Tailwind compile only → dist/ui.css
 ```
 
 ### Two-Tier Token Structure
@@ -64,7 +73,7 @@ packages/
     src/base/lib/     # utilities (cn, cva variants, layout-utils, props)
     src/components/   # Public wrappers (atoms, molecules, organisms)
     src/styles/       # tokens.css, base.css (motion, keyframes)
-    dist/ui.css       # generated CSS
+    dist/morphink.css # unified CSS bundle (tokens + base + components)
   docs/
     src/stories/      # Storybook stories
 ```
@@ -85,12 +94,12 @@ Components share a consistent props vocabulary defined in `packages/ui/src/base/
 
 Some components define their own variant sets:
 
-- **Card**: `elevated`, `outline`, `ghost`, `soft`, `interactive`
+- **Card**: `elevated`, `outline`, `soft`, `interactive`
 - **Tabs**: `pill`, `underline`
 - **Nav**: `subtle`, `solid`
 - **Toolbar**: `solid`, `subtle`
-- **Accordion**: `outline`, `ghost`, `soft`
-- **Pagination**: `outline`, `ghost`, `soft`
+- **Accordion**: `outline`, `soft`
+- **Pagination**: `outline`, `soft`
 - **Toast**: `solid`, `soft`, `outline`
 
 ## Layout Components
@@ -256,9 +265,4 @@ Defined in `packages/ui/src/styles/base.css`, these combine duration and easing 
 
 ## Design Principles
 
-- **Internal implementation is not exposed** — Products depend only on Public components
-- **Dependency isolation** — Swapping Reka UI or Tailwind affects only the Base layer
-- **Prefer semantic tokens** — Components reference `--morphink-color-primary`, never raw palette values
-- **Tailwind v4 reference syntax** — `bg-(--morphink-color-primary)`, not hardcoded values
-- **Hover transparency** — `bg-[color-mix(in_srgb,var(--morphink-color-destructive)_8%,transparent)]`
-- **Class composition** — `cn()` = `clsx` + `tailwind-merge` for conflict-free class merging
+For the full design philosophy, see [CONCEPT.md](../CONCEPT.md).

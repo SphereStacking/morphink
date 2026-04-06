@@ -65,10 +65,6 @@ const { Story } = defineMeta({
         <Pagination :total="100" variant="outline" />
       </Stack>
       <Stack gap="xs">
-        <Text variant="caption" muted>ghost</Text>
-        <Pagination :total="100" variant="ghost" />
-      </Stack>
-      <Stack gap="xs">
         <Text variant="caption" muted>soft</Text>
         <Pagination :total="100" variant="soft" />
       </Stack>

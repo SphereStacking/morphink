@@ -11,7 +11,6 @@ const accordionVariants = cva('', {
     variant: {
       outline:
         'divide-y divide-(--morphink-color-border) rounded-(--morphink-radius-md) border border-(--morphink-color-border)',
-      ghost: 'space-y-1',
       soft: 'space-y-1',
     },
   },

@@ -82,7 +82,7 @@ const componentVariants = cva('ベースクラス', {
 |---------|-----------|------|---------|
 | **solid** | 塗りつぶし背景 + 白テキスト | 主要アクション、強調要素 | 最高 |
 | **outline** | ボーダーのみ + カラーテキスト | 副次アクション、選択可能な要素 | 高 |
-| **ghost** | 背景なし + カラーテキスト + hover 時のみ背景 | 三次アクション、ナビゲーション内ボタン | 中 |
+| **ghost** | 背景なし + カラーテキスト + hover 時に背景やボーダーが現れる | 三次アクション、ナビゲーション内ボタン、インライン編集フィールド | 中 |
 | **soft** | 薄い背景 + カラーテキスト | 情報表示、タグ、ステータスバッジ | 低〜中 |
 | **subtle** | 極薄い背景 | 背景パネル、控えめなコンテナ | 低 |
 | **elevated** | 影付き | 浮いて見せたいカード、パネル | 中 |
@@ -96,10 +96,10 @@ const componentVariants = cva('ベースクラス', {
 | Badge | ✅ | ✅ | ✅ | ✅ | | | | |
 | Input / Textarea | ✅ | ✅ | ✅ | ✅ | | | | |
 | Select | ✅ | ✅ | ✅ | ✅ | | | | |
-| Checkbox / Switch / Radio | ✅ | ✅ | ✅ | ✅ | | | | |
+| Checkbox / Switch / Radio | ✅ | ✅ | | ✅ | | | | |
 | Alert / Toast | ✅ | ✅ | | ✅ | | | | |
-| Accordion / Pagination | | ✅ | ✅ | ✅ | | | | |
-| Card | | ✅ | ✅ | ✅ | | ✅ | ✅ | |
+| Accordion / Pagination | | ✅ | | ✅ | | | | |
+| Card | | ✅ | | ✅ | | ✅ | ✅ | |
 | Panel | ✅ | | | | ✅ | ✅ | | |
 | Nav / Toolbar | ✅ | | | | ✅ | | | |
 | Tabs | | | | | | | | pill, underline |

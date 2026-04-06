@@ -12,7 +12,6 @@ const cardVariants = cva(
       variant: {
         elevated: 'border-(--morphink-color-border)',
         outline: 'border-(--morphink-color-border) shadow-none',
-        ghost: 'border-transparent bg-transparent hover:bg-(--morphink-color-muted)',
         soft: 'border-transparent bg-(--morphink-color-muted)',
         interactive: cn(
           'cursor-pointer border-(--morphink-color-border)',

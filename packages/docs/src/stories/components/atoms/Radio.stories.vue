@@ -62,7 +62,7 @@ const { Story } = defineMeta({
 
   <Story name="Variants" asChild>
     <Stack direction="row" gap="xl">
-      <div v-for="v in ['outline', 'solid', 'ghost', 'soft']" :key="v">
+      <div v-for="v in ['outline', 'solid', 'soft']" :key="v">
         <p class="mb-2 text-xs font-medium text-[var(--morphink-color-muted-foreground)]">
           {{ v }}
         </p>

@@ -30,7 +30,7 @@ const textareaVariants = cva(
           'border border-(--morphink-color-border) bg-(--morphink-color-input)',
           'focus-visible:border-(color:--field-color)'
         ),
-        ghost: 'border border-transparent bg-transparent',
+        ghost: 'border border-transparent bg-transparent hover:border-(--morphink-color-border) focus-visible:border-(color:--field-color)',
         soft: 'border border-transparent bg-[color-mix(in_srgb,var(--field-color)_12%,transparent)]',
       },
       tone: {

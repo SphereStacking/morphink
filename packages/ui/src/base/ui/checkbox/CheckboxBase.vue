@@ -46,10 +46,6 @@ const checkboxVariants = cva(
           'border-transparent bg-(--morphink-color-muted)',
           'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]'
         ),
-        ghost: cn(
-          'border-(--morphink-color-border)',
-          'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'
-        ),
         soft: cn(
           'border-transparent',
           'bg-[color-mix(in_srgb,var(--ctl-color)_18%,transparent)]',

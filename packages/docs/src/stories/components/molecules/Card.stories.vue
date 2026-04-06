@@ -86,10 +86,6 @@ const { Story } = defineMeta({
           <CardHeader><CardTitle>Outline</CardTitle></CardHeader>
           <CardBody><Text>Border only, no shadow</Text></CardBody>
         </Card>
-        <Card variant="ghost" style="width: 200px">
-          <CardHeader><CardTitle>Ghost</CardTitle></CardHeader>
-          <CardBody><Text>Transparent, hover to reveal</Text></CardBody>
-        </Card>
         <Card variant="soft" style="width: 200px">
           <CardHeader><CardTitle>Soft</CardTitle></CardHeader>
           <CardBody><Text>Muted background</Text></CardBody>

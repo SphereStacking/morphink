@@ -10,7 +10,6 @@ const itemVariants = cva('', {
   variants: {
     variant: {
       outline: 'overflow-hidden',
-      ghost: 'rounded-(--morphink-radius-md)',
       soft: 'rounded-(--morphink-radius-md) bg-(--morphink-color-muted)',
     },
   },
