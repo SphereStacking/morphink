@@ -55,11 +55,30 @@ StyleDictionary.registerTransform({
   },
 })
 
+StyleDictionary.registerTransform({
+  name: 'value/lineHeight-to-ratio',
+  type: 'value',
+  filter: (token) => token.path.includes('lineHeight'),
+  transform: (token) => {
+    const value = token.$value ?? token.value
+    const num = Number(value)
+    if (Number.isNaN(num) || num === 0) return value
+    // Figma exports line-height as percentage (e.g. 120 = 120%).
+    // CSS unitless line-height treats 120 as 120x font-size, so divide by 100.
+    return num > 10 ? num / 100 : num
+  },
+})
+
 const tokensStudioTransforms = StyleDictionary.hooks?.transformGroups?.['tokens-studio'] ?? []
 
 StyleDictionary.registerTransformGroup({
   name: 'tokens-studio-kebab',
-  transforms: [...tokensStudioTransforms, 'value/to-oklch', 'name/kebab-no-base'],
+  transforms: [
+    ...tokensStudioTransforms,
+    'value/lineHeight-to-ratio',
+    'value/to-oklch',
+    'name/kebab-no-base',
+  ],
 })
 
 StyleDictionary.registerFormat({
