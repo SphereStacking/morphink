@@ -18,9 +18,9 @@ const badgeVariants = cva(cn('inline-flex items-center font-semibold'), {
       solid: 'bg-(--badge-color) text-(--badge-fg)',
       outline: cn(
         'border border-(--morphink-border-width-default) bg-transparent',
-        'text-(--badge-accent) border-(color:--badge-color)'
+        'border-(color:--badge-color) text-(--badge-accent)'
       ),
-      ghost: 'bg-transparent border-transparent text-(--badge-accent)',
+      ghost: 'border-transparent bg-transparent text-(--badge-accent)',
       soft: 'bg-[color-mix(in_srgb,var(--badge-color)_12%,transparent)] text-(--badge-accent)',
     },
     tone: {
@@ -153,11 +153,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <span
-    data-morphink
-    :class="classes"
-    v-bind="attrs"
-  >
+  <span data-morphink :class="classes" v-bind="attrs">
     <slot />
   </span>
 </template>

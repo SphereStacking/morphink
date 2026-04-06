@@ -43,10 +43,10 @@ const indicatorSizes: Record<DropdownSize, string> = {
 
 const classes = computed(() =>
   cn(
-    'flex items-center gap-2 rounded-(--morphink-radius-sm) outline-hidden cursor-default',
+    'flex cursor-default items-center gap-2 rounded-(--morphink-radius-sm) outline-hidden',
     'text-(--morphink-color-foreground) focus:bg-(--morphink-color-muted)',
     sizeClasses[size.value],
-    props.disabled && 'opacity-50 pointer-events-none'
+    props.disabled && 'pointer-events-none opacity-50'
   )
 )
 </script>

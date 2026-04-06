@@ -1,7 +1,15 @@
 export const durations = ['instant', 'fast', 'normal', 'slow', 'slower'] as const
 export type Duration = (typeof durations)[number]
 
-export const easings = ['standard', 'decelerate', 'accelerate', 'emphasized-decelerate', 'emphasized-accelerate', 'linear', 'spring'] as const
+export const easings = [
+  'standard',
+  'decelerate',
+  'accelerate',
+  'emphasized-decelerate',
+  'emphasized-accelerate',
+  'linear',
+  'spring',
+] as const
 export type Easing = (typeof easings)[number]
 
 export const componentDurations = {
@@ -15,13 +23,69 @@ export const componentDurations = {
 } as const
 
 export const componentEasings = {
-  Tabs: ['standard', 'decelerate', 'accelerate', 'emphasized-decelerate', 'emphasized-accelerate', 'linear', 'spring'],
-  Switch: ['standard', 'decelerate', 'accelerate', 'emphasized-decelerate', 'emphasized-accelerate', 'linear', 'spring'],
-  Checkbox: ['standard', 'decelerate', 'accelerate', 'emphasized-decelerate', 'emphasized-accelerate', 'linear', 'spring'],
-  Radio: ['standard', 'decelerate', 'accelerate', 'emphasized-decelerate', 'emphasized-accelerate', 'linear', 'spring'],
-  Accordion: ['standard', 'decelerate', 'accelerate', 'emphasized-decelerate', 'emphasized-accelerate', 'linear', 'spring'],
-  Collapsible: ['standard', 'decelerate', 'accelerate', 'emphasized-decelerate', 'emphasized-accelerate', 'linear', 'spring'],
-  Progress: ['standard', 'decelerate', 'accelerate', 'emphasized-decelerate', 'emphasized-accelerate', 'linear', 'spring'],
+  Tabs: [
+    'standard',
+    'decelerate',
+    'accelerate',
+    'emphasized-decelerate',
+    'emphasized-accelerate',
+    'linear',
+    'spring',
+  ],
+  Switch: [
+    'standard',
+    'decelerate',
+    'accelerate',
+    'emphasized-decelerate',
+    'emphasized-accelerate',
+    'linear',
+    'spring',
+  ],
+  Checkbox: [
+    'standard',
+    'decelerate',
+    'accelerate',
+    'emphasized-decelerate',
+    'emphasized-accelerate',
+    'linear',
+    'spring',
+  ],
+  Radio: [
+    'standard',
+    'decelerate',
+    'accelerate',
+    'emphasized-decelerate',
+    'emphasized-accelerate',
+    'linear',
+    'spring',
+  ],
+  Accordion: [
+    'standard',
+    'decelerate',
+    'accelerate',
+    'emphasized-decelerate',
+    'emphasized-accelerate',
+    'linear',
+    'spring',
+  ],
+  Collapsible: [
+    'standard',
+    'decelerate',
+    'accelerate',
+    'emphasized-decelerate',
+    'emphasized-accelerate',
+    'linear',
+    'spring',
+  ],
+  Progress: [
+    'standard',
+    'decelerate',
+    'accelerate',
+    'emphasized-decelerate',
+    'emphasized-accelerate',
+    'linear',
+    'spring',
+  ],
 } as const
 
 export type TabsDuration = (typeof componentDurations.Tabs)[number]

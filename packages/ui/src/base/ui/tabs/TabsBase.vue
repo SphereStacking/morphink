@@ -68,7 +68,7 @@ const wrapperVariants = cva('grid', {
 const listVariants = cva('inline-flex', {
   variants: {
     variant: {
-      pill: 'rounded-full p-[6px] border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-muted)',
+      pill: 'rounded-full border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-muted) p-[6px]',
       underline: 'border-b border-(--morphink-color-border)',
     },
     size: {
@@ -110,7 +110,7 @@ const tabVariants = cva(
         false: '',
       },
       disabled: {
-        true: 'opacity-(--morphink-opacity-disabled) pointer-events-none',
+        true: 'pointer-events-none opacity-(--morphink-opacity-disabled)',
         false: '',
       },
     },
@@ -123,8 +123,7 @@ const tabVariants = cva(
       {
         variant: 'pill',
         active: false,
-        class:
-          'text-(--morphink-color-muted-foreground) hover:text-(--morphink-color-accent)',
+        class: 'text-(--morphink-color-muted-foreground) hover:text-(--morphink-color-accent)',
       },
       {
         variant: 'underline',
@@ -179,7 +178,11 @@ const tabClass = (active: boolean, disabled?: boolean) =>
 </script>
 
 <template>
-  <TabsRoot data-morphink :model-value="modelValue" @update:model-value="emit('update:modelValue', $event)">
+  <TabsRoot
+    data-morphink
+    :model-value="modelValue"
+    @update:model-value="emit('update:modelValue', $event)"
+  >
     <div :class="wrapperClass">
       <TabsList asChild>
         <div :class="listClass" class="relative">
@@ -195,29 +198,36 @@ const tabClass = (active: boolean, disabled?: boolean) =>
           </TabsTrigger>
           <!-- CSS Anchor Positioning indicator -->
           <div
-            :class="cn(
-              'absolute pointer-events-none',
-              variant === 'pill'
-                ? 'rounded-full bg-(--morphink-color-card) shadow-[0_6px_12px_rgba(0,0,0,0.08)]'
-                : 'bg-(--morphink-color-accent)',
-            )"
+            :class="
+              cn(
+                'pointer-events-none absolute',
+                variant === 'pill'
+                  ? 'rounded-full bg-(--morphink-color-card) shadow-[0_6px_12px_rgba(0,0,0,0.08)]'
+                  : 'bg-(--morphink-color-accent)'
+              )
+            "
             :style="{
               transitionProperty: 'left, width, top, height',
               transitionDuration: durationMap[duration],
               transitionTimingFunction: easingMap[easing],
               ...(variant === 'pill'
-                ? { left: 'anchor(--active-tab left)', top: 'anchor(--active-tab top)', width: 'anchor-size(--active-tab width)', height: 'anchor-size(--active-tab height)' }
-                : { left: 'anchor(--active-tab left)', bottom: '0', width: 'anchor-size(--active-tab width)', height: '2px' }),
+                ? {
+                    left: 'anchor(--active-tab left)',
+                    top: 'anchor(--active-tab top)',
+                    width: 'anchor-size(--active-tab width)',
+                    height: 'anchor-size(--active-tab height)',
+                  }
+                : {
+                    left: 'anchor(--active-tab left)',
+                    bottom: '0',
+                    width: 'anchor-size(--active-tab width)',
+                    height: '2px',
+                  }),
             }"
           />
         </div>
       </TabsList>
-      <TabsContent
-        :value="modelValue"
-        :class="panelClass"
-        class="mi-tab-anim"
-        :key="modelValue"
-      >
+      <TabsContent :value="modelValue" :class="panelClass" class="mi-tab-anim" :key="modelValue">
         <slot />
       </TabsContent>
     </div>

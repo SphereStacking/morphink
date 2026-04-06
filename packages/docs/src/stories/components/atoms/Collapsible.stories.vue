@@ -25,7 +25,12 @@ const { Story } = defineMeta({
 <template>
   <Story name="Default">
     <template #template="{ args }">
-      <Collapsible :disabled="args.disabled" :default-open="args.defaultOpen" :duration="args.duration" :easing="args.easing">
+      <Collapsible
+        :disabled="args.disabled"
+        :default-open="args.defaultOpen"
+        :duration="args.duration"
+        :easing="args.easing"
+      >
         <template #trigger>
           <Button variant="outline" size="sm">Toggle Content</Button>
         </template>

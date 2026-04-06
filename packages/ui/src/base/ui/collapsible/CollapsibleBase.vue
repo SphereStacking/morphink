@@ -60,12 +60,18 @@ const easingMap: Record<CollapsibleEasing, string> = {
       <slot name="trigger" />
     </CollapsibleTrigger>
     <CollapsibleContent
-      class="grid [transition-property:grid-template-rows] data-[state=open]:grid-rows-[1fr] data-[state=closed]:grid-rows-[0fr]"
-      :style="{ transitionDuration: durationMap[props.duration], transitionTimingFunction: easingMap[props.easing] }"
+      class="grid [transition-property:grid-template-rows] data-[state=closed]:grid-rows-[0fr] data-[state=open]:grid-rows-[1fr]"
+      :style="{
+        transitionDuration: durationMap[props.duration],
+        transitionTimingFunction: easingMap[props.easing],
+      }"
     >
       <div
-        class="min-h-0 overflow-hidden [[data-state=closed]_&]:opacity-0 [[data-state=open]_&]:opacity-100 [transition-property:opacity]"
-        :style="{ transitionDuration: durationMap[props.duration], transitionTimingFunction: easingMap[props.easing] }"
+        class="min-h-0 overflow-hidden [transition-property:opacity] [[data-state=closed]_&]:opacity-0 [[data-state=open]_&]:opacity-100"
+        :style="{
+          transitionDuration: durationMap[props.duration],
+          transitionTimingFunction: easingMap[props.easing],
+        }"
       >
         <slot />
       </div>

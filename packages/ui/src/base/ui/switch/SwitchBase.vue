@@ -17,8 +17,8 @@ const switchVariants = cva(
     'relative inline-flex shrink-0 cursor-pointer items-center rounded-full border-2',
     '[transition-property:background-color,border-color]',
     'before:absolute before:inset-[-8px] before:content-[""]',
-    'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
-    'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
+    'focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2 focus-visible:outline-hidden',
+    'disabled:cursor-not-allowed disabled:opacity-(--morphink-opacity-disabled)',
     'data-[state=unchecked]:bg-(--morphink-color-muted)'
   ),
   {
@@ -134,7 +134,8 @@ const thumbVariants = cva(
   {
     variants: {
       variant: {
-        outline: 'scale-75 data-[state=unchecked]:bg-(--morphink-color-border) data-[state=checked]:bg-(--ctl-color)',
+        outline:
+          'scale-75 data-[state=checked]:bg-(--ctl-color) data-[state=unchecked]:bg-(--morphink-color-border)',
         solid: '',
         ghost: '',
         soft: '',
@@ -255,7 +256,7 @@ const thumbClasses = computed(() =>
 </template>
 
 <style scoped>
-.mi-switch-thumb[data-state="checked"] {
+.mi-switch-thumb[data-state='checked'] {
   animation: mi-switch-bounce var(--morphink-duration-fast) var(--morphink-easing-standard) both;
 }
 

@@ -6,7 +6,13 @@
  * Style variants: base/ui/radio/RadioGroupBase.vue
  */
 import RadioGroupBase from '../../base/ui/radio/RadioGroupBase.vue'
-import type { RadioSize, RadioTone, RadioVariant, RadioDuration, RadioEasing } from '../../base/lib/props'
+import type {
+  RadioSize,
+  RadioTone,
+  RadioVariant,
+  RadioDuration,
+  RadioEasing,
+} from '../../base/lib/props'
 
 withDefaults(
   defineProps<{

@@ -30,7 +30,7 @@ const props = withDefaults(
 
 const attrs = useAttrs()
 const tableVariants = cva(
-  'w-full overflow-x-auto overflow-hidden border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)',
+  'w-full overflow-hidden overflow-x-auto border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)',
   {
     variants: {
       rounded: {
@@ -68,7 +68,7 @@ const cellClass = computed(() =>
 const rowClass = computed(() =>
   cn(
     props.striped ? 'odd:bg-(--morphink-color-muted)' : null,
-    props.hover ? 'hover:bg-(--morphink-color-muted) transition' : null
+    props.hover ? 'transition hover:bg-(--morphink-color-muted)' : null
   )
 )
 

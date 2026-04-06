@@ -8,7 +8,7 @@ import type { AlertRounded, AlertTone, AlertVariant } from '../../lib/props'
 
 const alertVariants = cva(
   cn(
-    'relative w-full px-(--morphink-space-lg) py-(--morphink-space-md) flex gap-(--morphink-space-sm)'
+    'relative flex w-full gap-(--morphink-space-sm) px-(--morphink-space-lg) py-(--morphink-space-md)'
   ),
   {
     variants: {
@@ -16,7 +16,7 @@ const alertVariants = cva(
         solid: 'bg-(--alert-color) text-(--alert-fg)',
         outline: cn(
           'border border-(--morphink-border-width-default) bg-transparent',
-          'text-(--alert-accent) border-(color:--alert-color)'
+          'border-(color:--alert-color) text-(--alert-accent)'
         ),
         soft: 'bg-[color-mix(in_srgb,var(--alert-color)_12%,transparent)] text-(--alert-accent)',
       },
@@ -123,7 +123,7 @@ const classes = computed(() =>
 
 <template>
   <div v-if="!dismissed" data-morphink role="alert" :class="classes" v-bind="attrs">
-    <div class="flex-1 min-w-0">
+    <div class="min-w-0 flex-1">
       <slot />
     </div>
     <button
@@ -131,7 +131,7 @@ const classes = computed(() =>
       type="button"
       :class="
         cn(
-          'shrink-0 inline-flex items-center justify-center rounded-(--morphink-radius-sm)',
+          'inline-flex shrink-0 items-center justify-center rounded-(--morphink-radius-sm)',
           'size-6 cursor-pointer',
           'opacity-70 hover:opacity-100',
           '[transition-property:opacity] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)]'

@@ -9,9 +9,9 @@
  */
 
 import { readFileSync, writeFileSync } from 'node:fs'
+import { createRequire } from 'node:module'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { createRequire } from 'node:module'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const require = createRequire(import.meta.url)
@@ -39,13 +39,10 @@ function resolveImport(specifier, fromFile) {
  */
 function inlineImports(filePath) {
   const css = readFileSync(filePath, 'utf8')
-  return css.replace(
-    /^@import\s+['"](.+?)['"];?\s*$/gm,
-    (_match, specifier) => {
-      const resolved = resolveImport(specifier, filePath)
-      return inlineImports(resolved)
-    },
-  )
+  return css.replace(/^@import\s+['"](.+?)['"];?\s*$/gm, (_match, specifier) => {
+    const resolved = resolveImport(specifier, filePath)
+    return inlineImports(resolved)
+  })
 }
 
 // Build
@@ -54,12 +51,7 @@ const inlined = inlineImports(ENTRY)
 const components = readFileSync(COMPONENTS_CSS, 'utf8')
 const ui = readFileSync(UI_CSS, 'utf8')
 const output =
-  banner +
-  inlined +
-  '\n/* --- components --- */\n' +
-  components +
-  '\n/* --- ui --- */\n' +
-  ui
+  banner + inlined + '\n/* --- components --- */\n' + components + '\n/* --- ui --- */\n' + ui
 
 writeFileSync(OUT, output)
 console.log(`build-morphink: ${OUT} (${output.split('\n').length} lines)`)

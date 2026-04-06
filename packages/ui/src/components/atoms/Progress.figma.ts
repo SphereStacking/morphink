@@ -12,5 +12,6 @@ figma.connect(Progress, 'https://figma.com/design/X8gSyqGQC7yghrfuc4GIdQ?node-id
     duration: figma.string('duration'),
     easing: figma.string('easing'),
   },
-  example: (props) => `<Progress :value="60" size="${props.size}" tone="${props.tone}" duration="${props.duration}" easing="${props.easing}" />`,
+  example: (props) =>
+    `<Progress :value="60" size="${props.size}" tone="${props.tone}" duration="${props.duration}" easing="${props.easing}" />`,
 })

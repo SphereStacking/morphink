@@ -9,7 +9,7 @@ defineOptions({ inheritAttrs: false })
     data-morphink
     :class="
       cn(
-        'font-semibold leading-(--morphink-font-line-height-heading) tracking-tight',
+        'leading-(--morphink-font-line-height-heading) font-semibold tracking-tight',
         $attrs.class as string
       )
     "

@@ -17,7 +17,7 @@ import IconClose from '../icons/IconClose.vue'
 import type { SheetRounded, SheetShadow, SheetSize } from '../../lib/props'
 
 const sheetVariants = cva(
-  cn('fixed z-50 flex flex-col bg-(--morphink-color-card) overflow-hidden', 'focus:outline-hidden'),
+  cn('fixed z-50 flex flex-col overflow-hidden bg-(--morphink-color-card)', 'focus:outline-hidden'),
   {
     variants: {
       side: {
@@ -121,14 +121,10 @@ const contentClass = computed(() =>
         data-morphink
         class="mi-overlay-anim fixed inset-0 bg-(--morphink-color-scrim)"
       />
-      <DialogContent
-        data-morphink
-        :class="contentClass"
-        class="mi-sheet-anim"
-      >
+      <DialogContent data-morphink :class="contentClass" class="mi-sheet-anim">
         <div
           v-if="title || description"
-          class="flex items-start justify-between gap-(--morphink-space-md) p-(--morphink-space-lg) border-b border-(--morphink-color-border)"
+          class="flex items-start justify-between gap-(--morphink-space-md) border-b border-(--morphink-color-border) p-(--morphink-space-lg)"
         >
           <div class="flex flex-col gap-(--morphink-space-xs)">
             <DialogTitle
@@ -150,13 +146,13 @@ const contentClass = computed(() =>
         </div>
         <div
           v-if="$slots.footer"
-          class="p-(--morphink-space-lg) border-t border-(--morphink-color-border)"
+          class="border-t border-(--morphink-color-border) p-(--morphink-space-lg)"
         >
           <slot name="footer" />
         </div>
         <DialogClose as-child>
           <button
-            class="absolute right-(--morphink-space-md) top-(--morphink-space-md) inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)"
+            class="absolute top-(--morphink-space-md) right-(--morphink-space-md) inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring) focus-visible:outline-hidden"
             type="button"
             :aria-label="closeLabel"
           >
@@ -196,16 +192,16 @@ const contentClass = computed(() =>
   }
 }
 
-.mi-overlay-anim[data-state="open"] {
+.mi-overlay-anim[data-state='open'] {
   animation: mi-overlay-in var(--morphink-motion-enter) both;
 }
-.mi-overlay-anim[data-state="closed"] {
+.mi-overlay-anim[data-state='closed'] {
   animation: mi-overlay-out var(--morphink-motion-leave) 50ms forwards;
 }
-.mi-sheet-anim[data-state="open"] {
+.mi-sheet-anim[data-state='open'] {
   animation: mi-sheet-in var(--morphink-motion-enter) both;
 }
-.mi-sheet-anim[data-state="closed"] {
+.mi-sheet-anim[data-state='closed'] {
   animation: mi-sheet-out var(--morphink-motion-leave) forwards;
 }
 </style>

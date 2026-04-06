@@ -324,12 +324,42 @@ export const GuideRow = ({ scenario, duration, easing, example }) => (
 )
 
 <div style={{ borderTop: '1px solid var(--morphink-color-border)' }}>
-  <GuideRow scenario="Hover / Focus / Press" duration="fast (100ms)" easing="standard" example="Button hover, Input focus ring" />
-  <GuideRow scenario="Toggle / Open-Close" duration="normal (200ms)" easing="standard" example="Accordion, Switch, Chevron rotate" />
-  <GuideRow scenario="Resize / Reorder" duration="slow (300ms)" easing="standard" example="Layout shift, panel resize" />
-  <GuideRow scenario="Overlay Enter" duration="slow (300ms)" easing="emphasized-decelerate" example="Dialog, Popover, Dropdown appear" />
-  <GuideRow scenario="Overlay Exit" duration="normal (200ms)" easing="emphasized-accelerate" example="Dialog, Popover, Dropdown close" />
-  <GuideRow scenario="Attention / Bounce" duration="normal (200ms)" easing="spring" example="Badge enter, Input shake, Switch bounce" />
+  <GuideRow
+    scenario="Hover / Focus / Press"
+    duration="fast (100ms)"
+    easing="standard"
+    example="Button hover, Input focus ring"
+  />
+  <GuideRow
+    scenario="Toggle / Open-Close"
+    duration="normal (200ms)"
+    easing="standard"
+    example="Accordion, Switch, Chevron rotate"
+  />
+  <GuideRow
+    scenario="Resize / Reorder"
+    duration="slow (300ms)"
+    easing="standard"
+    example="Layout shift, panel resize"
+  />
+  <GuideRow
+    scenario="Overlay Enter"
+    duration="slow (300ms)"
+    easing="emphasized-decelerate"
+    example="Dialog, Popover, Dropdown appear"
+  />
+  <GuideRow
+    scenario="Overlay Exit"
+    duration="normal (200ms)"
+    easing="emphasized-accelerate"
+    example="Dialog, Popover, Dropdown close"
+  />
+  <GuideRow
+    scenario="Attention / Bounce"
+    duration="normal (200ms)"
+    easing="spring"
+    example="Badge enter, Input shake, Switch bounce"
+  />
 </div>
 
 For **transitions**, use primitive tokens directly:
@@ -383,8 +413,14 @@ Built-in keyframe animations for components. Each keyframe defines **what moves*
 <KeyframeRow name="mi-dialog-in / out" description="Dialog scale + slide up with opacity" />
 <KeyframeRow name="mi-popover-in / out" description="Popover scale + directional slide" />
 <KeyframeRow name="mi-dropdown-in / out" description="Dropdown slide down + fade" />
-<KeyframeRow name="mi-sheet-in / out" description="Sheet slide from side (direction via CSS variable)" />
-<KeyframeRow name="mi-toast-in / out" description="Toast slide + fade (direction via CSS variable)" />
+<KeyframeRow
+  name="mi-sheet-in / out"
+  description="Sheet slide from side (direction via CSS variable)"
+/>
+<KeyframeRow
+  name="mi-toast-in / out"
+  description="Toast slide + fade (direction via CSS variable)"
+/>
 <KeyframeRow name="mi-checkmark-draw" description="Checkbox checkmark stroke draw animation" />
 <KeyframeRow name="mi-switch-bounce" description="Switch thumb bounce on toggle" />
 <KeyframeRow name="mi-radio-dot-in" description="Radio dot scale-in entrance" />

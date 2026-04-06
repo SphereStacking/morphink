@@ -124,10 +124,12 @@ const tooltipStyle = computed(() => ({
   }
 }
 
-.mi-tooltip-anim[data-state="delayed-open"] {
-  animation: mi-popover-in var(--morphink-duration-normal) var(--morphink-easing-emphasized-decelerate) both;
+.mi-tooltip-anim[data-state='delayed-open'] {
+  animation: mi-popover-in var(--morphink-duration-normal)
+    var(--morphink-easing-emphasized-decelerate) both;
 }
-.mi-tooltip-anim[data-state="closed"] {
-  animation: mi-popover-out var(--morphink-duration-fast) var(--morphink-easing-emphasized-accelerate) forwards;
+.mi-tooltip-anim[data-state='closed'] {
+  animation: mi-popover-out var(--morphink-duration-fast)
+    var(--morphink-easing-emphasized-accelerate) forwards;
 }
 </style>

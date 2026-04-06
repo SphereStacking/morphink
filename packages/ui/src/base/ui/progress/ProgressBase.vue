@@ -4,7 +4,13 @@ import { computed, useAttrs } from 'vue'
 import { ProgressRoot, ProgressIndicator } from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
-import type { ProgressSize, ProgressTone, ProgressRounded, ProgressDuration, ProgressEasing } from '../../lib/props'
+import type {
+  ProgressSize,
+  ProgressTone,
+  ProgressRounded,
+  ProgressDuration,
+  ProgressEasing,
+} from '../../lib/props'
 
 const roundedVariants = {
   none: 'rounded-none',
@@ -108,8 +114,7 @@ const indicatorClasses = computed(() =>
     'h-full bg-(--prog-color)',
     '[transition-property:width]',
     roundedVariants[props.rounded ?? 'full'],
-    isIndeterminate.value &&
-      'w-1/3 mi-progress-anim'
+    isIndeterminate.value && 'mi-progress-anim w-1/3'
   )
 )
 

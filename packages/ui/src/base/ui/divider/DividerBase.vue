@@ -28,5 +28,9 @@ const attrs = useAttrs()
 </script>
 
 <template>
-  <div data-morphink :class="cn('bg-(--morphink-color-border)', attrs.class)" :style="dividerStyle" />
+  <div
+    data-morphink
+    :class="cn('bg-(--morphink-color-border)', attrs.class)"
+    :style="dividerStyle"
+  />
 </template>

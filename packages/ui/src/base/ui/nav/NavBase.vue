@@ -36,9 +36,9 @@ const navVariants = cva('inline-flex rounded-full', {
     },
     variant: {
       subtle:
-        'bg-(--morphink-color-muted) border-(--morphink-border-width-default) border-(--morphink-color-border)',
+        'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-muted)',
       solid:
-        'bg-(--morphink-color-card) border-(--morphink-border-width-default) border-(--morphink-color-border)',
+        'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)',
     },
   },
   defaultVariants: {

@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Tabs, Text, Stack } from '@morphink/ui'
-import { componentSizes, componentVariants, componentDurations, componentEasings } from '@morphink/ui'
+import {
+  componentSizes,
+  componentVariants,
+  componentDurations,
+  componentEasings,
+} from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const tabItems = [

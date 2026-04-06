@@ -93,10 +93,10 @@ const contentClass = computed(() =>
   }
 }
 
-.mi-dropdown-anim[data-state="open"] {
+.mi-dropdown-anim[data-state='open'] {
   animation: mi-dropdown-in var(--morphink-motion-enter) both;
 }
-.mi-dropdown-anim[data-state="closed"] {
+.mi-dropdown-anim[data-state='closed'] {
   animation: mi-dropdown-out var(--morphink-motion-leave) forwards;
 }
 </style>

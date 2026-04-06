@@ -98,7 +98,11 @@ const config: StorybookConfig = {
         return { code: imports + '\n' + code, map: null }
       },
     }
-    config.plugins = [vue({ include: /\.stories\.vue$/ }), ...(config.plugins || []), fixMetaImports]
+    config.plugins = [
+      vue({ include: /\.stories\.vue$/ }),
+      ...(config.plugins || []),
+      fixMetaImports,
+    ]
 
     return config
   },

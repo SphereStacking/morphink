@@ -7,6 +7,7 @@
  */
 
 import { readFileSync, writeFileSync } from 'node:fs'
+
 import { parse } from 'postcss'
 
 const CSS_PATH = new URL('../dist/ui.css', import.meta.url).pathname
@@ -41,7 +42,10 @@ function scopeUtilities() {
 
   // Remove the layer order declaration (redundant after base removal)
   root.walkAtRules('layer', (atRule) => {
-    if (/^theme\s*,\s*base\s*,\s*components\s*,\s*utilities$/.test(atRule.params) && !atRule.nodes) {
+    if (
+      /^theme\s*,\s*base\s*,\s*components\s*,\s*utilities$/.test(atRule.params) &&
+      !atRule.nodes
+    ) {
       atRule.remove()
     }
   })

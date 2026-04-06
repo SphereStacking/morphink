@@ -62,7 +62,7 @@ const triggerVariants = cva(
     '[transition-duration:var(--morphink-duration-fast)]',
     '[transition-timing-function:var(--morphink-easing-standard)]',
     'hover:bg-(--morphink-color-muted)',
-    'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color)'
+    'focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:outline-hidden'
   ),
   {
     variants: {
@@ -78,23 +78,23 @@ const triggerVariants = cva(
       },
       tone: {
         primary:
-          '[--ring-color:var(--morphink-color-primary)] [--field-color:var(--morphink-color-primary)]',
+          '[--field-color:var(--morphink-color-primary)] [--ring-color:var(--morphink-color-primary)]',
         secondary:
-          '[--ring-color:var(--morphink-color-secondary)] [--field-color:var(--morphink-color-secondary)]',
+          '[--field-color:var(--morphink-color-secondary)] [--ring-color:var(--morphink-color-secondary)]',
         tertiary:
-          '[--ring-color:var(--morphink-color-tertiary)] [--field-color:var(--morphink-color-tertiary)]',
-        base: '[--ring-color:var(--morphink-color-ring)] [--field-color:var(--morphink-color-base)]',
+          '[--field-color:var(--morphink-color-tertiary)] [--ring-color:var(--morphink-color-tertiary)]',
+        base: '[--field-color:var(--morphink-color-base)] [--ring-color:var(--morphink-color-ring)]',
         accent:
-          '[--ring-color:var(--morphink-color-accent)] [--field-color:var(--morphink-color-accent)]',
+          '[--field-color:var(--morphink-color-accent)] [--ring-color:var(--morphink-color-accent)]',
         neutral:
-          '[--ring-color:var(--morphink-color-neutral)] [--field-color:var(--morphink-color-neutral)]',
+          '[--field-color:var(--morphink-color-neutral)] [--ring-color:var(--morphink-color-neutral)]',
         success:
-          '[--ring-color:var(--morphink-color-success)] [--field-color:var(--morphink-color-success)]',
+          '[--field-color:var(--morphink-color-success)] [--ring-color:var(--morphink-color-success)]',
         warning:
-          '[--ring-color:var(--morphink-color-warning)] [--field-color:var(--morphink-color-warning)]',
-        info: '[--ring-color:var(--morphink-color-info)] [--field-color:var(--morphink-color-info)]',
+          '[--field-color:var(--morphink-color-warning)] [--ring-color:var(--morphink-color-warning)]',
+        info: '[--field-color:var(--morphink-color-info)] [--ring-color:var(--morphink-color-info)]',
         destructive:
-          '[--ring-color:var(--morphink-color-destructive)] [--field-color:var(--morphink-color-destructive)]',
+          '[--field-color:var(--morphink-color-destructive)] [--ring-color:var(--morphink-color-destructive)]',
       },
       size: {
         xs: 'h-(--morphink-space-28) px-(--morphink-space-8) text-[length:var(--morphink-font-size-12)]',
@@ -194,7 +194,7 @@ const itemSizes: Record<string, string> = {
 
 const itemClass = computed(() =>
   cn(
-    'rounded-(--morphink-radius-sm) text-(--morphink-color-foreground) focus:bg-(--morphink-color-muted) outline-hidden',
+    'rounded-(--morphink-radius-sm) text-(--morphink-color-foreground) outline-hidden focus:bg-(--morphink-color-muted)',
     itemSizes[props.size]
   )
 )
@@ -244,10 +244,10 @@ const itemClass = computed(() =>
   }
 }
 
-.mi-dropdown-anim[data-state="open"] {
+.mi-dropdown-anim[data-state='open'] {
   animation: mi-dropdown-in var(--morphink-motion-enter) both;
 }
-.mi-dropdown-anim[data-state="closed"] {
+.mi-dropdown-anim[data-state='closed'] {
   animation: mi-dropdown-out var(--morphink-motion-leave) forwards;
 }
 </style>

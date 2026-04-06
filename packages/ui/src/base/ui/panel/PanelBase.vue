@@ -9,11 +9,11 @@ const panelVariants = cva('p-(--morphink-space-lg)', {
   variants: {
     variant: {
       subtle:
-        'bg-(--morphink-color-muted) border-(--morphink-border-width-default) border-(--morphink-color-border)',
+        'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-muted)',
       solid:
-        'bg-(--morphink-color-card) border-(--morphink-border-width-default) border-(--morphink-color-border)',
+        'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)',
       elevated:
-        'bg-(--morphink-color-card) border-(--morphink-border-width-default) border-(--morphink-color-border)',
+        'border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)',
     },
     rounded: {
       none: 'rounded-none',

@@ -11,5 +11,10 @@
   "endOfLine": "lf",
   "singleAttributePerLine": false,
   "sortImports": {},
-  "sortPackageJson": {}
+  "sortPackageJson": {},
+  "sortTailwindcss": {
+    "stylesheet": "./packages/ui/src/styles/tailwind.css",
+    "functions": ["cn", "cva"],
+    "attributes": [":class"]
+  }
 }

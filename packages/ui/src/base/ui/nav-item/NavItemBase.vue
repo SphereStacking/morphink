@@ -17,7 +17,7 @@ const attrs = useAttrs()
 const classes = computed(() =>
   cn(
     // layout
-    'flex items-center gap-(--morphink-space-sm) no-underline cursor-pointer',
+    'flex cursor-pointer items-center gap-(--morphink-space-sm) no-underline',
     'px-(--morphink-space-md) py-(--morphink-space-sm)',
     'rounded-(--morphink-radius-md)',
     // active indicator
@@ -31,7 +31,7 @@ const classes = computed(() =>
     '[transition-duration:var(--morphink-duration-fast)]',
     '[transition-timing-function:var(--morphink-easing-standard)]',
     // focus
-    'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-accent)',
+    'focus-visible:ring-2 focus-visible:ring-(--morphink-color-accent) focus-visible:outline-hidden',
     // active state (prop)
     props.active
       ? cn(

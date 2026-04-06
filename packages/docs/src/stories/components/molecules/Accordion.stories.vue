@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { Accordion, AccordionItem, Stack, Text } from '@morphink/ui'
-import { componentDurations, componentEasings, componentSizes, componentVariants } from '@morphink/ui'
+import {
+  componentDurations,
+  componentEasings,
+  componentSizes,
+  componentVariants,
+} from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const { Story } = defineMeta({

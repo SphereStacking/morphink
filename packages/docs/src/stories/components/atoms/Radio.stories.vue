@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Radio, RadioGroup, Stack } from '@morphink/ui'
-import { componentDurations, componentEasings, componentSizes, componentTones, componentVariants } from '@morphink/ui'
+import {
+  componentDurations,
+  componentEasings,
+  componentSizes,
+  componentTones,
+  componentVariants,
+} from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const selected = ref('apple')

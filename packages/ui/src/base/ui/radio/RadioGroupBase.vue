@@ -1,11 +1,23 @@
 <script setup lang="ts">
 import { computed, provide, toRef, useAttrs } from 'vue'
 import { RadioGroupRoot, useForwardPropsEmits } from 'reka-ui'
-import type { RadioSize, RadioTone, RadioVariant, RadioDuration, RadioEasing } from '../../lib/props'
+import type {
+  RadioSize,
+  RadioTone,
+  RadioVariant,
+  RadioDuration,
+  RadioEasing,
+} from '../../lib/props'
 import { cn } from '../../lib/utils'
 
 defineOptions({ inheritAttrs: false })
-import { radioSizeKey, radioVariantKey, radioToneKey, radioDurationKey, radioEasingKey } from './radioContext'
+import {
+  radioSizeKey,
+  radioVariantKey,
+  radioToneKey,
+  radioDurationKey,
+  radioEasingKey,
+} from './radioContext'
 
 const props = withDefaults(
   defineProps<{

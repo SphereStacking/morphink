@@ -6,7 +6,14 @@ import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 import IconCheck from '../icons/IconCheck.vue'
 import IconMinus from '../icons/IconMinus.vue'
-import type { CheckboxRounded, CheckboxSize, CheckboxTone, CheckboxVariant, CheckboxDuration, CheckboxEasing } from '../../lib/props'
+import type {
+  CheckboxRounded,
+  CheckboxSize,
+  CheckboxTone,
+  CheckboxVariant,
+  CheckboxDuration,
+  CheckboxEasing,
+} from '../../lib/props'
 import {
   checkboxSizeKey,
   checkboxVariantKey,
@@ -20,8 +27,8 @@ const checkboxVariants = cva(
     'relative inline-flex shrink-0 items-center justify-center border',
     '[transition-property:border-color,box-shadow,background-color]',
     'before:absolute before:inset-[-10px] before:content-[""]',
-    'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
-    'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
+    'focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2 focus-visible:outline-hidden',
+    'disabled:cursor-not-allowed disabled:opacity-(--morphink-opacity-disabled)',
     'data-[state=checked]:border-transparent data-[state=indeterminate]:border-transparent',
     'data-[state=checked]:bg-(--ctl-color) data-[state=checked]:text-(--ctl-fg)',
     'data-[state=indeterminate]:bg-(--ctl-color) data-[state=indeterminate]:text-(--ctl-fg)'
@@ -39,7 +46,10 @@ const checkboxVariants = cva(
           'border-transparent bg-(--morphink-color-muted)',
           'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]'
         ),
-        ghost: cn('border-(--morphink-color-border)', 'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'),
+        ghost: cn(
+          'border-(--morphink-color-border)',
+          'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'
+        ),
         soft: cn(
           'border-transparent',
           'bg-[color-mix(in_srgb,var(--ctl-color)_18%,transparent)]',
@@ -267,7 +277,16 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <CheckboxRoot data-morphink v-bind="forwarded" :class="classes" :style="{ transitionDuration: durationMap[duration], transitionTimingFunction: easingMap[easing] }" v-slot="{ state }">
+  <CheckboxRoot
+    data-morphink
+    v-bind="forwarded"
+    :class="classes"
+    :style="{
+      transitionDuration: durationMap[duration],
+      transitionTimingFunction: easingMap[easing],
+    }"
+    v-slot="{ state }"
+  >
     <CheckboxIndicator class="flex items-center justify-center">
       <IconCheck
         v-if="state !== 'indeterminate'"

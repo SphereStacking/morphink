@@ -19,7 +19,8 @@ import Box from '../atoms/Box.vue'
     gap="0"
     :style="{
       height: '100%',
-      background: 'color-mix(in srgb, var(--morphink-color-muted) 50%, var(--morphink-color-background))',
+      background:
+        'color-mix(in srgb, var(--morphink-color-muted) 50%, var(--morphink-color-background))',
     }"
   >
     <Box v-if="$slots.header" padding="md" borderBottom>

@@ -18,84 +18,84 @@ const buttonVariants = cva(
     '[transition-property:background-color,color,border-color,box-shadow,opacity,translate,scale]',
     '[transition-duration:var(--morphink-duration-fast)]',
     '[transition-timing-function:var(--morphink-easing-standard)]',
-    'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color)'
+    'focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:outline-hidden'
   ),
   {
     variants: {
       variant: {
         solid: cn(
           'bg-(--btn-color) text-(--btn-fg)',
-          'hover:bg-(--btn-hover) hover:-translate-y-px',
-          'active:bg-(--btn-active) active:scale-[0.98] active:translate-y-0'
+          'hover:-translate-y-px hover:bg-(--btn-hover)',
+          'active:translate-y-0 active:scale-[0.98] active:bg-(--btn-active)'
         ),
         outline: cn(
-          'bg-transparent border border-(--morphink-border-width-default)',
-          'text-(--btn-accent) border-(color:--btn-color)',
-          'hover:bg-(--btn-hover) hover:text-(--btn-fg) hover:border-(color:--btn-hover) hover:-translate-y-px',
-          'active:bg-(--btn-active) active:text-(--btn-fg) active:border-(color:--btn-active) active:scale-[0.98] active:translate-y-0'
+          'border border-(--morphink-border-width-default) bg-transparent',
+          'border-(color:--btn-color) text-(--btn-accent)',
+          'hover:-translate-y-px hover:border-(color:--btn-hover) hover:bg-(--btn-hover) hover:text-(--btn-fg)',
+          'active:translate-y-0 active:scale-[0.98] active:border-(color:--btn-active) active:bg-(--btn-active) active:text-(--btn-fg)'
         ),
         ghost: cn(
-          'bg-transparent border-transparent text-(--btn-accent)',
-          'hover:bg-(--btn-color) hover:text-(--btn-fg) hover:scale-[1.02]',
-          'active:bg-(--btn-active) active:text-(--btn-fg) active:scale-[0.98]'
+          'border-transparent bg-transparent text-(--btn-accent)',
+          'hover:scale-[1.02] hover:bg-(--btn-color) hover:text-(--btn-fg)',
+          'active:scale-[0.98] active:bg-(--btn-active) active:text-(--btn-fg)'
         ),
         soft: cn(
           'border-0',
           'bg-[color-mix(in_srgb,var(--btn-color)_12%,transparent)] text-(--btn-accent)',
-          'hover:bg-[color-mix(in_srgb,var(--btn-hover)_18%,transparent)] hover:scale-[1.02]',
-          'active:bg-[color-mix(in_srgb,var(--btn-active)_24%,transparent)] active:scale-[0.98]'
+          'hover:scale-[1.02] hover:bg-[color-mix(in_srgb,var(--btn-hover)_18%,transparent)]',
+          'active:scale-[0.98] active:bg-[color-mix(in_srgb,var(--btn-active)_24%,transparent)]'
         ),
       },
       tone: {
         primary: cn(
           '[--btn-color:var(--morphink-color-primary)] [--btn-fg:var(--morphink-color-primary-foreground)]',
-          '[--btn-hover:var(--morphink-color-primary-hover)] [--btn-active:var(--morphink-color-primary-active)]',
-          '[--ring-color:var(--morphink-color-primary)] [--btn-accent:var(--morphink-color-primary)]'
+          '[--btn-active:var(--morphink-color-primary-active)] [--btn-hover:var(--morphink-color-primary-hover)]',
+          '[--btn-accent:var(--morphink-color-primary)] [--ring-color:var(--morphink-color-primary)]'
         ),
         secondary: cn(
           '[--btn-color:var(--morphink-color-secondary)] [--btn-fg:var(--morphink-color-secondary-foreground)]',
-          '[--btn-hover:var(--morphink-color-secondary-hover)] [--btn-active:var(--morphink-color-secondary-active)]',
-          '[--ring-color:var(--morphink-color-secondary)] [--btn-accent:var(--morphink-color-secondary)]'
+          '[--btn-active:var(--morphink-color-secondary-active)] [--btn-hover:var(--morphink-color-secondary-hover)]',
+          '[--btn-accent:var(--morphink-color-secondary)] [--ring-color:var(--morphink-color-secondary)]'
         ),
         tertiary: cn(
           '[--btn-color:var(--morphink-color-tertiary)] [--btn-fg:var(--morphink-color-tertiary-foreground)]',
-          '[--btn-hover:var(--morphink-color-tertiary-hover)] [--btn-active:var(--morphink-color-tertiary-active)]',
-          '[--ring-color:var(--morphink-color-tertiary)] [--btn-accent:var(--morphink-color-tertiary)]'
+          '[--btn-active:var(--morphink-color-tertiary-active)] [--btn-hover:var(--morphink-color-tertiary-hover)]',
+          '[--btn-accent:var(--morphink-color-tertiary)] [--ring-color:var(--morphink-color-tertiary)]'
         ),
         base: cn(
           '[--btn-color:var(--morphink-color-base)] [--btn-fg:var(--morphink-color-base-foreground)]',
-          '[--btn-hover:var(--morphink-color-base-hover)] [--btn-active:var(--morphink-color-base-active)]',
-          '[--ring-color:var(--morphink-color-base)] [--btn-accent:var(--morphink-color-base-foreground)]'
+          '[--btn-active:var(--morphink-color-base-active)] [--btn-hover:var(--morphink-color-base-hover)]',
+          '[--btn-accent:var(--morphink-color-base-foreground)] [--ring-color:var(--morphink-color-base)]'
         ),
         accent: cn(
           '[--btn-color:var(--morphink-color-accent)] [--btn-fg:var(--morphink-color-accent-foreground)]',
-          '[--btn-hover:var(--morphink-color-accent-hover)] [--btn-active:var(--morphink-color-accent-active)]',
-          '[--ring-color:var(--morphink-color-accent)] [--btn-accent:var(--morphink-color-accent)]'
+          '[--btn-active:var(--morphink-color-accent-active)] [--btn-hover:var(--morphink-color-accent-hover)]',
+          '[--btn-accent:var(--morphink-color-accent)] [--ring-color:var(--morphink-color-accent)]'
         ),
         neutral: cn(
           '[--btn-color:var(--morphink-color-neutral)] [--btn-fg:var(--morphink-color-neutral-foreground)]',
-          '[--btn-hover:var(--morphink-color-neutral-hover)] [--btn-active:var(--morphink-color-neutral-active)]',
-          '[--ring-color:var(--morphink-color-neutral)] [--btn-accent:var(--morphink-color-neutral-foreground)]'
+          '[--btn-active:var(--morphink-color-neutral-active)] [--btn-hover:var(--morphink-color-neutral-hover)]',
+          '[--btn-accent:var(--morphink-color-neutral-foreground)] [--ring-color:var(--morphink-color-neutral)]'
         ),
         success: cn(
           '[--btn-color:var(--morphink-color-success)] [--btn-fg:var(--morphink-color-success-foreground)]',
-          '[--btn-hover:var(--morphink-color-success-hover)] [--btn-active:var(--morphink-color-success-active)]',
-          '[--ring-color:var(--morphink-color-success)] [--btn-accent:var(--morphink-color-success)]'
+          '[--btn-active:var(--morphink-color-success-active)] [--btn-hover:var(--morphink-color-success-hover)]',
+          '[--btn-accent:var(--morphink-color-success)] [--ring-color:var(--morphink-color-success)]'
         ),
         warning: cn(
           '[--btn-color:var(--morphink-color-warning)] [--btn-fg:var(--morphink-color-warning-foreground)]',
-          '[--btn-hover:var(--morphink-color-warning-hover)] [--btn-active:var(--morphink-color-warning-active)]',
-          '[--ring-color:var(--morphink-color-warning)] [--btn-accent:var(--morphink-color-warning)]'
+          '[--btn-active:var(--morphink-color-warning-active)] [--btn-hover:var(--morphink-color-warning-hover)]',
+          '[--btn-accent:var(--morphink-color-warning)] [--ring-color:var(--morphink-color-warning)]'
         ),
         info: cn(
           '[--btn-color:var(--morphink-color-info)] [--btn-fg:var(--morphink-color-info-foreground)]',
-          '[--btn-hover:var(--morphink-color-info-hover)] [--btn-active:var(--morphink-color-info-active)]',
-          '[--ring-color:var(--morphink-color-info)] [--btn-accent:var(--morphink-color-info)]'
+          '[--btn-active:var(--morphink-color-info-active)] [--btn-hover:var(--morphink-color-info-hover)]',
+          '[--btn-accent:var(--morphink-color-info)] [--ring-color:var(--morphink-color-info)]'
         ),
         destructive: cn(
           '[--btn-color:var(--morphink-color-destructive)] [--btn-fg:var(--morphink-color-destructive-foreground)]',
-          '[--btn-hover:var(--morphink-color-destructive-hover)] [--btn-active:var(--morphink-color-destructive-active)]',
-          '[--ring-color:var(--morphink-color-destructive)] [--btn-accent:var(--morphink-color-destructive)]'
+          '[--btn-active:var(--morphink-color-destructive-active)] [--btn-hover:var(--morphink-color-destructive-hover)]',
+          '[--btn-accent:var(--morphink-color-destructive)] [--ring-color:var(--morphink-color-destructive)]'
         ),
       },
       size: {
@@ -120,7 +120,7 @@ const buttonVariants = cva(
         lg: 'shadow-(--morphink-shadow-lg)',
       },
       disabled: {
-        true: 'opacity-(--morphink-opacity-disabled) cursor-not-allowed pointer-events-none shadow-none',
+        true: 'pointer-events-none cursor-not-allowed opacity-(--morphink-opacity-disabled) shadow-none',
         false: '',
       },
     },

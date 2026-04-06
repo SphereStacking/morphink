@@ -7,7 +7,7 @@ import type { AvatarRounded, AvatarSize } from '../../lib/props'
 import IconUser from '../icons/IconUser.vue'
 
 const avatarVariants = cva(
-  cn('relative inline-flex items-center justify-center overflow-hidden shrink-0', 'select-none'),
+  cn('relative inline-flex shrink-0 items-center justify-center overflow-hidden', 'select-none'),
   {
     variants: {
       size: {
@@ -74,7 +74,7 @@ const classes = computed(() =>
       rounded: props.rounded,
     }),
     showFallback.value &&
-      'bg-(--morphink-color-muted) text-(--morphink-color-muted-foreground) font-medium',
+      'bg-(--morphink-color-muted) font-medium text-(--morphink-color-muted-foreground)',
     attrs.class
   )
 )

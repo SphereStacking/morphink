@@ -132,7 +132,12 @@ const { Story } = defineMeta({
       <template #header>
         <AppHeader title="My App">
           <template #actions>
-            <Button size="sm" variant="ghost" tone="neutral" @click="sidebarCollapsed = !sidebarCollapsed">
+            <Button
+              size="sm"
+              variant="ghost"
+              tone="neutral"
+              @click="sidebarCollapsed = !sidebarCollapsed"
+            >
               {{ sidebarCollapsed ? 'Show Sidebar' : 'Hide Sidebar' }}
             </Button>
           </template>

@@ -19,16 +19,16 @@ import type { AlertDialogRounded, AlertDialogShadow, AlertDialogSize } from '../
 
 const dialogVariants = cva(
   cn(
-    'fixed left-1/2 top-1/2 z-10 grid -translate-x-1/2 -translate-y-1/2 border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
+    'fixed top-1/2 left-1/2 z-10 grid -translate-x-1/2 -translate-y-1/2 border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
   ),
   {
     variants: {
       size: {
-        xs: 'w-[min(320px,92vw)] p-(--morphink-space-sm) gap-(--morphink-space-xs)',
-        sm: 'w-[min(420px,92vw)] p-(--morphink-space-md) gap-(--morphink-space-sm)',
-        md: 'w-[min(560px,92vw)] p-(--morphink-space-lg) gap-(--morphink-space-md)',
-        lg: 'w-[min(720px,92vw)] p-(--morphink-space-xl) gap-(--morphink-space-md)',
-        xl: 'w-[min(900px,92vw)] p-(--morphink-space-2xl) gap-(--morphink-space-lg)',
+        xs: 'w-[min(320px,92vw)] gap-(--morphink-space-xs) p-(--morphink-space-sm)',
+        sm: 'w-[min(420px,92vw)] gap-(--morphink-space-sm) p-(--morphink-space-md)',
+        md: 'w-[min(560px,92vw)] gap-(--morphink-space-md) p-(--morphink-space-lg)',
+        lg: 'w-[min(720px,92vw)] gap-(--morphink-space-md) p-(--morphink-space-xl)',
+        xl: 'w-[min(900px,92vw)] gap-(--morphink-space-lg) p-(--morphink-space-2xl)',
       },
       rounded: {
         none: 'rounded-none',
@@ -117,13 +117,13 @@ const buttonSizeMap: Record<string, string> = {
 }
 const cancelClass = computed(() =>
   cn(
-    'inline-flex items-center justify-center rounded-(--morphink-radius-md) border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card) text-(--morphink-color-foreground) [transition-property:background-color,color,border-color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)',
+    'inline-flex items-center justify-center rounded-(--morphink-radius-md) border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card) text-(--morphink-color-foreground) [transition-property:background-color,color,border-color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring) focus-visible:outline-hidden',
     buttonSizeMap[props.size ?? 'md']
   )
 )
 const actionClass = computed(() =>
   cn(
-    'inline-flex items-center justify-center rounded-(--morphink-radius-md) bg-(--morphink-color-accent) text-(--morphink-color-accent-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-accent-hover) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-accent)',
+    'inline-flex items-center justify-center rounded-(--morphink-radius-md) bg-(--morphink-color-accent) text-(--morphink-color-accent-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-accent-hover) focus-visible:ring-2 focus-visible:ring-(--morphink-color-accent) focus-visible:outline-hidden',
     buttonSizeMap[props.size ?? 'md']
   )
 )
@@ -139,16 +139,12 @@ const actionClass = computed(() =>
         data-morphink
         class="mi-overlay-anim fixed inset-0 bg-(--morphink-color-scrim)"
       />
-      <AlertDialogContent
-        data-morphink
-        :class="contentClass"
-        class="mi-dialog-anim"
-      >
+      <AlertDialogContent data-morphink :class="contentClass" class="mi-dialog-anim">
         <div class="flex items-center justify-between gap-(--morphink-space-md)">
           <AlertDialogTitle v-if="title" :class="titleClass">{{ title }}</AlertDialogTitle>
           <AlertDialogCancel as-child>
             <button
-              class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)"
+              class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring) focus-visible:outline-hidden"
               type="button"
               :aria-label="cancelLabel"
             >
@@ -187,28 +183,42 @@ const actionClass = computed(() =>
 
 <style scoped>
 @keyframes mi-overlay-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes mi-overlay-out {
-  to { opacity: 0; }
+  to {
+    opacity: 0;
+  }
 }
 @keyframes mi-dialog-in {
-  from { opacity: 0; scale: 0.95; transform: translateY(8px); }
+  from {
+    opacity: 0;
+    scale: 0.95;
+    transform: translateY(8px);
+  }
 }
 @keyframes mi-dialog-out {
-  to { opacity: 0; scale: 0.95; transform: translateY(8px); }
+  to {
+    opacity: 0;
+    scale: 0.95;
+    transform: translateY(8px);
+  }
 }
-.mi-overlay-anim[data-state="open"] {
+.mi-overlay-anim[data-state='open'] {
   animation: mi-overlay-in var(--morphink-motion-enter) both;
 }
-.mi-overlay-anim[data-state="closed"] {
+.mi-overlay-anim[data-state='closed'] {
   animation: mi-overlay-out var(--morphink-motion-leave) 50ms forwards;
 }
-.mi-dialog-anim[data-state="open"] {
+.mi-dialog-anim[data-state='open'] {
   animation: mi-dialog-in var(--morphink-motion-enter) 50ms both;
 }
-.mi-dialog-anim[data-state="closed"] {
+.mi-dialog-anim[data-state='closed'] {
   animation: mi-dialog-out var(--morphink-motion-leave) forwards;
 }
 </style>

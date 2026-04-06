@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Checkbox, CheckboxGroup, Stack } from '@morphink/ui'
-import { componentDurations, componentEasings, componentRounded, componentSizes, componentTones, componentVariants } from '@morphink/ui'
+import {
+  componentDurations,
+  componentEasings,
+  componentRounded,
+  componentSizes,
+  componentTones,
+  componentVariants,
+} from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const checked = ref(false)

@@ -4,16 +4,28 @@ import { computed, inject, ref, useAttrs } from 'vue'
 import { RadioGroupItem, RadioGroupIndicator } from 'reka-ui'
 import { cva } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
-import type { RadioSize, RadioTone, RadioVariant, RadioDuration, RadioEasing } from '../../lib/props'
-import { radioSizeKey, radioVariantKey, radioToneKey, radioDurationKey, radioEasingKey } from './radioContext'
+import type {
+  RadioSize,
+  RadioTone,
+  RadioVariant,
+  RadioDuration,
+  RadioEasing,
+} from '../../lib/props'
+import {
+  radioSizeKey,
+  radioVariantKey,
+  radioToneKey,
+  radioDurationKey,
+  radioEasingKey,
+} from './radioContext'
 
 const radioVariants = cva(
   cn(
     'relative inline-flex shrink-0 items-center justify-center rounded-full border',
     '[transition-property:border-color,box-shadow]',
     'before:absolute before:inset-[-10px] before:content-[""]',
-    'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
-    'disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed',
+    'focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2 focus-visible:outline-hidden',
+    'disabled:cursor-not-allowed disabled:opacity-(--morphink-opacity-disabled)',
     'data-[state=checked]:border-(color:--ctl-color)'
   ),
   {
@@ -28,7 +40,10 @@ const radioVariants = cva(
           'data-[state=unchecked]:hover:bg-[color-mix(in_srgb,var(--ctl-color)_10%,var(--morphink-color-muted))]',
           'data-[state=checked]:bg-(--ctl-color)'
         ),
-        ghost: cn('border-(--morphink-color-border)', 'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'),
+        ghost: cn(
+          'border-(--morphink-color-border)',
+          'data-[state=unchecked]:hover:bg-(--morphink-color-muted)'
+        ),
         soft: cn(
           'border-transparent',
           'bg-[color-mix(in_srgb,var(--ctl-color)_18%,transparent)]',
@@ -38,34 +53,34 @@ const radioVariants = cva(
       },
       tone: {
         primary: cn(
-          '[--ring-color:var(--morphink-color-primary)] [--ctl-color:var(--morphink-color-primary)] [--ctl-fg:var(--morphink-color-primary-foreground)]'
+          '[--ctl-color:var(--morphink-color-primary)] [--ctl-fg:var(--morphink-color-primary-foreground)] [--ring-color:var(--morphink-color-primary)]'
         ),
         secondary: cn(
-          '[--ring-color:var(--morphink-color-secondary)] [--ctl-color:var(--morphink-color-secondary)] [--ctl-fg:var(--morphink-color-secondary-foreground)]'
+          '[--ctl-color:var(--morphink-color-secondary)] [--ctl-fg:var(--morphink-color-secondary-foreground)] [--ring-color:var(--morphink-color-secondary)]'
         ),
         tertiary: cn(
-          '[--ring-color:var(--morphink-color-tertiary)] [--ctl-color:var(--morphink-color-tertiary)] [--ctl-fg:var(--morphink-color-tertiary-foreground)]'
+          '[--ctl-color:var(--morphink-color-tertiary)] [--ctl-fg:var(--morphink-color-tertiary-foreground)] [--ring-color:var(--morphink-color-tertiary)]'
         ),
         base: cn(
-          '[--ring-color:var(--morphink-color-ring)] [--ctl-color:var(--morphink-color-base)] [--ctl-fg:var(--morphink-color-base-foreground)]'
+          '[--ctl-color:var(--morphink-color-base)] [--ctl-fg:var(--morphink-color-base-foreground)] [--ring-color:var(--morphink-color-ring)]'
         ),
         accent: cn(
-          '[--ring-color:var(--morphink-color-accent)] [--ctl-color:var(--morphink-color-accent)] [--ctl-fg:var(--morphink-color-accent-foreground)]'
+          '[--ctl-color:var(--morphink-color-accent)] [--ctl-fg:var(--morphink-color-accent-foreground)] [--ring-color:var(--morphink-color-accent)]'
         ),
         neutral: cn(
-          '[--ring-color:var(--morphink-color-neutral)] [--ctl-color:var(--morphink-color-neutral)] [--ctl-fg:var(--morphink-color-neutral-foreground)]'
+          '[--ctl-color:var(--morphink-color-neutral)] [--ctl-fg:var(--morphink-color-neutral-foreground)] [--ring-color:var(--morphink-color-neutral)]'
         ),
         success: cn(
-          '[--ring-color:var(--morphink-color-success)] [--ctl-color:var(--morphink-color-success)] [--ctl-fg:var(--morphink-color-success-foreground)]'
+          '[--ctl-color:var(--morphink-color-success)] [--ctl-fg:var(--morphink-color-success-foreground)] [--ring-color:var(--morphink-color-success)]'
         ),
         warning: cn(
-          '[--ring-color:var(--morphink-color-warning)] [--ctl-color:var(--morphink-color-warning)] [--ctl-fg:var(--morphink-color-warning-foreground)]'
+          '[--ctl-color:var(--morphink-color-warning)] [--ctl-fg:var(--morphink-color-warning-foreground)] [--ring-color:var(--morphink-color-warning)]'
         ),
         info: cn(
-          '[--ring-color:var(--morphink-color-info)] [--ctl-color:var(--morphink-color-info)] [--ctl-fg:var(--morphink-color-info-foreground)]'
+          '[--ctl-color:var(--morphink-color-info)] [--ctl-fg:var(--morphink-color-info-foreground)] [--ring-color:var(--morphink-color-info)]'
         ),
         destructive: cn(
-          '[--ring-color:var(--morphink-color-destructive)] [--ctl-color:var(--morphink-color-destructive)] [--ctl-fg:var(--morphink-color-destructive-foreground)]'
+          '[--ctl-color:var(--morphink-color-destructive)] [--ctl-fg:var(--morphink-color-destructive-foreground)] [--ring-color:var(--morphink-color-destructive)]'
         ),
       },
       size: {
@@ -160,7 +175,18 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <RadioGroupItem data-morphink :value="value" :disabled="disabled" :id="id" :class="classes" :style="{ transitionDuration: durationMap[resolvedDuration], transitionTimingFunction: easingMap[resolvedEasing] }" v-bind="attrs">
+  <RadioGroupItem
+    data-morphink
+    :value="value"
+    :disabled="disabled"
+    :id="id"
+    :class="classes"
+    :style="{
+      transitionDuration: durationMap[resolvedDuration],
+      transitionTimingFunction: easingMap[resolvedEasing],
+    }"
+    v-bind="attrs"
+  >
     <RadioGroupIndicator class="flex items-center justify-center">
       <span
         :class="

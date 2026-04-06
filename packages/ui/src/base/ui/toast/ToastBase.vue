@@ -19,7 +19,7 @@ const toastVariants = cva(
         solid: 'text-(--tst-fg)',
         outline: cn(
           'border border-(--morphink-border-width-default) bg-transparent',
-          'text-(--tst-accent) border-(color:--tst-color)'
+          'border-(color:--tst-color) text-(--tst-accent)'
         ),
         soft: 'text-(--tst-accent)',
       },
@@ -122,7 +122,7 @@ const rootClass = computed(() =>
     :open="open"
     @update:open="$emit('update:open', $event)"
   >
-    <div class="flex-1 min-w-0 grid gap-(--morphink-space-xs)">
+    <div class="grid min-w-0 flex-1 gap-(--morphink-space-xs)">
       <ToastTitle v-if="title" class="text-[14px] font-semibold">
         {{ title }}
       </ToastTitle>
@@ -130,7 +130,7 @@ const rootClass = computed(() =>
         {{ description }}
       </ToastDescription>
     </div>
-    <div class="flex items-center gap-(--morphink-space-xs) shrink-0">
+    <div class="flex shrink-0 items-center gap-(--morphink-space-xs)">
       <ToastAction v-if="actionLabel" as-child :alt-text="actionLabel">
         <button
           type="button"
@@ -154,7 +154,7 @@ const rootClass = computed(() =>
           type="button"
           :class="
             cn(
-              'shrink-0 inline-flex items-center justify-center rounded-(--morphink-radius-sm)',
+              'inline-flex shrink-0 items-center justify-center rounded-(--morphink-radius-sm)',
               'size-6 cursor-pointer',
               'opacity-70 hover:opacity-100',
               '[transition-property:opacity] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)]'
@@ -170,11 +170,11 @@ const rootClass = computed(() =>
 </template>
 
 <style scoped>
-.mi-toast-anim[data-state="open"] {
+.mi-toast-anim[data-state='open'] {
   animation: mi-toast-in var(--morphink-motion-enter) both;
 }
-.mi-toast-anim[data-state="closed"],
-.mi-toast-anim[data-swipe="end"] {
+.mi-toast-anim[data-state='closed'],
+.mi-toast-anim[data-swipe='end'] {
   animation: mi-toast-out var(--morphink-motion-leave) forwards;
 }
 

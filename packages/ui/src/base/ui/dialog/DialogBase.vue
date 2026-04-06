@@ -18,16 +18,16 @@ import type { DialogRounded, DialogShadow, DialogSize } from '../../lib/props'
 
 const dialogVariants = cva(
   cn(
-    'fixed left-1/2 top-1/2 z-10 grid -translate-x-1/2 -translate-y-1/2 border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
+    'fixed top-1/2 left-1/2 z-10 grid -translate-x-1/2 -translate-y-1/2 border-(--morphink-border-width-default) border-(--morphink-color-border) bg-(--morphink-color-card)'
   ),
   {
     variants: {
       size: {
-        xs: 'w-[min(320px,92vw)] p-(--morphink-space-sm) gap-(--morphink-space-xs)',
-        sm: 'w-[min(420px,92vw)] p-(--morphink-space-md) gap-(--morphink-space-sm)',
-        md: 'w-[min(560px,92vw)] p-(--morphink-space-lg) gap-(--morphink-space-md)',
-        lg: 'w-[min(720px,92vw)] p-(--morphink-space-xl) gap-(--morphink-space-md)',
-        xl: 'w-[min(900px,92vw)] p-(--morphink-space-2xl) gap-(--morphink-space-lg)',
+        xs: 'w-[min(320px,92vw)] gap-(--morphink-space-xs) p-(--morphink-space-sm)',
+        sm: 'w-[min(420px,92vw)] gap-(--morphink-space-sm) p-(--morphink-space-md)',
+        md: 'w-[min(560px,92vw)] gap-(--morphink-space-md) p-(--morphink-space-lg)',
+        lg: 'w-[min(720px,92vw)] gap-(--morphink-space-md) p-(--morphink-space-xl)',
+        xl: 'w-[min(900px,92vw)] gap-(--morphink-space-lg) p-(--morphink-space-2xl)',
       },
       rounded: {
         none: 'rounded-none',
@@ -117,18 +117,14 @@ const titleClass = computed(() => titleVariants({ size: props.size }))
     <DialogPortal>
       <DialogOverlay
         data-morphink
-        class="fixed inset-0 bg-(--morphink-color-scrim) mi-overlay-anim"
+        class="mi-overlay-anim fixed inset-0 bg-(--morphink-color-scrim)"
       />
-      <DialogContent
-        data-morphink
-        :class="contentClass"
-        class="mi-dialog-anim"
-      >
+      <DialogContent data-morphink :class="contentClass" class="mi-dialog-anim">
         <div class="flex items-center justify-between gap-(--morphink-space-md)">
           <DialogTitle v-if="title" :class="titleClass">{{ title }}</DialogTitle>
           <DialogClose as-child>
             <button
-              class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring)"
+              class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring) focus-visible:outline-hidden"
               type="button"
               :aria-label="closeLabel"
             >
@@ -185,17 +181,17 @@ const titleClass = computed(() => titleVariants({ size: props.size }))
   }
 }
 
-.mi-overlay-anim[data-state="open"] {
+.mi-overlay-anim[data-state='open'] {
   animation: mi-overlay-in var(--morphink-motion-enter) both;
 }
-.mi-overlay-anim[data-state="closed"] {
+.mi-overlay-anim[data-state='closed'] {
   animation: mi-overlay-out var(--morphink-motion-leave) 50ms forwards;
 }
 
-.mi-dialog-anim[data-state="open"] {
+.mi-dialog-anim[data-state='open'] {
   animation: mi-dialog-in var(--morphink-motion-enter) 50ms both;
 }
-.mi-dialog-anim[data-state="closed"] {
+.mi-dialog-anim[data-state='closed'] {
   animation: mi-dialog-out var(--morphink-motion-leave) forwards;
 }
 </style>

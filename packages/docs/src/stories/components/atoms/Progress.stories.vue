@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { Progress, Stack, Text } from '@morphink/ui'
-import { componentDurations, componentEasings, componentSizes, componentTones, componentRounded } from '@morphink/ui'
+import {
+  componentDurations,
+  componentEasings,
+  componentSizes,
+  componentTones,
+  componentRounded,
+} from '@morphink/ui'
 import { defineMeta } from 'sb-addon-vue-csf'
 
 const { Story } = defineMeta({

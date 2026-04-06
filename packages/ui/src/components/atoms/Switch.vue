@@ -6,7 +6,13 @@
  * Style variants: base/ui/switch/SwitchBase.vue
  */
 import SwitchBase from '../../base/ui/switch/SwitchBase.vue'
-import type { SwitchSize, SwitchTone, SwitchVariant, SwitchDuration, SwitchEasing } from '../../base/lib/props'
+import type {
+  SwitchSize,
+  SwitchTone,
+  SwitchVariant,
+  SwitchDuration,
+  SwitchEasing,
+} from '../../base/lib/props'
 
 withDefaults(
   defineProps<{

@@ -37,12 +37,12 @@ const sizeClasses: Record<DropdownSize, string> = {
 
 const classes = computed(() =>
   cn(
-    'flex items-center gap-2 rounded-(--morphink-radius-sm) outline-hidden cursor-default',
+    'flex cursor-default items-center gap-2 rounded-(--morphink-radius-sm) outline-hidden',
     sizeClasses[size.value],
     props.destructive
       ? 'text-(--morphink-color-destructive) focus:bg-[color-mix(in_srgb,var(--morphink-color-destructive)_8%,transparent)]'
       : 'text-(--morphink-color-foreground) focus:bg-(--morphink-color-muted)',
-    props.disabled && 'opacity-50 pointer-events-none'
+    props.disabled && 'pointer-events-none opacity-50'
   )
 )
 </script>

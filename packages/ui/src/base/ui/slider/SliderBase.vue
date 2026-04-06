@@ -7,28 +7,28 @@ import { cn } from '../../lib/utils'
 import type { SliderSize, SliderTone } from '../../lib/props'
 
 const rootVariants = cva(
-  'relative flex touch-none select-none items-center disabled:opacity-(--morphink-opacity-disabled) disabled:cursor-not-allowed w-full',
+  'relative flex w-full touch-none items-center select-none disabled:cursor-not-allowed disabled:opacity-(--morphink-opacity-disabled)',
   {
     variants: {
       tone: {
         primary:
-          '[--sld-color:var(--morphink-color-primary)] [--ring-color:var(--morphink-color-primary)]',
+          '[--ring-color:var(--morphink-color-primary)] [--sld-color:var(--morphink-color-primary)]',
         secondary:
-          '[--sld-color:var(--morphink-color-secondary)] [--ring-color:var(--morphink-color-secondary)]',
+          '[--ring-color:var(--morphink-color-secondary)] [--sld-color:var(--morphink-color-secondary)]',
         tertiary:
-          '[--sld-color:var(--morphink-color-tertiary)] [--ring-color:var(--morphink-color-tertiary)]',
-        base: '[--sld-color:var(--morphink-color-base)] [--ring-color:var(--morphink-color-ring)]',
+          '[--ring-color:var(--morphink-color-tertiary)] [--sld-color:var(--morphink-color-tertiary)]',
+        base: '[--ring-color:var(--morphink-color-ring)] [--sld-color:var(--morphink-color-base)]',
         accent:
-          '[--sld-color:var(--morphink-color-accent)] [--ring-color:var(--morphink-color-accent)]',
+          '[--ring-color:var(--morphink-color-accent)] [--sld-color:var(--morphink-color-accent)]',
         neutral:
-          '[--sld-color:var(--morphink-color-neutral)] [--ring-color:var(--morphink-color-neutral)]',
+          '[--ring-color:var(--morphink-color-neutral)] [--sld-color:var(--morphink-color-neutral)]',
         success:
-          '[--sld-color:var(--morphink-color-success)] [--ring-color:var(--morphink-color-success)]',
+          '[--ring-color:var(--morphink-color-success)] [--sld-color:var(--morphink-color-success)]',
         warning:
-          '[--sld-color:var(--morphink-color-warning)] [--ring-color:var(--morphink-color-warning)]',
-        info: '[--sld-color:var(--morphink-color-info)] [--ring-color:var(--morphink-color-info)]',
+          '[--ring-color:var(--morphink-color-warning)] [--sld-color:var(--morphink-color-warning)]',
+        info: '[--ring-color:var(--morphink-color-info)] [--sld-color:var(--morphink-color-info)]',
         destructive:
-          '[--sld-color:var(--morphink-color-destructive)] [--ring-color:var(--morphink-color-destructive)]',
+          '[--ring-color:var(--morphink-color-destructive)] [--sld-color:var(--morphink-color-destructive)]',
       },
     },
     defaultVariants: {
@@ -64,7 +64,7 @@ const thumbVariants = cva(
     '[transition-duration:var(--morphink-duration-fast)]',
     '[transition-timing-function:var(--morphink-easing-standard)]',
     'active:scale-110 active:shadow-(--morphink-shadow-lg)',
-    'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2',
+    'focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2 focus-visible:outline-hidden',
     'disabled:pointer-events-none'
   ),
   {

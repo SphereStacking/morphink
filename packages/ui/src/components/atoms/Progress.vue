@@ -6,7 +6,13 @@
  * Style variants: base/ui/progress/ProgressBase.vue
  */
 import ProgressBase from '../../base/ui/progress/ProgressBase.vue'
-import type { ProgressSize, ProgressTone, ProgressRounded, ProgressDuration, ProgressEasing } from '../../base/lib/props'
+import type {
+  ProgressSize,
+  ProgressTone,
+  ProgressRounded,
+  ProgressDuration,
+  ProgressEasing,
+} from '../../base/lib/props'
 
 withDefaults(
   defineProps<{
@@ -30,5 +36,13 @@ withDefaults(
 </script>
 
 <template>
-  <ProgressBase :value="value" :max="max" :size="size" :tone="tone" :rounded="rounded" :duration="duration" :easing="easing" />
+  <ProgressBase
+    :value="value"
+    :max="max"
+    :size="size"
+    :tone="tone"
+    :rounded="rounded"
+    :duration="duration"
+    :easing="easing"
+  />
 </template>

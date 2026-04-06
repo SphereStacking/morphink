@@ -58,8 +58,13 @@ const innerClasses = computed(() => cn(innerVariants({ size: size.value })))
 <template>
   <AccordionContent
     data-morphink
-    class="overflow-hidden mi-accordion-anim"
-    :style="{ '--mi-acc-dur': durationMap[props.duration], '--mi-acc-ease': easingMap[props.easing] } as any"
+    class="mi-accordion-anim overflow-hidden"
+    :style="
+      {
+        '--mi-acc-dur': durationMap[props.duration],
+        '--mi-acc-ease': easingMap[props.easing],
+      } as any
+    "
   >
     <div :class="innerClasses">
       <slot />
@@ -68,10 +73,10 @@ const innerClasses = computed(() => cn(innerVariants({ size: size.value })))
 </template>
 
 <style scoped>
-.mi-accordion-anim[data-state="open"] {
+.mi-accordion-anim[data-state='open'] {
   animation: mi-accordion-expand var(--mi-acc-dur) var(--mi-acc-ease) both;
 }
-.mi-accordion-anim[data-state="closed"] {
+.mi-accordion-anim[data-state='closed'] {
   animation: mi-accordion-collapse var(--mi-acc-dur) var(--mi-acc-ease) both;
 }
 

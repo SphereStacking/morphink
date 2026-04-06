@@ -16,7 +16,13 @@ withDefaults(
     duration?: CollapsibleDuration
     easing?: CollapsibleEasing
   }>(),
-  { open: undefined, defaultOpen: undefined, disabled: false, duration: 'normal', easing: 'standard' }
+  {
+    open: undefined,
+    defaultOpen: undefined,
+    disabled: false,
+    duration: 'normal',
+    easing: 'standard',
+  }
 )
 
 defineEmits<{
