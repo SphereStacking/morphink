@@ -18,7 +18,7 @@ const buttonVariants = cva(
     '[transition-property:background-color,color,border-color,box-shadow,opacity,translate,scale]',
     '[transition-duration:var(--morphink-duration-fast)]',
     '[transition-timing-function:var(--morphink-easing-standard)]',
-    'focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:outline-hidden'
+    'focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--ring-color) focus-visible:outline-hidden'
   ),
   {
     variants: {

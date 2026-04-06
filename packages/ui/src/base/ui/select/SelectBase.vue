@@ -62,7 +62,7 @@ const triggerVariants = cva(
     '[transition-duration:var(--morphink-duration-fast)]',
     '[transition-timing-function:var(--morphink-easing-standard)]',
     'hover:bg-(--morphink-color-muted)',
-    'focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:outline-hidden'
+    'focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--ring-color) focus-visible:outline-hidden'
   ),
   {
     variants: {

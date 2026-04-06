@@ -124,7 +124,7 @@ const titleClass = computed(() => titleVariants({ size: props.size }))
           <DialogTitle v-if="title" :class="titleClass">{{ title }}</DialogTitle>
           <DialogClose as-child>
             <button
-              class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:ring-2 focus-visible:ring-(--morphink-color-ring) focus-visible:outline-hidden"
+              class="inline-flex size-9 items-center justify-center rounded-(--morphink-radius-sm) text-(--morphink-color-muted-foreground) [transition-property:background-color,color] [transition-duration:var(--morphink-duration-fast)] [transition-timing-function:var(--morphink-easing-standard)] hover:bg-(--morphink-color-muted) hover:text-(--morphink-color-foreground) focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--morphink-color-ring) focus-visible:outline-hidden"
               type="button"
               :aria-label="closeLabel"
             >

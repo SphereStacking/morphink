@@ -31,7 +31,7 @@ const classes = computed(() =>
     '[transition-duration:var(--morphink-duration-fast)]',
     '[transition-timing-function:var(--morphink-easing-standard)]',
     // focus
-    'focus-visible:ring-2 focus-visible:ring-(--morphink-color-accent) focus-visible:outline-hidden',
+    'focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--morphink-color-accent) focus-visible:outline-hidden',
     // active state (prop)
     props.active
       ? cn(

@@ -64,7 +64,7 @@ const thumbVariants = cva(
     '[transition-duration:var(--morphink-duration-fast)]',
     '[transition-timing-function:var(--morphink-easing-standard)]',
     'active:scale-110 active:shadow-(--morphink-shadow-lg)',
-    'focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2 focus-visible:outline-hidden',
+    'focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--ring-color) focus-visible:ring-offset-(--morphink-ring-offset) focus-visible:outline-hidden',
     'disabled:pointer-events-none'
   ),
   {

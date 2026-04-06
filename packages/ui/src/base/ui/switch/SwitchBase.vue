@@ -17,7 +17,7 @@ const switchVariants = cva(
     'relative inline-flex shrink-0 cursor-pointer items-center rounded-full border-2',
     '[transition-property:background-color,border-color]',
     'before:absolute before:inset-[-8px] before:content-[""]',
-    'focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2 focus-visible:outline-hidden',
+    'focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--ring-color) focus-visible:ring-offset-(--morphink-ring-offset) focus-visible:outline-hidden',
     'disabled:cursor-not-allowed disabled:opacity-(--morphink-opacity-disabled)',
     'data-[state=unchecked]:bg-(--morphink-color-muted)'
   ),

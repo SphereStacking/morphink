@@ -24,7 +24,7 @@ const radioVariants = cva(
     'relative inline-flex shrink-0 items-center justify-center rounded-full border',
     '[transition-property:border-color,box-shadow]',
     'before:absolute before:inset-[-10px] before:content-[""]',
-    'focus-visible:ring-2 focus-visible:ring-(--ring-color) focus-visible:ring-offset-2 focus-visible:outline-hidden',
+    'focus-visible:ring-(--morphink-ring-width) focus-visible:ring-(--ring-color) focus-visible:ring-offset-(--morphink-ring-offset) focus-visible:outline-hidden',
     'disabled:cursor-not-allowed disabled:opacity-(--morphink-opacity-disabled)',
     'data-[state=checked]:border-(color:--ctl-color)'
   ),

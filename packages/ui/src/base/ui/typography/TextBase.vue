@@ -22,7 +22,7 @@ const textVariants = cva(
           'text-(length:--morphink-font-size-label) leading-(--morphink-font-line-height-label) tracking-[0.08em] uppercase',
       },
       weight: {
-        regular: 'font-(number:--morphink-font-weight-regular)',
+        regular: 'font-(number:--morphink-font-weight-normal)',
         medium: 'font-(number:--morphink-font-weight-medium)',
         semibold: 'font-(number:--morphink-font-weight-semibold)',
         bold: 'font-(number:--morphink-font-weight-bold)',

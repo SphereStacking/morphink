@@ -285,6 +285,16 @@
       "$type": "dimension"
     }
   },
+  "ring": {
+    "width": {
+      "$value": "2",
+      "$type": "number"
+    },
+    "offset": {
+      "$value": "2",
+      "$type": "number"
+    }
+  },
   "opacity": {
     "muted": {
       "$value": "{opacity.60}",
