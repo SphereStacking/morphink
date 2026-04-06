@@ -41,22 +41,11 @@ pnpm run dev:docs
 
 ### トークンパイプライン
 
-```
-primitives.json → semantic.json → Style Dictionary → CSS / JSON / TS → コンポーネント
-```
-
-**Primitive トークン**が生のパレット（カラースケール、スペーシング、角丸）を定義し、**Semantic トークン**がそれに意味を与えます（`primary`、`destructive`、`muted`）。コンポーネントが参照するのは Semantic トークンだけ。`primitives.json` を差し替えれば、コンポーネントのコードに一切触れずにビジュアルを一新できます。
+Primitive → Semantic → CSS カスタムプロパティ → コンポーネント。`primitives.json` を差し替えれば、コンポーネントのコードに一切触れずにビジュアルを一新できます。詳しくは [CONCEPT.ja.md](./CONCEPT.ja.md) を参照。
 
 ### 3 層コンポーネント設計
 
-```
-Public (components/)  →  Base (base/ui/*/)  →  Reka UI
-  プロダクト向け API      CVA スタイル定義       ヘッドレス a11y
-```
-
-アトミックデザインが「コンポーネント同士をどう組み合わせるか」を水平に分類するのに対し、morphink の 3 層は「ひとつのコンポーネントの内部をどう作るか」を垂直に分離します。公開 API・スタイリング・ヘッドレスプリミティブ、それぞれの責務を明確に切り分ける設計です。
-
-この構造の利点は、依存ライブラリの変更を Base 層が吸収してくれること。Reka UI が別のライブラリに替わっても、Tailwind に破壊的変更が入っても、`<Button tone="primary">` はそのまま動きます。
+公開 API → Base（CVA スタイリング）→ Reka UI（ヘッドレス a11y）。コンポーネントを**抽象度の深さで垂直に分離**し、依存ライブラリの変更を Base 層が吸収。`<Button tone="primary">` はそのまま動きます。詳しくは [CONCEPT.ja.md](./CONCEPT.ja.md) を参照。
 
 ### 収録コンポーネント
 
@@ -74,14 +63,7 @@ Public (components/)  →  Base (base/ui/*/)  →  Reka UI
 
 ### Tailwind は内部の話
 
-morphink の内部では Tailwind を使っていますが、利用者側に Tailwind を強制しません。
-
-| プロジェクトの状況 | 使うもの |
-|---|---|
-| Tailwind を導入していない | `utilities.css` — 独立した `mi:*` ユーティリティクラス |
-| Tailwind を使っている | `tailwind-theme.css` — Tailwind テーマプリセット |
-
-どちらも同じトークンを参照します。入口が違うだけです。
+morphink の内部では Tailwind を使っていますが、利用者側に Tailwind を強制しません。コンポーネントは単一の `morphink.css` バンドルを import するだけで動作します。レイアウト用のスタイリングには `mi:*` ユーティリティクラス、Tailwind テーマ統合、または素の CSS カスタムプロパティから選べます。詳しくは [CSS アプローチの選び方](./docs/guides/choosing-utilities.ja.md) を参照。
 
 ## カスタマイズ
 
@@ -100,7 +82,7 @@ morphink の内部では Tailwind を使っていますが、利用者側に Tai
 | パッケージ | 役割 |
 |-----------|------|
 | `packages/tokens` | デザイントークンのソース（DTCG 形式 JSON）と Style Dictionary ビルド |
-| `packages/figma-plugin` | カスタム Figma プラグイン — Figma Variables を DTCG JSON でエクスポート |
+| `packages/figma-plugin` | DTCG Token Manager — Figma Variables ↔ DTCG JSON（インポート & エクスポート） |
 | `packages/ui` | Vue 3 コンポーネント — Reka UI ヘッドレス + CVA スタイリング + 共通の Props 型定義 |
 | `packages/docs` | Storybook — コンポーネントカタログ、トークンの可視化、デザインガイドライン |
 
@@ -113,10 +95,26 @@ morphink の内部では Tailwind を使っていますが、利用者側に Tai
 
 ## ドキュメント
 
+### 設計・アーキテクチャ
+
 - [CONCEPT.ja.md](./CONCEPT.ja.md) — 設計思想と判断の背景
 - [docs/architecture.ja.md](./docs/architecture.ja.md) — 技術アーキテクチャとデータフロー
 - [docs/workflows.ja.md](./docs/workflows.ja.md) — 開発ワークフロー
-- [docs/guides/](./docs/guides/) — 導入パターン別のはじめ方ガイド
+
+### はじめ方ガイド
+
+- [テンプレートからフォーク](./docs/guides/getting-started-template.ja.md) — 推奨: 「Use this template」で独立リポジトリを作成
+- [モノレポに組み込み](./docs/guides/getting-started-monorepo.ja.md) — 既存の pnpm workspace に追加
+- [フラットに組み込み](./docs/guides/getting-started-flat.ja.md) — モノレポ化不要、`src/` 配下に展開
+
+### スタイリング・カスタマイズ
+
+- [CSS アプローチの選び方](./docs/guides/choosing-utilities.ja.md) — `mi:*` ユーティリティ vs Tailwind テーマ vs 素の CSS カスタムプロパティ
+- [デザインシステムの配布](./docs/guides/publishing-your-design-system.ja.md) — npm パッケージ化と配布
+
+### Figma プラグイン
+
+- [DTCG Token Manager](./packages/figma-plugin/README.md) — Figma Variables ↔ DTCG JSON（インポート & エクスポート）
 
 ## Figma
 

@@ -41,22 +41,11 @@ Storybook opens at `http://localhost:6006/`
 
 ### Token Pipeline
 
-```
-primitives.json → semantic.json → Style Dictionary → CSS / JSON / TS → Components
-```
-
-**Primitive tokens** define your raw palette (color scales, spacing, radii). **Semantic tokens** assign meaning (`primary`, `destructive`, `muted`). Components only reference semantic tokens — swap `primitives.json` and your entire visual identity changes without touching a single component file.
+Primitive → Semantic → CSS custom properties → Components. Swap `primitives.json` and your entire visual identity changes without touching a single component file. See [CONCEPT.md](./CONCEPT.md) for the full rationale.
 
 ### Three-Layer Component Architecture
 
-```
-Public (components/)  →  Base (base/ui/*/)  →  Reka UI
-  Your product API       CVA style variants    Headless a11y
-```
-
-This is not Atomic Design. Atomic Design classifies components horizontally by composition (Atom → Molecule → Organism). morphink's three layers classify a single component **vertically by abstraction depth** — isolating your public API from the styling layer and the headless primitive underneath.
-
-The benefit: when Reka UI is replaced, or Tailwind ships breaking changes, only the Base layer absorbs the impact. Your `<Button tone="primary">` stays stable.
+Public API → Base (CVA styling) → Reka UI (headless a11y). Each component is split **vertically by abstraction depth** — so dependency changes only affect the Base layer, not your `<Button tone="primary">`. See [CONCEPT.md](./CONCEPT.md) for details.
 
 ### Included Components
 
@@ -74,16 +63,7 @@ Token-driven animation with `prefers-reduced-motion` support baked in. Interacti
 
 ### Tailwind as an Internal Detail
 
-morphink uses Tailwind internally but does not force it on consumers. Your options:
-
-| Your project | Use |
-|---|---|
-| No Tailwind | `utilities.css` — standalone `mi:*` utility classes |
-| Has Tailwind | `tailwind-theme.css` — Tailwind theme preset |
-
-Both reference the same tokens. Only the entry point differs.
-
-All consumers must also import `base.css` for motion variables, keyframes, and component-scoped resets.
+morphink uses Tailwind internally but does not force it on consumers. All consumers import a single `morphink.css` bundle for components. For layout styling, choose from `mi:*` utility classes, Tailwind theme integration, or plain CSS custom properties. See [Choosing Your CSS Approach](./docs/guides/choosing-utilities.md) for details.
 
 ## Customization
 
@@ -102,7 +82,7 @@ All consumers must also import `base.css` for motion variables, keyframes, and c
 | Package | Role |
 |---------|------|
 | `packages/tokens` | Design tokens source (DTCG JSON) + Style Dictionary build |
-| `packages/figma-plugin` | Custom Figma plugin — exports Figma Variables as DTCG JSON |
+| `packages/figma-plugin` | DTCG Token Manager — Figma Variables ↔ DTCG JSON (import & export) |
 | `packages/ui` | Vue 3 components — Reka UI headless + CVA styling + shared prop types |
 | `packages/docs` | Storybook — component catalog, token visualization, design guidelines |
 
@@ -115,10 +95,26 @@ All consumers must also import `base.css` for motion variables, keyframes, and c
 
 ## Documentation
 
+### Design & Architecture
+
 - [CONCEPT.md](./CONCEPT.md) — Design philosophy and architecture decisions
 - [docs/architecture.md](./docs/architecture.md) — Technical architecture and data flow
 - [docs/workflows.md](./docs/workflows.md) — Development workflows
-- [docs/guides/](./docs/guides/) — Getting started guides for each adoption pattern
+
+### Getting Started Guides
+
+- [Fork from template](./docs/guides/getting-started-template.md) — Recommended: independent repository via "Use this template"
+- [Embed in a monorepo](./docs/guides/getting-started-monorepo.md) — Add to an existing pnpm workspace
+- [Embed flat](./docs/guides/getting-started-flat.md) — Place under `src/` without monorepo setup
+
+### Styling & Customization
+
+- [Choosing your CSS approach](./docs/guides/choosing-utilities.md) — `mi:*` utilities vs Tailwind theme vs plain CSS custom properties
+- [Publishing your design system](./docs/guides/publishing-your-design-system.md) — npm packaging and distribution
+
+### Figma Plugin
+
+- [DTCG Token Manager](./packages/figma-plugin/README.md) — Figma Variables ↔ DTCG JSON (import & export)
 
 ## Figma
 
