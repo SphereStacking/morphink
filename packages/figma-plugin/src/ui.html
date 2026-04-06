@@ -109,11 +109,26 @@
         font-weight: 600;
       }
 
-      .collection-header input[type='checkbox'] {
+      .btn-export-mode {
+        padding: 3px 10px;
+        border: 1px solid var(--figma-color-border, #e0e0e0);
+        border-radius: 4px;
+        background: var(--figma-color-bg, #fff);
+        color: var(--figma-color-text, #1a1a1a);
+        font-size: 10px;
+        font-weight: 600;
         cursor: pointer;
-        width: 14px;
-        height: 14px;
         flex-shrink: 0;
+        transition: background 0.1s;
+      }
+
+      .btn-export-mode:hover {
+        background: var(--figma-color-bg-secondary, #f5f5f5);
+      }
+
+      .btn-export-mode:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
       }
 
       .collection-name {
@@ -130,15 +145,8 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        padding: 6px 12px 6px 34px;
+        padding: 6px 12px;
         border-top: 1px solid var(--figma-color-border, #e0e0e0);
-      }
-
-      .mode-row input[type='checkbox'] {
-        cursor: pointer;
-        width: 13px;
-        height: 13px;
-        flex-shrink: 0;
       }
 
       .mode-name {
@@ -414,7 +422,6 @@
 
         <div class="actions">
           <button class="btn btn-secondary" id="btn-reload">Reload</button>
-          <button class="btn btn-primary" id="btn-export">Export JSON</button>
         </div>
       </div>
     </div>
@@ -470,11 +477,12 @@
       var elExportMain = document.getElementById('export-main')
       var elExportList = document.getElementById('export-collection-list')
       var elExportTotal = document.getElementById('export-total-count')
-      var elBtnExport = document.getElementById('btn-export')
       var elBtnReload = document.getElementById('btn-reload')
       var elExportError = document.getElementById('export-msg-error')
       var elExportWarning = document.getElementById('export-msg-warning')
       var elExportSuccess = document.getElementById('export-msg-success')
+      // Track which mode button is currently exporting
+      var activeExportBtn = null
 
       // =======================================================================
       // EXPORT — Helpers
@@ -511,19 +519,28 @@
         hideMsg(elExportSuccess)
       }
 
-      function hasAnyEnabled() {
-        return exportState.mappings.some(function (m) {
-          return m.modes.some(function (mode) { return mode.enabled })
-        })
-      }
-
-      function updateExportButton() {
-        elBtnExport.disabled = !hasAnyEnabled()
-      }
-
       // =======================================================================
       // EXPORT — Render
       // =======================================================================
+      function exportSingleMode(colIdx, mIdx) {
+        clearExportMessages()
+        var mapping = exportState.mappings[colIdx]
+        // Build a payload with only the target mode enabled
+        var payload = [{
+          collectionId: mapping.collectionId,
+          collectionName: mapping.collectionName,
+          modes: mapping.modes.map(function (m, i) {
+            return {
+              modeId: m.modeId,
+              modeName: m.modeName,
+              fileName: m.fileName,
+              enabled: i === mIdx,
+            }
+          }),
+        }]
+        parent.postMessage({ pluginMessage: { type: 'export', mappings: payload } }, '*')
+      }
+
       function renderExport() {
         elExportList.innerHTML = ''
 
@@ -534,22 +551,10 @@
           var header = document.createElement('div')
           header.className = 'collection-header'
 
-          var colCheckbox = document.createElement('input')
-          colCheckbox.type = 'checkbox'
-          colCheckbox.setAttribute('aria-label', 'Enable collection: ' + mapping.collectionName)
-          colCheckbox.checked = mapping.modes.some(function (m) { return m.enabled })
-          colCheckbox.addEventListener('change', function () {
-            exportState.mappings[colIdx].modes.forEach(function (_, mIdx) {
-              exportState.mappings[colIdx].modes[mIdx].enabled = colCheckbox.checked
-            })
-            renderExport()
-          })
-
           var colName = document.createElement('span')
           colName.className = 'collection-name'
           colName.textContent = mapping.collectionName
 
-          header.appendChild(colCheckbox)
           header.appendChild(colName)
           card.appendChild(header)
 
@@ -559,16 +564,6 @@
           mapping.modes.forEach(function (mode, mIdx) {
             var row = document.createElement('div')
             row.className = 'mode-row'
-
-            var modeCheckbox = document.createElement('input')
-            modeCheckbox.type = 'checkbox'
-            modeCheckbox.setAttribute('aria-label', 'Enable mode: ' + mode.modeName)
-            modeCheckbox.checked = mode.enabled
-            modeCheckbox.addEventListener('change', function () {
-              exportState.mappings[colIdx].modes[mIdx].enabled = modeCheckbox.checked
-              colCheckbox.checked = exportState.mappings[colIdx].modes.some(function (m) { return m.enabled })
-              updateExportButton()
-            })
 
             var modeName = document.createElement('span')
             modeName.className = 'mode-name'
@@ -588,10 +583,21 @@
               exportState.mappings[colIdx].modes[mIdx].fileName = fileInput.value
             })
 
-            row.appendChild(modeCheckbox)
+            var exportBtn = document.createElement('button')
+            exportBtn.className = 'btn-export-mode'
+            exportBtn.textContent = 'Export'
+            exportBtn.setAttribute('aria-label', 'Export ' + mode.modeName)
+            exportBtn.addEventListener('click', function () {
+              activeExportBtn = exportBtn
+              exportBtn.disabled = true
+              exportBtn.textContent = '\u2026'
+              exportSingleMode(colIdx, mIdx)
+            })
+
             row.appendChild(modeName)
             row.appendChild(arrow)
             row.appendChild(fileInput)
+            row.appendChild(exportBtn)
             modeList.appendChild(row)
           })
 
@@ -600,7 +606,6 @@
         })
 
         elExportTotal.textContent = String(exportState.totalTokenCount)
-        updateExportButton()
       }
 
       // =======================================================================
@@ -629,12 +634,6 @@
         parent.postMessage({ pluginMessage: { type: 'load-collections' } }, '*')
       })
 
-      elBtnExport.addEventListener('click', function () {
-        clearExportMessages()
-        elBtnExport.disabled = true
-        elBtnExport.textContent = 'Exporting\u2026'
-        parent.postMessage({ pluginMessage: { type: 'export', mappings: exportState.mappings } }, '*')
-      })
 
       // =======================================================================
       // IMPORT — State & DOM
@@ -877,23 +876,21 @@
           elExportMain.classList.remove('hidden')
           renderExport()
         } else if (msg.type === 'export-ready') {
-          elBtnExport.disabled = false
-          elBtnExport.textContent = 'Export JSON'
+          if (activeExportBtn) {
+            activeExportBtn.disabled = false
+            activeExportBtn.textContent = 'Export'
+            activeExportBtn = null
+          }
 
           var files = msg.files
           if (files.length === 0) {
-            showMsg(elExportError, 'No files to export. Enable at least one mode.')
+            showMsg(elExportError, 'No files to export.')
             return
           }
 
           showWarningsList(elExportWarning, msg.warnings)
-
-          files.forEach(function (file) {
-            downloadJson(file.fileName, file.content)
-          })
-
-          var totalTokens = files.reduce(function (acc, f) { return acc + f.tokenCount }, 0)
-          showMsg(elExportSuccess, 'Exported ' + files.length + ' file(s) \u2014 ' + totalTokens + ' tokens total.')
+          downloadJson(files[0].fileName, files[0].content)
+          showMsg(elExportSuccess, 'Exported ' + files[0].fileName + ' \u2014 ' + files[0].tokenCount + ' tokens.')
         } else if (msg.type === 'import-complete') {
           elBtnImport.disabled = false
           elBtnImport.textContent = 'Import JSON'
@@ -911,9 +908,12 @@
           importState.files = []
           renderImport()
         } else if (msg.type === 'error') {
-          // Reset both export and import buttons
-          elBtnExport.disabled = false
-          elBtnExport.textContent = 'Export JSON'
+          // Reset export and import buttons
+          if (activeExportBtn) {
+            activeExportBtn.disabled = false
+            activeExportBtn.textContent = 'Export'
+            activeExportBtn = null
+          }
           elBtnImport.disabled = false
           elBtnImport.textContent = 'Import JSON'
           // Show error on whichever tab is active
