@@ -5,7 +5,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const config = {
   include: [join(__dirname, 'tokens/primitives.json'), join(__dirname, 'tokens/motion.json')],
-  source: [join(__dirname, 'tokens/semantic.json')],
+  source: [join(__dirname, 'tokens/semantic-light.json')],
   platforms: {
     css: {
       transformGroup: 'tokens-studio-kebab',
